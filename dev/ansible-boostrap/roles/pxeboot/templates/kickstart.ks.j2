@@ -40,7 +40,10 @@ echo "Defaults:ansible !requiretty" | tee -a /etc/sudoers.d/ansible
 chmod 0440 /etc/sudoers.d/ansible
 #wget http://{{ kickstart_ip }}/ansible.tar && tar -xvf ansible.tar -C /home/ansible
 echo "localhost ansible_connection=local" >> /home/ansible/hosts
-#chown -R ansible:ansible /home/ansible/.ssh
+mkdir -p /home/ansible/.ssh
+echo {{ ansible_pub_key }} > /home/ansible/.ssh/authorized_keys
+chown -R ansible:ansible /home/ansible/.ssh
+chmod -R 0700 /home/ansible/.ssh
 
 wget http://{{ kickstart_ip }}/ansible-config-me.sh -O /usr/local/bin/ansible-config-me.sh
 wget http://{{ kickstart_ip }}/ansible-config-me.service -O /etc/systemd/system/ansible-config-me.service
