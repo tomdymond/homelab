@@ -39,7 +39,7 @@ echo "ansible ALL=(root) NOPASSWD:ALL" | tee -a /etc/sudoers.d/ansible
 echo "Defaults:ansible !requiretty" | tee -a /etc/sudoers.d/ansible
 chmod 0440 /etc/sudoers.d/ansible
 #wget http://{{ kickstart_ip }}/ansible.tar && tar -xvf ansible.tar -C /home/ansible
-echo "localhost ansible_connection=local" >> /home/ansible/hosts
+echo "localhost ansible_connection=local ansible_become=true" >> /home/ansible/hosts
 mkdir -p /home/ansible/.ssh
 echo {{ ansible_pub_key }} > /home/ansible/.ssh/authorized_keys
 chown -R ansible:ansible /home/ansible/.ssh
