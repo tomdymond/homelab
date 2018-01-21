@@ -1,0 +1,11 @@
+---
+- name: bootstrap everything
+  hosts: dhcp
+  user: ansible
+  tags:
+    - bootstrap
+  roles:
+    - base
+    - pxeboot
+
+

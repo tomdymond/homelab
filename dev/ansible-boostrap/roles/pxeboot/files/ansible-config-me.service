@@ -1,0 +1,11 @@
+[Unit]
+Description=Run ansible-pull at first boot to apply environment configuration
+After=network.target
+
+[Service]
+ExecStart=/usr/local/bin/ansible-config-me.sh
+Type=oneshot
+
+[Install]
+WantedBy=multi-user.target
+

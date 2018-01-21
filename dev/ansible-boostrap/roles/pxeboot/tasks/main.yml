@@ -1,0 +1,158 @@
+---
+- name: Install network script
+  copy:
+    src: ifcfg-ens224
+    dest: /etc/sysconfig/network-scripts/ifcfg-ens224
+
+- name: Bring up network interface
+  command: ifup ens224
+
+
+- name: Install some packages
+  yum:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - syslinux
+    - createrepo
+
+- name: Create some folders
+  file:
+    path: "{{item}}"
+    state: directory
+    mode: 0755
+  with_items:
+    - /data
+    - /srv/pxelinux.cfg
+    - /srv/centos7
+    - /html
+    - /html/CentOS/7/os/x86_64
+    - /html/CentOS/7/updates/x86_64
+
+- name: Sync CentOS repo
+  command: rsync -avSHP --delete --exclude "local*"  --exclude "isos" mirror.bytemark.co.uk::centos/7/"{{item}}"/x86_64/ /html/CentOS/7/"{{item}}"/x86_64/
+  with_items:
+    - os
+    - updates
+  tags:
+    - sync
+
+#- name: Update repo
+#  command: createrepo --update /html/CentOS/7/"{{ item }}"/x86_64/
+#  with_items:
+#    - os
+#    - updates
+#  tags:
+#    - sync
+
+- name: Copy kickstart file
+  template:
+    src: kickstart.ks.j2
+    dest: /html/kickstart.ks
+
+- name: Copy ansible-config-me.service
+  copy:
+    src: ansible-config-me.service
+    dest: /html/ansible-config-me.service
+
+- name: Copy ansible-config-me.sh
+  copy:
+    src: ansible-config-me.sh
+    dest: /html/ansible-config-me.sh
+
+- name: Copy some pxe files
+  copy:
+    src: /usr/share/syslinux/{{ item }}
+    dest: /srv/{{ item }}
+    remote_src: yes
+  with_items:
+    - chain.c32
+    - mboot.c32
+    - menu.c32
+    - pxelinux.0
+    - memdisk
+  tags:
+    - pxe
+
+- name: Copy the centos7 kernel and initrd
+  copy:
+    src: /html/CentOS/7/os/x86_64/images/pxeboot/{{ item }}
+    dest: /srv/centos7/{{ item }}
+    remote_src: yes
+  with_items:
+    - initrd.img
+    - vmlinuz
+  tags:
+    - pxe
+    
+- name: Template pxeboot default config
+  template:
+    src: default.j2
+    dest: /srv/pxelinux.cfg/default
+  tags:
+    - pxe
+
+- name: Copy dhcpd.conf
+  template:
+    src=dhcpd.conf.j2
+    dest=/data/dhcpd.conf
+  tags:
+    - pxe
+  
+
+#- name: Disable vmware-tools.service
+#  service:
+#    name: vmware-tools
+#    state: stopped
+#    enabled: False
+    
+
+- name: Run DHCP
+  docker_container:
+    pull: yes
+    name: dhcp
+    image: networkboot/dhcpd
+    network_mode: host
+    restart_policy: always
+    volumes:
+      - /data:/data
+    command: ens224
+  tags:
+    - docker
+
+- name: Run PXE
+  docker_container:
+    pull: yes
+    name: pxe
+    image: nanert/pxeboot
+    network_mode: host
+    restart_policy: always
+    volumes:
+      - /srv:/srv
+  tags:
+    - docker
+
+- name: Run nginx
+  docker_container:
+    pull: yes
+    name: nginx
+    image: nginx
+    ports:
+      - "80:80"
+    restart_policy: always
+    volumes:
+      - /html:/usr/share/nginx/html
+  tags:
+    - docker
+
+- name: Copy firewall and nat config
+  copy:
+    src: configure_nat.sh
+    dest: /usr/local/bin/configure_nat.sh
+    mode: 0755
+    owner: root
+
+- name: Run firewall config
+  command: /usr/local/bin/configure_nat.sh
+
+
