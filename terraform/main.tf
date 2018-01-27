@@ -40,7 +40,7 @@ resource "vsphere_virtual_machine" "vm" {
   memory   = 2048
   guest_id = "centos7_64Guest"
  
-  wait_for_guest_net_timeout = 20
+  wait_for_guest_net_timeout = 60
   network_interface {
     network_id = "${data.vsphere_network.network_priv.id}"
   }
@@ -51,7 +51,8 @@ resource "vsphere_virtual_machine" "vm" {
 
   disk {
     label = "disk0"
-    size  = 60
+    size  = 20
+    thin_provisioned = true
   }
   count = "${var.master_count}"
 }
