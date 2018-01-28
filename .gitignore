@@ -2,3 +2,6 @@ id_rsa
 id_dsa
 vault_password
 secret.tf
+*.tfstate*
+.terraform
+*.retry
