@@ -5,4 +5,6 @@ module "vm" {
   vsphere_password="${var.vsphere_password}"
   vsphere_user="${var.vsphere_user}"
   bootstrap_network="LAB2"
+  memory="4096"
+  vcpu="2"
 }

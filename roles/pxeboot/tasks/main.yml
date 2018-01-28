@@ -61,14 +61,6 @@
   tags:
     - sync
 
-#- name: Update repo
-#  command: createrepo --update /html/CentOS/7/"{{ item }}"/x86_64/
-#  with_items:
-#    - os
-#    - updates
-#  tags:
-#    - sync
-
 - name: Copy kickstart file
   template:
     src: kickstart.ks.j2
@@ -126,13 +118,6 @@
   tags:
     - pxe
   
-
-#- name: Disable vmware-tools.service
-#  service:
-#    name: vmware-tools
-#    state: stopped
-#    enabled: False
-    
 
 - name: Run DHCP
   docker_container:

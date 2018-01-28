@@ -13,6 +13,27 @@ variable master_count {
 variable memory {
   default = "2048"
 }
+variable vcpu {
+  default = "2"
+}
+
 variable guest_id {
   default = "centos7Guest"
 }
+
+variable iface_priv_use_static_mac {
+  default = "false"
+}
+
+variable iface_pub_use_static_mac {
+  default = "false"
+}
+
+variable iface_priv_mac_address {
+  default = "aa:aa:aa:aa:aa:aa"
+}
+
+variable iface_pub_mac_address {
+  default = "aa:aa:aa:aa:11:aa"
+}
+

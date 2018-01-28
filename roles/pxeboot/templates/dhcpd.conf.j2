@@ -30,11 +30,14 @@ ddns-rev-domainname "in-addr.arpa.";
 #    key dhcpdupdate;
 #}
 
+subnet 192.168.1.0 netmask 255.255.255.0 {
+}
+
 subnet 10.0.0.0 netmask 255.255.255.0 {
   allow booting;
   allow bootp;
   range 10.0.0.10 10.0.0.100;
-  option routers 10.0.0.1;
+#  option routers 10.0.0.1;
   next-server 10.0.0.1;
   filename "/pxelinux.0";
 }
