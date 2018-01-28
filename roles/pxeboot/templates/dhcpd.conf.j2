@@ -1,11 +1,13 @@
-ddns-update-style none;
+ddns-update-style interim;
+ddns-updates on;
+update-static-leases on;
 
 # option definitions common to all supported networks...
 option domain-name "lab.local";
 option domain-name-servers 8.8.8.8;
 
-default-lease-time 600;
-max-lease-time 7200;
+default-lease-time 6600;
+max-lease-time 17200;
 
 # If this DHCP server is the official DHCP server for the local
 # network, the authoritative directive should be uncommented.
@@ -15,6 +17,18 @@ authoritative;
 # have to hack syslog.conf to complete the redirection).
 log-facility local7;
 
+ddns-domainname "homelab.kmem.org";
+ddns-rev-domainname "in-addr.arpa.";
+
+#zone homelab.kmem.org {
+#    primary 10.0.0.1;
+#    key dhcpdupdate;
+#}
+
+#zone 0.0.10.in-addr.arpa. {
+#    primary 10.0.0.1;
+#    key dhcpdupdate;
+#}
 
 subnet 10.0.0.0 netmask 255.255.255.0 {
   allow booting;
@@ -24,4 +38,26 @@ subnet 10.0.0.0 netmask 255.255.255.0 {
   next-server 10.0.0.1;
   filename "/pxelinux.0";
 }
+
+subnet 10.2.0.0 netmask 255.255.255.0 {
+  allow booting;
+  allow bootp;
+  range 10.2.0.10 10.2.0.100;
+  option routers 10.2.0.1;
+  next-server 10.2.0.1;
+  filename "/pxelinux.0";
+}
+
+
+host kvmtest { 
+  hardware ethernet da:da:da:da:da:da; 
+  fixed-address 10.0.0.100;
+  option host-name "kvmtest";
+}
+
+key "dhcpdupdate" {
+        algorithm hmac-md5;
+        secret "FYhvwsW1ZtFZqWzsMpqhbg==";
+}
+
 

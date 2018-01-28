@@ -22,7 +22,7 @@ data "vsphere_resource_pool" "pool" {
 }
 
 data "vsphere_network" "network_priv" {
-  name          = "LAB2"
+  name          = "${var.bootstrap_network}"
   datacenter_id = "${data.vsphere_datacenter.dc.id}"
 }
 
@@ -38,11 +38,13 @@ resource "vsphere_virtual_machine" "vm" {
   datastore_id     = "${data.vsphere_datastore.datastore.id}"
   num_cpus = 2
   memory   = 2048
-  guest_id = "centos7_64Guest"
- 
+  guest_id = "${var.guest_id}"
+
   wait_for_guest_net_timeout = 60
   network_interface {
     network_id = "${data.vsphere_network.network_priv.id}"
+#    use_static_mac = "true"
+#    mac_address = "${var.mac_address}"
   }
   network_interface {
     network_id = "${data.vsphere_network.network_pub.id}"

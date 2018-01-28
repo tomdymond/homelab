@@ -1,0 +1,13 @@
+default menu.c32
+prompt 1
+timeout 15
+ONTIMEOUT coreos
+
+menu title #####  PXE Boot Menu  #####
+
+label coreos
+  menu default
+  KERNEL coreos/coreos_production_pxe.vmlinuz
+  INITRD coreos/coreos_production_pxe_image.cpio.gz
+  APPEND coreos.first_boot=1 coreos.config.url=http://{{ kickstart_ip }}/pxe-config.ign root=/dev/sda1
+

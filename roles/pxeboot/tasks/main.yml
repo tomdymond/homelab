@@ -1,12 +1,17 @@
 ---
-- name: Install network script
+- name: Install network scripts
   copy:
-    src: ifcfg-ens224
-    dest: /etc/sysconfig/network-scripts/ifcfg-ens224
+    src: "{{ item }}"
+    dest: /etc/sysconfig/network-scripts/{{ item }}
+  with_items:
+    - ifcfg-ens224
+    - ifcfg-ens256
 
-- name: Bring up network interface
-  command: ifup ens224
-
+- name: Bring up network interfaces
+  command: "ifup {{ item }}"
+  with_items:
+    - ens224
+    - ens256
 
 - name: Install some packages
   yum:
@@ -42,6 +47,11 @@
   command: /usr/local/bin/prepare_coreos_pxe.sh
   tags:
     - coreos
+
+- name: Genererate coreos ignition file
+  template:
+    src=pxe-config.ign.j2
+    dest=/html/pxe-config.ign
 
 - name: Sync CentOS repo
   command: rsync -avSHP --delete --exclude "local*"  --exclude "isos" mirror.bytemark.co.uk::centos/7/"{{item}}"/x86_64/ /html/CentOS/7/"{{item}}"/x86_64/
@@ -101,8 +111,11 @@
     
 - name: Template pxeboot default config
   template:
-    src: default.j2
-    dest: /srv/pxelinux.cfg/default
+    src: "{{ item }}.j2"
+    dest: /srv/pxelinux.cfg/{{ item }}
+  with_items:
+    - 0A00
+    - 0A02
   tags:
     - pxe
 
@@ -130,7 +143,6 @@
     restart_policy: always
     volumes:
       - /data:/data
-    command: ens224
   tags:
     - docker
 

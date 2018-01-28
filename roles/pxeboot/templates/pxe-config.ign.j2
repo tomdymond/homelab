@@ -1,0 +1,60 @@
+{
+  "ignition": {
+    "config": {},
+    "timeouts": {},
+    "version": "2.1.0"
+  },
+  "networkd": {},
+  "passwd": {
+    "users": [
+      {
+        "name": "core",
+        "sshAuthorizedKeys": [
+          "{{ ansible_pub_key }}"
+        ]
+      }
+    ]
+  },
+  "storage": {
+    "disks": [
+      {
+        "device": "/dev/sda",
+        "partitions": [
+          {
+            "label": "ROOT"
+          }
+        ],
+        "wipeTable": true
+      }
+    ],
+    "filesystems": [
+      {
+        "mount": {
+          "device": "/dev/disk/by-partlabel/ROOT",
+          "format": "ext4",
+          "label": "ROOT",
+          "wipeFilesystem": true
+        }
+      }
+    ]
+  },
+  "systemd": {
+    "units": [
+      {
+        "dropins": [
+          {
+            "contents": "[Service]\nExecStart=\nExecStart=/usr/lib/coreos/etcd-wrapper $ETCD_OPTS \\\n  --listen-peer-urls=\"http://10.0.0.10:2380\" \\\n  --listen-client-urls=\"http://0.0.0.0:2379\" \\\n  --initial-advertise-peer-urls=\"http://10.0.0.10:2380\" \\\n  --advertise-client-urls=\"http://10.0.0.10:2379\" \\\n  --discovery=\"https://discovery.etcd.io/\u003ctoken\u003e\"",
+            "name": "20-clct-etcd-member.conf"
+          }
+        ],
+        "enable": true,
+        "name": "etcd-member.service"
+      },
+      {
+        "name": "open-vm-tools.service",
+        "enabled": true,
+        "contents": "[Unit]\nDescription=Service for virtual machines hosted on VMware\nDocumentation=http://open-vm-tools.sourceforge.net/about.php\nConditionVirtualization=vmware\n[Service]\nRestart=always\nExecStart=/usr/bin/docker run --rm --net=host -v /run/systemd:/run/systemd --name open-vm-tools godmodelabs/open-vm-tools\nExecStop=-/usr/bin/docker stop open-vm-tools\n[Install]\nWantedBy=multi-user.target"
+      }
+    ]
+  }
+}
