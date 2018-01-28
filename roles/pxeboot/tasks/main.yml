@@ -54,7 +54,7 @@
     dest=/html/pxe-config.ign
 
 - name: Sync CentOS repo
-  command: rsync -avSHP --delete --exclude "local*"  --exclude "isos" mirror.bytemark.co.uk::centos/7/"{{item}}"/x86_64/ /html/CentOS/7/"{{item}}"/x86_64/
+  command: rsync -avSHP --delete --exclude "kernel-debug*" --exclude "libreoffice*" --exclude "*xorg-x11*" --exclude "local*"  --exclude "isos" mirror.bytemark.co.uk::centos/7/"{{item}}"/x86_64/ /html/CentOS/7/"{{item}}"/x86_64/
   with_items:
     - os
     - updates
