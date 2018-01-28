@@ -25,9 +25,23 @@
     - /data
     - /srv/pxelinux.cfg
     - /srv/centos7
+    - /srv/coreos
     - /html
     - /html/CentOS/7/os/x86_64
     - /html/CentOS/7/updates/x86_64
+
+- name: Get coreos files
+  copy:
+    src: prepare_coreos_pxe.sh
+    dest: /usr/local/bin/prepare_coreos_pxe.sh
+    mode: 0755
+  tags:
+    - coreos
+
+- name: Run coreos pxe prepare
+  command: /usr/local/bin/prepare_coreos_pxe.sh
+  tags:
+    - coreos
 
 - name: Sync CentOS repo
   command: rsync -avSHP --delete --exclude "local*"  --exclude "isos" mirror.bytemark.co.uk::centos/7/"{{item}}"/x86_64/ /html/CentOS/7/"{{item}}"/x86_64/

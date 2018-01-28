@@ -1,0 +1,19 @@
+default menu.c32
+prompt 1
+timeout 15
+ONTIMEOUT centos7
+
+menu title #####  PXE Boot Menu  #####
+
+label centos7
+  menu label ^1) Install CentOS 7 (Online)
+  KERNEL centos7/vmlinuz
+  INITRD centos7/initrd.img
+  APPEND nomodeset noipv6 ip=dhcp repo=http://{{ kickstart_ip }}/CentOS/7/os/x86_64/ devfs=nomount ks=http://{{ kickstart_ip }}/kickstart.ks
+
+label coreos
+  menu default
+  KERNEL coreos/coreos_production_pxe.vmlinuz
+  INITRD coreos/coreos_production_pxe_image.cpio.gz
+  APPEND coreos.first_boot=1 coreos.config.url=http://{{ kickstart_ip }}/pxe-config.ign
+
