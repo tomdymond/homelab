@@ -9,7 +9,32 @@
     state: present
 
 - name: Install some basic packages
-  command: yum -y install python2-pip rsync wget net-tools open-vm-tools
+  command: yum -y install python2-pip rsync wget net-tools open-vm-tools cloud-init
+
+- name: Get Vmware cloud init stuff
+  get_url:
+    url: https://raw.githubusercontent.com/xing/cloudinit-vmware-guestinfo/master/DataSourceVmwareGuestinfo.py
+    dest: /usr/lib/python2.7/site-packages/cloudinit/sources/DataSourceVmwareGuestinfo.py
+    mode: 0755
+
+- name: Ensure cloud-init is started after vmware-tools
+  lineinfile:
+    path: /usr/lib/systemd/system/vmtoolsd.service
+    regexp: '^Before=cloud-init-local.service'
+    insertafter: '^ConditionVirtualization=vmware'
+    line: 'Before=cloud-init-local.service'
+
+- name: Fix cloud.cfg
+  lineinfile:
+    path: /etc/cloud/cloud.cfg
+    regexp: '^  distro: rhel'
+    line: '  distro: centos'
+
+- name: Restart cloud-init
+  systemd: state=restarted name=cloud-init
+
+- name: Hacky for now but fix package issues with urllib3
+  command: pip install requests urllib3 pyOpenSSL --force --upgrade 
 
 - name: purge old docker packages
   yum:
