@@ -8,6 +8,7 @@ write_files:
     owner: "root"
     content: |
       HOSTNAME="${node_base_name}"
+      VAULT_TOKEN="${vault_token}"
 
 runcmd:
   - [ "/usr/bin/touch", "/tmp/testingthisfucker" ]

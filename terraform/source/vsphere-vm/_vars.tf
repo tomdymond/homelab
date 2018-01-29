@@ -36,4 +36,6 @@ variable iface_priv_mac_address {
 variable iface_pub_mac_address {
   default = "aa:aa:aa:aa:11:aa"
 }
-
+variable vault_token {
+  default = "XXXXXXXXXXXXX"
+}
