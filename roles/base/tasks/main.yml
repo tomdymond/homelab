@@ -11,9 +11,9 @@
 - name: Install some basic packages
   command: yum -y install python2-pip rsync wget net-tools open-vm-tools cloud-init
 
-- name: Get Vmware cloud init stuff
-  get_url:
-    url: https://raw.githubusercontent.com/xing/cloudinit-vmware-guestinfo/master/DataSourceVmwareGuestinfo.py
+- name: Copy Vmware cloud-init vmware guestinfo datasource
+  copy:
+    src: DataSourceVmwareGuestinfo.py
     dest: /usr/lib/python2.7/site-packages/cloudinit/sources/DataSourceVmwareGuestinfo.py
     mode: 0755
 
