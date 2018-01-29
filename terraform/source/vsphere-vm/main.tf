@@ -38,6 +38,7 @@ data "template_file" "base_userdata" {
 
   vars {
     node_base_name  = "${var.node_base_name}"
+    vault_token     = "${var.vault_token}"
   }
 }
 
