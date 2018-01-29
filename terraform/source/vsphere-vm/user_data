@@ -1,6 +1,6 @@
 #cloud-config
-hostname: ${node_base_name}.$${count_index}
-fqdn: ${node_base_name}.$${count_index}.local.lab
+hostname: ${node_base_name}$${count_index}
+fqdn: ${node_base_name}$${count_index}.local.lab
 manage_etc_hosts: true
 
 write_files:
