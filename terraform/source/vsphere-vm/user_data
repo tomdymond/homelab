@@ -1,0 +1,14 @@
+#cloud-config
+hostname: ${node_base_name}.$${count_index}
+fqdn: ${node_base_name}.$${count_index}.local.lab
+manage_etc_hosts: true
+
+write_files:
+  - path: "/tmp/testfile"
+    owner: "root"
+    content: |
+      HOSTNAME="${node_base_name}"
+
+runcmd:
+  - [ "/usr/bin/touch", "/tmp/testingthisfucker" ]
+
