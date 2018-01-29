@@ -32,6 +32,16 @@ data "vsphere_network" "network_pub" {
 }
 
 
+data "template_file" "base_userdata" {
+  count    = "${var.master_count}"
+  template = "${file("${path.module}/user_data")}"
+
+  vars {
+    node_base_name  = "${var.node_base_name}"
+  }
+}
+
+
 resource "vsphere_virtual_machine" "vm" {
   name             = "${var.node_base_name}${format("%02d", count.index+1)}"
   resource_pool_id = "${data.vsphere_resource_pool.pool.id}"
@@ -58,5 +68,13 @@ resource "vsphere_virtual_machine" "vm" {
     size  = 20
     thin_provisioned = true
   }
+
+  extra_config = {
+    "guestinfo.cloudinit.userdata"              = "${base64encode(replace(format("%s", data.template_file.base_userdata.*.rendered[count.index]), "$${count_index}", format("%02d", count.index+1)))}"
+    "guestinfo.cloudinit.userdata.encoding"     = "base64"
+  }
+
   count = "${var.master_count}"
 }
+
+
