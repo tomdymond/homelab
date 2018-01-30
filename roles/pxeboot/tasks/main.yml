@@ -34,6 +34,7 @@
     - /html
     - /html/CentOS/7/os/x86_64
     - /html/CentOS/7/updates/x86_64
+    - /consul/data
 
 - name: Get coreos files
   copy:
@@ -153,6 +154,23 @@
     restart_policy: always
     volumes:
       - /html:/usr/share/nginx/html
+  tags:
+    - docker
+
+- name: Run consul
+  docker_container:
+    pull: yes
+    name: consul
+    image: consul
+    restart_policy: always
+    network_mode: host
+    command: "agent -dns-port=53 -recursor=8.8.8.8"
+    volumes:
+      - /consul/data:/consul/data
+    env:
+      CONSUL_BIND_INTERFACE=ens192
+      CONSUL_ALLOW_PRIVILEGED_PORTS=true
+    
   tags:
     - docker
 

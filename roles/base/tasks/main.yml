@@ -37,6 +37,7 @@
 
 - name: Restart cloud-init
   systemd: state=started name=cloud-init enabled=yes
+  ignore_errors: true
 
 - name: Hacky for now but fix package issues with urllib3
   command: pip install requests urllib3 pyOpenSSL --force --upgrade 
