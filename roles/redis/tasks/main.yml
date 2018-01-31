@@ -1,0 +1,20 @@
+---
+- name: Create stack dir
+  file:
+    path: /var/stacks/redis
+    state: directory
+    mode: 0755
+
+- name: Generate docker-compose file
+  template:
+    src=docker-compose.yml.j2
+    dest=/var/stacks/redis/docker-compose.yml
+
+- name: Copy service file
+  copy:
+    src=redis.service
+    dest=/etc/systemd/system/redis.service
+
+- name: Restart redis
+  systemd: state=started name=redis enabled=yes
+
