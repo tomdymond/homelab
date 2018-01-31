@@ -37,8 +37,10 @@ data "template_file" "base_userdata" {
   template = "${file("${path.module}/user_data")}"
 
   vars {
-    node_base_name  = "${var.node_base_name}"
-    vault_token     = "${var.vault_token}"
+    node_base_name         = "${var.node_base_name}"
+    vault_token            = "${var.vault_token}"
+    ansible_vault_password = "${base64encode(file("~/.ansible_vault_password"))}"
+    deploy_stack           = "${var.deploy_stack}"
   }
 }
 

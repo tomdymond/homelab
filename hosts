@@ -1,4 +1,7 @@
 [dhcp]
 192.168.1.33 ansible_become=true kickstart_ip=10.0.0.1
 
+[dhcp-tunnel]
+127.0.0.1:2222 ansible_become=true kickstart_ip=10.0.0.1
+
 

@@ -1,0 +1,5 @@
+---
+- name: setup everything
+  hosts: local
+  roles:
+    - redis

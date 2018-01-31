@@ -7,4 +7,5 @@ module "vm" {
   bootstrap_network="LAB2"
   memory="4096"
   vcpu="2"
+  deploy_stack="redis"
 }

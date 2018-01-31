@@ -39,3 +39,9 @@ variable iface_pub_mac_address {
 variable vault_token {
   default = "XXXXXXXXXXXXX"
 }
+
+variable deploy_stack {
+  default = "base"
+}
+
+
