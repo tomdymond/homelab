@@ -3,29 +3,37 @@ services:
   dhcp:
     image: networkboot/dhcpd
     network_mode: host
-    restart_policy: always
     deploy:
       replicas: 1
-    configs:
-      - source: /data
+    volumes:
+      - type: bind
+        source: /data
         target: /data
+        volume:
+          nocopy: true
   pxe:
     image: nanert/pxeboot
     network_mode: host
-    restart_policy: always
     deploy:
       replicas: 1
-    configs:
-      - source: /srv
-        target: /srv
+    volumes:
+      - type: bind
+        source: /srv
+        target: /srva
+        volume:
+          nocopy: true
+
   nginx:
     image: networkboot/dhcpd
-    restart_policy: always
     ports:
       - "80:80"
     deploy:
       replicas: 1
-    configs:
-      - source: /html
+    volumes:
+      - type: bind
+        source: /html
         target: /usr/share/nginx/html
+        volume:
+          nocopy: true
+
 
