@@ -34,7 +34,7 @@
     - /html
     - /html/CentOS/7/os/x86_64
     - /html/CentOS/7/updates/x86_64
-    - /consul/data
+    - /var/stacks/pxestack/
 
 - name: Get coreos files
   copy:
@@ -119,60 +119,18 @@
   tags:
     - pxe
   
+- name: Generate stack docker-compose
+  template:
+    src=pxestack.yml.j2
+    dest=/var/stacks/pxestack/docker-compose.yml
 
-- name: Run DHCP
-  docker_container:
-    pull: yes
-    name: dhcp
-    image: networkboot/dhcpd
-    network_mode: host
-    restart_policy: always
-    volumes:
-      - /data:/data
-  tags:
-    - docker
+- name: Copy pxestack systemd unit
+  copy:
+    src=pxestack.service
+    dest=/etc/systemd/system/pxestack.service
 
-- name: Run PXE
-  docker_container:
-    pull: yes
-    name: pxe
-    image: nanert/pxeboot
-    network_mode: host
-    restart_policy: always
-    volumes:
-      - /srv:/srv
-  tags:
-    - docker
-
-- name: Run nginx
-  docker_container:
-    pull: yes
-    name: nginx
-    image: nginx
-    ports:
-      - "80:80"
-    restart_policy: always
-    volumes:
-      - /html:/usr/share/nginx/html
-  tags:
-    - docker
-
-- name: Run consul
-  docker_container:
-    pull: yes
-    name: consul
-    image: consul
-    restart_policy: always
-    network_mode: host
-    command: "agent -dns-port=53 -recursor=8.8.8.8"
-    volumes:
-      - /consul/data:/consul/data
-    env:
-      CONSUL_BIND_INTERFACE=ens192
-      CONSUL_ALLOW_PRIVILEGED_PORTS=true
-    
-  tags:
-    - docker
+- name: Restart pxestack
+  systemd: state=started name=pxestack enabled=yes
 
 - name: Copy firewall and nat config
   copy:

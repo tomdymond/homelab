@@ -93,10 +93,6 @@
     enabled: yes
     masked: no
 
-- name: Install docker-py
-  pip: 
-    name: docker-py
-
 - name: Install docker-compose
   pip:
     name: docker-compose

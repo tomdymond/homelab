@@ -1,0 +1,31 @@
+version: "3.3"
+services:
+  dhcp:
+    image: networkboot/dhcpd
+    network_mode: host
+    restart_policy: always
+    deploy:
+      replicas: 1
+    configs:
+      - source: /data
+        target: /data
+  pxe:
+    image: nanert/pxeboot
+    network_mode: host
+    restart_policy: always
+    deploy:
+      replicas: 1
+    configs:
+      - source: /srv
+        target: /srv
+  nginx:
+    image: networkboot/dhcpd
+    restart_policy: always
+    ports:
+      - "80:80"
+    deploy:
+      replicas: 1
+    configs:
+      - source: /html
+        target: /usr/share/nginx/html
+
