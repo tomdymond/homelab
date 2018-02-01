@@ -29,11 +29,10 @@
     insertafter: '^ConditionVirtualization=vmware'
     line: 'Before=cloud-init-local.service'
 
-- name: Fix cloud.cfg
-  lineinfile:
-    path: /etc/cloud/cloud.cfg
-    regexp: '^  distro: rhel'
-    line: '  distro: centos'
+- name: Copy cloud.cfg
+  copy:
+    src=cloud.cfg
+    dest=/etc/cloud/cloud.cfg
 
 - name: Restart cloud-init
   systemd: state=started name=cloud-init enabled=yes
