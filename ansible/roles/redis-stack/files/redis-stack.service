@@ -1,5 +1,5 @@
 [Unit]
-Description=redis
+Description=redis-stack
 Requires=docker.service
 After=docker.service
 
@@ -7,17 +7,17 @@ After=docker.service
 Restart=always
 
 # Remove old containers, images and volumes
-ExecStartPre=/usr/bin/docker-compose -f /var/stacks/redis/docker-compose.yml down -v
-ExecStartPre=/usr/bin/docker-compose -f /var/stacks/redis/docker-compose.yml rm -v
+ExecStartPre=/usr/bin/docker-compose -f /var/stacks/redis-stack/docker-compose.yml down -v
+ExecStartPre=/usr/bin/docker-compose -f /var/stacks/redis-stack/docker-compose.yml rm -v
 ExecStartPre=-/bin/bash -c 'docker volume rm $(docker volume ls -q)'
 ExecStartPre=-/bin/bash -c 'docker rmi $(docker images | grep "<none>" | awk \'{print $3}\')'
 ExecStartPre=-/bin/bash -c 'docker rm -v $(docker ps -aq)'
 
 # Compose up
-ExecStart=/usr/bin/docker-compose -f /var/stacks/redis/docker-compose.yml up
+ExecStart=/usr/bin/docker-compose -f /var/stacks/redis-stack/docker-compose.yml up
 
 # Compose down, remove containers and volumes
-ExecStop=/usr/bin/docker-compose -f /var/stacks/redis/docker-compose.yml down -v
+ExecStop=/usr/bin/docker-compose -f /var/stacks/redis-stack/docker-compose.yml down -v
 
 [Install]
 WantedBy=multi-user.target
