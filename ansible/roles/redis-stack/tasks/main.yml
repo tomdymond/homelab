@@ -15,6 +15,9 @@
     src=redis-stack.service
     dest=/etc/systemd/system/redis-stack.service
 
+- name: Daemon reload 
+  command: systemctl daemon-reload
+
 - name: Restart redis
   systemd:
     state: started
