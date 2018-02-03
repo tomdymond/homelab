@@ -16,5 +16,9 @@
     dest=/etc/systemd/system/redis-stack.service
 
 - name: Restart redis
-  systemd: state=started name=redis-stack enabled=yes daemon_reload: yes
+  systemd:
+    state: started
+    name: redis-stack
+    enabled: yes
+    daemon_reload: yes
 
