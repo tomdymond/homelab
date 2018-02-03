@@ -6,7 +6,7 @@ bootcmd:
   - echo ${ansible_vault_password} | base64 --decode > /root/.ansible_vault_password
   - chmod 0600 /root/.ansible_vault_password
 runcmd:
-  - ansible-pull --vault-password-file=/root/.ansible_vault_password -C master -d /home/ansible/deploy -i /home/ansible/hosts -U https://github.com/tomdymond/homelab.git ansible/${deploy_stack}.yml
+  - /usr/bin/ansible-pull --vault-password-file=/root/.ansible_vault_password -C master -d /home/ansible/deploy -i /home/ansible/hosts -U https://github.com/tomdymond/homelab.git ansible/${deploy_stack}.yml | tee -a /tmp/ansible.out
   - [ wget, "http://example.org", -O, /tmp/index.html ]
   - ls -l /root
 
