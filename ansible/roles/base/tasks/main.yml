@@ -34,10 +34,6 @@
     src=cloud.cfg
     dest=/etc/cloud/cloud.cfg
 
-- name: Restart cloud-final
-  systemd: state=started name=cloud-final
-  ignore_errors: true
-
 - name: Hacky for now but fix package issues with urllib3
   command: pip install requests urllib3 pyOpenSSL --force --upgrade 
 
@@ -74,15 +70,6 @@
     name: docker-ce
     update_cache: yes
 
-#- name: set storage driver
-#  blockinfile:
-#    path: /etc/docker/daemon.json
-#    create: yes
-#    block: |
-#      {
-#        "storage-driver": "devicemapper"
-#      }
-
 - name: Make sure a service is running
   systemd: state=started name=docker
 
@@ -102,4 +89,7 @@
     - cloud-init
     - cloud-config
     - cloud-final
+
+- name: Restart cloud-final
+  systemd: state=started name=cloud-final
 
