@@ -15,22 +15,10 @@
     src=redis-stack.service
     dest=/etc/systemd/system/redis-stack.service
 
-- name: Daemon reload 
-  command: systemctl daemon-reload
-
-- name: Sleep 10
-  command: sleep 10
-
-- name: Enable service
-  command: systemctl enable redis-stack.service 
-
-- name: Start service
-  command: systemctl start redis-stack.service
-
-#- name: Restart redis
-#  systemd:
-#    state: started
-#    name: redis-stack
-#    enabled: yes
-#    daemon_reload: yes
+- name: Restart redis
+  systemd:
+    state: started
+    name: redis-stack
+    enabled: yes
+    daemon_reload: yes
 
