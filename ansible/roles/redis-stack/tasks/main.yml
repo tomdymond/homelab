@@ -15,10 +15,23 @@
     src=redis-stack.service
     dest=/etc/systemd/system/redis-stack.service
 
+- name: Copy service file for redis-stack2
+  copy:
+    src=redis-stack.service
+    dest=/etc/systemd/system/redis-stack2.service
+
+
 - name: Restart redis
   systemd:
     state: started
     name: redis-stack
+    enabled: yes
+    daemon_reload: yes
+
+- name: Restart redis2
+  systemd:
+    state: started
+    name: redis-stack2
     enabled: yes
     daemon_reload: yes
 
