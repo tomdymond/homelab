@@ -34,13 +34,6 @@
     src=cloud.cfg
     dest=/etc/cloud/cloud.cfg
 
-- name: Enable services
-  systemd: name="{{ item }}" enabled=yes
-  with_items:
-    - cloud-init
-    - cloud-config
-    - cloud-final
-
 - name: Restart cloud-final
   systemd: state=started name=cloud-final
   ignore_errors: true
@@ -102,4 +95,11 @@
 - name: Install docker-compose
   pip:
     name: docker-compose
+
+- name: Enable services
+  systemd: name="{{ item }}" enabled=yes
+  with_items:
+    - cloud-init
+    - cloud-config
+    - cloud-final
 
