@@ -18,6 +18,9 @@
 - name: Daemon reload 
   command: systemctl daemon-reload
 
+- name: Sleep 10
+  command: sleep 10
+
 - name: Enable service
   command: systemctl enable redis-stack.service 
 
