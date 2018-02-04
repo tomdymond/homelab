@@ -18,6 +18,9 @@
 - name: Daemon reload 
   command: systemctl daemon-reload
 
+- name: Enable service
+  command: systemcrtl enable redis-stack.service 
+
 - name: Restart redis
   systemd:
     state: started
