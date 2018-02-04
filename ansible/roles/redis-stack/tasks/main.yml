@@ -21,10 +21,13 @@
 - name: Enable service
   command: systemctl enable redis-stack.service 
 
-- name: Restart redis
-  systemd:
-    state: started
-    name: redis-stack
-    enabled: yes
-    daemon_reload: yes
+- name: Start service
+  command: systemctl start redis-stack.service
+
+#- name: Restart redis
+#  systemd:
+#    state: started
+#    name: redis-stack
+#    enabled: yes
+#    daemon_reload: yes
 
