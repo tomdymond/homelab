@@ -12,7 +12,6 @@ services:
         mode: 0440
     volumes:
       - type: volume
-        driver: vsphere
         source: redis-0a022b
         target: /data
 configs:
@@ -20,3 +19,8 @@ configs:
     file: ./my_config.txt
   my_other_config:
     external: true
+
+volumes:
+  redis-0a022b:
+    driver: vsphere
+
