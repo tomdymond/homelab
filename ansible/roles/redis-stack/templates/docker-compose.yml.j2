@@ -10,6 +10,11 @@ services:
         uid: '103'
         gid: '103'
         mode: 0440
+    volumes:
+      - type: volume
+        driver: vsphere
+        source: redis-0a022b
+        target: /data
 configs:
   my_config:
     file: ./my_config.txt
