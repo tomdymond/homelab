@@ -23,4 +23,7 @@ configs:
 volumes:
   redis-0a022b:
     driver: vsphere
+    driver_opts:
+      size: 1Gb
+      fstype : "xfs"
 
