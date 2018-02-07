@@ -70,14 +70,20 @@
     name: docker-ce
     update_cache: yes
 
-- name: Make sure a service is running
-  systemd: state=started name=docker
-
 - name: enable service docker and ensure it is not masked
   systemd:
     name: docker
     enabled: yes
     masked: no
+    state: started
+
+- name: Install vSphere docker plugin
+  command: docker plugin install --grant-all-permissions --alias vsphere vmware/vsphere-storage-for-docker:latest
+
+- name: Install vsphere-storage-for-docker.conf
+  copy:
+    src: vsphere-storage-for-docker.conf
+    dest: /etc/vsphere-storage-for-docker.conf
 
 - name: Install docker-compose
   pip:

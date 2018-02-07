@@ -19,12 +19,12 @@ services:
     volumes:
       - type: bind
         source: /srv
-        target: /srva
+        target: /srv
         volume:
           nocopy: true
 
   nginx:
-    image: networkboot/dhcpd
+    image: nginx
     ports:
       - "80:80"
     deploy:
