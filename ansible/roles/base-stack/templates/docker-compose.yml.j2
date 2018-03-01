@@ -6,11 +6,15 @@ services:
     image: prom/node-exporter
     stdin_open: true
     tty: true
+    restart_policy:
+      condition: on-failure
   cAdvisor:
     ports:
     - 8080:8080/tcp
     image: google/cadvisor
     stdin_open: true
     tty: true
+    restart_policy:
+      condition: on-failure
 
 
