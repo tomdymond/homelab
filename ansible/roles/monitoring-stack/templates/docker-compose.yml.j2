@@ -1,0 +1,34 @@
+version: '2'
+services:
+  prometheus:
+    image: prom/prometheus:v1.6.0
+    volumes:
+    - prometheus-data:/prometheus
+    tty: true
+    extra_hosts:
+    - alertmanager:alertmanager.local.kmem.org
+    volumes_from:
+    - prom-rancher-sd
+    ports:
+    - 9090:9090/tcp
+    command:
+    - -alertmanager.url=http://alertmanager:9093
+    - -config.file=/etc/prom-conf/prometheus.yml
+    - -storage.local.path=/prometheus
+    - -web.console.libraries=/etc/prometheus/console_libraries
+    - -web.console.templates=/etc/prometheus/consoles
+  prom-conf:
+    image: tomdymond/prom-conf
+    stdin_open: true
+    volumes:
+    - /etc/prom-conf/
+    tty: true
+  snmp_exporter:
+    image: prom/snmp_exporter
+    stdin_open: true
+    tty: true
+  grafana:
+    image: grafana/grafana
+    stdin_open: true
+    tty: true
+ 

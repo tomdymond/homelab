@@ -1,0 +1,24 @@
+---
+- name: Create stack dir
+  file:
+    path: /var/stacks/monitoring-stack
+    state: directory
+    mode: 0755
+
+- name: Generate docker-compose file
+  template:
+    src=docker-compose.yml.j2
+    dest=/var/stacks/monitoring-stack/docker-compose.yml
+
+- name: Copy service file for monitoring-stack
+  copy:
+    src=monitoring-stack.service
+    dest=/etc/systemd/system/monitoring-stack.service
+
+- name: Restart monitoring
+  systemd:
+    state: started
+    name: monitoring-stack
+    enabled: yes
+    daemon_reload: yes
+
