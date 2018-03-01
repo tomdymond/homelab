@@ -3,7 +3,7 @@ services:
   consul:
     volumes:
     - type: volume
-      source: consul-0a022b
+      source: consul-{{ ansible_hostname }}
       target: /consul/data
     ports:
     - 8500:8500/tcp
@@ -22,5 +22,5 @@ services:
         condition: on-failure
 
 volumes:
-  consul-0a022b:
+  consul-{{ ansible_hostname }}:
 
