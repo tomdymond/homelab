@@ -7,15 +7,15 @@ services:
       target: /consul/data
     ports:
     - "8500:8500"
+    - "8301:8301"
     image: consul:latest
     command:
     - agent
     - -server
-    - -join
+    - -join={{ ansible_env.CONSUL_BOOTSTRAP_NODE }}
     - -data-dir=/consul/data
-    - {{ ansible_env.CONSUL_BOOTSTRAP_NODE }}
     - -disable-host-node-id
-    - ui
+    - -ui
     deploy:
       restart_policy:
         condition: on-failure
