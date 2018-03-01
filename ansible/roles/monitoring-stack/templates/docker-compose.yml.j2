@@ -17,8 +17,9 @@ services:
     - -storage.local.path=/prometheus
     - -web.console.libraries=/etc/prometheus/console_libraries
     - -web.console.templates=/etc/prometheus/consoles
-    restart_policy:
-      condition: on-failure
+    deploy:
+      restart_policy:
+        condition: on-failure
   prom-conf:
     image: tomdymond/prom-conf
     stdin_open: true
@@ -31,16 +32,18 @@ services:
     image: prom/snmp-exporter
     stdin_open: true
     tty: true
-    restart_policy:
-      condition: on-failure
+    deploy:
+      restart_policy:
+        condition: on-failure
   grafana:
     ports:
     - 3000:3000/tcp
     image: grafana/grafana
     stdin_open: true
     tty: true
-    restart_policy:
-      condition: on-failure
+    deploy:
+      restart_policy:
+        condition: on-failure
 
 volumes:
   prometheus-data:
