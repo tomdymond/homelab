@@ -18,7 +18,6 @@ services:
     - -node={{ ansible_hostname }}
     - -bind=0.0.0.0
     - -enable-script-checks=true
-    - -config-dir=/etc/consul.d
     deploy:
       restart_policy:
         condition: on-failure
@@ -26,3 +25,5 @@ services:
 volumes:
   consul-0a022b:
 
+
+consulstack_consul-0a022b
