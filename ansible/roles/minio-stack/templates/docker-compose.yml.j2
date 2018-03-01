@@ -1,6 +1,6 @@
 version: '3'
 services:
-  consul:
+  minio:
     ports:
     - 9000:9000/tcp
     image: minio/minio
@@ -9,4 +9,6 @@ services:
     deploy:
       restart_policy:
         condition: on-failure
+    command:
+    - server
 
