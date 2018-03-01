@@ -43,5 +43,7 @@ variable vault_token {
 variable deploy_stack {
   default = "base"
 }
-
+variable user_variables {
+  default = "CONSUL_SERVER_ROLE=foo!SOUP=good!COFFEE=great"
+}
 

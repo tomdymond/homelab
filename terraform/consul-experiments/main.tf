@@ -9,4 +9,5 @@ module "vm" {
   memory="4096"
   vcpu="2"
   deploy_stack="minio-stack"
+  user_variables="CONSUL_SERVER_ROLE=bootstrap"
 }
