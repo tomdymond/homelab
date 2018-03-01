@@ -1,20 +1,21 @@
-version: '3'
+version: '3.3'
 services:
   consul:
     volumes:
     - type: volume
       source: consul-0a022b
-      target: /data
+      target: /consul/data
     ports:
-    - "8080:8080"
+    - "8500:8500"
     image: consul:latest
     command:
     - agent
     - -server
     - -join
-    - -data-dir=/data
+    - -data-dir=/consul/data
     - {{ consul_bootstrap_node }}
     - -disable-host-node-id
+    - ui
     deploy:
       restart_policy:
         condition: on-failure
