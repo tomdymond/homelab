@@ -11,4 +11,15 @@ services:
         condition: on-failure
     command:
     - server
+    - /data
+    volumes:
+      - type: volume
+        source: minio-0a022b
+        target: /data
+
+volumes:
+  minio-0a022b:
+    driver: vsphere:latest
+    driver_opts:
+      size: 2Gb
 
