@@ -124,10 +124,10 @@
     src=pxestack.yml.j2
     dest=/var/stacks/pxestack/docker-compose.yml
 
-- name: Copy pxestack systemd unit
-  copy:
-    src=pxestack.service
-    dest=/etc/systemd/system/pxestack.service
+- name: Copy service file for stack
+  template:
+    src=../common/templates/stack.service.j2
+    dest=/etc/systemd/system/{{ stack_name }}-stack.service
 
 - name: Restart pxestack
   systemd: state=started name=pxestack enabled=yes

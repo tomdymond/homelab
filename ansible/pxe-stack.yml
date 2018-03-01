@@ -8,5 +8,6 @@
     - base
     - base-stack
     - pxe-stack
-
+  vars:
+    stack_name: pxe
 
