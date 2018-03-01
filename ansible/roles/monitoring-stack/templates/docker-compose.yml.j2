@@ -6,9 +6,9 @@ services:
     - prometheus-data:/prometheus
     tty: true
     extra_hosts:
-    - alertmanager:alertmanager.local.kmem.org
+    - alertmanager:172.17.0.1
     volumes_from:
-    - prom-rancher-sd
+    - prom-conf
     ports:
     - 9090:9090/tcp
     command:
@@ -24,11 +24,15 @@ services:
     - /etc/prom-conf/
     tty: true
   snmp_exporter:
-    image: prom/snmp_exporter
+    image: prom/snmp-exporter
     stdin_open: true
     tty: true
   grafana:
     image: grafana/grafana
     stdin_open: true
     tty: true
- 
+
+volumes:
+  prometheus-data:
+    driver: local
+
