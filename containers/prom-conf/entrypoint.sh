@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+SNMP_DEVICE=${SNMP_DEVICE:-"192.168.1.10"}
+SNMP_EXPORTER_IP=${SNMP_EXPORTER_IP:-"172.17.0.1"}
+
+cat prometheus.yml.tpl | sed "s/%SNMP_DEVICE%/${SNMP_DEVICE}/g;s/%SNMP_EXPORTER_IP%/${SNMP_EXPORTER_IP}/g"
