@@ -1,14 +1,13 @@
-version: '2'
+version: '3'
 services:
   prometheus:
     image: prom/prometheus:v1.6.0
     volumes:
     - prometheus-data:/prometheus
+    - prom-conf:/etc/prom-conf
     tty: true
     extra_hosts:
     - alertmanager:172.17.0.1
-    volumes_from:
-    - prom-conf
     ports:
     - 9090:9090/tcp
     command:
@@ -47,5 +46,5 @@ services:
 
 volumes:
   prometheus-data:
-    driver: local
+  prom-conf:
 
