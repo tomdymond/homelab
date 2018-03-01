@@ -1,6 +1,6 @@
 module "vm" {
   vsphere_server="192.168.1.254"
-  node_base_name="minio-experiments"
+  node_base_name="consul-experiments"
   source="../source/vsphere-vm/"
   guest_id="centos7_64Guest"
   vsphere_password="${var.vsphere_password}"
@@ -8,6 +8,6 @@ module "vm" {
   bootstrap_network="LAB2"
   memory="4096"
   vcpu="2"
-  deploy_stack="minio-stack"
+  deploy_stack="consul-stack"
   user_variables="CONSUL_SERVER_ROLE=bootstrap"
 }
