@@ -1,4 +1,4 @@
-version: '3'
+version: '3.3'
 services:
   consul:
     volumes:
@@ -6,7 +6,7 @@ services:
       source: consul-0a022b
       target: /data
     ports:
-    - 8080:8080/tcp
+    - 8500:8500/tcp
     image: consul
     stdin_open: true
     tty: true
