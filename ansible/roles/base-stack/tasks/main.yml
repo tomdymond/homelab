@@ -1,0 +1,24 @@
+---
+- name: Create stack dir
+  file:
+    path: /var/stacks/base-stack
+    state: directory
+    mode: 0755
+
+- name: Generate docker-compose file
+  template:
+    src=docker-compose.yml.j2
+    dest=/var/stacks/base-stack/docker-compose.yml
+
+- name: Copy service file for base-stack
+  copy:
+    src=base-stack.service
+    dest=/etc/systemd/system/base-stack.service
+
+- name: Restart base
+  systemd:
+    state: started
+    name: base-stack
+    enabled: yes
+    daemon_reload: yes
+

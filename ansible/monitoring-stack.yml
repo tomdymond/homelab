@@ -2,4 +2,6 @@
 - name: setup everything
   hosts: local
   roles:
+    - base-stack
     - monitoring-stack
+
