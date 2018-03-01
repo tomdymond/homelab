@@ -24,10 +24,14 @@ services:
     - /etc/prom-conf/
     tty: true
   snmp_exporter:
+    ports:
+    - 9116:9116/tcp
     image: prom/snmp-exporter
     stdin_open: true
     tty: true
   grafana:
+    ports:
+    - 3000:3000/tcp
     image: grafana/grafana
     stdin_open: true
     tty: true
