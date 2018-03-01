@@ -83,7 +83,7 @@ resource "vsphere_virtual_machine" "vm" {
 
 output "host_ip" {
 #  value = "${vsphere_virtual_machine.vm.primary.default_ip_address}" 
-#  value = "${join(",",vsphere_virtual_machine.vm.*.default_ip_address)}"
-  value = "${join(",",vsphere_virtual_machine.vm.*.guest_ip_addresses.0)}"
+  value = "${join(",",vsphere_virtual_machine.vm.*.default_ip_address)}"
+#  value = "${join(",",vsphere_virtual_machine.vm.*.guest_ip_addresses.0)}"
 }
 
