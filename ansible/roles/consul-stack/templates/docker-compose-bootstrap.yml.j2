@@ -6,8 +6,13 @@ services:
       source: consul-{{ ansible_hostname }}
       target: /consul/data
     ports:
-    - "8500:8500"
-    - "8301:8301"
+    - "8600:8600/tcp"
+    - "8600:8600/udp"
+    - "8500:8500/tcp"
+    - "8301:8301/tcp"
+    - "8301:8301/udp"
+    - "8302:8302/tcp"
+    - "8302:8302/udp"
     image: consul
     stdin_open: true
     tty: true
