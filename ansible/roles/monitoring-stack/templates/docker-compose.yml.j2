@@ -23,7 +23,7 @@ services:
     image: tomdymond/prom-conf
     stdin_open: true
     volumes:
-    - /etc/prom-conf/
+    - prom-conf:/etc/prom-conf/
     tty: true
   snmp_exporter:
     ports:
