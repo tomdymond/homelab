@@ -14,7 +14,7 @@ services:
     - agent
     - -server
     - -bootstrap-expect=3
-    - -data-dir=/data
+    - -data-dir=/consul/data
     - -node={{ ansible_hostname }}
     - -enable-script-checks=true
     deploy:
