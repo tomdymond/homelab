@@ -3,6 +3,6 @@
   hosts: local
   roles:
     - base-stack
-    - monitoring-stack
+    - minio-stack
   vars:
-    stack_name: monitoring
+    stack_name: minio

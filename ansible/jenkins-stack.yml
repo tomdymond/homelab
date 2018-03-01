@@ -4,4 +4,5 @@
   roles:
     - base-stack
     - jenkins-stack
-
+  vars:
+    stack_name: jenkins

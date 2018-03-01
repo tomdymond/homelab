@@ -1,24 +1,24 @@
 ---
 - name: Create stack dir
   file:
-    path: /var/stacks/jenkins-stack
+    path: /var/stacks/{{ stack_name }}-stack
     state: directory
     mode: 0755
 
 - name: Generate docker-compose file
   template:
     src=docker-compose.yml.j2
-    dest=/var/stacks/jenkins-stack/docker-compose.yml
+    dest=/var/stacks/{{ stack_name }}-stack/docker-compose.yml
 
-- name: Copy service file for jenkins-stack
-  copy:
-    src=jenkins-stack.service
-    dest=/etc/systemd/system/jenkins-stack.service
+- name: Copy service file for stack
+  template:
+    src=../common/templates/stack.service.j2
+    dest=/etc/systemd/system/{{ stack_name }}-stack.service
 
-- name: Restart jenkins
+- name: Restart stack
   systemd:
     state: started
-    name: jenkins-stack
+    name: {{ stack_name }}-stack
     enabled: yes
     daemon_reload: yes
 
