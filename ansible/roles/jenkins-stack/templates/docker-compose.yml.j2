@@ -1,0 +1,12 @@
+version: '3'
+services:
+  jenkins:
+    ports:
+    - 8080:8080/tcp
+    image: jenkins/jenkins
+    stdin_open: true
+    tty: true
+    deploy:
+      restart_policy:
+        condition: on-failure
+
