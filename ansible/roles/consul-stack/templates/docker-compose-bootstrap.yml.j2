@@ -1,7 +1,6 @@
 version: '3.3'
 services:
   consul:
-    network_mode: host
     volumes:
     - type: volume
       source: consul-{{ ansible_hostname }}
