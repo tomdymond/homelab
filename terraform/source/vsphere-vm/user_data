@@ -20,7 +20,7 @@ write_files:
 
       [Service]
       Type=oneshot
-      ExecStart=source /etc/boot_environment; eval $(echo $USER_VARIABLES | tr '!' ' '); /bin/bash -c "/usr/bin/ansible-pull -vvv --vault-password-file=/root/.ansible_vault_password -C master -d /home/ansible/deploy -i /home/ansible/hosts -U https://github.com/tomdymond/homelab.git ansible/${deploy_stack}.yml | tee -a /tmp/ansible.out"
+      ExecStart=/bin/bash -c "source /etc/boot_environment; eval export $(echo $USER_VARIABLES | tr '!' ' '); /usr/bin/ansible-pull -vvv --vault-password-file=/root/.ansible_vault_password -C master -d /home/ansible/deploy -i /home/ansible/hosts -U https://github.com/tomdymond/homelab.git ansible/${deploy_stack}.yml | tee -a /tmp/ansible.out"
 
       [Install]
       WantedBy=default.target
