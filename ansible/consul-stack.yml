@@ -1,0 +1,8 @@
+---
+- name: setup everything
+  hosts: local
+  roles:
+    - base-stack
+    - consul-stack
+  vars:
+    stack_name: consul
