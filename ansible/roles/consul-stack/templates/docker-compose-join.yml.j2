@@ -13,7 +13,7 @@ services:
     - -server
     - -join
     - -data-dir=/consul/data
-    - {{ consul_bootstrap_node }}
+    - {{ ansible_env.CONSUL_BOOTSTRAP_NODEE }}
     - -disable-host-node-id
     - ui
     deploy:
