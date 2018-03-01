@@ -81,4 +81,8 @@ resource "vsphere_virtual_machine" "vm" {
   count = "${var.master_count}"
 }
 
+output "host_ip" {
+#  value = "${vsphere_virtual_machine.vm.primary.default_ip_address}" 
+  value = "${join(",",vsphere_virtual_machine.vm.*.default_ip_address)}"
+}
 
