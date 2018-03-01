@@ -6,6 +6,7 @@
     - bootstrap
   roles:
     - base
-    - pxeboot
+    - base-stack
+    - pxe-stack
 
 
