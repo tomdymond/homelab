@@ -1,12 +1,29 @@
 version: '3'
 services:
   consul:
+    volumes:
+    - type: volume
+      source: consul-0a022b
+      target: /data
     ports:
     - 8080:8080/tcp
     image: consul
     stdin_open: true
     tty: true
+    environment:
+    command:
+    - agent
+    - -server
+    - -bootstrap-expect=3
+    - -data-dir=/data
+    - -node={{ ansible_hostname }}
+    - -bind=0.0.0.0
+    - -enable-script-checks=true
+    - -config-dir=/etc/consul.d
     deploy:
       restart_policy:
         condition: on-failure
+
+volumes:
+  consul-0a022b:
 
