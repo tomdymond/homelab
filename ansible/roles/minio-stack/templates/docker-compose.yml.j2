@@ -12,6 +12,10 @@ services:
     command:
     - server
     - /data
+
+    environment:
+    - MINIO_ACCESS_KEY={{ minio_access_key }}
+    - MINIO_SECRET_KEY={{ minio_secret_key }}   
     volumes:
     - type: volume
       source: minio-0a022b
