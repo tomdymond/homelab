@@ -1,4 +1,4 @@
-version: '3'
+version: '3.3'
 services:
   minio:
     ports:
@@ -13,9 +13,9 @@ services:
     - server
     - /data
     volumes:
-      - type: volume
-        source: minio-0a022b
-        target: /data
+    - type: volume
+      source: minio-0a022b
+      target: /data
 
 volumes:
   minio-0a022b:
