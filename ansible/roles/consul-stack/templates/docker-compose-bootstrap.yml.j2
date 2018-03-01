@@ -19,7 +19,7 @@ services:
     command:
     - agent
     - -server
-    - -bind={{ ansible_all_ipv4_addresses.2 }}
+    - -bind={{ ansible_all_ipv4_addresses.3 }}
     - -bootstrap-expect=3
     - -data-dir=/consul/data
     - -node={{ ansible_hostname }}

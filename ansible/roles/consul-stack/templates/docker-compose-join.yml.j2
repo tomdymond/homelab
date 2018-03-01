@@ -17,7 +17,7 @@ services:
     command:
     - agent
     - -server
-    - -bind={{ ansible_all_ipv4_addresses.2 }}
+    - -bind={{ ansible_all_ipv4_addresses.3 }}
     - -join={{ ansible_env.CONSUL_BOOTSTRAP_NODE }}
     - -data-dir=/consul/data
     - -disable-host-node-id
