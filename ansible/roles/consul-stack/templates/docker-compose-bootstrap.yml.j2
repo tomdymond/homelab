@@ -20,6 +20,7 @@ services:
     - agent
     - -server
     - -advertise={{ ansible_default_ipv4.address }}
+    - -bind=0.0.0.0
     - -bootstrap-expect=3
     - -data-dir=/consul/data
     - -node={{ ansible_hostname }}

@@ -18,6 +18,7 @@ services:
     - agent
     - -server
     - -advertise={{ ansible_default_ipv4.address }}
+    - -bind=0.0.0.0
     - -join={{ ansible_env.CONSUL_BOOTSTRAP_NODE }}
     - -data-dir=/consul/data
     - -disable-host-node-id
