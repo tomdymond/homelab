@@ -22,6 +22,7 @@ services:
     - -server
     - -advertise={{ ansible_default_ipv4.address }}
     - -bind=0.0.0.0
+    - -client={{ ansible_default_ipv4.address }}
     - -bootstrap-expect=3
     - -data-dir=/consul/data
     - -node={{ ansible_hostname }}
