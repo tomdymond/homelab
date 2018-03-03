@@ -2,7 +2,7 @@ version: '3'
 services:
   node_exporter:
     ports:
-    - 9100:9100/tcp
+    - 19100:9100/tcp
     image: prom/node-exporter
     stdin_open: true
     tty: true
@@ -11,7 +11,7 @@ services:
         condition: on-failure
   cAdvisor:
     ports:
-    - 8080:8080/tcp
+    - 18080:8080/tcp
     image: google/cadvisor
     stdin_open: true
     tty: true
