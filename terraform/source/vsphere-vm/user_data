@@ -27,10 +27,10 @@ write_files:
   - path: "/etc/boot_environment"
     owner: "root"
     content: |
-      HOSTNAME="${node_base_name}"
-      VAULT_TOKEN="${vault_token}"
-      ANSIBLE_VAULT_PASSWORD="${ansible_vault_password}"
-      DEPLOY_STACK="${deploy_stack}"      
-      USER_VARIABLES="${user_variables}"
-      CONSUL_ROLE="client"
+      export HOSTNAME="${node_base_name}"
+      export VAULT_TOKEN="${vault_token}"
+      export ANSIBLE_VAULT_PASSWORD="${ansible_vault_password}"
+      export DEPLOY_STACK="${deploy_stack}"      
+      export USER_VARIABLES="${user_variables}"
+      export CONSUL_ROLE="client"
 
