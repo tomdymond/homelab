@@ -32,4 +32,5 @@ write_files:
       ANSIBLE_VAULT_PASSWORD="${ansible_vault_password}"
       DEPLOY_STACK="${deploy_stack}"      
       USER_VARIABLES="${user_variables}"
-     
+      CONSUL_ROLE="client"
+
