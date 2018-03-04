@@ -44,6 +44,6 @@ variable deploy_stack {
   default = "base"
 }
 variable user_variables {
-  default = "CONSUL_ROLE=client!SOUP=good!COFFEE=great"
+  default = "CONSUL_ROLE=client!CONSUL_BOOTSTRAP_NODE=192.168.1.15"
 }
 
