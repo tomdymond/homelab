@@ -101,6 +101,10 @@
   pip:
     name: docker-compose
 
+- name: Install python-consul
+  pip:
+    name: python-consul
+
 - name: Enable services
   systemd: name="{{ item }}" enabled=yes
   with_items:
