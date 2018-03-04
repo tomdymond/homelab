@@ -25,7 +25,7 @@
   template:
     src=docker-compose-client.yml.j2
     dest=/var/stacks/{{ stack_name }}-stack/docker-compose.yml
-  when: ansible_env.CONSUL_ROLE == ""
+  when: ansible_env.CONSUL_ROLE == "client"
 
 - name: Copy service file for stack
   template:
