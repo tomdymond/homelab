@@ -22,3 +22,8 @@
     enabled: yes
     daemon_reload: yes
 
+- name: register jenkins service with the local consul agent
+  consul:
+    service_name: jenkins
+    service_port: 8080
+
