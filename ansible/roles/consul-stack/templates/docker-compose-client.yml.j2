@@ -1,0 +1,33 @@
+version: '3.3'
+services:
+  consul:
+    network_mode: host
+    volumes:
+    - type: volume
+      source: consul-{{ ansible_hostname }}
+      target: /consul/data
+    ports:
+    - "0.0.0.0:8600:8600/tcp"
+    - "0.0.0.0:8600:8600/udp"
+    - "0.0.0.0:8500:8500/tcp"
+    - "0.0.0.0:8301:8301/tcp"
+    - "0.0.0.0:8301:8301/udp"
+    - "0.0.0.0:8302:8302/tcp"
+    - "0.0.0.0:8302:8302/udp"
+    image: consul:latest
+    command:
+    - agent
+    - -advertise={{ ansible_default_ipv4.address }}
+    - -bind=0.0.0.0
+    - -client={{ ansible_default_ipv4.address }}
+    - -join={{ ansible_env.CONSUL_BOOTSTRAP_NODE }}
+    - -data-dir=/consul/data
+    - -disable-host-node-id
+    deploy:
+      restart_policy:
+        condition: on-failure
+
+
+volumes:
+  consul-{{ ansible_hostname }}:
+

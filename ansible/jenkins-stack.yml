@@ -3,6 +3,7 @@
   hosts: local
   roles:
     - base-stack
+    - consul-stack
     - jenkins-stack
   vars:
     stack_name: jenkins

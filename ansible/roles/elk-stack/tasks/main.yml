@@ -7,21 +7,8 @@
 
 - name: Generate docker-compose file
   template:
-    src=docker-compose-join.yml.j2
+    src=docker-compose-{{ ansible_env.CONSUL_SERVER_ROLE }}.yml.j2
     dest=/var/stacks/{{ stack_name }}-stack/docker-compose.yml
-  when: ansible_env.CONSUL_ROLE == "join"
-
-- name: Generate docker-compose file
-  template:
-    src=docker-compose-boot.yml.j2
-    dest=/var/stacks/{{ stack_name }}-stack/docker-compose.yml
-  when: ansible_env.CONSUL_ROLE == "boot"
-
-- name: Generate docker-compose file
-  template:
-    src=docker-compose-client.yml.j2
-    dest=/var/stacks/{{ stack_name }}-stack/docker-compose.yml
-  when: ansible_env.CONSUL_ROLE == ""
 
 - name: Copy service file for stack
   template:
@@ -35,3 +22,9 @@
     enabled: yes
     daemon_reload: yes
 
+- name: register elasticsearch service with the local consul agent
+  consul:
+    service_name: elasticsearch
+    service_port: 9200
+  tags:
+    - es_role_mdc

@@ -9,7 +9,7 @@ module "consul_boot" {
   memory="4096"
   vcpu="2"
   deploy_stack="consul-stack"
-  user_variables="CONSUL_SERVER_ROLE=bootstrap"
+  user_variables="CONSUL_ROLE=bootstrap"
 }
 module "consul_joiners" {
   vsphere_server="192.168.1.254"
@@ -22,6 +22,6 @@ module "consul_joiners" {
   memory="4096"
   vcpu="2"
   deploy_stack="consul-stack"
-  user_variables="CONSUL_SERVER_ROLE=join!CONSUL_BOOTSTRAP_NODE=${module.consul_boot.host_ip}"
+  user_variables="CONSUL_ROLE=join!CONSUL_BOOTSTRAP_NODE=${module.consul_boot.host_ip}"
   master_count=2
 }

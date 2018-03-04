@@ -1,0 +1,81 @@
+version: '3.3'
+services:
+  elasticsearch:
+    network_mode: host
+    volumes:
+    - elasticsearch-data-{{ ansible_hostname }}:/usr/share/elasticsearch/data
+    - elasticsearch-conf-{{ ansible_hostname }}:/etc/elasticsearch/elasticsearch.yml
+    ports:
+    - "0.0.0.0:9200:9200/tcp"
+    - "0.0.0.0:9300:9300/tcp"
+    image: elastic/elasticsearch
+    stdin_open: true
+    tty: true
+    deploy:
+      restart_policy:
+        condition: on-failure
+  elasticsearch-conf:
+    image: tomdymond/elasticsearch-conf
+    stdin_open: true
+    volumes:
+    - elasticsearch-conf:/etc/elasticsearch/elasticsearch.yml
+    tty: true
+    environment:
+      - ES_DM_NODES={{ ansible_env.ES_DM_NODES }}
+      - ES_DD_NODES={{ ansible_env.ES_DD_NODES }}
+      - ES_DC_NODES={{ ansible_env.ES_DC_NODES }}
+      - ES_MDC_NODES={{ ansible_env.ES_MDC_NODES }}
+      - ES_MEMORY_GB={{ ansible_env.ES_MEMORY_GB }}
+    deploy:
+      restart_policy:
+        condition: on-failure
+  kibana:
+    network_mode: host
+    ports:
+    - "0.0.0.0:5601:5601/tcp"
+    image: elastic/kibana
+    stdin_open: true
+    volumes:
+    - kibana-conf-{{ ansible_hostname }}:/usr/share/kibana/kibana.yml
+    tty: true
+    deploy:
+      restart_policy:
+        condition: on-failure
+  kibana-conf:
+    image: tomdymond/kibana-conf
+    stdin_open: true
+    tty: true
+    volumes:
+    - kibana-conf-{{ ansible_hostname }}:/usr/share/kibana/kibana.yml
+    deploy:
+      restart_policy:
+        condition: on-failure
+  logstash:
+    network_mode: host
+    ports:
+    - "0.0.0.0:5044:5044/tcp"
+    image: elastic/logstash
+    stdin_open: true
+    tty: true
+    volumes:
+    - logstash-conf-{{ ansible_hostname }}:/usr/share/logstash/logstash.yml
+    deploy:
+      restart_policy:
+        condition: on-failure
+  logstash-conf:
+    image: tomdymond/logstash-conf
+    stdin_open: true
+    tty: true
+    volumes:
+    - logstash-conf-{{ ansible_hostname }}:/usr/share/logstash/logstash.yml
+    deploy:
+      restart_policy:
+        condition: on-failure
+
+
+volumes:
+  elasticsearch-data-{{ ansible_hostname }}:
+  elasticsearch-conf-{{ ansible_hostname }}:
+  logstash-conf-{{ ansible_hostname }}:
+  kibana-conf-{{ ansible_hostname }}:
+
