@@ -26,9 +26,11 @@
   consul:
     service_name: cadvisor
     service_port: 18080
+  ignore_errors: true
 
 - name: register node-exporter service with the local consul agent
   consul:
     service_name: node-exporter
     service_port: 19100
+  ignore_errors: true
 
