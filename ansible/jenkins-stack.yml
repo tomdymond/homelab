@@ -3,7 +3,6 @@
   hosts: local
   roles:
     - base-stack
-    - consul-stack
-    - jenkins-stack
-  vars:
-    stack_name: jenkins
+    - { role: consul-stack, stack_name: consul }
+    - { role: jenkins-stack, stack_name: jenkins }
+
