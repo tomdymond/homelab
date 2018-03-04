@@ -2,7 +2,7 @@
 - name: setup everything
   hosts: local
   roles:
-    - { role: base-stack, stack_name: base }
     - { role: consul-stack, stack_name: consul }
+    - { role: base-stack, stack_name: base }
     - { role: jenkins-stack, stack_name: jenkins }
 
