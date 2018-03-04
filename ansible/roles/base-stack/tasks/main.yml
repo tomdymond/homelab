@@ -1,24 +1,34 @@
 ---
 - name: Create stack dir
   file:
-    path: /var/stacks/base-stack
+    path: /var/stacks/{{ stack_name }}-stack
     state: directory
     mode: 0755
 
 - name: Generate docker-compose file
   template:
     src=docker-compose.yml.j2
-    dest=/var/stacks/base-stack/docker-compose.yml
+    dest=/var/stacks/{{ stack_name }}-stack/docker-compose.yml
 
-- name: Copy service file for base-stack
-  copy:
-    src=base-stack.service
-    dest=/etc/systemd/system/base-stack.service
+- name: Copy service file for stack
+  template:
+    src=../common/templates/stack.service.j2
+    dest=/etc/systemd/system/{{ stack_name }}-stack.service
 
-- name: Restart base
+- name: Restart service
   systemd:
     state: started
-    name: base-stack
+    name: "{{ stack_name }}-stack"
     enabled: yes
     daemon_reload: yes
+
+- name: register cadvisor with the local consul agent
+  consul:
+    service_name: cadvisor
+    service_port: 18080
+
+- name: register node-exporter service with the local consul agent
+  consul:
+    service_name: node-exporter
+    service_port: 19100
 
