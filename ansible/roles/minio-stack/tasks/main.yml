@@ -25,3 +25,8 @@
     enabled: yes
     daemon_reload: yes
 
+- name: register service with the local consul agent
+  consul:
+    service_name: minio
+    service_port: 80
+

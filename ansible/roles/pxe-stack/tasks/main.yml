@@ -1,4 +1,7 @@
 ---
+- name: add secrets
+  include_vars: secrets.yml
+
 - name: Install network scripts
   copy:
     src: "{{ item }}"
