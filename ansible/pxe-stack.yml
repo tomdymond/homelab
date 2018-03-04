@@ -7,7 +7,6 @@
 
   roles:
     - base
-    - { role: consul-stack, stack_name: consul }
     - { role: base-stack, stack_name: base }
     - { role: pxe-stack, stack_name: pxe }
 
