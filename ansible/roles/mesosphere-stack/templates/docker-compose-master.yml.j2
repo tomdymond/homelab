@@ -10,7 +10,7 @@ services:
     - mesosphere-tmp-{{ ansible_hostname }}:/var/log/tmp
     ports:
     - "5050:5050/tcp"
-    image: mesosphere/mesos-master
+    image: mesosphere/mesos-master:{{ mesosphere-version }}
     environment:
     - "MESOS_PORT=5050"
     - "MESOS_ZK=zk://127.0.0.1:2181/mesos"
