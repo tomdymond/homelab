@@ -15,7 +15,7 @@ services:
     - /usr/local/bin/docker:/usr/local/bin/docker
     ports:
     - "5051:5051/tcp"
-    image: mesosphere/mesos-slave:{{ mesosphere-version }}
+    image: mesosphere/mesos-slave:{{ mesosversion }}
     environment:
     - "MESOS_PORT=5051"
     - "MESOS_ZK=zk://127.0.0.1:2181/mesos"

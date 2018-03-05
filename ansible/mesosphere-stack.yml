@@ -3,5 +3,5 @@
   hosts: local
   roles:
     - { role: base-stack, stack_name: base }
-    - { role: mesosphere-stack, stack_name: mesosphere, mesosphere-version: 1.5.0 }
+    - { role: mesosphere-stack, stack_name: mesosphere, mesosversion: 1.5.0 }
 
