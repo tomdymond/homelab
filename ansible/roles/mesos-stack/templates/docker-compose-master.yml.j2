@@ -1,0 +1,28 @@
+version: '3.3'
+services:
+  exhibitor:
+    network_mode: host
+    image: netflixoss/exhibitor:1.5.2
+  mesosphere:
+    network_mode: host
+    volumes:
+    - mesosphere-logs-{{ ansible_hostname }}:/var/log/mesos
+    - mesosphere-tmp-{{ ansible_hostname }}:/var/log/tmp
+    ports:
+    - "5050:5050/tcp"
+    image: mesosphere/mesos-master
+    environment:
+    - "MESOS_PORT=5050"
+    - "MESOS_ZK=zk://127.0.0.1:2181/mesos"
+    - "MESOS_QUORUM=3"
+    - "MESOS_REGISTRY=in_memory"
+    - "MESOS_LOG_DIR=/var/log/mesos"
+    - "MESOS_WORK_DIR=/var/tmp/mesos"
+    deploy:
+      restart_policy:
+        condition: on-failure
+
+volumes:
+  mesosphere-tmp-{{ ansible_hostname }}:
+  mesosphere-logs-{{ ansible_hostname }}:
+
