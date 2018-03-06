@@ -40,7 +40,7 @@
 - name: Execute dcos_generate_config.sh
   command: "BUILD_DIR=/opt/dcos-{{ dcos_version }}/genconf /opt/dcos-{{ dcos_version }}/dcos_generate_config.sh --genconf"
   args:
-    chdir: /
+    chdir: /opt/dcos-{{ dcos_version }}/
 
 - name: Generate docker-compose file
   template:
