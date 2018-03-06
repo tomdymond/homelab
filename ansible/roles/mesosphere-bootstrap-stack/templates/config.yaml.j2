@@ -1,0 +1,19 @@
+---
+bootstrap_url: http://{{ ansible_default_ipv4.address }}:80
+cluster_name: {{ ansible_env.MESOSPHERE_CLUSTER_NAME }}
+exhibitor_storage_backend: static
+master_discovery: static
+ip_detect_public_filename: /opt/{{ dcos_version }}/genconf/ip-detect
+master_list:
+{% for master_ip in ansible_env.MESOS_MASTERS %}
+- {{ master_ip }}
+{% end %}
+public_agent_list:
+{% for mesos_agent_private_ip in ansible_env.MESOS_AGENTS_PRIV %}
+- {{ mesos_agent_private_ip }}
+resolvers:
+- {{ ansible_env.MESOSPHERE_RESOLVER }}
+- 8.8.8.8
+superuser_password_hash: {{ mesosphere_admin_password }}
+superuser_username: superuser
+

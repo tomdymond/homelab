@@ -1,0 +1,40 @@
+---
+- name: add secrets
+  include_vars: secrets.yml
+
+- name: Create genconf folder
+  file:
+    path: /opt/{{ dcos_version }}/genconf
+    state: directory
+
+- name: Create genconf/serve folder
+  file:
+    path: /opt/{{ dcos_version }}/genconf/serve
+    state: directory
+
+- name: Copy ipdetect script
+  copy: src=ip-detect dest=/opt/{{ dcos_version }}/genconf mode=0755 owner=root group=root
+
+- name: Generate config.yaml
+  template: 
+    src: config.yaml.j2
+    dest: /opt/{{ dcos_version }}/genconf/config.yaml
+
+- name: Generate ssh_key
+  template:
+    src: ssh_key.j2
+    dest: /genconf/ssh_key
+    mode: 0600
+    owner: root
+    group: root
+
+- name: Download DC/OS from mesosphere
+  get_url:
+    url: "https://downloads.dcos.io/dcos/stable/dcos_generate_config.sh"
+    dest: /usr/local/bin
+
+- name: Execute dcos_generate_config.sh
+  command: "BUILD_DIR=/opt/{{ dcos_version }}/genconf /usr/local/bin/dcos_generate_config.sh --genconf"
+  args:
+    chdir: /
+
