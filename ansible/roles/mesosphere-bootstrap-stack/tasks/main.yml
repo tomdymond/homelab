@@ -4,29 +4,29 @@
 
 - name: Create genconf folder
   file:
-    path: /opt/{{ dcos_version }}/genconf
+    path: /opt/dcos-{{ dcos_version }}/genconf
     state: directory
 
 - name: Create genconf/serve folder
   file:
-    path: /opt/{{ dcos_version }}/genconf/serve
+    path: /opt/dcos-{{ dcos_version }}/genconf/serve
     state: directory
 
 - name: Copy ipdetect script
-  copy: src=ip-detect dest=/opt/{{ dcos_version }}/genconf mode=0755 owner=root group=root
+  copy: src=ip-detect dest=/opt/dcos-{{ dcos_version }}/genconf mode=0755 owner=root group=root
 
 - name: Generate config.yaml
   template: 
     src: config.yaml.j2
-    dest: /opt/{{ dcos_version }}/genconf/config.yaml
+    dest: /opt/dcos-{{ dcos_version }}/genconf/config.yaml
 
 - name: Download DC/OS from mesosphere
   get_url:
     url: "https://downloads.dcos.io/dcos/stable/{{ dcos_version }}/dcos_generate_config.sh"
-    dest: /usr/local/bin
+    dest: /opt/dcos-{{ dcos_version }}/
 
 - name: Execute dcos_generate_config.sh
-  command: "BUILD_DIR=/opt/{{ dcos_version }}/genconf /usr/local/bin/dcos_generate_config.sh --genconf"
+  command: "BUILD_DIR=/opt/dcos-{{ dcos_version }}/genconf /opt/dcos-{{ dcos_version }}/dcos_generate_config.sh --genconf"
   args:
     chdir: /
 
