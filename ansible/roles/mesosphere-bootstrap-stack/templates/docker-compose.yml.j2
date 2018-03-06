@@ -1,0 +1,15 @@
+version: '3.3'
+services:
+  nginx:
+    image: nginx
+    ports:
+      - "80:80"
+    deploy:
+      replicas: 1
+    volumes:
+      - type: bind
+        source: /opt/{{ dcos_version }}/genconf/serve
+        target: /usr/share/nginx/html
+        volume:
+          nocopy: true
+

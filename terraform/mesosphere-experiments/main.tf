@@ -8,7 +8,7 @@ module "mesos_bootstrap" {
   bootstrap_network="LAB2"
   memory="4096"
   vcpu="2"
-  deploy_stack="mesosphere-stack"
+  deploy_stack="mesosphere-bootstrap-stack"
   user_variables="MESOSPHERE_ROLE=bootstrap!MESOSPHERE_CLUSTER_NAME=tomtest!MESOSPHERE_RESOLVER=192.168.1.1!MESOS_MASTERS=${module.mesos_master.host_ip}!MESOS_AGENTS_PRIV=${module.mesos_slave.host_ip}"
   master_count=1
 }
