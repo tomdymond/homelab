@@ -17,5 +17,5 @@ BEGIN { ec = 1 }
   if (ec == 0) exit;
 }
 END { exit ec }
-')gg
+')
 echo $INTERFACE_IP
