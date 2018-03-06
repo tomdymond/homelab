@@ -20,14 +20,6 @@
     src: config.yaml.j2
     dest: /opt/{{ dcos_version }}/genconf/config.yaml
 
-- name: Generate ssh_key
-  template:
-    src: ssh_key.j2
-    dest: /genconf/ssh_key
-    mode: 0600
-    owner: root
-    group: root
-
 - name: Download DC/OS from mesosphere
   get_url:
     url: "https://downloads.dcos.io/dcos/stable/{{ dcos_version }}/dcos_generate_config.sh"
