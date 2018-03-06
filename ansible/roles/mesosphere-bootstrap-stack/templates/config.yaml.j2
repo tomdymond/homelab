@@ -5,11 +5,11 @@ exhibitor_storage_backend: static
 master_discovery: static
 ip_detect_public_filename: /opt/{{ dcos_version }}/genconf/ip-detect
 master_list:
-{% for master_ip in ansible_env.MESOS_MASTERS %}
+{% for master_ip in ansible_env.MESOS_MASTERS.split(',') %}
 - {{ master_ip }}
 {% endfor %}
 public_agent_list:
-{% for mesos_agent_private_ip in ansible_env.MESOS_AGENTS_PRIV %}
+{% for mesos_agent_private_ip in ansible_env.MESOS_AGENTS_PRIV.split(',') %}
 - {{ mesos_agent_private_ip }}
 {% endfor %}
 resolvers:
