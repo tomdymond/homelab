@@ -4,5 +4,5 @@
   roles:
     - { role: consul-stack, stack_name: consul }
     - { role: base-stack, stack_name: base }
-    - { role: mesosphere-bootstrap-stack, stack_name: mesosphere-bootstrap, dcos_version: 1.10 }
+    - { role: mesosphere-bootstrap-stack, stack_name: mesosphere-bootstrap, dcos_version: 1.10.5 }
 

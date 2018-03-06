@@ -30,7 +30,7 @@
 
 - name: Download DC/OS from mesosphere
   get_url:
-    url: "https://downloads.dcos.io/dcos/stable/dcos_generate_config.sh"
+    url: "https://downloads.dcos.io/dcos/stable/{{ dcos_version }}/dcos_generate_config.sh"
     dest: /usr/local/bin
 
 - name: Execute dcos_generate_config.sh
