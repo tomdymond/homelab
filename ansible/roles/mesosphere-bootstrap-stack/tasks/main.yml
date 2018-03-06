@@ -20,10 +20,15 @@
     src: config.yaml.j2
     dest: /opt/dcos-{{ dcos_version }}/genconf/config.yaml
 
+- name: Check if DC/OS is already downloaded
+  command: ls /opt/dcos-{{ dcos_version }}/dcos_generate_config.sh
+  register: dcos_downloaded
+
 - name: Download DC/OS from mesosphere
   get_url:
     url: "https://downloads.dcos.io/dcos/stable/{{ dcos_version }}/dcos_generate_config.sh"
     dest: /opt/dcos-{{ dcos_version }}/
+  when: dcos_downloaded.rc == 1
 
 - name: Make DC/OS script executable
   file:
