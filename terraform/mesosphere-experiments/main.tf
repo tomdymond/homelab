@@ -28,7 +28,7 @@ module "mesos_master" {
   master_count=3
 }
 
-module "mesos_priv_agents" {
+module "mesos_slave" {
   vsphere_server="192.168.1.254"
   node_base_name="mesos-joiners"
   source="../source/vsphere-vm/"
