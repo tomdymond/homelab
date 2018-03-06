@@ -7,10 +7,11 @@ ip_detect_public_filename: /opt/{{ dcos_version }}/genconf/ip-detect
 master_list:
 {% for master_ip in ansible_env.MESOS_MASTERS %}
 - {{ master_ip }}
-{% end %}
+{% endfor %}
 public_agent_list:
 {% for mesos_agent_private_ip in ansible_env.MESOS_AGENTS_PRIV %}
 - {{ mesos_agent_private_ip }}
+{% endfor %}
 resolvers:
 - {{ ansible_env.MESOSPHERE_RESOLVER }}
 - 8.8.8.8
