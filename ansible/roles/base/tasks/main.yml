@@ -9,7 +9,7 @@
     state: present
 
 - name: Install some basic packages
-  command: yum -y install python2-pip rsync wget net-tools open-vm-tools cloud-init vim htop jq
+  command: yum -y install python2-pip rsync wget net-tools open-vm-tools cloud-init vim htop jq bind-utils
 
 - name: Copy Vmware cloud-init vmware guestinfo datasource
   copy:
