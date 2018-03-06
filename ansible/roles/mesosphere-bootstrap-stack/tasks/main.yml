@@ -13,7 +13,12 @@
     state: directory
 
 - name: Copy ipdetect script
-  copy: src=ip-detect dest=/opt/dcos-{{ dcos_version }}/genconf mode=0755 owner=root group=root
+  copy:
+    src: ip-detect
+    dest: /opt/dcos-{{ dcos_version }}/genconf
+    mode: 0755
+    owner: root
+    group: root
 
 - name: Generate config.yaml
   template: 
