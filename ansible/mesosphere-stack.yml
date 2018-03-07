@@ -5,5 +5,5 @@
     - { role: consul-stack, stack_name: consul }
     - { role: base-stack, stack_name: base }
     - { role: mesosphere-bootstrap-discovery-stack, stack_name: mesosphere-bootstrap-discovery-stack }
-    - { role: mesosphere-stack, stack_name: mesosphere, mesosversion: 1.10 }
+ #   - { role: mesosphere-stack, stack_name: mesosphere, mesosversion: 1.10 }
 
