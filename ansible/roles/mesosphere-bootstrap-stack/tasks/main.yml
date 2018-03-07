@@ -47,6 +47,12 @@
   args:
     chdir: /opt/dcos-{{ dcos_version }}/
 
+- name: Create stack dir
+  file:
+    path: /var/stacks/{{ stack_name }}-stack
+    state: directory
+    mode: 0755
+
 - name: Generate docker-compose file
   template:
     src=docker-compose.yml.j2
