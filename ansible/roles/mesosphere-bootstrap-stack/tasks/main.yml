@@ -63,3 +63,10 @@
     src=../common/templates/stack.service.j2
     dest=/etc/systemd/system/{{ stack_name }}-stack.service
 
+- name: Restart service
+  systemd:
+    state: started
+    name: "{{ stack_name }}-stack"
+    enabled: yes
+    daemon_reload: yes
+
