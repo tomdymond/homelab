@@ -28,6 +28,7 @@
 - name: Check if DC/OS is already downloaded
   command: ls /opt/dcos-{{ dcos_version }}/dcos_generate_config.sh
   register: dcos_downloaded
+  ignore_errors: true
 
 - name: Download DC/OS from mesosphere
   get_url:
