@@ -43,7 +43,7 @@
     group: root
   
 - name: Execute dcos_generate_config.sh
-  command: "BUILD_DIR=/opt/dcos-{{ dcos_version }}/genconf /opt/dcos-{{ dcos_version }}/dcos_generate_config.sh --genconf"
+  command: "/opt/dcos-{{ dcos_version }}/dcos_generate_config.sh --genconf"
   args:
     chdir: /opt/dcos-{{ dcos_version }}/
 
