@@ -1,3 +1,5 @@
+# master,slave,slave_public
+
 module "mesos_bootstrap" {
   vsphere_server="127.0.0.1:8443"
   node_base_name="mesos-bootstrap"
