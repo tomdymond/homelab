@@ -2,5 +2,5 @@
 - name: setup everything
   hosts: local
   roles:
-    - { role: mesosphere-bootstrap-discovery-stack, stack_name: mesosphere-bootstrap-discovery-stack, service_type: oneshot }
+    - { role: mesosphere-bootstrap-discovery-stack, stack_name: mesosphere-bootstrap-discovery, service_type: oneshot }
 
