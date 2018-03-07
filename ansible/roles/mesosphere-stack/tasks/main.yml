@@ -20,7 +20,7 @@
   command: chmod 0755 /tmp/dcos-{{ dcos_version }}/dcos_install.sh
 
 - name: Run DC/OS installer
-  command: bash -c "/tmp/dcos-{{ dcos_version }}/dcos_install.sh {{ ansible_env.MESOSPHERE_ROLE }}_public"
+  command: bash -c "/tmp/dcos-{{ dcos_version }}/dcos_install.sh {{ ansible_env.MESOSPHERE_ROLE }}"
   register: myoutput
 
 - name: Printing all the environment variables in Ansible
