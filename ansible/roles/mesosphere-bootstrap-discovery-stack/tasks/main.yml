@@ -16,7 +16,7 @@
 
 - name: Copy service file for stack
   template:
-    src=../common/templates/stack.service.j2
+    src=../common/templates/stack-oneshot.service.j2
     dest=/etc/systemd/system/{{ stack_name }}-stack.service
 
 - name: Copy mesosphere deploy service
