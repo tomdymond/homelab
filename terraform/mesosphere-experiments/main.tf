@@ -24,7 +24,7 @@ module "mesos_master" {
   memory="4096"
   vcpu="2"
   deploy_stack="mesosphere-bootstrap-discovery-stack"
-  user_variables="MESOSPHERE_ROLE=master"
+  user_variables="MESOSPHERE_ROLE=master!MESOS_BOOTSTRAP=mesos-bootstrap01.local.lab"
   master_count=3
 }
 
@@ -39,7 +39,7 @@ module "mesos_slave" {
   memory="2048"
   vcpu="2"
   deploy_stack="mesosphere-bootstrap-discovery-stack"
-  user_variables="MESOSPHERE_ROLE=slave"
+  user_variables="MESOSPHERE_ROLE=slave!MESOS_BOOTSTRAP=mesos-bootstrap01.local.lab"
   master_count=1
 }
 

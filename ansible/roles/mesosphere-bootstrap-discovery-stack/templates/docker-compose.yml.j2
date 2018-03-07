@@ -8,7 +8,7 @@ services:
       target: /data
     image: tomdymond/mesosphere-bootstrap-discovery:latest
     command:
-    - {{ mesos_bootstrap }}
+    - {{ ansible_env.MESOS_BOOTSTRAP }}
     deploy:
       restart_policy:
         condition: on-failure
