@@ -1,0 +1,7 @@
+[Unit]
+Description=Deploy Mesosphere Stack Service
+
+[Service]
+Type=oneshot
+ExecStart=/bin/bash -c "/opt/deploy_mesosphere_stack.sh"
+

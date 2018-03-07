@@ -1,0 +1,15 @@
+version: '3.3'
+services:
+  consul:
+    network_mode: host
+    volumes:
+    - type: volume
+      source: /etc
+      target: /data
+    image: tomdymond/mesosphere-bootstrap-discovery:latest
+    command:
+    - {{ mesos_bootstrap }}
+    deploy:
+      restart_policy:
+        condition: on-failure
+

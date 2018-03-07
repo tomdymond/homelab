@@ -1,0 +1,45 @@
+---
+- name: Create stack dir
+  file:
+    path: /var/stacks/{{ stack_name }}-stack
+    state: directory
+    mode: 0755
+
+- name: Printing all the environment variables in Ansible
+  debug:
+    msg: "{{ ansible_env }}"
+
+- name: Generate docker-compose file
+  template:
+    src=docker-compose.yml.j2
+    dest=/var/stacks/{{ stack_name }}-stack/docker-compose.yml
+
+- name: Copy service file for stack
+  template:
+    src=../common/templates/stack.service.j2
+    dest=/etc/systemd/system/{{ stack_name }}-stack.service
+
+- name: Copy mesosphere deploy service
+  template:
+    src=mesosphere_deploy_service.j2
+    dest=/etc/systemd/system/mesosphere-deploy.service
+
+- name: Copy deploy mesosphere-stack script
+  copy:
+    src: deploy_mesosphere_stack.sh
+    dest: /opt/deploy_mesosphere_stack.sh
+    mode: 0755
+    owner: root
+    group: root
+
+- name: Restart service
+  systemd:
+    state: started
+    name: "{{ stack_name }}-stack"
+    enabled: yes
+    daemon_reload: yes
+  with_items:
+  - "{{ stack_name }}-stack"
+  - mesosphere-deploy
+
+

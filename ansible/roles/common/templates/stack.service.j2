@@ -5,6 +5,7 @@ After=docker.service
 
 [Service]
 Restart=always
+Type={{ service_type }}
 
 # Remove old containers, images and volumes
 ExecStartPre=/usr/bin/docker-compose -f /var/stacks/{{ stack_name }}-stack/docker-compose.yml down
