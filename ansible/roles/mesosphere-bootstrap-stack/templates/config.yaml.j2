@@ -3,7 +3,9 @@ bootstrap_url: http://{{ ansible_default_ipv4.address }}:80
 cluster_name: {{ ansible_env.MESOSPHERE_CLUSTER_NAME }}
 exhibitor_storage_backend: static
 master_discovery: static
-ip_detect_public_filename: /opt/dcos-{{ dcos_version }}/genconf/ip-detect
+
+# This is not currently working in my lab. Most likely because i'm not using a public IP
+#ip_detect_public_filename: /opt/dcos-{{ dcos_version }}/genconf/ip-detect
 master_list:
 {% for master_ip in ansible_env.MESOS_MASTERS.split(',') %}
 - {{ master_ip }}
