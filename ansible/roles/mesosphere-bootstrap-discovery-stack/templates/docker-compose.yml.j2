@@ -3,7 +3,7 @@ services:
   consul:
     network_mode: host
     volumes:
-    - type: volume
+    - type: bind
       source: /etc
       target: /data
     image: tomdymond/mesosphere-bootstrap-discovery:latest
