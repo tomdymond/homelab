@@ -32,7 +32,7 @@ module "mesos_master" {
 
 module "mesos_slave" {
   vsphere_server="127.0.0.1:8443"
-  node_base_name="mesos-joiners"
+  node_base_name="mesos-slave"
   source="../source/vsphere-vm/"
   guest_id="centos7_64Guest"
   vsphere_password="${var.vsphere_password}"

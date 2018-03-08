@@ -1,0 +1,4 @@
+---
+#dcos_website_host: https://downloads.dcos.io
+dcos_website_host: http://192.168.1.33
+
