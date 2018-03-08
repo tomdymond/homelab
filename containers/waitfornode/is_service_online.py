@@ -17,7 +17,7 @@ if len(sys.argv) < 2:
   sys.exit()
 
 SEARCH_NODE=sys.argv[1]
-MAXWAIT=5
+MAXWAIT=100
 
 def get_nodes_from_consul():
   try:
