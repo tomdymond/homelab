@@ -2,11 +2,20 @@
 
 LOGFILE=/tmp/ansible-mesosphere-deploy.out
 
+touch ${LOGFILE}
+
 source /etc/boot_environment;
 eval export $(echo $USER_VARIABLES | tr '!' ' ');
 
+WAIT_COUNTER=0
 MAXWAIT=900
-while true; do 
+
+echo "Waiting for bootstrap ip"
+while true; do
+  if [ ${WAIT_COUNTER} -gt ${MAXWAIT} ]; then 
+    echo "Gave up waiting for bootstrap_ip or http server connection" | tee -a ${LOGFILE}
+    exit 2
+  fi
   if [ -f /etc/bootstrap_ip ]; then
     export DCOS_BOOTSTRAP=$(</etc/bootstrap_ip)
     echo "Found bootstrap ip: ${DCOS_BOOTSTRAP}"
@@ -17,8 +26,8 @@ while true; do
     fi 
     exit 0
   fi
+  let WAIT_COUNTER++
   sleep 1
 done
-echo "Gave up waiting for bootstrap_ip or http server connection" | tee -a ${LOGFILE}
 
 exit 1
