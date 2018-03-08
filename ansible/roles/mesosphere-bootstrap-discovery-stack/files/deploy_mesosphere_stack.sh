@@ -1,6 +1,5 @@
 #!/bin/sh
 
-DEPLOY_STACK=${1}
 LOGFILE=/tmp/ansible-mesosphere-deploy.out
 
 source /etc/boot_environment;
@@ -8,7 +7,7 @@ eval export $(echo $USER_VARIABLES | tr '!' ' ');
 
 MAXWAIT=900
 while true; do 
-  if [ -f /etc/bootstrap_ip ]; then"
+  if [ -f /etc/bootstrap_ip ]; then
     export DCOS_BOOTSTRAP=$(</etc/bootstrap_ip)
     echo "Found bootstrap ip: ${DCOS_BOOTSTRAP}"
     if curl --head http://${DCOS_BOOTSTRAP} >/dev/null 2>&1; then
