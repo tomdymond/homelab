@@ -23,8 +23,8 @@ while true; do
       echo "Successfully connected to HTTP server on bootstrap node"
       echo "Running ansible playbook. Logging output to ${LOGFILE}"
       /usr/bin/ansible-pull -vvv --vault-password-file=/root/.ansible_vault_password -C master -d /home/ansible/deploy -i /home/ansible/hosts -U https://github.com/tomdymond/homelab.git ansible/mesosphere-stack.yml | tee -a ${LOGFILE}
+      exit 0
     fi 
-    exit 0
   fi
   let WAIT_COUNTER++
   sleep 1
