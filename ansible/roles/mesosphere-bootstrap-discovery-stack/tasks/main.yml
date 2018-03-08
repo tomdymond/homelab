@@ -35,7 +35,7 @@
 - name: Restart service
   systemd:
     state: started
-    name: "{{ stack_name }}-stack"
+    name: "{{ item }}"
     enabled: yes
     daemon_reload: yes
   with_items:
