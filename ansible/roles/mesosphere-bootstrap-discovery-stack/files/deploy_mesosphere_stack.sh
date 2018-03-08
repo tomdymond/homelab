@@ -5,10 +5,6 @@ DEPLOY_STACK=${1}
 source /etc/boot_environment;
 eval export $(echo $USER_VARIABLES | tr '!' ' ');
 
-function boostrap_http_up() {
-  
-}
-
 MAXWAIT=300
 while true; do 
   if [ -f /etc/bootstrap_ip ]; then
