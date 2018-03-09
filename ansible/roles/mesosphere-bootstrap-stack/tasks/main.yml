@@ -43,7 +43,7 @@
     group: root
 
 - name: Execute set superuser password
-  command: "/opt/dcos-{{ dcos_version }}/dcos_generate_config.sh --set-superuser-password {{ mesosphere_admin_password }}"
+  command: "/opt/dcos-{{ dcos_version }}/dcos_generate_config.sh --set-superuser-password {{ mesosphere_superuser_password }}"
   args:
     chdir: /opt/dcos-{{ dcos_version }}/
   
