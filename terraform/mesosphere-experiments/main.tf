@@ -21,7 +21,7 @@ module "mesos_bootstrap" {
   vsphere_password="${var.vsphere_password}"
   vsphere_user="${var.vsphere_user}"
   bootstrap_network="LAB2"
-  memory="4096"
+  memory="2048"
   vcpu="2"
   deploy_stack="mesosphere-bootstrap-stack"
   user_variables="MESOSPHERE_ROLE=bootstrap!MESOSPHERE_CLUSTER_NAME=${var.cluster_name}!MESOSPHERE_RESOLVER=${var.default_dns_server}!MESOS_MASTERS=${module.mesos_master.host_ip}!MESOS_AGENTS_PRIV=${module.mesos_slave_private.host_ip}!MESOS_AGENTS_PUBLIC=${module.mesos_slave_public.host_ip}"
