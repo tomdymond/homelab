@@ -41,6 +41,11 @@
     mode: 0755
     owner: root
     group: root
+
+- name: Execute set superuser password
+  command: "/opt/dcos-{{ dcos_version }}/dcos_generate_config.sh --set-superuser-password {{ mesosphere_admin_password }}"
+  args:
+    chdir: /opt/dcos-{{ dcos_version }}/
   
 - name: Execute dcos_generate_config.sh
   command: "/opt/dcos-{{ dcos_version }}/dcos_generate_config.sh --genconf"
