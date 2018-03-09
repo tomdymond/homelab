@@ -11,6 +11,10 @@ master_list:
 - {{ master_ip }}
 {% endfor %}
 public_agent_list:
+{% for mesos_agent_private_ip in ansible_env.MESOS_AGENTS_PUBLIC.split(',') %}
+- {{ mesos_agent_private_ip }}
+{% endfor %}
+agent_list:
 {% for mesos_agent_private_ip in ansible_env.MESOS_AGENTS_PRIV.split(',') %}
 - {{ mesos_agent_private_ip }}
 {% endfor %}
