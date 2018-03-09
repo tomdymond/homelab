@@ -1,4 +1,10 @@
 ---
+- name: Turn off firewall
+  service:
+    name: firewalld
+    enabled: no
+    state: stopped
+
 - name: Create stack dir
   file:
     path: /var/stacks/{{ stack_name }}-stack
