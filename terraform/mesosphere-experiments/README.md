@@ -7,5 +7,6 @@ Considering a few things here to avoid cyclic dependency
   - Launch a container that will continuosly poll consul waiting for the bootstrap node to come online. Write BOOTSTRAP_NODE ip to /etc/mesos_bootstrap_node
   - Launch mesosphere-stack systemd service (read in /etc/mesos_bootstrap_node) once bootstrap node is online
 
-![alt text](https://docs.google.com/drawings/d/1wnA2-bbvFetr4M1jqSpdjD-cQ57xnWGcSMhmoskxSvI/edit?usp=sharing)
+![diagram](diagram.svg)
+
 
