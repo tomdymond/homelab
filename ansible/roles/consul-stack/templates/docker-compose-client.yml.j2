@@ -20,7 +20,9 @@ services:
     - -advertise={{ ansible_default_ipv4.address }}
     - -bind=0.0.0.0
     - -client=127.0.0.1
-    - -join={{ ansible_env.CONSUL_BOOTSTRAP_NODE }}
+{% for consul_server in ansible_env.CONSUL_SERVERS %}
+    - -join={{ consul_server }}
+{% endfor %}
     - -data-dir=/consul/data
     - -disable-host-node-id
     deploy:
