@@ -59,5 +59,9 @@ vsphere_user="<YOUR_ESXI_USERNAME>"
 vsphere_password="<YOUR_ESXI_PASSWORD>"
 ```
 
+## Hardcoded infrastructure components
+
+Consul servers. Currently 3 and regisered [here](https://github.com/tomdymond/homelab/blob/master/terraform/source/vsphere-vm/user_data)
+
 
 
