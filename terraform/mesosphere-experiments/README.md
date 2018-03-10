@@ -1,11 +1,8 @@
-[WIP]
+This is me testing stuff only. Hopefully not doing it too wrong :)
 
-Considering a few things here to avoid cyclic dependency
+- Create slave and master nodes first, getting the IP outputs from terraform. Start a service on them that essentially waits for the boostrap node to appear in consul
+- Create the bootstrap and haproxy nodes next passing in the ip addresses of the slave and master nodes to both
 
-- Bootstrap node needs to know the IP addresses of masters and slaves. It gets this by using the terraform output
-- Master/Slave nodes need to know the IP bootstrap node. 
-  - Launch a container that will continuosly poll consul waiting for the bootstrap node to come online. Write BOOTSTRAP_NODE ip to /etc/mesos_bootstrap_node
-  - Launch mesosphere-stack systemd service (read in /etc/mesos_bootstrap_node) once bootstrap node is online
 
 ![diagram](diagram.svg)
 
