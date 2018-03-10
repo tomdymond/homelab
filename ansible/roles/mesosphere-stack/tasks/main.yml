@@ -34,8 +34,5 @@
   command: bash -c "/tmp/dcos-{{ dcos_version }}/dcos_install.sh {{ ansible_env.MESOSPHERE_ROLE }}"
   register: myoutput
 
-- name: Printing all the environment variables in Ansible
-  debug:
-    msg: "{{ ansible_env }}"
 
 
