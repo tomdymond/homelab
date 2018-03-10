@@ -61,7 +61,7 @@ vsphere_password="<YOUR_ESXI_PASSWORD>"
 
 ## Hardcoded infrastructure components
 
-Consul servers. Currently 3 and regisered [here](https://github.com/tomdymond/homelab/blob/master/terraform/source/vsphere-vm/user_data)
+Consul servers. Currently 3 and regisered [here](https://github.com/tomdymond/homelab/blob/master/terraform/source/vsphere-vm/user_data). To change this, re-run the consul-experiments terraform stuff
 
 
 
