@@ -8,4 +8,4 @@ Considering a few things here to avoid cyclic dependency
   - Launch mesosphere-stack systemd service (read in /etc/mesos_bootstrap_node) once bootstrap node is online
 
 
-<img src=https://docs.google.com/drawings/d/1wnA2-bbvFetr4M1jqSpdjD-cQ57xnWGcSMhmoskxSvI/edit?usp=sharing>
+<img src="https://docs.google.com/drawings/d/1wnA2-bbvFetr4M1jqSpdjD-cQ57xnWGcSMhmoskxSvI/edit?usp=sharing">
