@@ -1,5 +1,11 @@
 # Tom's sandbox area
 
+This project is essentially me geeking around at home
+
+## Hardware
+
+I use a [Gigabyte Brix S](https://www.gigabyte.com/Mini-PcBarebone/GB-BKi7HA-7500-rev-10#ov). 2x16GB of RAM and a Pci-e 256GB 
+
 ## Setup ESXi 
 
 Create a user with privileges to create vms
