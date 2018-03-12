@@ -28,7 +28,18 @@ services:
     deploy:
       restart_policy:
         condition: on-failure
-
+  keepalived:
+    network_mode: host
+    image: tomdymond/keepalived:latest
+    environment:
+    - VRID={{ ansible_default_ipv4.address.split('.')[3] }}
+    - CHECK_PATH=/
+    - CHECK_HOST={{ ansible_default_ipv4.address }}
+    - CHECK_PORT=8500
+    command:
+    deploy:
+      restart_policy:
+        condition: on-failure
 
 volumes:
   consul-{{ ansible_hostname }}:
