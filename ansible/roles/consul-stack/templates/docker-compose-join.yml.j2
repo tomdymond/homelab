@@ -42,6 +42,9 @@ services:
     deploy:
       restart_policy:
         condition: on-failure
+    cap_add:
+    - NET_ADMIN
+    - NET_BROADCAST
 
 volumes:
   consul-{{ ansible_hostname }}:
