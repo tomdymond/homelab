@@ -1,4 +1,8 @@
 ---
 #dcos_website_host: https://downloads.dcos.io
-dcos_website_host: http://192.168.1.33
+#dcos_website_host: http://192.168.1.33
+
+dcos_version: 1.10.5
+dcos_url: https://downloads.mesosphere.com/dcos-enterprise/stable/{{ dcos_version }}/dcos_generate_config.ee.sh
+
 
