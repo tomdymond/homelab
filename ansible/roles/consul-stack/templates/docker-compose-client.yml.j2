@@ -20,7 +20,7 @@ services:
     - -advertise={{ ansible_default_ipv4.address }}
     - -bind=0.0.0.0
     - -client=127.0.0.1
-{% for consul_server in ansible_env.CONSUL_SERVERS %}
+{% for consul_server in ansible_env.CONSUL_SERVERS.split(',') %}
     - -join={{ consul_server }}
 {% endfor %}
     - -data-dir=/consul/data
