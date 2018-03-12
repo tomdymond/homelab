@@ -32,10 +32,12 @@ services:
     network_mode: host
     image: tomdymond/keepalived:latest
     environment:
-    - VRID={{ ansible_default_ipv4.address.split('.')[3] }}
-    - CHECK_PATH=/
-    - CHECK_HOST={{ ansible_default_ipv4.address }}
+    - VIRTUAL_IP={{ ansible_env.CONSUL_VIP }}
+    - VIRTUAL_MASK=24
+    - CHECK_IP={{ ansible_default_ipv4.address }}
     - CHECK_PORT=8500
+    - VRID={{ ansible_default_ipv4.address.split('.')[3] }}
+    - INTERFACE={{ ansible_default_ipv4.interface }}
     command:
     deploy:
       restart_policy:
