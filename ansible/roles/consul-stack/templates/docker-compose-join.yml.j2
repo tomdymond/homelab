@@ -36,8 +36,10 @@ services:
     - VIRTUAL_MASK=24
     - CHECK_IP={{ ansible_default_ipv4.address }}
     - CHECK_PORT=8500
+    - CHECK_PATH=/
     - VRID={{ ansible_default_ipv4.address.split('.')[3] }}
     - INTERFACE={{ ansible_default_ipv4.interface }}
+    - AUTH_PASS={{ secrets.auth_pass }}
     command:
     deploy:
       restart_policy:
