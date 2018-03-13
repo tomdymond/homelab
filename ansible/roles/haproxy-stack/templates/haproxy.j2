@@ -29,8 +29,8 @@ backend be_app-server
     option persist
     option http-server-close
     option redispatch
-<% for node in ansible_env.BACKEND_SERVERS.split(',') %>
-    server node0 {{ node }}:{{ ansible_env.APP_PORT }} weight 1 maxconn {{ ansible_env.MAXCONN }} check port {{ ansible_env.CHECK_PORT }}
+<% for ffnode in ansible_env.BACKEND_SERVERS.split(',') %>
+    server node0 {{ ffnode }}:{{ ansible_env.APP_PORT }} weight 1 maxconn {{ ansible_env.MAXCONN }} check port {{ ansible_env.CHECK_PORT }}
 <% endfor %>
 
 listen stats 0.0.0.0:9000
