@@ -42,6 +42,8 @@ data "template_file" "base_userdata" {
     ansible_vault_password = "${base64encode(file("~/.ansible_vault_password"))}"
     deploy_stack           = "${var.deploy_stack}"
     user_variables         = "${var.user_variables}"
+    consul_vip             = "${var.consul_vip}"
+    consul_servers         = "${var.consul_servers}"
   }
 }
 
