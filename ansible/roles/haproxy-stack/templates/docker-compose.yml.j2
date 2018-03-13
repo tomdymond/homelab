@@ -4,9 +4,9 @@ services:
     ports:
     - 80:80/tcp
     volumes:
-      type: bind
+    - type: bind
       source: /var/stacks/{{ stack_name }}-stack/haproxy
-      dest: /usr/local/etc/haproxy
+      target: /usr/local/etc/haproxy
     image: haproxy
     stdin_open: true
     tty: true
