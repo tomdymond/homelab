@@ -7,6 +7,9 @@ variable vsphere_server {
 variable consul_vip {
   default = "192.168.1.127"  
 }
+variable consul_servers {
+  default = "192.168.1.15,192.168.1.16,192.168.1.17"  
+}
 variable node_base_name {
   default = "foobar"
 }
