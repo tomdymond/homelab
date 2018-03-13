@@ -11,21 +11,8 @@
 
 - name: Generate docker-compose file
   template:
-    src=docker-compose-join.yml.j2
+    src=docker-compose-{{ stack_name }}.yml.j2
     dest=/var/stacks/{{ stack_name }}-stack/docker-compose.yml
-  when: ansible_env.CONSUL_ROLE == "join"
-
-- name: Generate docker-compose file
-  template:
-    src=docker-compose-boot.yml.j2
-    dest=/var/stacks/{{ stack_name }}-stack/docker-compose.yml
-  when: ansible_env.CONSUL_ROLE == "boot"
-
-- name: Generate docker-compose file
-  template:
-    src=docker-compose-client.yml.j2
-    dest=/var/stacks/{{ stack_name }}-stack/docker-compose.yml
-  when: ansible_env.CONSUL_ROLE == "client"
 
 - name: Copy service file for stack
   template:
