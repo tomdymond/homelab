@@ -1,0 +1,10 @@
+#VAULT_POLICY="secret/foo!read,update;secret/bar!write,update"
+
+{% for policy in ansible_env.VAULT_POLICY.split(';') %}
+{% set policy_name = policy[0] %}
+{% set capabilities = policy_name.split('!') %}
+path "{{ policy_name }}" {
+  capabilities = [{{ capabilities.split(',')}}]
+}
+{% endfor %}
+
