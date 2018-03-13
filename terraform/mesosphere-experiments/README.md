@@ -5,5 +5,6 @@ This is me testing stuff only. Hopefully not doing it too wrong :)
 
 
 ![diagram](diagram.svg)
+[source](https://docs.google.com/drawings/d/1wnA2-bbvFetr4M1jqSpdjD-cQ57xnWGcSMhmoskxSvI/edit?usp=sharing) 
 
 
