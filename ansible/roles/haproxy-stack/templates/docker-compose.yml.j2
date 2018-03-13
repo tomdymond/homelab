@@ -3,7 +3,7 @@ services:
   haproxy:
     ports:
     - 80:80/tcp
-    volume:
+    volumes:
       type: bind
       source: /var/stacks/{{ stack_name }}-stack/haproxy
       dest: /usr/local/etc/haproxy
