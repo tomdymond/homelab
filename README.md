@@ -5,6 +5,7 @@ This project is essentially me geeking around at home
 ## Hardware
 
 I use a [Gigabyte BrixS GB-BKi7HA-7500](https://www.gigabyte.com/Mini-PcBarebone/GB-BKi7HA-7500-rev-10#ov). 2x16GB of RAM and a Pci-e 256GB 
+![brix](doc/20160923104029_m.png)
 
 ## Setup ESXi 
 
