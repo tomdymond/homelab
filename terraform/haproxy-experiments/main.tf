@@ -9,4 +9,6 @@ module "vm" {
   memory="1024"
   vcpu="1"
   deploy_stack="haproxy-stack"
+  user_variables="BACKEND_SERVERS=192.168.1.34,192.168.1.38!APP_PORT=80!MAXCONN=500!CHECK_PORT=80!FE_PORT=80"
 }
+
