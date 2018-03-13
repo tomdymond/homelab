@@ -5,7 +5,7 @@ services:
     - 80:80/tcp
     volumes:
     - type: bind
-      source: /var/stacks/{{ stack_name }}-stack/haproxy
+      source: /var/stacks/{{ stack_name }}-stack/etc
       target: /usr/local/etc/haproxy
     image: haproxy
     stdin_open: true
