@@ -1,1 +1,41 @@
-dfoo
+global
+    log 127.0.0.1 local0 notice
+    user haproxy
+    group haproxy
+    ssl-server-verify none
+
+defaults
+    retries 3
+    timeout client 25s
+    timeout connect 5s
+    timeout server 25s
+    timeout tunnel 3600s
+    timeout http-keep-alive 1s
+    timeout http-request 15s
+    timeout queue 30s
+    timeout tarpit 60s
+frontend fe_app-server
+    bind 0.0.0.0:{{ ansible_env.FE_PORT }}
+    mode http
+    default_backend be_app-server
+
+    # Add headers for SSL offloading
+    acl is_websocket hdr(Upgrade) -i WebSocket
+    acl is_websocket hdr_beg(Host) -i ws
+    use_backend be_app-server if is_websocket
+backend be_app-server
+    mode http
+    balance roundrobin
+    option persist
+    option http-server-close
+    option redispatch
+<% for node in ansible_env.BACKEND_SERVERS.split(',') %>
+    server node0 {{ node }}:{{ ansible_env.APP_PORT }} weight 1 maxconn {{ ansible_env.MAXCONN }} check port {{ ansible_env.CHECK_PORT }}
+<% endfor %>
+
+listen stats 0.0.0.0:9000
+    mode http
+    stats enable
+    stats realm Haproxy\ Statistics
+    stats uri /haproxy_stats
+    stats auth username:password
