@@ -16,10 +16,16 @@
     src=../common/templates/stack.service.j2
     dest=/etc/systemd/system/{{ stack_name }}-stack.service
 
+- name: Create config folder etc
+  file:
+    path: /var/stacks/{{ stack_name }}-stack/etc
+    state: directory
+    mode: 0755
+
 - name: Copy haproxy config
   template:
     src=haproxy.j2
-    dest=/var/stacks/{{ stack_name }}-stack/haproxy
+    dest=/var/stacks/{{ stack_name }}-stack/etc/haproxy.conf
 
 - name: Restart service
   systemd:
