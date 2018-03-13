@@ -2,6 +2,7 @@ version: '3.3'
 services:
   haproxy:
     ports:
+    - 9000:9000/tcp
     - 80:80/tcp
     volumes:
     - type: bind
