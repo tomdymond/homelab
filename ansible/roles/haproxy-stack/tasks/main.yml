@@ -1,6 +1,4 @@
 ---
-- name: add secrets
-  include_vars: secrets.yml
 
 - name: Create stack dir
   file:
