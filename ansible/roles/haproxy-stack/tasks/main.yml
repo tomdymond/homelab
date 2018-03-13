@@ -25,7 +25,7 @@
 - name: Copy haproxy config
   template:
     src=haproxy.j2
-    dest=/var/stacks/{{ stack_name }}-stack/etc/haproxy.conf
+    dest=/var/stacks/{{ stack_name }}-stack/etc/haproxy.cfg
 
 - name: Restart service
   systemd:
