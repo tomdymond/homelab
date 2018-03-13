@@ -4,6 +4,9 @@ variable vsphere_password {}
 variable vsphere_server {
   default = "192.168.1.254"
 }
+variable consul_vip {
+  default = "192.168.1.127"  
+}
 variable node_base_name {
   default = "foobar"
 }
