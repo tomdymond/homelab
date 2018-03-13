@@ -33,6 +33,6 @@ write_files:
       export DEPLOY_STACK="${deploy_stack}"      
       export USER_VARIABLES="${user_variables}"
       export CONSUL_ROLE="client"
-      export CONSUL_SERVERS="192.168.1.15,192.168.1.16,192.168.1.17"
+      export CONSUL_SERVERS="${consul_servers}"
       export CONSUL_VIP="${consul_vip}"
 
