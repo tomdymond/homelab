@@ -44,6 +44,8 @@ data "template_file" "base_userdata" {
     user_variables         = "${var.user_variables}"
     consul_vip             = "${var.consul_vip}"
     consul_servers         = "${var.consul_servers}"
+    vault_username         = "${var.vault_username}"
+    vault_password         = "${var.vault_password}"
   }
 }
 
