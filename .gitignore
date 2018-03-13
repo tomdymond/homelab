@@ -5,4 +5,4 @@ secret.tf
 *.tfstate*
 .terraform
 *.retry
-terraform-bin
+./bin/

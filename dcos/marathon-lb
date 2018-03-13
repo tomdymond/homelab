@@ -1,0 +1,509 @@
+{
+  "id": "/marathon-lb",
+  "acceptedResourceRoles": [
+    "slave_public"
+  ],
+  "args": [
+    "sse",
+    "-m",
+    "http://marathon.mesos:8080",
+    "--health-check",
+    "--haproxy-map",
+    "--max-reload-retries",
+    "10",
+    "--reload-interval",
+    "10",
+    "--group",
+    "external"
+  ],
+  "backoffFactor": 1.15,
+  "backoffSeconds": 1,
+  "container": {
+    "type": "DOCKER",
+    "volumes": [],
+    "docker": {
+      "image": "mesosphere/marathon-lb:v1.11.3",
+      "forcePullImage": false,
+      "privileged": true,
+      "parameters": [
+        {
+          "key": "label",
+          "value": "created_by=marathon"
+        },
+        {
+          "key": "label",
+          "value": "dcos_pkg_name=marathon-lb"
+        }
+      ]
+    }
+  },
+  "cpus": 0.1,
+  "disk": 0,
+  "env": {
+    "HAPROXY_GLOBAL_DEFAULT_OPTIONS": "redispatch,http-server-close,dontlognull",
+    "HAPROXY_SYSCTL_PARAMS": "net.ipv4.tcp_tw_reuse=1 net.ipv4.tcp_fin_timeout=30 net.ipv4.tcp_max_syn_backlog=10240 net.ipv4.tcp_max_tw_buckets=400000 net.ipv4.tcp_max_orphans=60000 net.core.somaxconn=10000"
+  },
+  "healthChecks": [
+    {
+      "gracePeriodSeconds": 60,
+      "intervalSeconds": 5,
+      "maxConsecutiveFailures": 2,
+      "portIndex": 2,
+      "timeoutSeconds": 2,
+      "delaySeconds": 15,
+      "protocol": "MESOS_HTTP",
+      "path": "/_haproxy_health_check"
+    }
+  ],
+  "instances": 1,
+  "labels": {
+    "DCOS_PACKAGE_OPTIONS": "eyJtYXJhdGhvbi1sYiI6eyJhdXRvLWFzc2lnbi1zZXJ2aWNlLXBvcnRzIjpmYWxzZSwiYmluZC1odHRwLWh0dHBzIjp0cnVlLCJjcHVzIjoyLCJoYXByb3h5X2dsb2JhbF9kZWZhdWx0X29wdGlvbnMiOiJyZWRpc3BhdGNoLGh0dHAtc2VydmVyLWNsb3NlLGRvbnRsb2dudWxsIiwiaGFwcm94eS1ncm91cCI6ImV4dGVybmFsIiwiaGFwcm94eS1tYXAiOnRydWUsImluc3RhbmNlcyI6MSwibWVtIjoxMDI0LCJtaW5pbXVtSGVhbHRoQ2FwYWNpdHkiOjAuNSwibWF4aW11bU92ZXJDYXBhY2l0eSI6MC4yLCJuYW1lIjoibWFyYXRob24tbGIiLCJwYXJhbWV0ZXJzIjpbXSwicm9sZSI6InNsYXZlX3B1YmxpYyIsInN0cmljdC1tb2RlIjpmYWxzZSwic3lzY3RsLXBhcmFtcyI6Im5ldC5pcHY0LnRjcF90d19yZXVzZT0xIG5ldC5pcHY0LnRjcF9maW5fdGltZW91dD0zMCBuZXQuaXB2NC50Y3BfbWF4X3N5bl9iYWNrbG9nPTEwMjQwIG5ldC5pcHY0LnRjcF9tYXhfdHdfYnVja2V0cz00MDAwMDAgbmV0LmlwdjQudGNwX21heF9vcnBoYW5zPTYwMDAwIG5ldC5jb3JlLnNvbWF4Y29ubj0xMDAwMCIsImNvbnRhaW5lci1zeXNsb2dkIjpmYWxzZSwibWF4LXJlbG9hZC1yZXRyaWVzIjoxMCwicmVsb2FkLWludGVydmFsIjoxMCwibWFyYXRob24tdXJpIjoiaHR0cDovL21hcmF0aG9uLm1lc29zOjgwODAifX0=",
+    "DCOS_PACKAGE_SOURCE": "https://universe.mesosphere.com/repo",
+    "DCOS_PACKAGE_METADATA": "eyJwYWNrYWdpbmdWZXJzaW9uIjoiNC4wIiwibmFtZSI6Im1hcmF0aG9uLWxiIiwidmVyc2lvbiI6IjEuMTEuMyIsIm1haW50YWluZXIiOiJzdXBwb3J0QG1lc29zcGhlcmUuaW8iLCJkZXNjcmlwdGlvbiI6IkhBUHJveHkgY29uZmlndXJlZCB1c2luZyBNYXJhdGhvbiBzdGF0ZSIsInRhZ3MiOlsibG9hZGJhbGFuY2VyIiwic2VydmljZS1kaXNjb3ZlcnkiLCJyZXZlcnNlLXByb3h5IiwicHJveHkiLCJoYXByb3h5Il0sInNlbGVjdGVkIjpmYWxzZSwic2NtIjoiaHR0cHM6Ly9naXRodWIuY29tL21lc29zcGhlcmUvbWFyYXRob24tbGIiLCJmcmFtZXdvcmsiOmZhbHNlLCJwcmVJbnN0YWxsTm90ZXMiOiJXZSByZWNvbW1lbmQgYXQgbGVhc3QgMiBDUFVzIGFuZCAxR2lCIG9mIFJBTSBmb3IgZWFjaCBNYXJhdGhvbi1MQiBpbnN0YW5jZS4gXG5cbipOT1RFKjogRm9yIGFkZGl0aW9uYWwgYGBgRW50ZXJwcmlzZSBFZGl0aW9uYGBgIERDL09TIGluc3RydWN0aW9ucywgc2VlIGh0dHBzOi8vZG9jcy5tZXNvc3BoZXJlLmNvbS9hZG1pbmlzdHJhdGlvbi9pZC1hbmQtYWNjZXNzLW1ndC9zZXJ2aWNlLWF1dGgvbWxiLWF1dGgvIiwicG9zdEluc3RhbGxOb3RlcyI6Ik1hcmF0aG9uLWxiIERDL09TIFNlcnZpY2UgaGFzIGJlZW4gc3VjY2Vzc2Z1bGx5IGluc3RhbGxlZCFcblNlZSBodHRwczovL2dpdGh1Yi5jb20vbWVzb3NwaGVyZS9tYXJhdGhvbi1sYiBmb3IgZG9jdW1lbnRhdGlvbi4iLCJwb3N0VW5pbnN0YWxsTm90ZXMiOiJNYXJhdGhvbi1sYiBEQy9PUyBTZXJ2aWNlIGhhcyBiZWVuIHVuaW5zdGFsbGVkIGFuZCB3aWxsIG5vIGxvbmdlciBydW4uIiwibGljZW5zZXMiOlt7Im5hbWUiOiJBcGFjaGUgTGljZW5zZSBWZXJzaW9uIDIuMCIsInVybCI6Imh0dHBzOi8vZ2l0aHViLmNvbS9tZXNvc3BoZXJlL21hcmF0aG9uL2Jsb2IvbWFzdGVyL0xJQ0VOU0UifSx7Im5hbWUiOiJHTlUgR2VuZXJhbCBQdWJsaWMgTGljZW5zZSB2ZXJzaW9uIDIiLCJ1cmwiOiJodHRwOi8vd3d3LmhhcHJveHkub3JnL2Rvd25sb2FkLzEuNi9kb2MvTElDRU5TRSJ9XSwiaW1hZ2VzIjp7Imljb24tc21hbGwiOiJodHRwczovL2Rvd25sb2Fkcy5tZXNvc3BoZXJlLmNvbS9hc3NldHMvdW5pdmVyc2UvMDAwL21hcmF0aG9uLWxiLWljb24tc21hbGwucG5nIiwiaWNvbi1tZWRpdW0iOiJodHRwczovL2Rvd25sb2Fkcy5tZXNvc3BoZXJlLmNvbS9hc3NldHMvdW5pdmVyc2UvMDAwL21hcmF0aG9uLWxiLWljb24tbWVkaXVtLnBuZyIsImljb24tbGFyZ2UiOiJodHRwczovL2Rvd25sb2Fkcy5tZXNvc3BoZXJlLmNvbS9hc3NldHMvdW5pdmVyc2UvMDAwL21hcmF0aG9uLWxiLWljb24tbGFyZ2UucG5nIn19",
+    "DCOS_PACKAGE_DEFINITION": "eyJtZXRhZGF0YSI6eyJDb250ZW50LVR5cGUiOiJhcHBsaWNhdGlvbi92bmQuZGNvcy51bml2ZXJzZS5wYWNrYWdlK2pzb247Y2hhcnNldD11dGYtODt2ZXJzaW9uPXY0IiwiQ29udGVudC1FbmNvZGluZyI6Imd6aXAifSwiZGF0YSI6Ikg0c0lBQUFBQUFBQUFLMWFlVy9xeUpiL0toN2UvREh6RklodGt1NG0wcFVtN05CQXdyNTB0M0s5Rk5paHZEeTdESmlyKzkzblZOa21QaXgzYVhXa0pGQStkYmJmMmF5cUx3VmZNN2JheG5ZM014S0V0dWNXbmdvUEpibHdWM0ExaDhBWFJ3czBabmx1a2Vxd3VEc1JLU1ZGS1pWaEtTQ1VhQ0U1YlM4LzNzRW0yMlh3U3dLZ0RDUGY5d0wyZnc0SnZkQzNTRUJLdGdjYlRSSWFnZTJ6aEYvNytUWHdEckZrZU83YTNrUUJNYVVvQkxXa2ZxcUFGREtORWRqSHRFMVllUHFqUUQzTjFEV3F1UWFJdVN1RUpOalpCaW1hZG1oNG9HY3NkT01LazZMUFdjUDM3TCtsSlovKzR0c29NUmd4QzA5dVJDbDhOeHpReG1MTUQ1L3U3emMyc3lLOVpIak8vWWY2OTlnbmU2S0hObWlXTWxnSDRMaTlGMnl6QlQ4Z0hSZVVwM1RnTVFLcUYrWkVDZ2p3ZEloclNocVR1QU9acEVxMTEya29hYkNtdE95cTVLMmwwWE5mV251QlJEVERPam1pMkt0S05tY0locGVrUDkwLzNYOFBYaWFOZno5SlRTRFZUTlBtTHRXbzlQbno1NGJMU09BSGRraWtScklPaTFLOWR2OHlGanlDeU9DTDRaMFVFaUpsVnB1ZUVaWnljSEh6TmRPeFhSdDJhSHpEdlcwV1FkR2laaGdrREl2T2h0MW4vdGNpWnQwN1ZFOCtjS2Q3SVR0elFQL0RnYWt5NDJTM1pHbWhwQk1DYUVlQzlScGNHQ2ZtVWtyTS8vclRIZWNVL1M0OHdudGdUZ1N1WmtMelVxclIxTFYvV3FmSVBTa2lZTnJibEVxdUoxSFAzWkJBQ2lMQm5jSWVOK1E4Ly9pU1pkRXpwSmxGcEY3eVNFcVRSVkpGcGtVQi9lR1F1OWVwcDhPM0VIQzk3M1ZxamNHNFVmaDZkeExVR2t5bEZvSEVBL3hmSXgxME9RbmRaVUtSU0pDNDMrOUxhVWFVdkdBRDhPOWRubHozU3VrWEhnc2ZjaUJmSUFycWhoZU96ckllNmtHbGNIZXFGb1duTDRXZCt1ejcvUWdjQnFaUGlPTlRucjlQQlVpT1RhZlc5VmUxemkvdy8xZWlLcGJoTkdXdFZZbDY4NFBkY3g0dGZUNnJyTWVkc0dZL2J6b09qWXp5eU5LZEFUVmkyTk5tdityelpyeGNqRHhkZldCNnF4TnA4OGVqMldwR1MzVjJYQy9rZE45Z2J5NzY5b3RkdlNLRFB4dUFqUDN2bmRxekRmSlk1OTNia0RKankwWFhNbHZXVHJlVmNHay9zdFZjeWRFMWZkMGRXU0NQR3JiUS8yZ3VxbnU5M0pXSExZVWFhdVZvdEN4cU9GUFE2VGU3OXl4c2ZkZlZSM2s1cDlGcTBSSDZDUDJBbjltbSs5Vlk4R2xNNUVGdk5PdWtlN2orbzkxU1pZbWNkdmk3V0JQcmxDM25KdVg2ZGx6MnErSE1qbnA1RmkvVmFiUmNESTZyeGVnSTl1MCs5SHpjNnVvZ0FOblJtZC9ZcWxWNTE5UlpERDc3a012dGRHYXlxVlppTFJhNmRTYktZTnF4OXg4NnVOVllXNng4dlRWelYvTWh0MGsyM0JuTjh6QmFJR3V1VUxNMWl3VnV6UThiU0RsOFA4Y1EwWmVWU3VxamhINS80cHY2Z0ZFeXp1SUhQaStVQ3RKUC9IYlY1ZnlnckRLNjhzclMyelBLYmMzelRySE45TnI5UTNxRnkzbVg2clUwaGo5b2JOTnBodVo4Q2o1N3RwZmxMZ1ZaZE5XczJHU2k1R0t2azdPbFdzbjVkWU5pSWJFVHNOMEtmbnFyYWEvbWV4dlJDN3dTMjBYTU9LTjN2VHhZR3kzbUxsU2VhOVBLbWMzWVA4T01WOVZNMXF2Q0I0bmZJTGZpd1huT3hMcDY0SDRXT2JPY0Q5NVhpNnE4bW8vR3E4VmdaeTY2NzZ0WmR3ZXhjK1Q2ekRNZnVwZDViVGlWY01XeDNRQk5NOG5ycXhpbGRFbmVXeFJ3bDdYR3dGdk5Cd0dLdmJ6djNDcm92QkYrNnlrVmI3bW94bnJaZWx5bzZmNG01RVpyOWc0NWtNbTlpTmtsMUtaVlRmSE05bWpmbTF1eTJhNGVVN3N6R1R2REhYVjFaMFFKcjNmMXprMGJidk1DSHl1UDV6NjJJYmUzQ2QwejA5b2oyV2hEUFJ2bTg2OFNtdzNnMlpvOWNELzNheGxlbFovbjFlN3VUS2dWdXJvWC9wcE1aeE9vQ2V0eGN6U2RvaGp2dWxCbkFkOHExRUM2V3pVSGRLbFdvbFdiMStGbk5kSGhWTWNpbmxNOEg2YnFqTmZJcmNDcVBzM3prelhJUGFodk1xWkJNc0VlcXc3UGpvQzNZcmFvdXBxdW9QWWRGRjRiaGUwMmt1dnFUaVZlVFlXOUI5TG1NVkIxQVBQaktyVloySjdHVzhlZDdWZmxyZ1YrbkpodDdyZVpLM0w4RkV0ZEJ2N3o5Y1dNalZzenlMT1JOMVNiZTRoNzMyeHZiL1FmeGRlaGpwdHpwYk9hUXoxb1dYV0lQMnVwVXBuWHNvOGVvRmlrSmVoZVRXY1cvd0RmRy9RMHdiT2Q5Y1ptdkNvREp2Umt3OUZRcHg5MXcxWVkxTk9yT1puL0RybnNvOTVoeTB4TGZkQ2JKL21YMU9XL0VjUEFDL3BUWk5hVUszVDlSQ2JNQXIwTEgzVEJ0OE9FTHMybnJHNWZ5Mkd0MWR4RC9YZ2dZMTUvcTBnK2Z2YjhEWm1XeFhPRXRMY00rTzlQZVh0Wkd5MXpNZHIxNWszd044U2hyVUMvN3FyYWZFQjdDMUVyY3ZXanczcHppSk9VSm5rT2RpMmVtUUY1MDF1TUxFTU43UjdrWjMveWZPalhHd2dIME9PaHQ0Q1p5VjB5VVF0cWlnLysyTU1jd0dCV092SzZCakw0UHFWZiswWmRXc3hrUFFaN3l3Ti9CV3VHeW5PV3ZxL0dpcGg3dnVWYm1OdGlzRTBHTzNhUVA4aTMrTm4wdG0vZGdReTE1QjMwWjdvNm9tZitzVWhOaVZmencyNDVIekxJZDA3TDU4VHcrbXg1Zzc2Y254K0E3d0o2ZDZ0aVFUM204eDc0RVBwbjdRWlA5d3B0KzR6ZjNJVGVNdHZmeXFsY25FSDlyQ2hHRy9lOERzZ3dGak1mOUIwS24wTU5oRm9FczgzTkhnejlGdkJwTldYQUNlcmdJZlY5Rno3VHBPL0d6L2FWZWZkeTM3aXpXWXh2OW81YmNxanVMbk96N2xVZGViMk9ZVjVkNjA2VG5mbzN4UE9vTVhpZEtwWEphTmFkajZlRDVrSnUxb2R5WlRhaG8vVlE2VFpIamRuTHJFR3JrNXFvdytBZjZETXdTNW5KTzhVcHA0YXdCbkVIZllaeS9ENW12ZXR4bHZCb1ZpSSs3NTNpREdnN04vT2RybGNxeEJMMHNBWEU1c3BwS2xENzFucTVDbjJyRXVYbVJYdmNhQTZuMjhvU1htM2FrMGFsTnB3ZTFtQkhhemliOVdmTnl1dTBPZXBPNU1kSk50ZmZqSkZaeFlWNGc3bnFzQWJiSE1qUEVIVGVHZTJSejN0Z3ZoNWZ5K2VmNEpQMWhzNXdWaDFQRkFzZ0drd216VW9kY0puZTBoUHFSQWkxSC9KZzlQRU9keDMvL0hzUjFBTjZCSDNjVmZ1cXp5YnoyYUEva2MzR0xibDh6b0M2QnJXZjE4YkJvd0c0ck5SekhTN2k5MmQxcU04YWgvVzAwUndQcDhwTnJEaWZaWGtVUXMzbWNjTkVmZGw4OU4rcnRSTG1HMTZQa3BrOHE1WGRMRWRFenA3ZU4xenUzNVVQNzd0MTJMTmR6UjhoM3BvaG91Rnptd3ExQk42YmIrcDVMbk9jdm5lMFJmK3FmS01tWDh1VlpPWVVzMTVWLzFzemMzMnp6MkozVUI4ZS8wNlBoNzJQL2ZyMnhPZGxBdCt6dks4Mzl2MzY4K2taOUUzNDNzaG15UU4vZHBvVkU5b2pwaDBpMmdIbXEySmFBOUcrMUJEdEk2S2RQT2RwRDFqZlJveHArNGgyZ1BnMkZFeTd4TFF4b24zQXROczhiZHhIZkRzSFJQdmV3YlNJYjBmR3RGTkVPMEQrN1pReDdRYlJ2aUEvOURGdVI0VGJFZVBXeDdnZEVXNUhqRnNmNDNaRXVCMHhibjJFMjZDT2NKTXhic01ZMHlMY1pJemJVTUcwUzB5TC9EdDh3TFFJTndYak5rVzREU1lkVEl2NFRtVk1pM0JUTUc3VE1xWkZ1Q2tZdHlYQ2JmQ09jRk14YnNzanBrVzRxUmkzcFlwcEVXNHF4bTJKY1RzaTNNb1lOd1BqZGtTNGxURnVCc2J0dU1TMHlMOEd4dTJJY0h2QXVHMFFiaS8xRHFaRmZEY3lwa1c0UFdEY05tVk1pM0I3d0xodEVXNHZFNFRiSThadGU4UzBDTGRIak50V3hiUUl0MGVNMnphUEczLytEN3hYNWZnRFQ4dy83MmQ0SGlOYUdkTk9FUzN5OCtTNWpHazNpQmI1ZWRMWUkxcms1OFlCK1huU09HTGFJYUlkWUw0cXBqVVFMZkx6cElIOS9KN1BqMGFNOG1QU2lURnRIOUdpL0poMEZFeTd4TFRJdjUwSFRKdlBqOFlSNWNla2ozRTdkakF0NHR2SHVCMFJia2VNV3gvamRrUzRIVEZ1UTRUYkFNMFJEUm5qTmp4aVdvU2JqSEVicXBnVzRTWmozSVlJdDhFa3k0K0xPZmNIODZOcTFsejU5OEpYZm5nYWVsRmdFSDZXbzRVaFlTSC9GQVYybUoxc0d0N3BsUGRMd2ZTTWJmSXBkLzVXekZZTDE4L25ubmJwT2ZMWHJ5RFJkclFORVZKc1lGME1IWTNtVDhheWM2bkxzMG1oM1gzazJ1SzQ5MTZXNWJ5UTRnZTNrdTl1Q25jSmU0ZVlkdVQ4WS93VGRua0JWQXMyNUIvakw3aWw3RU1qSU1RTkxZK2xXSUR6REdwL2ZCYUg2TnlSL3gwYUZuRzBqOE8rOTVEN1FpeUt3NzdrNDcrU3czR2ZCTXhPRU1pZmNjTlgvRkNMbUZjRXJlME44RXJQZmZrWnYzaG9rclVXVVZaNFdtczBKT2ZuL00rd1ZVcTJTdWxXU1d3VlI3Vk1DN2VodExkc3c1S2lrRWlkMXlLSUxmTGxrdlJUSjcvL0VzdkZQZEFWYmYvRXBaamVSa2dPaGdtRUx3MzVvUzJMZlE2VjdubVVhQzRQZjkxMnpTSVhKLzVneTFnUVhSZzJJdHljekpqZlpIRkMvUEJRVHV6aWg3L1ZralFGbTVobGg1SzlsbUl2a215WDhUc0E0Qkp1N2M0T1dLUlJ5ZkpDZGtNcnc0K3dLdXE1SHJYWHFSUmFHbVF2WndzeDd4a2FJL3l6dUVXUVB4dy8zU0lvaUhOZDIrSHBvSnpFdXBHalErNStQZDJYZU50UVQ5Zm9XeXI4elJNeVUzM3lPdFFUQWltaGwxSTY0WW4wbmtmT3VwQUZ0b2pxazAxUWVrdzc5RFZtV0hjQ0FlSFpvR2hRRHdMS2hLcER2UTBQOVp4dXhVM2dSVDV5VFlFY0dBbGNqZDY4YkNMMlNMN0dyMndBYVVucWM1bmdPUjQyWE5YUnkyTDUxaHE5VEYvQldRSkZ6ZmNscXVrRWhVMXFRazRiUi9PL0d6RU5WOU1weVR3aXpkb0FPK0RqSjQ1YTh6c2h5UnBveVlELzlZaklRTVJob1p3TEd3Z3crYVdTMHdZZUUrbWRoU3ZvODlEY0pQQTd4TUhNWmZXaEpKOUw2QlBIQzJMcGYvclYvLzF1NUltRXpzdFZIMy9oSEM4aUx5Vm9FNDB5cTZiNW1tR3pHQ2tqbHg0dk5FazJTWmJZSlJucE5pVHdxakR0d0IrK1FLemRFSFdSYmYxa2k4UnZIUDI0b09TeVJqNVU4WldpTStpQU9xMGlVRGx5dDMrdUJlQXBtSytscFdqR1VvN2t4RUFMQW8zZmpMSVpjY1RPZE4zVDM0bkJMcnJEbHNRNW9nL3BPNDFHNU1vVE1VNzhKN0lEZnRIcUQ3RTlJLzdyYXk3ei8rRGZBb2h0N0oyUWFqdnk1b3Y3TEJmdXFST2ZlakVLTDgrbE1meVJYTS9Na2xuNGpuTyttclpoU0lzR21IZnBzMGx2TE5YZ2lTam5mbUR2ZUVpRC9ra3htMHhleDljWndpZURGUjFRNFBzOU1TMEV5UjZKN3lsSkU2RnY0alBJVkV0am9tR1Fndzgrc0JuWVI1SmRJcmQwRFpBVk41TEExTTlaNGZyaWZuMXJESjZydlViOUV5OUFuNjlYa0RBT0RVYUxJaXh3RlNtNGhKVnNmL2RRWW9iL3h2WnZBWUUrOVVtUjBQcmFkdCtZN1JDb1VwL0tNbjRHS2ZVV3h1NGJWeENLOWlkZU9xNlFBR3M5QWhOWStPbEI1aitYSkY3Z1c1b2JmdnJsOU5qd1lINEtQWGdJODQ0THJPSG5Jam9TNDVLWUZ4VVBSaTErNXc0eUNKcXQvKzJlOURVMzR4YUJFMWhnL2pDY1VCRjA2RmRTdWsrQ1AveWVKZGZoeEJUVU1NRnRLZHppUGhsdzlIZ2xZVkZBZUJFOTlRZmVDZmxPbDRnN2V5SWdQV2hKQWVkOFkxd0EzeFFEd29kTytBYzJuWGVKeXlLdUhhUmtnNVJ1a0hRQ1BvSUNCS01TcUZTU1J1SnhLRUdyODRrcjhTdVdzVlRNeFBDMkVVQm1nNTlCVjVoMVlXeGozR2FaLzRHMkxud0RUaThxd3ZjMlRLb3VWSjFNWE02T1hBYzZZLzRkSStZVzZNWDV4YWxXYWE2WWQ5SmVzMWxTQy9pbHZjdzJqVUhaODNtUEJhOG1QazAyWHRlR3BaZlppdUlhWFQ1ZkxzSnZPdXB4dXlIWWRJNWxDcndRQk00SUFFcmVNek9HNGIySWppaGtubU1mK2MxRFAzY3A5bXA4bnNvZXZKaGhYZEtCUHlOSVhqcWVmcE4vdTB5UzZhakRKNFBUVmR0dk5SakFGVno3OXRIQ0xsb1ZjT0tUMGxnUVNtUEdQUXdmVGVJeUc2STdtM1k1K3NsRnkrdzlnTjhZNVVSR2NsTXpTUXA0eTRtb0NVaEpsS3laeEhHS3BjaWxKQXh2YkpSZ2wwdEFudm50S2ZPaUxZbmhPaGwzenVmSy9KeVY5dSsvN3M2YUpHZDN0bkpYaVB4Tm9JR1Rtb0huWk8vTi9FVXdXWjE0NlR2Yi93T2czdStLaVMwQUFBPT0ifQ==",
+    "DCOS_PACKAGE_VERSION": "1.11.3",
+    "DCOS_PACKAGE_NAME": "marathon-lb"
+  },
+  "maxLaunchDelaySeconds": 3600,
+  "mem": 128,
+  "gpus": 0,
+  "networks": [
+    {
+      "mode": "host"
+    }
+  ],
+  "portDefinitions": [
+    {
+      "protocol": "tcp",
+      "port": 80
+    },
+    {
+      "protocol": "tcp",
+      "port": 443
+    },
+    {
+      "protocol": "tcp",
+      "port": 9090
+    },
+    {
+      "protocol": "tcp",
+      "port": 9091
+    },
+    {
+      "protocol": "tcp",
+      "port": 10000
+    },
+    {
+      "protocol": "tcp",
+      "port": 10001
+    },
+    {
+      "protocol": "tcp",
+      "port": 10002
+    },
+    {
+      "protocol": "tcp",
+      "port": 10003
+    },
+    {
+      "protocol": "tcp",
+      "port": 10004
+    },
+    {
+      "protocol": "tcp",
+      "port": 10005
+    },
+    {
+      "protocol": "tcp",
+      "port": 10006
+    },
+    {
+      "protocol": "tcp",
+      "port": 10007
+    },
+    {
+      "protocol": "tcp",
+      "port": 10008
+    },
+    {
+      "protocol": "tcp",
+      "port": 10009
+    },
+    {
+      "protocol": "tcp",
+      "port": 10010
+    },
+    {
+      "protocol": "tcp",
+      "port": 10011
+    },
+    {
+      "protocol": "tcp",
+      "port": 10012
+    },
+    {
+      "protocol": "tcp",
+      "port": 10013
+    },
+    {
+      "protocol": "tcp",
+      "port": 10014
+    },
+    {
+      "protocol": "tcp",
+      "port": 10015
+    },
+    {
+      "protocol": "tcp",
+      "port": 10016
+    },
+    {
+      "protocol": "tcp",
+      "port": 10017
+    },
+    {
+      "protocol": "tcp",
+      "port": 10018
+    },
+    {
+      "protocol": "tcp",
+      "port": 10019
+    },
+    {
+      "protocol": "tcp",
+      "port": 10020
+    },
+    {
+      "protocol": "tcp",
+      "port": 10021
+    },
+    {
+      "protocol": "tcp",
+      "port": 10022
+    },
+    {
+      "protocol": "tcp",
+      "port": 10023
+    },
+    {
+      "protocol": "tcp",
+      "port": 10024
+    },
+    {
+      "protocol": "tcp",
+      "port": 10025
+    },
+    {
+      "protocol": "tcp",
+      "port": 10026
+    },
+    {
+      "protocol": "tcp",
+      "port": 10027
+    },
+    {
+      "protocol": "tcp",
+      "port": 10028
+    },
+    {
+      "protocol": "tcp",
+      "port": 10029
+    },
+    {
+      "protocol": "tcp",
+      "port": 10030
+    },
+    {
+      "protocol": "tcp",
+      "port": 10031
+    },
+    {
+      "protocol": "tcp",
+      "port": 10032
+    },
+    {
+      "protocol": "tcp",
+      "port": 10033
+    },
+    {
+      "protocol": "tcp",
+      "port": 10034
+    },
+    {
+      "protocol": "tcp",
+      "port": 10035
+    },
+    {
+      "protocol": "tcp",
+      "port": 10036
+    },
+    {
+      "protocol": "tcp",
+      "port": 10037
+    },
+    {
+      "protocol": "tcp",
+      "port": 10038
+    },
+    {
+      "protocol": "tcp",
+      "port": 10039
+    },
+    {
+      "protocol": "tcp",
+      "port": 10040
+    },
+    {
+      "protocol": "tcp",
+      "port": 10041
+    },
+    {
+      "protocol": "tcp",
+      "port": 10042
+    },
+    {
+      "protocol": "tcp",
+      "port": 10043
+    },
+    {
+      "protocol": "tcp",
+      "port": 10044
+    },
+    {
+      "protocol": "tcp",
+      "port": 10045
+    },
+    {
+      "protocol": "tcp",
+      "port": 10046
+    },
+    {
+      "protocol": "tcp",
+      "port": 10047
+    },
+    {
+      "protocol": "tcp",
+      "port": 10048
+    },
+    {
+      "protocol": "tcp",
+      "port": 10049
+    },
+    {
+      "protocol": "tcp",
+      "port": 10050
+    },
+    {
+      "protocol": "tcp",
+      "port": 10051
+    },
+    {
+      "protocol": "tcp",
+      "port": 10052
+    },
+    {
+      "protocol": "tcp",
+      "port": 10053
+    },
+    {
+      "protocol": "tcp",
+      "port": 10054
+    },
+    {
+      "protocol": "tcp",
+      "port": 10055
+    },
+    {
+      "protocol": "tcp",
+      "port": 10056
+    },
+    {
+      "protocol": "tcp",
+      "port": 10057
+    },
+    {
+      "protocol": "tcp",
+      "port": 10058
+    },
+    {
+      "protocol": "tcp",
+      "port": 10059
+    },
+    {
+      "protocol": "tcp",
+      "port": 10060
+    },
+    {
+      "protocol": "tcp",
+      "port": 10061
+    },
+    {
+      "protocol": "tcp",
+      "port": 10062
+    },
+    {
+      "protocol": "tcp",
+      "port": 10063
+    },
+    {
+      "protocol": "tcp",
+      "port": 10064
+    },
+    {
+      "protocol": "tcp",
+      "port": 10065
+    },
+    {
+      "protocol": "tcp",
+      "port": 10066
+    },
+    {
+      "protocol": "tcp",
+      "port": 10067
+    },
+    {
+      "protocol": "tcp",
+      "port": 10068
+    },
+    {
+      "protocol": "tcp",
+      "port": 10069
+    },
+    {
+      "protocol": "tcp",
+      "port": 10070
+    },
+    {
+      "protocol": "tcp",
+      "port": 10071
+    },
+    {
+      "protocol": "tcp",
+      "port": 10072
+    },
+    {
+      "protocol": "tcp",
+      "port": 10073
+    },
+    {
+      "protocol": "tcp",
+      "port": 10074
+    },
+    {
+      "protocol": "tcp",
+      "port": 10075
+    },
+    {
+      "protocol": "tcp",
+      "port": 10076
+    },
+    {
+      "protocol": "tcp",
+      "port": 10077
+    },
+    {
+      "protocol": "tcp",
+      "port": 10078
+    },
+    {
+      "protocol": "tcp",
+      "port": 10079
+    },
+    {
+      "protocol": "tcp",
+      "port": 10080
+    },
+    {
+      "protocol": "tcp",
+      "port": 10081
+    },
+    {
+      "protocol": "tcp",
+      "port": 10082
+    },
+    {
+      "protocol": "tcp",
+      "port": 10083
+    },
+    {
+      "protocol": "tcp",
+      "port": 10084
+    },
+    {
+      "protocol": "tcp",
+      "port": 10085
+    },
+    {
+      "protocol": "tcp",
+      "port": 10086
+    },
+    {
+      "protocol": "tcp",
+      "port": 10087
+    },
+    {
+      "protocol": "tcp",
+      "port": 10088
+    },
+    {
+      "protocol": "tcp",
+      "port": 10089
+    },
+    {
+      "protocol": "tcp",
+      "port": 10090
+    },
+    {
+      "protocol": "tcp",
+      "port": 10091
+    },
+    {
+      "protocol": "tcp",
+      "port": 10092
+    },
+    {
+      "protocol": "tcp",
+      "port": 10093
+    },
+    {
+      "protocol": "tcp",
+      "port": 10094
+    },
+    {
+      "protocol": "tcp",
+      "port": 10095
+    },
+    {
+      "protocol": "tcp",
+      "port": 10096
+    },
+    {
+      "protocol": "tcp",
+      "port": 10097
+    },
+    {
+      "protocol": "tcp",
+      "port": 10098
+    },
+    {
+      "protocol": "tcp",
+      "port": 10099
+    },
+    {
+      "protocol": "tcp",
+      "port": 10100
+    }
+  ],
+  "requirePorts": true,
+  "upgradeStrategy": {
+    "maximumOverCapacity": 0.2,
+    "minimumHealthCapacity": 0.5
+  },
+  "killSelection": "YOUNGEST_FIRST",
+  "unreachableStrategy": {
+    "inactiveAfterSeconds": 0,
+    "expungeAfterSeconds": 0
+  },
+  "fetch": [],
+  "constraints": []
+}
