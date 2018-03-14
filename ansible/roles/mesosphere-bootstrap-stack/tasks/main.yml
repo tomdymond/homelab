@@ -4,18 +4,18 @@
 
 - name: Create genconf folder
   file:
-    path: /opt/dcos-{{ dcos_version }}/{{ dcos_edition }}/genconf
+    path: /opt/dcos-{{ ansible_env.DCOS_VERSION }}/{{ ansible_env.DCOS_EDITION }}/genconf
     state: directory
 
 - name: Create genconf/serve folder
   file:
-    path: /opt/dcos-{{ dcos_version }}/{{ dcos_edition }}/genconf/serve
+    path: /opt/dcos-{{ ansible_env.DCOS_VERSION }}/{{ ansible_env.DCOS_EDITION }}/genconf/serve
     state: directory
 
 - name: Copy ipdetect script
   copy:
     src: ip-detect
-    dest: /opt/dcos-{{ dcos_version }}/{{ dcos_edition }}/genconf
+    dest: /opt/dcos-{{ ansible_env.DCOS_VERSION }}/{{ ansible_env.DCOS_EDITION }}/genconf
     mode: 0755
     owner: root
     group: root
@@ -23,34 +23,34 @@
 - name: Generate config.yaml
   template: 
     src: config.yaml.j2
-    dest: /opt/dcos-{{ dcos_version }}/{{ dcos_edition }}/genconf/config.yaml
+    dest: /opt/dcos-{{ ansible_env.DCOS_VERSION }}/{{ ansible_env.DCOS_EDITION }}/genconf/config.yaml
 
 - name: Check if DC/OS is already downloaded
-  command: ls /opt/dcos-{{ dcos_version }}/{{ dcos_edition }}/dcos_generate_config.sh
+  command: ls /opt/dcos-{{ ansible_env.DCOS_VERSION }}/{{ ansible_env.DCOS_EDITION }}/dcos_generate_config.sh
   register: dcos_downloaded
   ignore_errors: true
 
 - name: Download DC/OS from mesosphere
   get_url:
-    url: "{{ dcos[dcos_edition] }}"
-    dest: /opt/dcos-{{ dcos_version }}/{{ dcos_edition }}/dcos_generate_config.sh
+    url: "{{ dcos[ansible_env.DCOS_VERSION] }}"
+    dest: /opt/dcos-{{ ansible_env.DCOS_VERSION }}/{{ ansible_env.DCOS_EDITION }}/dcos_generate_config.sh
 
 - name: Make DC/OS script executable
   file:
-    path: /opt/dcos-{{ dcos_version }}/{{ dcos_edition }}/dcos_generate_config.sh
+    path: /opt/dcos-{{ ansible_env.DCOS_VERSION }}/{{ ansible_env.DCOS_EDITION }}/dcos_generate_config.sh
     mode: 0755
     owner: root
     group: root
 
 - name: Execute set superuser password
-  command: "/opt/dcos-{{ dcos_version }}/{{ dcos_edition }}/dcos_generate_config.sh --set-superuser-password {{ mesosphere_superuser_password }}"
+  command: "/opt/dcos-{{ ansible_env.DCOS_VERSION }}/{{ ansible_env.DCOS_EDITION }}/dcos_generate_config.sh --set-superuser-password {{ mesosphere_superuser_password }}"
   args:
-    chdir: /opt/dcos-{{ dcos_version }}/{{ dcos_edition }}
+    chdir: /opt/dcos-{{ ansible_env.DCOS_VERSION }}/{{ ansible_env.DCOS_EDITION }}
   
 - name: Execute dcos_generate_config.sh
-  command: "/opt/dcos-{{ dcos_version }}/{{ dcos_edition }}/dcos_generate_config.sh --genconf"
+  command: "/opt/dcos-{{ ansible_env.DCOS_VERSION }}/{{ ansible_env.DCOS_EDITION }}/dcos_generate_config.sh --genconf"
   args:
-    chdir: /opt/dcos-{{ dcos_version }}/{{ dcos_edition }}
+    chdir: /opt/dcos-{{ ansible_env.DCOS_VERSION }}/{{ ansible_env.DCOS_EDITION }}
 
 - name: Create stack dir
   file:
