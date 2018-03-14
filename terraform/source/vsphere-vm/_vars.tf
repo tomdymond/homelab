@@ -10,8 +10,12 @@ variable consul_vip {
 variable consul_servers {
   default = "192.168.1.15,192.168.1.16,192.168.1.17"  
 }
-variable vault_username {}
-variable vault_password {}
+variable vault_username {
+  default = "foo"  
+}
+variable vault_password {
+  default = "bar"
+}
 variable node_base_name {
   default = "foobar"
 }
