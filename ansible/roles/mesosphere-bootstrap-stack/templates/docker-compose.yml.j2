@@ -8,7 +8,7 @@ services:
       replicas: 1
     volumes:
       - type: bind
-        source: /opt/dcos-{{ ansible_env.DCOS_VERSION }}/genconf/serve
+        source: /opt/dcos-{{ ansible_env.DCOS_VERSION }}/{{ ansible_env.DCOS_EDITION }}/genconf/serve
         target: /usr/share/nginx/html
         volume:
           nocopy: true
