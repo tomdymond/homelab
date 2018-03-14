@@ -13,6 +13,13 @@ variable "default_dns_server" {
   default = "192.168.1.1"
 }
 
+variable "dcos_version" {
+  default = "1.11.0"  
+}
+variable "dcos_edition" {
+  default = "enterprise"  
+}
+
 module "mesos_bootstrap" {
   vsphere_server="${var.vsphere_server}"
   node_base_name="mesos-bootstrap"
@@ -24,7 +31,7 @@ module "mesos_bootstrap" {
   memory="2048"
   vcpu="2"
   deploy_stack="mesosphere-bootstrap-stack"
-  user_variables="MESOSPHERE_ROLE=bootstrap!MESOSPHERE_CLUSTER_NAME=${var.cluster_name}!MESOSPHERE_RESOLVER=${var.default_dns_server}!MESOS_MASTERS=${module.mesos_master.host_ip}!MESOS_AGENTS_PRIV=${module.mesos_slave_private.host_ip}!MESOS_AGENTS_PUBLIC=${module.mesos_slave_public.host_ip}"
+  user_variables="MESOSPHERE_ROLE=bootstrap!MESOSPHERE_CLUSTER_NAME=${var.cluster_name}!MESOSPHERE_RESOLVER=${var.default_dns_server}!MESOS_MASTERS=${module.mesos_master.host_ip}!MESOS_AGENTS_PRIV=${module.mesos_slave_private.host_ip}!MESOS_AGENTS_PUBLIC=${module.mesos_slave_public.host_ip}!DCOS_VERSION=${var.dcos_version}!DCOS_EDITION=${var.dcos_edition}"
   master_count=1
 }
 
@@ -39,7 +46,7 @@ module "mesos_master" {
   memory="4096"
   vcpu="2"
   deploy_stack="mesosphere-bootstrap-discovery-stack"
-  user_variables="MESOSPHERE_ROLE=master!MESOS_BOOTSTRAP=${var.boostrap_node}"
+  user_variables="MESOSPHERE_ROLE=master!MESOS_BOOTSTRAP=${var.boostrap_node}!DCOS_VERSION=${var.dcos_version}!DCOS_EDITION=${var.dcos_edition}"
   master_count=3
 }
 
@@ -54,7 +61,7 @@ module "mesos_slave_private" {
   memory="4096"
   vcpu="2"
   deploy_stack="mesosphere-bootstrap-discovery-stack"
-  user_variables="MESOSPHERE_ROLE=slave!MESOS_BOOTSTRAP=${var.boostrap_node}"
+  user_variables="MESOSPHERE_ROLE=slave!MESOS_BOOTSTRAP=${var.boostrap_node}!DCOS_VERSION=${var.dcos_version}!DCOS_EDITION=${var.dcos_edition}"
   master_count=3
 }
 
@@ -69,6 +76,6 @@ module "mesos_slave_public" {
   memory="4096"
   vcpu="2"
   deploy_stack="mesosphere-bootstrap-discovery-stack"
-  user_variables="MESOSPHERE_ROLE=slave_public!MESOS_BOOTSTRAP=${var.boostrap_node}"
+  user_variables="MESOSPHERE_ROLE=slave_public!MESOS_BOOTSTRAP=${var.boostrap_node}!DCOS_VERSION=${var.dcos_version}!DCOS_EDITION=${var.dcos_edition}"
   master_count=2
 }
