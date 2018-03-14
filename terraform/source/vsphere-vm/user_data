@@ -36,6 +36,6 @@ write_files:
       export CONSUL_SERVERS="${consul_servers}"
       export CONSUL_VIP="${consul_vip}"
       export VAULT_USERNAME="${vault_username}"
-      export VAULT_PASSWORD"${vault_password}"
-      export PXE_SERVER"${pxe_server}"
+      export VAULT_PASSWORD="${vault_password}"
+      export PXE_SERVER="${pxe_server}"
 
