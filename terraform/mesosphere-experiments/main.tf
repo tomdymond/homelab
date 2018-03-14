@@ -62,7 +62,7 @@ module "mesos_slave_private" {
   vcpu="2"
   deploy_stack="mesosphere-bootstrap-discovery-stack"
   user_variables="MESOSPHERE_ROLE=slave!MESOS_BOOTSTRAP=${var.boostrap_node}!DCOS_VERSION=${var.dcos_version}!DCOS_EDITION=${var.dcos_edition}"
-  master_count=3
+  master_count=1
 }
 
 module "mesos_slave_public" {
@@ -77,5 +77,5 @@ module "mesos_slave_public" {
   vcpu="2"
   deploy_stack="mesosphere-bootstrap-discovery-stack"
   user_variables="MESOSPHERE_ROLE=slave_public!MESOS_BOOTSTRAP=${var.boostrap_node}!DCOS_VERSION=${var.dcos_version}!DCOS_EDITION=${var.dcos_edition}"
-  master_count=2
+  master_count=1
 }
