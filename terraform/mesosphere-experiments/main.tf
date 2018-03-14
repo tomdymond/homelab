@@ -73,18 +73,18 @@ module "mesos_slave_public" {
   master_count=2
 }
   
-#module "service_lb" {
-#  vsphere_server="${var.vsphere_server}"
-#  node_base_name="service_lb"
-#  source="../source/vsphere-vm/"
-#  guest_id="centos7_64Guest"
-#  vsphere_password="${var.vsphere_password}"
-#  vsphere_user="${var.vsphere_user}"
-#  bootstrap_network="LAB2"
-#  memory="1024"
-#  vcpu="2"
-#  deploy_stack="ha_haproxy"
-#  user_variables="MESOS_MASTERS=${module.mesos_master.host_ip}"
-#  master_count=1
-#}
+module "service_lb" {
+  vsphere_server="${var.vsphere_server}"
+  node_base_name="service_lb"
+  source="../source/vsphere-vm/"
+  guest_id="centos7_64Guest"
+  vsphere_password="${var.vsphere_password}"
+  vsphere_user="${var.vsphere_user}"
+  bootstrap_network="LAB2"
+  memory="1024"
+  vcpu="2"
+  deploy_stack="haproxy-stack"
+  user_variables="MESOS_MASTERS=${module.mesos_master.host_ip}"
+  master_count=1
+}
 
