@@ -25,11 +25,11 @@
     src: config.yaml.j2
     dest: /opt/dcos-{{ ansible_env.DCOS_VERSION }}/{{ ansible_env.DCOS_EDITION }}/genconf/config.yaml
 
-#- name: Generate license
-#  template:
-#    src: license.txt.j2
-#    dest: /opt/dcos-{{ ansible_env.DCOS_VERSION }}/{{ ansible_env.DCOS_EDITION }}/genconf/license.txt
-#  when: ansible_env.DCOS_EDITION == "enterprise"
+- name: Generate license
+  template:
+    src: license.txt.j2
+    dest: /opt/dcos-{{ ansible_env.DCOS_VERSION }}/{{ ansible_env.DCOS_EDITION }}/genconf/license.txt
+  when: ansible_env.DCOS_EDITION == "enterprise"
 
 - name: Check if DC/OS is already downloaded
   command: ls /opt/dcos-{{ ansible_env.DCOS_VERSION }}/{{ ansible_env.DCOS_EDITION }}/dcos_generate_config.sh

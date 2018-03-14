@@ -4,8 +4,7 @@ cluster_name: {{ ansible_env.MESOSPHERE_CLUSTER_NAME }}
 exhibitor_storage_backend: static
 master_discovery: static
 fault_domain_enabled: false
-customer_key: {{ mesosphere_es_licence_key }}
-license_key_contents: {{ mesosphere_es_licence_key }}
+customer_key: {{ mesosphere_es_customer_key }}
 # This is not currently working in my lab. Most likely because i'm not using a public IP
 #ip_detect_public_filename: /opt/dcos-{{ ansible_env.DCOS_VERSION }}/genconf/ip-detect
 master_list:
