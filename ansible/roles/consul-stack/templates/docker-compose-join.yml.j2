@@ -64,6 +64,20 @@ services:
     - NET_ADMIN
     - NET_BROADCAST
 
+  haproxy:
+    ports:
+    - 9000:9000/tcp
+    - 80:80/tcp
+    volumes:
+    - type: bind
+      source: /var/stacks/{{ stack_name }}-stack/etc
+      target: /usr/local/etc/haproxy
+    image: haproxy
+    stdin_open: true
+    tty: true
+    deploy:
+      restart_policy:
+        condition: on-failure
 volumes:
   consul-{{ ansible_hostname }}:
 
