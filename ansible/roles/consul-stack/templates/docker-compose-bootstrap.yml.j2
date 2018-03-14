@@ -21,6 +21,7 @@ services:
     - agent
     - -server
     - -advertise={{ ansible_default_ipv4.address }}
+    - -advertise={{ ansible_env.CONSUL_VIP }}
     - -bind=0.0.0.0
     - -client={{ ansible_default_ipv4.address }}
     - -client={{ ansible_env.CONSUL_VIP }}
