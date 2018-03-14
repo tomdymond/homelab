@@ -1,4 +1,7 @@
 ---
+- name: add secrets
+  include_vars: secrets.yml
+
 - name: Create stack dir
   file:
     path: /var/stacks/{{ stack_name }}-stack
