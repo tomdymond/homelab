@@ -27,7 +27,9 @@ backend be_app-server
     option persist
     option http-server-close
     option redispatch
-    server {{ ansible_hostname }} {{ ansible_default_ipv4.address }}:8500 weight 1 maxconn 200 check port 8500
+{% for server in ansible_env.CONSUL_SERVERS.split(',') %}
+    server {{ loop.index }} {{ server }}:8500 weight 1 maxconn 200 check port 8500
+{% endfor %}
 
 listen stats # Define a listen section called "stats"
   bind :9000 # Listen on localhost:9000
