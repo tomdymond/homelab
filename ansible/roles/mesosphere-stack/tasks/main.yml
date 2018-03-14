@@ -20,7 +20,7 @@
 - name: Download DC/OS
   get_url:
     url: "http://{{ ansible_env.DCOS_BOOTSTRAP }}:80/dcos_install.sh"
-    dest: /tmp/dcos-{{ dcos_version }}/dcos_install.sh
+    dest: /tmp/dcos-{{ ansible_env.DCOS_VERSION }}/dcos_install.sh
 
 - name: Create group nogroup
   group:
@@ -28,10 +28,10 @@
     state: present  
 
 - name: chmod 0755 installer
-  command: chmod 0755 /tmp/dcos-{{ dcos_version }}/dcos_install.sh
+  command: chmod 0755 /tmp/dcos-{{ ansible_env.DCOS_VERSION }}/dcos_install.sh
 
 - name: Run DC/OS installer
-  command: bash -c "/tmp/dcos-{{ dcos_version }}/dcos_install.sh {{ ansible_env.MESOSPHERE_ROLE }}"
+  command: bash -c "/tmp/dcos-{{ ansible_env.DCOS_VERSION }}/dcos_install.sh {{ ansible_env.MESOSPHERE_ROLE }}"
 
 
 
