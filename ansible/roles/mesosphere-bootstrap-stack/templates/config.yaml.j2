@@ -5,7 +5,7 @@ exhibitor_storage_backend: static
 master_discovery: static
 customer_key: {{ mesosphere_es_licence_key }}
 # This is not currently working in my lab. Most likely because i'm not using a public IP
-#ip_detect_public_filename: /opt/dcos-{{ dcos_version }}/genconf/ip-detect
+#ip_detect_public_filename: /opt/dcos-{{ ansible_env.DCOS_VERSION }}/genconf/ip-detect
 master_list:
 {% for master_ip in ansible_env.MESOS_MASTERS.split(',') %}
 - {{ master_ip }}
