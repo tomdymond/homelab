@@ -3,6 +3,7 @@ bootstrap_url: http://{{ ansible_default_ipv4.address }}:80
 cluster_name: {{ ansible_env.MESOSPHERE_CLUSTER_NAME }}
 exhibitor_storage_backend: static
 master_discovery: static
+fault_domain_enabled: false
 customer_key: {{ mesosphere_es_licence_key }}
 # This is not currently working in my lab. Most likely because i'm not using a public IP
 #ip_detect_public_filename: /opt/dcos-{{ ansible_env.DCOS_VERSION }}/genconf/ip-detect
