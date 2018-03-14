@@ -43,7 +43,6 @@ services:
     - VRID={{ ansible_default_ipv4.address.split('.')[3] }}
     - INTERFACE={{ ansible_default_ipv4.interface }}
     - AUTH_PASS={{ keepalived_auth_pass }}
-    command:
     deploy:
       restart_policy:
         condition: on-failure
