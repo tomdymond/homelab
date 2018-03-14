@@ -32,7 +32,7 @@
 
 - name: Download DC/OS from mesosphere
   get_url:
-    url: "{{ dcos[ansible_env.DCOS_VERSION] }}"
+    url: "{{ lookup(dcos, ansible_env.DCOS_VERSION) }}"
     dest: /opt/dcos-{{ ansible_env.DCOS_VERSION }}/{{ ansible_env.DCOS_EDITION }}/dcos_generate_config.sh
 
 - name: Make DC/OS script executable
