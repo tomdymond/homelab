@@ -31,7 +31,25 @@ services:
     deploy:
       restart_policy:
         condition: on-failure
-
+  keepalived:
+    network_mode: host
+    image: tomdymond/keepalived:latest
+    environment:
+    - VIRTUAL_IP={{ ansible_env.CONSUL_VIP }}
+    - VIRTUAL_MASK={{ ansible_default_ipv4.netmask }}
+    - CHECK_IP={{ ansible_default_ipv4.address }}
+    - CHECK_PORT=8500
+    - CHECK_PATH=/
+    - VRID={{ ansible_default_ipv4.address.split('.')[3] }}
+    - INTERFACE={{ ansible_default_ipv4.interface }}
+    - AUTH_PASS={{ keepalived_auth_pass }}
+    command:
+    deploy:
+      restart_policy:
+        condition: on-failure
+    cap_add:
+    - NET_ADMIN
+    - NET_BROADCAST
 volumes:
   consul-{{ ansible_hostname }}:
 

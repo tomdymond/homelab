@@ -29,34 +29,34 @@ services:
       restart_policy:
         condition: on-failure
         
-  vault:
-    network_mode: host
-    image: vault:latest
-    ports:
-    - "8200:8200"
-    volumes:
-    - ./tools/wait-for-it.sh:/wait-for-it.sh
-    - ./config/vault:/config
-    - ./config/vault/policies:/policies
-    environment:
-    - VAULT_ADDR: http://{{ ansible_default_ipv4.address }}:8200
-    - 'VAULT_LOCAL_CONFIG={"backend": {"consul": {"path": "/vault/file"}}, "default_lease_ttl": "168h", "max_lease_ttl": "720h"}'
-    cap_add:
-    - IPC_LOCK
-    entrypoint: /wait-for-it.sh -t 20 -h consul -p 8500 -s -- vault server -config=/config/with-consul.hcl
+#  vault:
+#    network_mode: host
+#    image: vault:latest
+#    ports:
+#    - "8200:8200"
+#    volumes:
+#    - ./tools/wait-for-it.sh:/wait-for-it.sh
+#    - ./config/vault:/config
+#    - ./config/vault/policies:/policies
+#    environment:
+#    - VAULT_ADDR: http://{{ ansible_default_ipv4.address }}:8200
+#    - 'VAULT_LOCAL_CONFIG={"backend": {"consul": {"path": "/vault/file"}}, "default_lease_ttl": "168h", "max_lease_ttl": "720h"}'
+#    cap_add:
+#    - IPC_LOCK
+#    entrypoint: /wait-for-it.sh -t 20 -h consul -p 8500 -s -- vault server -config=/config/with-consul.hcl
     
   keepalived:
     network_mode: host
     image: tomdymond/keepalived:latest
     environment:
     - VIRTUAL_IP={{ ansible_env.CONSUL_VIP }}
-    - VIRTUAL_MASK=24
+    - VIRTUAL_MASK={{ ansible_default_ipv4.netmask }}
     - CHECK_IP={{ ansible_default_ipv4.address }}
     - CHECK_PORT=8500
     - CHECK_PATH=/
     - VRID={{ ansible_default_ipv4.address.split('.')[3] }}
     - INTERFACE={{ ansible_default_ipv4.interface }}
-    - AUTH_PASS={{ secrets.auth_pass }}
+    - AUTH_PASS={{ keepalived_auth_pass }}
     command:
     deploy:
       restart_policy:
