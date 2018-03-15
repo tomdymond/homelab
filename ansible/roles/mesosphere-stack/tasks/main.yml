@@ -32,21 +32,31 @@
     state: directory
     mode: 0755
 
+- name: Check if file is downloaded
+  stat:
+    path: /tmp/dcos-{{ ansible_env.DCOS_VERSION }}/dcos_install.sh
+  register: dcos_install_exists
+
 - name: Download DC/OS
   get_url:
     url: "http://{{ ansible_env.DCOS_BOOTSTRAP }}:80/dcos_install.sh"
     dest: /tmp/dcos-{{ ansible_env.DCOS_VERSION }}/dcos_install.sh
+    mode: 0755
+  when: dcos_install_exists.stat.exists == False
 
 - name: Create group nogroup
   group:
     name: nogroup
     state: present  
 
-- name: chmod 0755 installer
-  command: chmod 0755 /tmp/dcos-{{ ansible_env.DCOS_VERSION }}/dcos_install.sh
+- name: Check if DC/OS is already installed
+  stat:
+    path: /opt/mesosphere/
+  register: dcos_installed
 
 - name: Run DC/OS installer
   command: bash -c "/tmp/dcos-{{ ansible_env.DCOS_VERSION }}/dcos_install.sh {{ ansible_env.MESOSPHERE_ROLE }}"
+  when: dcos_installed.stat.exists == False
 
 - name: Restart service
   systemd:
