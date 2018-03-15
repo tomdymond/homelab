@@ -68,7 +68,8 @@ vsphere_password="<YOUR_ESXI_PASSWORD>"
 
 ## Hardcoded infrastructure components
 
-Consul servers. Currently 3 and regisered [here](https://github.com/tomdymond/homelab/blob/master/terraform/source/vsphere-vm/user_data). To change this, re-run the consul-experiments terraform stuff
+ - Consul VIP. Useful to access the ui from a workstation. Otherwise access to consul is done via a local consul agent
+ - Consul servers. Currently 3 and regisered [here](https://github.com/tomdymond/homelab/blob/master/terraform/source/vsphere-vm/_vars.tf#L14). To change this, re-run the consul-experiments terraform stuff
 
 
 
