@@ -13,7 +13,7 @@
 
 - name: Create temp dir
   file:
-    path: /tmp/dcos-{{ dcos_version }}
+    path: /tmp/dcos-{{ ansible_env.DCOS_VERSION }}
     state: directory
     mode: 0755
 
