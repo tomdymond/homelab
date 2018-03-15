@@ -1,20 +1,15 @@
 variable bootstrap_network {}
 variable vsphere_user {}
 variable vsphere_password {}
-variable vsphere_server {
-  default = "192.168.1.254"
-}
-variable consul_vip {
-  default = "192.168.1.127"  
-}
-variable pxe_server {
-  default = "192.168.1.33"  
-}
-variable consul_servers {
-  default = "192.168.1.15,192.168.1.16,192.168.1.17"  
+variable profile {
+  default = "small"
 }
 variable vault_username {
   default = "foo"  
+}
+
+variable dc {
+  default = "home"
 }
 variable vault_password {
   default = "bar"
@@ -25,15 +20,9 @@ variable node_base_name {
 variable master_count {
   default = 1
 }
-variable memory {
-  default = "2048"
-}
-variable vcpu {
-  default = "2"
-}
 
 variable guest_id {
-  default = "centos7Guest"
+  default = "centos7_64Guest"
 }
 
 variable iface_priv_use_static_mac {

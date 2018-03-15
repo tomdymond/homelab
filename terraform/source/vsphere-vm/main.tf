@@ -1,7 +1,13 @@
+module "globals" {
+  source="../../globals/"
+  dc="${var.dc}"
+}
+
 provider "vsphere" {
   user           = "${var.vsphere_user}"
   password       = "${var.vsphere_password}"
-  vsphere_server = "${var.vsphere_server}"
+  vsphere_server = "${lookup(module.globals.vsphere_server, var.dc)}"
+#  vsphere_server = "foo"
 
   # if you have a self-signed cert
   allow_unverified_ssl = true
@@ -42,11 +48,11 @@ data "template_file" "base_userdata" {
     ansible_vault_password = "${base64encode(file("~/.ansible_vault_password"))}"
     deploy_stack           = "${var.deploy_stack}"
     user_variables         = "${var.user_variables}"
-    consul_vip             = "${var.consul_vip}"
-    consul_servers         = "${var.consul_servers}"
+    consul_vip             = "${lookup(module.globals.consul_vip, var.dc)}"
+    consul_servers         = "${lookup(module.globals.consul_servers, var.dc)}"
     vault_username         = "${var.vault_username}"
     vault_password         = "${var.vault_password}"
-    pxe_server             = "${var.pxe_server}"
+    pxe_server             = "${lookup(module.globals.pxe_server, var.dc)}"
   }
 }
 
@@ -55,9 +61,9 @@ resource "vsphere_virtual_machine" "vm" {
   name             = "${var.node_base_name}${format("%02d", count.index+1)}"
   resource_pool_id = "${data.vsphere_resource_pool.pool.id}"
   datastore_id     = "${data.vsphere_datastore.datastore.id}"
-  num_cpus = "${var.vcpu}"
-  memory   = "${var.memory}"
-  guest_id = "${var.guest_id}"
+  num_cpus         = "${lookup(module.globals.vcpu, var.profile)}"
+  memory           = "${lookup(module.globals.mem, var.profile)}"
+  guest_id         = "${var.guest_id}"
 
   wait_for_guest_net_timeout = 60
   network_interface {
@@ -87,8 +93,6 @@ resource "vsphere_virtual_machine" "vm" {
 }
 
 output "host_ip" {
-#  value = "${vsphere_virtual_machine.vm.primary.default_ip_address}" 
   value = "${join(",",vsphere_virtual_machine.vm.*.default_ip_address)}"
-#  value = "${join(",",vsphere_virtual_machine.vm.*.guest_ip_addresses.0)}"
 }
 
