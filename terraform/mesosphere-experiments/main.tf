@@ -46,7 +46,7 @@ module "mesos_master" {
   memory="4096"
   vcpu="2"
   deploy_stack="mesosphere-bootstrap-discovery-stack"
-  user_variables="MESOSPHERE_ROLE=master!MESOS_BOOTSTRAP=${var.boostrap_node}!DCOS_VERSION=${var.dcos_version}!DCOS_EDITION=${var.dcos_edition}"
+  user_variables="MESOSPHERE_ROLE=master!MESOS_BOOTSTRAP=${var.boostrap_node}!DCOS_VERSION=${var.dcos_version}!DCOS_EDITION=${var.dcos_edition}!MESOSPHERE_MASTER_VIP=192.168.1.128"
   master_count=3
 }
 

@@ -5,10 +5,6 @@
     state: directory
     mode: 0755
 
-- name: Printing all the environment variables in Ansible
-  debug:
-    msg: "{{ ansible_env }}"
-
 - name: Generate docker-compose file
   template:
     src=docker-compose.yml.j2

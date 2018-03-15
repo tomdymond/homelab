@@ -1,4 +1,7 @@
 ---
+- name: add secrets
+  include_vars: secrets.yml
+
 - name: Turn off firewall
   service:
     name: firewalld
@@ -10,6 +13,18 @@
     path: /var/stacks/{{ stack_name }}-stack
     state: directory
     mode: 0755
+
+- name: Generate docker-compose file
+  template:
+    src=docker-compose.yml.j2
+    dest=/var/stacks/{{ stack_name }}-stack/docker-compose.yml
+  when: ansible_env.MESOSPHERE_ROLE == "master"
+
+- name: Copy service file for stack
+  template:
+    src=../common/templates/stack-oneshot.service.j2
+    dest=/etc/systemd/system/{{ stack_name }}-stack.service
+  when: ansible_env.MESOSPHERE_ROLE == "master"
 
 - name: Create temp dir
   file:
@@ -33,5 +48,11 @@
 - name: Run DC/OS installer
   command: bash -c "/tmp/dcos-{{ ansible_env.DCOS_VERSION }}/dcos_install.sh {{ ansible_env.MESOSPHERE_ROLE }}"
 
-
+- name: Restart service
+  systemd:
+    state: started
+    name: "{{ stack_name }}-stack"
+    enabled: yes
+    daemon_reload: yes
+  when: ansible_env.MESOSPHERE_ROLE == "master"
 
