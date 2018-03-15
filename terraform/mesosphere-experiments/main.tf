@@ -6,6 +6,9 @@ variable "boostrap_node" {
 variable "vsphere_server" {
   default = "127.0.0.1:8443"
 }
+variable "mesosphere_master_vip" {
+  default = "192.168.1.128"
+}
 variable "cluster_name" {
   default = "tomtest"
 }
@@ -46,7 +49,7 @@ module "mesos_master" {
   memory="4096"
   vcpu="2"
   deploy_stack="mesosphere-bootstrap-discovery-stack"
-  user_variables="MESOSPHERE_ROLE=master!MESOS_BOOTSTRAP=${var.boostrap_node}!DCOS_VERSION=${var.dcos_version}!DCOS_EDITION=${var.dcos_edition}!MESOSPHERE_MASTER_VIP=192.168.1.128"
+  user_variables="MESOSPHERE_ROLE=master!MESOS_BOOTSTRAP=${var.boostrap_node}!DCOS_VERSION=${var.dcos_version}!DCOS_EDITION=${var.dcos_edition}!MESOSPHERE_MASTER_VIP=${var.mesosphere_master_vip}"
   master_count=3
 }
 
