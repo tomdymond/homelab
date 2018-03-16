@@ -1,4 +1,4 @@
-variable "boostrap_node" {
+variable "bootstrap_node" {
   default = "mesos-bootstrap01.local.lab"
 }
 
