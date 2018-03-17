@@ -12,7 +12,7 @@ variable "bootstrap_node" {
 variable "mesosphere_ingress_lb_vip" {
   type = "map"
   default = {
-    tomtest = "192.168.2.128"
+    tomtest = "192.168.1.129"
     foo = "x.x.x.x"
   }
 }
