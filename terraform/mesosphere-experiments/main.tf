@@ -66,8 +66,9 @@ module "mesos_ingress_lb" {
   vsphere_user="${var.vsphere_user}"
   bootstrap_network="LAB2"
   deploy_stack="ha-haproxy-stack"
-  user_variables="MESOS_AGENTS_PUBLIC=${module.mesos_slave_public.host_ip}!VIP=${lookup(module.mesos_common.mesosphere_ingress_lb_vip, var.cluster_name)}"
+  user_variables="VIP=${lookup(module.mesos_common.mesosphere_ingress_lb_vip, var.cluster_name)}!BACKEND_SERVERS=${module.mesos_slave_public.host_ip}!APP_PORT=80!MAXCONN=500!CHECK_PORT=80!FE_PORT=80"
   master_count=2
+  profile="medium"
 }
 
 
