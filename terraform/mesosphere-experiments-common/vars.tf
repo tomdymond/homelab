@@ -50,6 +50,10 @@ variable "default_dns_server" {
   }
 }
 
+output "bootstrap_node" {
+  value = "${var.bootstrap_node}"
+}
+
 
 output "dcos_version" {
   value = "${var.dcos_version}"
