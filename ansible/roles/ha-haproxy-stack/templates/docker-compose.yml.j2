@@ -1,0 +1,35 @@
+version: '3.3'
+services:
+  haproxy:
+    ports:
+    - 9000:9000/tcp
+    - 80:80/tcp
+    volumes:
+    - type: bind
+      source: /var/stacks/{{ stack_name }}-stack/etc
+      target: /usr/local/etc/haproxy
+    image: haproxy
+    stdin_open: true
+    tty: true
+    deploy:
+      restart_policy:
+        condition: on-failure
+  keepalived:
+    network_mode: host
+    image: tomdymond/keepalived:latest
+    environment:
+    - VIRTUAL_IP={{ ansible_env.VIP }}
+    - VIRTUAL_MASK={{ ansible_default_ipv4.netmask }}
+    - CHECK_IP={{ ansible_default_ipv4.address }}
+    - CHECK_PORT=80
+    - CHECK_PATH=/
+    - VRID={{ ansible_default_ipv4.address.split('.')[3] }}
+    - INTERFACE={{ ansible_default_ipv4.interface }}
+    - AUTH_PASS={{ keepalived_auth_pass }}
+    deploy:
+      restart_policy:
+        condition: on-failure
+    cap_add:
+    - NET_ADMIN
+    - NET_BROADCAST
+

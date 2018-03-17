@@ -1,6 +1,6 @@
 module "globals" {
   source="../../globals/"
-  dc="${var.dc}"
+#  dc="${var.dc}"
 }
 
 provider "vsphere" {

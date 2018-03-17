@@ -1,4 +1,4 @@
-variable dc {}
+#variable dc {}
 
 variable consul_vip {
   type = "map"
@@ -6,6 +6,7 @@ variable consul_vip {
     home = "192.168.1.127"
   }
 }
+
 
 variable pxe_server {
   type = "map"
@@ -17,7 +18,7 @@ variable pxe_server {
 variable "vsphere_server" {
   type = "map"
   default = {
-    home = "127.0.0.1:8443"
+    home = "192.168.1.254"
     vdc = "x.x.x.x"
   }
 }
