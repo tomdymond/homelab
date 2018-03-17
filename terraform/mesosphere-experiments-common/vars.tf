@@ -1,7 +1,7 @@
 
 # Sandbox specific settings
 
-variable "boostrap_node" {
+variable "bootstrap_node" {
   type = "map"
   default = {
     tomtest = "mesos-bootstrap01.local.lab"
@@ -67,8 +67,8 @@ output "dcos_edition" {
   value = "${var.dcos_edition}"
 }
 
-output "boostrap_node" {
-  value = "${var.boostrap_node}"
+output "mesosphere_ingress_lb_vip" {
+  value = "${var.mesosphere_ingress_lb_vip}"
 }
 
 output "default_dns_server" {
