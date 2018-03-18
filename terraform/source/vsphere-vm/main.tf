@@ -67,14 +67,14 @@ resource "vsphere_virtual_machine" "vm" {
 
   wait_for_guest_net_timeout = 60
   network_interface {
-    network_id = "${data.vsphere_network.network_priv.id}"
+    network_id     = "${data.vsphere_network.network_priv.id}"
     use_static_mac = "${var.iface_priv_use_static_mac}"
-    mac_address = "${var.iface_priv_mac_address}"
+    mac_address    = "${var.iface_priv_mac_address}"
   }
   network_interface {
-    network_id = "${data.vsphere_network.network_pub.id}"
+    network_id     = "${data.vsphere_network.network_pub.id}"
     use_static_mac = "${var.iface_pub_use_static_mac}"
-    mac_address = "${var.iface_pub_mac_address}"
+    mac_address    = "${var.iface_pub_mac_address}"
   }
 
 
