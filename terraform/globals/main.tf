@@ -7,7 +7,6 @@ variable consul_vip {
   }
 }
 
-
 variable pxe_server {
   type = "map"
   default = {
@@ -30,21 +29,40 @@ variable consul_servers {
   }
 }
 
+variable dockerdisk_size_gb {
+  type = "map"
+  default = {
+    small  = "15"
+    medium = "25"
+    large  = "25"  
+  }
+}
+
+variable datadisk_size_gb {
+  type = "map"
+  default = {
+    small  = "16"
+    medium = "26"
+    large  = "26"  
+  }
+}
+
+
 variable mem {
   type = "map"
   default = {
-    small = "1024"
+    small  = "1024"
     medium = "2048"
-    large = "4096"
+    large  = "4096"
   }
 }
 
 variable vcpu {
   type = "map"
   default = {
-    small = "1"
+    small  = "1"
     medium = "2"
-    large = "2"
+    large  = "2"
   }
 }
 
@@ -55,8 +73,6 @@ output mem {
 output vcpu {
   value = "${var.vcpu}"
 }
-
-
 
 output vsphere_server {
   value = "${var.vsphere_server}"
@@ -72,5 +88,13 @@ output pxe_server {
 
 output consul_vip {
   value = "${var.consul_vip}"
+}
+
+output dockerdisk_size_gb {
+  value = "${var.dockerdisk_size_gb}"
+}
+
+output datadisk_size_gb {
+  value = "${var.datadisk_size_gb}"
 }
 

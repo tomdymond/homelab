@@ -1,5 +1,14 @@
 version: '3.3'
 services:
+  dnsmasq:
+    network_mode: host
+    image: tomdymond/dnsmasq-consul
+    ports:
+    - 53:53/udp
+    cap_add:
+    - NET_ADMIN
+    - NET_BROADCAST
+
   consul:
     network_mode: host
     volumes:

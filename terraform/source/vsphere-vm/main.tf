@@ -1,15 +1,11 @@
 module "globals" {
   source="../../globals/"
-#  dc="${var.dc}"
 }
 
 provider "vsphere" {
   user           = "${var.vsphere_user}"
   password       = "${var.vsphere_password}"
   vsphere_server = "${lookup(module.globals.vsphere_server, var.dc)}"
-#  vsphere_server = "foo"
-
-  # if you have a self-signed cert
   allow_unverified_ssl = true
 }
 
@@ -79,10 +75,26 @@ resource "vsphere_virtual_machine" "vm" {
 
 
   disk {
-    label = "disk0"
-    size  = 20
+    label            = "${var.node_base_name}${format("%02d", count.index+1)}-os"
+    size             = 10
     thin_provisioned = true
+    unit_number      = 0
   }
+
+  disk {
+    label            = "${var.node_base_name}${format("%02d", count.index+1)}-docker"
+    size             = "${lookup(module.globals.dockerdisk_size_gb, var.profile)}"
+    thin_provisioned = true
+    unit_number      = 1
+  }
+
+  disk {
+    label            = "${var.node_base_name}${format("%02d", count.index+1)}-data"
+    size             = "${lookup(module.globals.datadisk_size_gb, var.profile)}"
+    thin_provisioned = true
+    unit_number      = 2
+  }
+
 
   extra_config = {
     "guestinfo.cloudinit.userdata"              = "${base64encode(replace(format("%s", data.template_file.base_userdata.*.rendered[count.index]), "$${count_index}", format("%02d", count.index+1)))}"

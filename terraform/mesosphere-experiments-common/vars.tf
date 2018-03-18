@@ -36,7 +36,8 @@ variable "dcos_edition" {
 variable "dcos_version" {
   type = "map"
   default = {
-    tomtest = "1.11.0"
+    tomtest = "1.10.5"
+#    tomtest = "1.11.5"
     foo = "1.10.0"
   }
 }
