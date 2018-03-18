@@ -8,7 +8,7 @@ source /etc/boot_environment;
 eval export $(echo $USER_VARIABLES | tr '!' ' ');
 
 WAIT_COUNTER=0
-MAXWAIT=900
+MAXWAIT=3600
 
 echo "Waiting for bootstrap ip"
 while true; do
