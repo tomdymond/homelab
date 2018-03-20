@@ -3,5 +3,5 @@ dcos:
   standard_local: http://{{ ansible_env.PXE_SERVER }}/stable/{{ ansible_env.DCOS_VERSION }}/dcos_generate_config.sh
   standard: https://downloads.dcos.io/stable/{{ ansible_env.DCOS_VERSION }}/dcos_generate_config.sh
   enterprise: https://downloads.mesosphere.com/dcos-enterprise/stable/{{ ansible_env.DCOS_VERSION }}/dcos_generate_config.ee.sh
-  enterprise_local: http://{{ ansible_env.PXE_SERVER }}/dcos/stable/{{ ansible_env.DCOS_VERSION }}/dcos_generate_config.ee.sh
+  enterprise_local: http://{{ ansible_env.PXE_SERVER }}/dcos-enterprise/stable/{{ ansible_env.DCOS_VERSION }}/dcos_generate_config.ee.sh
 
