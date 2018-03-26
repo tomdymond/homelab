@@ -6,7 +6,6 @@ RUN yum -y install p7zip
 
 VOLUME ["/data"]
 
-COPY ks.cfg /
 COPY entrypoint.sh /
 COPY isolinux.cfg /
 RUN chmod 0755 /entrypoint.sh
