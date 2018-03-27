@@ -15,7 +15,7 @@ reboot
 network  --bootproto=dhcp --device=enp0s3 --onboot=off --ipv6=auto --no-activate
 network  --hostname=localhost.localdomain
 
-rootpw --iscrypted $6$beLhwYJ2dfMhSiWF$z0Asc.HCpaHQ1LYNqe5yfdMFJHSdScxruJvmK6muwYW7iFYGLj1sk/LGQvFnM6SukP9bjQrQPYfJ20WVKKSnS.
+rootpw --iscrypted '{{root_user_password}}'
 
 
 bootloader --location=mbr
@@ -42,7 +42,11 @@ kexec-tools
 %pre
 # Put the hpilocli stuff in here
 cd /tmp;
-wget -O hpraid.tar.gz http://{{ ansible_env.BM_SEED_NODE }}/hpraid.tar.gz;
+echo "I AM HERE"
+pwd
+df
+sleep 60
+cp /hpraid.tar.gz /tmp
 tar xzf hpraid.tar.gz;
 mount -t proc proc hpraid/proc;
 mount -t sysfs sysfs hpraid/sys;
@@ -56,7 +60,7 @@ $CLI "controller slot=0 show"
 yum install epel-release -y
 yum install ansible git wget -y
 
-useradd -p '{{ ansible_password_hash }}' ansible
+useradd -p '{{ansible_user_password}}' ansible
 echo "ansible ALL=(root) NOPASSWD:ALL" | tee -a /etc/sudoers.d/ansible
 echo "Defaults:ansible !requiretty" | tee -a /etc/sudoers.d/ansible
 chmod 0440 /etc/sudoers.d/ansible

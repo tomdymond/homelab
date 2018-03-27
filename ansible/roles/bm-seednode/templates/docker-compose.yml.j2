@@ -7,6 +7,11 @@ services:
     - centos-image-hpilo-{{ ansible_hostname }}:/data
     - /var/stacks/{{ stack_name }}-stack/ks.cfg:/ks.cfg
     tty: true
+
+  provap:
+    image: tomdymond/provapi
+    volumes:
+    - 
  
   hpilo:
     image: tomdymond/hpilo-chroot

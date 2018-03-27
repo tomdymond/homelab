@@ -8,6 +8,7 @@ VOLUME ["/data"]
 
 COPY entrypoint.sh /
 COPY isolinux.cfg /
-RUN chmod 0755 /entrypoint.sh
-
+COPY ks.cfg.SAMPLE /
+COPY mk_chroot_hpacucli /usr/bin/mk_chroot_hpacucli
+RUN chmod 0755 /entrypoint.sh /usr/bin/mk_chroot_hpacucli
 

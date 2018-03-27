@@ -28,7 +28,7 @@ rm -Rf $OUTPUT
 mkdir $OUTPUT
 cd $OUTPUT
 echo "-- Unpacking RPM"
-rpm2cpio ../$RPM | cpio -id || (echo "#### ERROR WHILE UNPACKING RPM $RPM"; exit 1)
+rpm2cpio $RPM | cpio -id || (echo "#### ERROR WHILE UNPACKING RPM $RPM"; exit 1)
 
 echo "-- Making required folders in chroot"
 mkdir -p proc sys bin etc lib usr/bin var/opt/compaq/locks
@@ -48,7 +48,7 @@ for i in ACU-XE CPQACU_MUTEX CLI_SCRIPTING_MUTEX; do touch var/opt/compaq/locks/
 
 echo "-- Packing up the result"
 cd ../
-tar czfp /data/${OUTPUT}.tar.gz $OUTPUT
+tar czfp ${OUTPUT}.tar.gz $OUTPUT
 rm -Rf $OUTPUT
 
 echo -e "\n\n\n###### File has been compressed into ${OUTPUT}.tar.gz"
