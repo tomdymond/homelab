@@ -1,0 +1,80 @@
+cdrom
+cmdline
+lang en_US.UTF-8
+firstboot --enable
+keyboard us
+timezone Europe/London
+auth --enableshadow --passalgo=sha512
+selinux --disabled
+firewall --disabled
+services --enabled="chronyd"
+eula --agreed
+ignoredisk --only-use=sda
+reboot
+repo --name="DD-1" --baseurl=file:///run/install/DD-1/
+ignoredisk --drives=sdac
+
+#network  --bootproto=dhcp --device=enp0s3 --onboot=off --ipv6=auto --no-activate
+network --device=bond0 --hostname=localhost --bootproto=dhcp --bondopts=mode=802.3ad,miimon=100,lacp_rate=fast --bondslaves=eth1,eth0
+
+network  --hostname=localhost.localdomain
+
+rootpw --iscrypted {ROOTPASSWD}
+
+
+bootloader --location=mbr
+zerombr
+clearpart --all --initlabel
+part swap --asprimary --fstype="swap" --size=1024
+part /boot --fstype xfs --size=200
+part pv.01 --size=1 --grow
+volgroup rootvg01 pv.01
+logvol / --fstype xfs --name=lv01 --vgname=rootvg01 --size=1 --grow
+
+
+%packages
+@^minimal
+@core
+chrony
+kexec-tools
+%end
+
+%addon com_redhat_kdump --enable --reserve-mb='auto'
+
+%end
+
+%pre
+
+# READ MAC ADDRESS FROM IMPI
+modprobe ipmi_devintf
+ipmitool lan print
+
+# GET CONFIG FROM SEED NODE
+
+# INSTALL HPACUCLI TO CONFIGURE VOLS
+cd /tmp;
+cp /run/install/repo/hpraid.tar.gz /tmp
+tar xzf hpraid.tar.gz;
+mount -t proc proc hpraid/proc;
+mount -t sysfs sysfs hpraid/sys;
+mount --bind /dev hpraid/dev;
+CLI='chroot hpraid /usr/sbin/hpacucli'
+$CLI "controller slot=0 show" | tee -a /tmp/foobar
+
+%end
+
+%post --log=/root/ks-post.log
+yum install epel-release -y
+yum install ansible git wget -y
+
+useradd -p '{ROOTPASSWD}' ansible
+echo "ansible ALL=(root) NOPASSWD:ALL" | tee -a /etc/sudoers.d/ansible
+echo "Defaults:ansible !requiretty" | tee -a /etc/sudoers.d/ansible
+chmod 0440 /etc/sudoers.d/ansible
+cat << EOF > /home/ansible/hosts
+[local]
+localhost ansible_connection=local ansible_become=true
+EOF
+
+%end
+
