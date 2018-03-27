@@ -8,17 +8,10 @@ services:
     - /var/stacks/{{ stack_name }}-stack/ks.cfg:/ks.cfg
     tty: true
 
-  provap:
+  provapi:
     image: tomdymond/provapi
     volumes:
-    - 
- 
-  hpilo:
-    image: tomdymond/hpilo-chroot
-    stdin_open: true
-    volumes:
-    - hpilo-{{ ansible_hostname }}:/data
-    tty: true
+    - centos-image-hpilo-{{ ansible_hostname }}:/data
   
   nginx:
     image: nginx
@@ -27,10 +20,8 @@ services:
     deploy:
       replicas: 1
     volumes:
-      - hpilo-{{ ansible_hostname }}:/usr/share/nginx/html/hpilo
       - centos-image-hpilo-{{ ansible_hostname }}:/usr/share/nginx/html/centos-image-hpilo
 
 volumes:
-  hpilo-{{ ansible_hostname }}:
   centos-image-hpilo-{{ ansible_hostname }}:
 
