@@ -50,4 +50,7 @@ variable deploy_stack {
 variable user_variables {
   default = "CONSUL_ROLE=client"
 }
+variable git_repo {
+  default = "https://github.com/tomdymond/homelab.git"
+}
 

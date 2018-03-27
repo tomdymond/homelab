@@ -49,6 +49,7 @@ data "template_file" "base_userdata" {
     vault_username         = "${var.vault_username}"
     vault_password         = "${var.vault_password}"
     pxe_server             = "${lookup(module.globals.pxe_server, var.dc)}"
+    git_repo               = "${var.git_repo}"
   }
 }
 

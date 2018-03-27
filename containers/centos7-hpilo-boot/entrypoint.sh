@@ -1,19 +1,21 @@
 #!/usr/bin/env bash
 
+BASE_IMAGE="CentOS-7-x86_64-DVD-1708.iso"
+
 cd /data
-if [ ! -f CentOS-7-x86_64-DVD-1708.iso ]; then
-  wget http://www.mirrorservice.org/sites/mirror.centos.org/7/isos/x86_64/CentOS-7-x86_64-DVD-1708.iso
+if [ ! -f "${BASE_IMAGE}" ]; then
+  wget http://www.mirrorservice.org/sites/mirror.centos.org/7/isos/x86_64/{BASE_IMAGE}
 fi
 
-mount -o loop CentOS-7-x86_64-DVD-1708.iso /mnt
+mount -o loop ${BASE_IMAGE} /mnt
 
 
 KS_BUILD="/data/kickstart_build"
 
 rm -rf ${KS_BUILD}
 
-mkdir -p ${KS_BUILD}/{isolinux,utils}
-mkdir -p ${KS_BUILD}/isolinux/{images,ks,LiveOS,Packages}
+mkdir -pv ${KS_BUILD}/{isolinux,utils}
+mkdir -pv ${KS_BUILD}/isolinux/{images,ks,LiveOS,Packages}
 
 cp -r /mnt/isolinux/* ${KS_BUILD}/isolinux/
 cp /mnt/.discinfo ${KS_BUILD}/isolinux/

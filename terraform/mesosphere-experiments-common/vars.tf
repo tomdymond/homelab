@@ -28,7 +28,7 @@ variable "mesosphere_master_vip" {
 variable "dcos_edition" {
   type = "map"
   default = {
-    tomtest = "enterprise"
+    tomtest = "enterprise_local"
     foo = "standard"
   }
 }
@@ -36,8 +36,8 @@ variable "dcos_edition" {
 variable "dcos_version" {
   type = "map"
   default = {
-    tomtest = "1.10.5"
-#    tomtest = "1.11.5"
+#    tomtest = "1.10.5"
+    tomtest = "1.11.0"
     foo = "1.10.0"
   }
 }

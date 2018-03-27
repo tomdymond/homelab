@@ -9,7 +9,7 @@ services:
     volumes:
       - type: bind
         source: /opt/dcos-{{ ansible_env.DCOS_VERSION }}/{{ ansible_env.DCOS_EDITION }}/genconf/serve
-        target: /usr/share/nginx/html
+        target: /usr/share/nginx/html/dcos
         volume:
           nocopy: true
 
