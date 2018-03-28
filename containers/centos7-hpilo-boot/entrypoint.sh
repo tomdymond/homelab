@@ -1,60 +1,72 @@
 #!/usr/bin/env bash
 
+set -e
+
 BASE_IMAGE="CentOS-7-x86_64-DVD-1708.iso"
+CUSTOM_ISO=/data/"$(echo ${BASE_IMAGE} | cut -f1 -d'.')_CUSTOM.ISO"
 KS_BUILD="/data/kickstart_build"
+
+
+function build_hparaid() {
+  if [ ! -f /data/hpraid.tar.gz ]; then
+    pushd /tmp
+      if /usr/bin/mk_chroot_hpacucli /data/hpacucli-9.30-15.0.x86_64.rpm; then
+        mv hpraid.tar.gz /data
+      fi  
+    popd
+  fi
+}
+
+
+function build_iso() {
+  rm -rfv /data/extracted_iso_image
+
+  xorriso -osirrox on -indev /data/${BASE_IMAGE} -extract / /data/extracted_iso_image
+  cp -v /grub.cfg /data/extracted_iso_image/EFI/BOOT/grub.cfg
+  cp -v /isolinux.cfg /data/extracted_iso_image/isolinux/isolinux.cfg
+  cp -v /data/hpraid.tar.gz /data/extracted_iso_image/isolinux/
+
+  # Check if we have a real ks.cfg, otherwise use the SAMPLE one for testing
+  if [ ! -f /ks.cfg ]; then
+    KS_FILE="/ks.cfg.SAMPLE"
+  else
+    KS_FILE="/ks.cfg"
+  fi
+  mkdir -p /data/extracted_iso_image/ks
+  cp -v ${KS_FILE} /data/extracted_iso_image/ks/ks.cfg
+
+  pushd /data/extracted_iso_image/
+    chmod 0664 isolinux/isolinux.bin
+
+    echo " -- Building ISO"
+    ISO_NAME="$(echo ${BASE_IMAGE} | cut -f1 -d'.')_CUSTOM.ISO"
+    xorriso -as mkisofs -c isolinux/boot.cat -b isolinux/isolinux.bin -isohybrid-mbr /usr/share/syslinux/isohdpfx.bin -no-emul-boot -boot-load-size 4 -boot-info-table -eltorito-alt-boot -e images/efiboot.img -no-emul-boot -isohybrid-gpt-basdat -volid "CentOS 7 x86_64" -sysid "LINUX" -J -o /data/${ISO_NAME} /data/extracted_iso_image
+
+  popd
+}
+
 
 pushd /data
   if [ ! -f "${BASE_IMAGE}" ]; then
-    wget http://www.mirrorservice.org/sites/mirror.centos.org/7/isos/x86_64/{BASE_IMAGE}
+    wget http://www.mirrorservice.org/sites/mirror.centos.org/7/isos/x86_64/${BASE_IMAGE}
   fi
   if [ ! -f hpacucli-9.30-15.0.x86_64.rpm ]; then
     wget https://downloads.hpe.com/pub/softlib2/software1/pubsw-linux/p1257348637/v77370/hpacucli-9.30-15.0.x86_64.rpm
   fi
+  if [ ! -f hpdsa-1.2.10-123.rhel7u4.x86_64.dd.gz ]; then
+    wget https://downloads.hpe.com/pub/softlib2/software1/pubsw-linux/p286329307/v128141/hpdsa-1.2.10-123.rhel7u4.x86_64.dd.gz
+    gunzip -c hpdsa-1.2.10-123.rhel7u4.x86_64.dd.gz > hpdsa.dd
+  fi
+  if [ ! -f kmod-hpdsa-1.2.10-123.rhel7u4.x86_64.rpm ]; then
+    wget http://downloads.linux.hpe.com/repo/spp/RHEL/7.3Server/x86_64/current/kmod-hpdsa-1.2.10-123.rhel7u4.x86_64.rpm
+  fi
 popd
 
-if [ ! -f /data/hpraid.tar.gz ]; then
-  pushd /tmp
-    if /usr/bin/mk_chroot_hpacucli /data/hpacucli-9.30-15.0.x86_64.rpm; then
-      mv hpraid.tar.gz /data
-    fi  
-  popd
+if [ ! -f "${CUSTOM_ISO}" ]; then
+  build_hparaid
+  build_iso
 fi
 
-
-rm -rf ${KS_BUILD}
-mkdir -pv ${KS_BUILD}/{isolinux,utils}
-mkdir -pv ${KS_BUILD}/isolinux/{images,ks,LiveOS,Packages}
-
-mount -o loop /data/${BASE_IMAGE} /mnt
-cp -rv /mnt/isolinux/* ${KS_BUILD}/isolinux/
-cp -v /mnt/.discinfo ${KS_BUILD}/isolinux/
-cp -rv /mnt/images/* ${KS_BUILD}/isolinux/images/ 
-cp -rv /mnt/LiveOS/* ${KS_BUILD}/isolinux/LiveOS/ 
-cp -rv /mnt/Packages/* ${KS_BUILD}/isolinux/Packages/
-cp -v /isolinux.cfg ${KS_BUILD}/isolinux/isolinux.cfg
-cp -v /data/hpraid.tar.gz ${KS_BUILD}/isolinux/
-
-gunzip -c /mnt/repodata/*comps.xml.gz > ${KS_BUILD}/comps.xml
-
-# Check if we have a real ks.cfg, otherwise use the SAMPLE one for testing
-if [ ! -f /ks.cfg ]; then
-  KS_FILE="/ks.cfg.SAMPLE"
-else
-  KS_FILE="/ks.cfg"
-fi
-cp ${KS_FILE} ${KS_BUILD}/isolinux/ks/ks.cfg
-
-pushd  ${KS_BUILD}/isolinux
-  echo " -- Creating repo"
-  createrepo -g ${KS_BUILD}/comps.xml .
-popd
-
-pushd ${KS_BUILD}
-  chmod 0664 isolinux/isolinux.bin
-
-  echo " -- Building ISO"
-  mkisofs -o custom.iso -b isolinux.bin -c boot.cat -no-emul-boot -V 'CentOS 7 x86_64' -boot-load-size 4 -boot-info-table -R -J -v -T isolinux/
-popd
 
 echo "Done"
 

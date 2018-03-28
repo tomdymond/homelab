@@ -1,0 +1,33 @@
+version: '3.0'
+services:
+  centos:
+    image: tomdymond/centos7-hpilo-boot
+    stdin_open: true
+    network_mode: bridge
+    volumes:
+    - centos-image-hpilo:/data
+    tty: true
+
+  provapi:
+    image: tomdymond/provapi
+    network_mode: bridge
+    environment:
+    - DATADIR=/data
+    ports:
+      - "5000:5000"
+    volumes:
+    - centos-image-hpilo:/data
+  
+  nginx:
+    image: nginx
+    network_mode: bridge
+    ports:
+      - "80:80"
+    deploy:
+      replicas: 1
+    volumes:
+      - centos-image-hpilo:/usr/share/nginx/html
+
+volumes:
+  centos-image-hpilo:
+

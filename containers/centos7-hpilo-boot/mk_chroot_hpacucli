@@ -18,10 +18,6 @@ if [ ! -s $RPM ]; then
     exit 1;
 fi
 
-echo "-- Installing required rpms"
-yum -y install libstdc++ libstdc++.so.6 rsync
-#yum install -q -y 'libstdc++.so.6' redhat-lsb rsync || (echo "#### WAS NOT ABLE TO INSTALL REQUIRED RPMS"; exit 1)
-
 
 echo "-- Making temporary folder"
 rm -Rf $OUTPUT

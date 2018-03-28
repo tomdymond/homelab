@@ -11,17 +11,20 @@ app = Flask(__name__)
 
 if 'DATADIR' not in os.environ:
     DATADIR="/tmp"
+else:
+    DATADIR=os.environ['DATADIR']
 
-ISO_URL = "http://{}/iso/{}"
+ISO_URL = "http://{}/{}"
 
 
 
 class myIlo(object):
-    def __init__(self, ip, ILO_USER, ilo_password, cidata, seed_node, iso_version):
+    def __init__(self, ip, ILO_USER, ilo_password, cidata, seed_node, iso_version, oemdrv_version):
         self.obj = hpilo.Ilo(ip, login=ILO_USER, password=ilo_password)
         self.cidata = cidata
         self.seed_node = seed_node
         self.iso_version = iso_version
+        self.oemdrv_version = oemdrv_version
 
 
     def eject_cd(self):
@@ -39,40 +42,42 @@ class myIlo(object):
                     if i['Port'] == 'iLO':
                         return i['MAC']
         except Exception as e:
-            print e.message
+            print (e.message)
             return False
         
     def write_cloudinit_data(self):
         """ Write out cloud-init data """
-        print "write_cloudinit_data"
+        print ("write_cloudinit_data")
         try:
             with open('{}/{}.json'.format(DATADIR, self.get_mac_address()), 'wb') as f:
                 f.write(json.dumps(self.cidata))
             return True
         except Exception as e:
-            print e.message
+            print (e.message)
             return False
 
     def insert_cd(self):
         """ """
         try:
             self.obj.insert_virtual_media("cdrom", ISO_URL.format(self.seed_node, self.iso_version))
+            self.obj.insert_virtual_media("floppy", ISO_URL.format(self.seed_node, self.oemdrv_version))
             self.obj.set_vm_status()
+            self.obj.set_one_time_boot(device="cdrom")
             return True
             
         except Exception as e:
-            print e.message
+            print (e.message)
             return False
 
 
     def reset_server(self):
         """ """
         try:
-            print "Reset server"
+            print ("Reset server")
             #self.obj.reset_server()
             return True
         except Exception as e:
-            print e.message
+            print (e.message)
             return False
 
 @app.route('/provision', methods=['POST', 'GET'])
@@ -80,19 +85,20 @@ def index():
 
 
     data = json.loads(request.data)
-    print data
+    print (data)
     cidata = data['cidata']
     seed_node = data['seed_node']
     iso_version = data['iso_version']
+    oemdrv_version = data['oemdrv_version']
     ilo_ip = data['ilo_ip']
     ilo_user = data['ilo_user']
     ilo_password = data['ilo_password']
-    ilo_obj = myIlo(ilo_ip, ilo_user, ilo_password, cidata, seed_node, iso_version)
+    ilo_obj = myIlo(ilo_ip, ilo_user, ilo_password, cidata, seed_node, iso_version, oemdrv_version)
 
     try:
-        print ilo_obj.obj.get_vm_status()
+        print (ilo_obj.obj.get_vm_status())
     except Exception as e:
-        print e.message
+        print (e.message)
         return "Failed to access ILO"
 
 
