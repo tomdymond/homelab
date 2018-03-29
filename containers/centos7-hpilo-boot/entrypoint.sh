@@ -57,9 +57,6 @@ pushd /data
     wget https://downloads.hpe.com/pub/softlib2/software1/pubsw-linux/p286329307/v128141/hpdsa-1.2.10-123.rhel7u4.x86_64.dd.gz
     gunzip -c hpdsa-1.2.10-123.rhel7u4.x86_64.dd.gz > hpdsa.dd
   fi
-  if [ ! -f kmod-hpdsa-1.2.10-123.rhel7u4.x86_64.rpm ]; then
-    wget http://downloads.linux.hpe.com/repo/spp/RHEL/7.3Server/x86_64/current/kmod-hpdsa-1.2.10-123.rhel7u4.x86_64.rpm
-  fi
 popd
 
 if [ ! -f "${CUSTOM_ISO}" ]; then
