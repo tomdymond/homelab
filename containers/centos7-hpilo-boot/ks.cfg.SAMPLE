@@ -49,6 +49,13 @@ kexec-tools
 modprobe ipmi_devintf
 ipmitool lan print
 
+# Use MAC address or ILO ip to look up Host IP in /run/install/repo/hosts.conf
+# Configure LACP bond0 interface according to IP configuration retreived
+# Curl to http://SEED_NODE/MACADDRESS.json 
+# Read MACADDRESS.json
+
+
+
 # GET CONFIG FROM SEED NODE
 
 # INSTALL HPACUCLI TO CONFIGURE VOLS
@@ -60,6 +67,9 @@ mount -t sysfs sysfs hpraid/sys;
 mount --bind /dev hpraid/dev;
 CLI='chroot hpraid /usr/sbin/hpacucli'
 $CLI "controller slot=0 show" | tee -a /tmp/foobar
+
+# Create physical RAID partitions according to configuration found in MACADDRESS.json
+
 
 %end
 
