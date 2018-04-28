@@ -1,7 +1,11 @@
-FROM centos:7
+FROM alpine:3.6
 
-RUN yum -y update
-RUN yum -y install ansible
+RUN apk --update add python py-pip openssl ca-certificates \
+  && apk --update add --virtual build-dependencies python-dev libffi-dev openssl-dev build-base \
+  && pip install --upgrade pip cffi \
+  && pip install ansible \
+  && apk del build-dependencies \
+  && rm -rf /var/cache/apk/*
 
 VOLUME /ansible/playbooks
 

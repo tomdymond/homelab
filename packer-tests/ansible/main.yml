@@ -3,5 +3,5 @@
   gather_facts: False
 
   roles:
-    - nginx
+    - test
 

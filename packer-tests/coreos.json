@@ -7,17 +7,15 @@
     },
     {
       "type": "shell",
-      "execute_command": "echo 'vagrant' | {{.Vars}} sudo -S -E bash '{{.Path}}'",
-      "script": "scripts/ansible.sh"
-    },
-    {
-      "type": "ansible-local",
-      "playbook_file": "ansible/main.yml"
+      "script": "scripts/add_python.sh"
     },
     {
       "type": "shell",
-      "execute_command": "echo 'vagrant' | {{.Vars}} sudo -S -E bash '{{.Path}}'",
-      "script": "scripts/cleanup.sh"
+      "script": "scripts/add_ansible.sh"
+    },
+    {
+      "type": "shell",
+      "script": "scripts/run_ansible.sh"
     }
   ],
   "builders": [
@@ -37,6 +35,7 @@
       "ssh_password": "{{user `ssh_password`}}",
       "ssh_wait_timeout": "10m",
 
+      "headless": true,
       "guest_os_type": "Linux26_64",
       "hard_drive_interface": "sata",
       "disk_size": 40960,
@@ -59,15 +58,16 @@
       ],
       "boot_wait": "30s",
       "shutdown_command": "sudo -S shutdown -P now",
-
+      "post_shutdown_delay": "120s",
       "output_directory": "builds/packer-coreos-{{user `channel`}}-{{user `version`}}-virtualbox",
       "virtualbox_version_file": ".virtualbox_version"
     }
   ],
   "post-processors": [
     {
-      "output": "builds/{{.Provider}}-centos7.box",
-      "type": "vagrant"
+      "type": "vagrant",
+      "output": "./builds/{{.Provider}}/coreos-{{user `channel`}}.box",
+      "vagrantfile_template": "files/box/Vagrantfile"
     }
   ],
   "variables": {
@@ -75,7 +75,6 @@
     "version": "current",
     "checksum_type": "md5",
     "checksum": "615bef057dfe11d3f70b0d224b96d662",
-    "ssh_passwordhash": "{{env `SSH_PASSWORDHASH`}}",
     "ssh_password": "{{env `SSH_PASSWORD`}}"
   }
 }
