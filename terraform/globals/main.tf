@@ -18,6 +18,7 @@ variable "vsphere_server" {
   type = "map"
   default = {
     home = "192.168.1.254"
+#    home = "127.0.0.1:8443"
     vdc = "x.x.x.x"
   }
 }

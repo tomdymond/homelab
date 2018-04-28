@@ -4,3 +4,5 @@ packer_cache/*
 iso/*
 output-virtualbox-iso/*
 .vagrant/*
+secrets.json
+variables.json

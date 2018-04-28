@@ -2,20 +2,20 @@
   "provisioners": [
     {
       "type": "file",
-      "source": "./ansible",
-      "destination": "/home/core/"
+      "source": "./ansible/coreos",
+      "destination": "/home/core/playbooks/"
     },
     {
       "type": "shell",
-      "script": "scripts/add_python.sh"
+      "script": "scripts/coreos/add_python.sh"
     },
     {
       "type": "shell",
-      "script": "scripts/add_ansible.sh"
+      "script": "scripts/coreos/add_ansible.sh"
     },
     {
       "type": "shell",
-      "script": "scripts/run_ansible.sh"
+      "script": "scripts/coreos/run_ansible.sh"
     }
   ],
   "builders": [
@@ -35,7 +35,7 @@
       "ssh_password": "{{user `ssh_password`}}",
       "ssh_wait_timeout": "10m",
 
-      "headless": true,
+      "headless": false,
       "guest_os_type": "Linux26_64",
       "hard_drive_interface": "sata",
       "disk_size": 40960,
@@ -61,6 +61,40 @@
       "post_shutdown_delay": "120s",
       "output_directory": "builds/packer-coreos-{{user `channel`}}-{{user `version`}}-virtualbox",
       "virtualbox_version_file": ".virtualbox_version"
+    },
+    {
+      "type": "amazon-ebs",
+      "access_key": "{{user `aws_access_key`}}",
+      "secret_key": "{{user `aws_secret_key`}}",
+      "region": "us-east-1",
+      "source_ami_filter": {
+          "filters": {
+              "owner-alias": "aws-marketplace",
+              "product-code": "aw0evgkw8e5c1q413zgy5pjce",
+              "virtualization-type": "hvm"
+          },
+          "most_recent": true
+      },
+      "instance_type": "t2.micro",
+      "ssh_username": "centos",
+      "ssh_keypair_name": "tom-aws-virginia",
+      "ssh_private_key_file": "/Users/tdy02/Downloads/tom-aws-virginia.pem",
+      "ami_name": "packer-example {{timestamp}}",
+      "associate_public_ip_address": true,
+      "tags": {
+          "Name": "CentOS 7",
+          "OS": "CentOS",
+          "OSVER": "7"
+      },
+      "ami_block_device_mappings": [
+        {
+            "device_name": "/dev/sda1",
+            "volume_type": "gp2",
+            "volume_size": 8,
+            "encrypted": true,
+            "delete_on_termination": true
+        }
+      ]
     }
   ],
   "post-processors": [

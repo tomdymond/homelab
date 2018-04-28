@@ -1,0 +1,116 @@
+{
+  "provisioners": [
+    {
+      "type": "shell",
+      "execute_command": "echo 'vagrant' | {{.Vars}} sudo -S -E bash '{{.Path}}'",
+      "script": "scripts/centos{{user `centos_version`}}/add_ansible.sh"
+    },
+    {
+      "type": "ansible-local",
+      "playbook_file": "ansible/centos{{user `centos_version`}}/{{user `node_role`}}.yml",
+      "playbook_dir": "ansible/centos{{user `centos_version`}}/"
+    },
+    {
+      "type": "shell",
+      "execute_command": "echo 'vagrant' | {{.Vars}} sudo -S -E bash '{{.Path}}'",
+      "script": "scripts/centos{{user `centos_version`}}/cleanup.sh"
+    }
+  ],
+  "builders": [
+    {
+      "type": "virtualbox-iso",
+      "boot_command": [
+        "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ks.cfg<enter><wait>"
+      ],
+      "boot_wait": "10s",
+      "disk_size": 81920,
+      "guest_os_type": "RedHat_64",
+      "headless": true,
+      "http_directory": "http",
+      "iso_urls": [
+        "{{user `centos_iso`}}",
+        "{{user `centos_mirror_url`}}/centos/{{user `centos_version`}}/isos/x86_64/{{user `centos_iso`}}"
+      ],
+      "iso_checksum_type": "{{user `centos_iso_checksum_type`}}",
+      "iso_checksum": "{{user `centos_iso_checksum`}}",
+      "ssh_username": "vagrant",
+      "ssh_password": "vagrant",
+      "ssh_port": 22,
+      "ssh_wait_timeout": "10000s",
+      "shutdown_command": "echo 'vagrant'|sudo -S /sbin/halt -h -p",
+      "guest_additions_path": "VBoxGuestAdditions_{{.Version}}.iso",
+      "virtualbox_version_file": ".vbox_version",
+      "vm_name": "packer-centos-{{user `centos_version`}}-x86_64",
+      "vboxmanage": [
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--memory",
+          "512"
+        ],
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--cpus",
+          "2"
+        ]
+      ]
+    },
+    {
+      "type": "amazon-ebs",
+      "access_key": "{{user `aws_access_key`}}",
+      "secret_key": "{{user `aws_secret_key`}}",
+      "region": "us-east-1",
+      "source_ami_filter": {
+          "filters": {
+              "owner-alias": "aws-marketplace",
+              "product-code": "aw0evgkw8e5c1q413zgy5pjce",
+              "virtualization-type": "hvm"
+          },
+          "most_recent": true
+      },
+      "instance_type": "t2.micro",
+      "ssh_username": "centos",
+      "ssh_keypair_name": "tom-aws-virginia",
+      "ssh_private_key_file": "{{user `aws_ssh_private_key_file`}}",
+      "ami_name": "base-{{user `node_role`}}-{{timestamp}}",
+      "associate_public_ip_address": true,
+      "tags": {
+          "Name": "CentOS {{user `centos_version`}}",
+          "OS": "CentOS",
+          "OSVER": "{{user `centos_version`}}"
+      },
+      "ami_block_device_mappings": [
+        {
+            "device_name": "/dev/sda1",
+            "volume_type": "gp2",
+            "volume_size": 8,
+            "encrypted": true,
+            "delete_on_termination": true
+        }
+      ]
+    }
+  ],
+  "post-processors": [
+    {
+      "type": "vagrant",
+      "output": "./builds/{{.Provider}}/centos{{user `centos_version`}}.box",
+      "vagrantfile_template": "files/box/Vagrantfile"
+    },
+    {
+      "type": "manifest",
+      "output": "manifest.json",
+      "strip_path": true
+    }
+  ],
+  "variables": {
+    "node_role": "",
+    "aws_access_key": "",
+    "aws_secret_key": "",
+    "centos_version": "",
+    "centos_iso_version": "",
+    "centos_iso_checksum_type": "",
+    "centos_iso_checksum": "",
+    "aws_ssh_private_key_file": ""
+  }
+}

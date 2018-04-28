@@ -16,11 +16,12 @@ if len(sys.argv) < 2:
 payload = {
   "ilo_ip": sys.argv[1],
   "role": "foo",
-  "iso_version": "2333",
+  "iso_version": "CentOS-7-x86_64-DVD-1708_CUSTOM.ISO",
+  "oemdrv_version": "hpdsa.dd",
   "cidata": cidata,
   "ilo_user": config.get('ilo', 'login'),
   "ilo_password": config.get('ilo', 'password'),
-  "seed_node": "127.0.0.1"
+  "seed_node": "10.56.32.34"
 }
 
 r = requests.post('http://127.0.0.1:5000/provision', json=payload)

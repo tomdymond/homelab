@@ -1,0 +1,23 @@
+[Unit]
+Description={{ stack_name }}-stack
+Requires=docker.service
+After=docker.service
+
+[Service]
+Restart=always
+
+# Remove old containers, images and volumes
+ExecStartPre=/usr/bin/docker-compose -f /var/stacks/{{ stack_name }}-stack/docker-compose.yml down
+ExecStartPre=/usr/bin/docker-compose -f /var/stacks/{{ stack_name }}-stack/docker-compose.yml rm
+
+#ExecStartPre=-/bin/bash -c 'docker volume rm $(docker volume ls -q)'
+
+ExecStartPre=-/bin/bash -c 'docker rmi $(docker images | grep "<none>" | awk \'{print $3}\')'
+ExecStartPre=-/bin/bash -c 'docker rm -v $(docker ps -aq)'
+
+ExecStart=/usr/bin/docker-compose -f /var/stacks/{{ stack_name }}-stack/docker-compose.yml up
+
+ExecStop=/usr/bin/docker-compose -f /var/stacks/{{ stack_name }}-stack/docker-compose.yml down
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,8 @@
+---
+
+- name: Create a folder
+  file:
+    path: /etc/some_directory
+    state: directory
+    mode: 0755
+    

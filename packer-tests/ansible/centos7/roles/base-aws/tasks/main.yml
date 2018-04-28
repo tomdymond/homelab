@@ -1,0 +1,64 @@
+---
+
+- selinux:
+    state: disabled
+
+- name: Install EPEL-Release
+  yum:
+    name: epel-release
+    state: present
+
+- name: Install some basic packages
+  command: yum -y install python2-pip rsync wget net-tools open-vm-tools cloud-init vim htop jq bind-utils unzip 
+
+- name: Hacky for now but fix package issues with urllib3
+  command: pip install requests urllib3 pyOpenSSL --force --upgrade 
+
+- name: purge old docker packages
+  yum:
+    name: "{{ item }}"
+    state: absent
+  with_items:
+    - docker
+    - docker-common
+    - container-selinux
+    - docker-selinux
+    - docker-engine
+
+- name: install requirements
+  yum:
+    name: "{{ item }}"
+    update_cache: yes
+  with_items:
+    - device-mapper-persistent-data
+    - lvm2
+
+- name: add docker-ce repository (centos7)
+  yum_repository:
+    name: docker-ce
+    description: Docker Repository
+    baseurl: https://download.docker.com/linux/centos/7/$basearch/stable
+    gpgkey: https://download.docker.com/linux/centos/gpg
+    gpgcheck: yes
+    file: docker
+
+- name: install docker-ce
+  yum:
+    name: docker-ce
+    update_cache: yes
+
+- name: enable service docker and ensure it is not masked
+  systemd:
+    name: docker
+    enabled: yes
+    masked: no
+    state: started
+
+- name: Install docker-compose
+  pip:
+    name: docker-compose
+
+- name: Install python-consul
+  pip:
+    name: python-consul
+
