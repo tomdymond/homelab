@@ -3,9 +3,9 @@ repo_update: true
 repo_upgrade: all
 
 packages:
- - mysql55-server
+  - mariadb-server
 
 runcmd:
- - service mysqld start
- - chkconfig mysqld on
+  - service mariadb start
+  - mysqladmin --no-defaults --port=3308 --user=root password '${database_password}'
 

@@ -23,7 +23,7 @@ write_files:
 
       [Service]
       Restart=always
-      ExecStart=/bin/bash -c "source /etc/boot_environment; sed -i 's|jdbc:mysql://localhost:3306|jdbc:mysql://${database_servers}:3306|g' /opt/spring-boot-samples/spring-boot-mysql-springdatajpa-hibernate/src/main/resources; cd /opt/spring-boot-samples/spring-boot-mysql-springdatajpa-hibernate; mvn spring-boot:run"
+      ExecStart=/bin/bash -c "sed -i 's|jdbc:mysql://localhost:3306|jdbc:mysql://${database_servers}:3306|g;s|spring.datasource.password = root|spring.datasource.password = ${database_password}|g' /opt/spring-boot-samples/spring-boot-mysql-springdatajpa-hibernate/src/main/resources/application.properties; cd /opt/spring-boot-samples/spring-boot-mysql-springdatajpa-hibernate; mvn spring-boot:run"
 
       [Install]
       WantedBy=default.target

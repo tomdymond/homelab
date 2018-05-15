@@ -16,6 +16,7 @@ module "app" {
   subnetid = "${var.subnet_id_private}"
 #  database_server_ips = "${module.db.private_ip}"
   zone_id = "${var.zone_id}"
+  database_password = "${var.database_password}"
 }
 
 module "db" {
@@ -25,5 +26,6 @@ module "db" {
   securitygroup = "${var.securitygroup_db}"
   subnetid = "${var.subnet_id_database}"
   zone_id = "${var.zone_id}"
+  database_password = "${var.database_password}"
 }
 

@@ -14,3 +14,5 @@ variable subnet_id_database {
   type = "list"
 }
 variable zone_id {}
+variable database_password {}
+

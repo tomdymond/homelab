@@ -23,5 +23,6 @@ module "stack" {
   subnet_id_public = "${module.vpc.subnet_id_public}"
   subnet_id_database = "${module.vpc.subnet_id_database}"
   zone_id = "${module.vpc.zone_id}"
+  database_password = "${var.database_password}"
 }
 

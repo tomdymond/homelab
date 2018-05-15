@@ -21,4 +21,7 @@ variable db_server_ips {
   default = ""
 }
 variable zone_id {}
+variable database_password {
+  default = ""
+}
 
