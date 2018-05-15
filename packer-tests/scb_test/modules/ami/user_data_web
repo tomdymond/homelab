@@ -4,12 +4,15 @@ repo_upgrade: all
 
 packages:
  - epel-release
- - nginx
 
 write_files:
  - path: "/etc/nginx/nginx.conf"
    owner: "root"
    content: |
+     worker_processes  1;
+     events {
+       worker_connections  1024;
+     }
      upstream backend {
        server ${app_servers}:8080;
      }
@@ -21,6 +24,7 @@ write_files:
      }
 
 runcmd:
+ - yum -y install nginx
  - systemd enable nginx
  - systemd start nginx
 
