@@ -43,6 +43,26 @@ resource "aws_security_group_rule" "allow_web_to_any" {
   security_group_id = "${aws_security_group.secgroup_web.id}"
 }
 
+resource "aws_security_group_rule" "allow_db_to_any" {
+  description = "Allow all traffic from DB to ANY"
+  from_port       = 0
+  to_port         = 65535
+  type            = "egress"
+  protocol        = "-1"
+  cidr_blocks     = ["0.0.0.0/0"]
+  security_group_id = "${aws_security_group.secgroup_db.id}"
+}
+
+resource "aws_security_group_rule" "allow_app_to_any" {
+  description = "Allow all traffic from APP to ANY"
+  from_port       = 0
+  to_port         = 65535
+  type            = "egress"
+  protocol        = "-1"
+  cidr_blocks     = ["0.0.0.0/0"]
+  security_group_id = "${aws_security_group.secgroup_app.id}"
+}
+
 
 resource "aws_security_group_rule" "allow_any_to_web_ssh" {
   description = "Allow ANY to WEB port 22"
