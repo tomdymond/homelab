@@ -3,12 +3,11 @@ repo_update: true
 repo_upgrade: all
 
 packages:
- - java-1.8.0-openjdk
- - maven
- - git
+  - java-1.8.0-openjdk
+  - maven
+  - git
 
 users:
-  - default
   - name: deploy
     gecos: Magic Cloud App Daemon User
     inactive: true
@@ -24,16 +23,10 @@ write_files:
 
       [Service]
       Restart=always
-      ExecStart=/bin/bash -c "source /etc/boot_environment; sed -i 's|jdbc:mysql://localhost:3306|jdbc:mysql://$${DATABASE_SERVER}:3306|g' /opt/spring-boot-samples/spring-boot-mysql-springdatajpa-hibernate/src/main/resources; cd /opt/spring-boot-samples/spring-boot-mysql-springdatajpa-hibernate; mvn spring-boot:run"
+      ExecStart=/bin/bash -c "source /etc/boot_environment; sed -i 's|jdbc:mysql://localhost:3306|jdbc:mysql://${database_servers}:3306|g' /opt/spring-boot-samples/spring-boot-mysql-springdatajpa-hibernate/src/main/resources; cd /opt/spring-boot-samples/spring-boot-mysql-springdatajpa-hibernate; mvn spring-boot:run"
 
       [Install]
       WantedBy=default.target
 
-  - path: "/etc/boot_environment"
-    owner: "root"
-    content: |
-      export DATABASE_SERVER="${database_servers}"
-
 runcmd:
- - cd /opt && git clone https://github.com/netgloo/spring-boot-samples
-
+  - cd /opt && git clone https://github.com/netgloo/spring-boot-samples
