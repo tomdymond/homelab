@@ -6,6 +6,7 @@ packages:
   - java-1.8.0-openjdk
   - maven
   - git
+  - mariadb
 
 users:
   - name: deploy
