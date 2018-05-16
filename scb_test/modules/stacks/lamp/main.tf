@@ -4,11 +4,8 @@ module "web" {
   azs           = "${var.azs}"
   securitygroup = "${var.securitygroup_web}"
   subnetid      = "${var.subnet_id_public}"
-
-  #  app_server_ips = "${module.app.private_ip}"
-  zone_id = "${var.zone_id}"
-  aws_elb_id = "${var.aws_elb_id}"
-  create_attachment = 1
+  zone_id       = "${var.zone_id}"
+  aws_elb_id    = "${var.aws_elb_id}"
 }
 
 module "app" {
@@ -17,8 +14,6 @@ module "app" {
   azs           = "${var.azs}"
   securitygroup = "${var.securitygroup_app}"
   subnetid      = "${var.subnet_id_private}"
-
-  #  database_server_ips = "${module.db.private_ip}"
   zone_id           = "${var.zone_id}"
   database_password = "${var.database_password}"
 }
