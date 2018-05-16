@@ -13,13 +13,15 @@ write_files:
      events {
        worker_connections  1024;
      }
-     upstream backend {
-       server ${app_servers}:8080;
-     }
-
-     server {
-       location / {
-         proxy_pass http://backend;
+     http {
+       upstream backend {
+         server ${app_servers}:8080;
+       }
+       
+       server {
+         location / {
+           proxy_pass http://backend;
+         }
        }
      }
 
