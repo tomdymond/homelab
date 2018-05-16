@@ -27,6 +27,7 @@ write_files:
 
 runcmd:
  - setenforce 0
+ - sed -i s'|SELINUX=enforcing|SELINUX=disabled|g' /etc/selinux/config
  - yum -y install nginx
  - systemctl enable nginx
  - systemctl start nginx

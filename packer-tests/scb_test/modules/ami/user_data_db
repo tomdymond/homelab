@@ -69,8 +69,6 @@ write_files:
           # NODE IS REPLICA
           /bin/cp -f /etc/my.cnf.slave /etc/my.cnf
           service mariadb restart
-          mysql -e "CREATE USER 'app' identified by '${database_password}';"
-          mysql -e "CREATE USER 'replication_user_name' identified by '${database_password}';"
           mysql -e "CHANGE MASTER TO MASTER_HOST='db.az0.example.com', MASTER_USER='repl_user', MASTER_PASSWORD='${database_password}';"
           mysql -e "START SLAVE"
         ;;
@@ -78,6 +76,7 @@ write_files:
 
 runcmd:
   - setenforce 0
+  - sed -i s'|SELINUX=enforcing|SELINUX=disabled|g' /etc/selinux/config
   - /configure_database.sh
   - mysqladmin --no-defaults --port=3308 --user=root password '${database_password}' && mv /root/.my.cnf.disabled /root/.my.cnf
 
