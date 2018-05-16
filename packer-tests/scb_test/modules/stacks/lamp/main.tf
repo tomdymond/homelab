@@ -7,6 +7,8 @@ module "web" {
 
   #  app_server_ips = "${module.app.private_ip}"
   zone_id = "${var.zone_id}"
+  aws_elb_id = "${var.aws_elb_id}"
+  create_attachment = 1
 }
 
 module "app" {

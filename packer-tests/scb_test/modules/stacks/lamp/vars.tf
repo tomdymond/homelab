@@ -20,3 +20,4 @@ variable subnet_id_database {
 
 variable zone_id {}
 variable database_password {}
+variable aws_elb_id {}

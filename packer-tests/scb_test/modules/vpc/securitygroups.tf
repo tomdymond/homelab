@@ -94,8 +94,8 @@ resource "aws_security_group_rule" "allow_web_to_app_ssh" {
   security_group_id        = "${aws_security_group.secgroup_app.id}"
 }
 
-resource "aws_security_group_rule" "allow_elb_to_web" {
-  description              = "Allow ELB to WEB port 80"
+resource "aws_security_group_rule" "allow_web_from_elb" {
+  description              = "Allow WEB from ELB port 80"
   type                     = "ingress"
   from_port                = 80
   to_port                  = 80
@@ -103,6 +103,18 @@ resource "aws_security_group_rule" "allow_elb_to_web" {
   source_security_group_id = "${aws_security_group.elb-securitygroup.id}"
   security_group_id        = "${aws_security_group.secgroup_web.id}"
 }
+
+resource "aws_security_group_rule" "allow_elb_to_web" {
+  description              = "Allow ELB to WEB port 80"
+  type                     = "egress"
+  from_port                = 80
+  to_port                  = 80
+  protocol                 = "tcp"
+  security_group_id        = "${aws_security_group.elb-securitygroup.id}"
+  source_security_group_id = "${aws_security_group.secgroup_web.id}"
+}
+
+
 
 resource "aws_security_group_rule" "allow_web_to_app" {
   description              = "Allow WEB to APP port 8080"

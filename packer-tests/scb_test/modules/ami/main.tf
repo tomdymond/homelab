@@ -40,3 +40,11 @@ resource "aws_route53_record" "server-record" {
   records = ["${element(aws_instance.host.*.private_ip, count.index)}"]
   count   = "${length(var.azs)}"
 }
+
+resource "aws_elb_attachment" "my-elb-a" {
+  elb      = "${var.aws_elb_id}"
+  instance = "${element(aws_instance.host.*.id, 0)}"
+  count    = "${var.create_attachment}"
+}
+
+

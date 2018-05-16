@@ -29,3 +29,7 @@ output "subnet_id_database" {
 output "zone_id" {
   value = "${aws_route53_zone.example.zone_id}"
 }
+
+output "aws_elb_id" {
+  value = "${aws_elb.my-elb.id}"
+}
