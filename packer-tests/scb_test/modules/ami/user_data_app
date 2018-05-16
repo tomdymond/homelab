@@ -34,7 +34,10 @@ write_files:
 
 runcmd:
   - setenforce 0
+  - sed -i s'|SELINUX=enforcing|SELINUX=disabled|g' /etc/selinux/config
   - cd /opt && git clone https://github.com/netgloo/spring-boot-samples
+  - mkdir -p /home/deploy
+  - chown -R deploy:deploy /opt/spring-boot-samples /home/deploy
   - systemctl start spring-boot-samples
 
 
