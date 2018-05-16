@@ -1,0 +1,267 @@
+terraform destroy -no-color -force -var-file=secrets.tfvars -var-file=terraform.tfvars
+data.template_file.init[1]: Refreshing state...
+data.template_file.init[0]: Refreshing state...
+data.template_file.init[0]: Refreshing state...
+data.template_file.init[1]: Refreshing state...
+data.template_file.init[1]: Refreshing state...
+data.template_file.init[0]: Refreshing state...
+aws_vpc.main: Refreshing state... (ID: vpc-033138193a034fa06)
+aws_eip.nat[1]: Refreshing state... (ID: eipalloc-095ffa80c93dd69a4)
+aws_eip.nat[0]: Refreshing state... (ID: eipalloc-09b7458bd46eb10de)
+aws_subnet.public[0]: Refreshing state... (ID: subnet-0b41ff1d57a552378)
+aws_subnet.public[1]: Refreshing state... (ID: subnet-0c9b24665d831b12f)
+aws_security_group.elb-securitygroup: Refreshing state... (ID: sg-02612760fb2f4c1c5)
+aws_route53_zone.example: Refreshing state... (ID: Z3RVD0MWOPU8E0)
+aws_security_group.secgroup_app: Refreshing state... (ID: sg-07964aeac40a924e0)
+aws_security_group.secgroup_db: Refreshing state... (ID: sg-06df50cc4817cc5f8)
+aws_internet_gateway.gw: Refreshing state... (ID: igw-0880256ebb15840df)
+aws_security_group.secgroup_web: Refreshing state... (ID: sg-05babeb9c6ece3ef5)
+aws_subnet.database[1]: Refreshing state... (ID: subnet-013189f97ed39dab0)
+aws_subnet.database[0]: Refreshing state... (ID: subnet-00b330d5b86b2c861)
+aws_subnet.private[1]: Refreshing state... (ID: subnet-0796452c7379e75ab)
+aws_subnet.private[0]: Refreshing state... (ID: subnet-031672a3bdbec2173)
+aws_nat_gateway.nat-gw[0]: Refreshing state... (ID: nat-04b2e53f563a2429c)
+aws_nat_gateway.nat-gw[1]: Refreshing state... (ID: nat-01e6377230e747035)
+aws_route_table.rt-public: Refreshing state... (ID: rtb-092a13cd52b268f78)
+aws_security_group_rule.allow_db_to_db: Refreshing state... (ID: sgrule-1203758574)
+aws_security_group_rule.allow_db_to_any: Refreshing state... (ID: sgrule-451528879)
+aws_security_group_rule.allow_app_to_any: Refreshing state... (ID: sgrule-1789719183)
+aws_security_group_rule.allow_app_to_db: Refreshing state... (ID: sgrule-3641051351)
+aws_security_group_rule.allow_all_to_elb: Refreshing state... (ID: sgrule-2219352286)
+aws_elb.my-elb: Refreshing state... (ID: my-elb)
+aws_instance.host[0]: Refreshing state... (ID: i-0abe2ff167796e053)
+aws_instance.host[1]: Refreshing state... (ID: i-04f156fbda318904b)
+aws_security_group_rule.allow_web_from_elb: Refreshing state... (ID: sgrule-3028458751)
+aws_security_group_rule.allow_elb_to_web: Refreshing state... (ID: sgrule-2038007656)
+aws_security_group_rule.allow_web_to_any: Refreshing state... (ID: sgrule-1705853071)
+aws_security_group_rule.allow_web_to_app_ssh: Refreshing state... (ID: sgrule-247105913)
+aws_security_group_rule.allow_any_to_web_ssh: Refreshing state... (ID: sgrule-929078640)
+aws_security_group_rule.allow_web_to_db_ssh: Refreshing state... (ID: sgrule-2820335803)
+aws_security_group_rule.allow_web_to_app: Refreshing state... (ID: sgrule-457032117)
+aws_route_table_association.rta-public-a[1]: Refreshing state... (ID: rtbassoc-0498fef75bbe37ae1)
+aws_route_table_association.rta-public-a[0]: Refreshing state... (ID: rtbassoc-0a3ba8b72e72f4fdb)
+aws_route_table.private[0]: Refreshing state... (ID: rtb-04d41c59038626483)
+aws_route_table.private[1]: Refreshing state... (ID: rtb-0f15e946d63b10cd4)
+aws_route_table.database[0]: Refreshing state... (ID: rtb-0cd12d10083d986c8)
+aws_route_table.database[1]: Refreshing state... (ID: rtb-04aede1cd4c95410d)
+aws_instance.host[1]: Refreshing state... (ID: i-043e24ed83d66212d)
+aws_instance.host[0]: Refreshing state... (ID: i-0a2559a478f5268f9)
+aws_instance.host[1]: Refreshing state... (ID: i-0ca2349710bdd47c8)
+aws_instance.host[0]: Refreshing state... (ID: i-01f5665357a27ad22)
+aws_route_table_association.private-a[1]: Refreshing state... (ID: rtbassoc-05aac84b47e4dcc70)
+aws_route_table_association.private-a[0]: Refreshing state... (ID: rtbassoc-04300ba4bed4a8344)
+aws_route_table_association.database-a[0]: Refreshing state... (ID: rtbassoc-05659e902fc2cc284)
+aws_route_table_association.database-a[1]: Refreshing state... (ID: rtbassoc-0d629a1fab61f8792)
+aws_route53_record.server-record[0]: Refreshing state... (ID: Z3RVD0MWOPU8E0_db.az0.example.com_A)
+aws_route53_record.server-record[1]: Refreshing state... (ID: Z3RVD0MWOPU8E0_db.az1.example.com_A)
+aws_route53_record.server-record[1]: Refreshing state... (ID: Z3RVD0MWOPU8E0_web.az1.example.com_A)
+aws_route53_record.server-record[0]: Refreshing state... (ID: Z3RVD0MWOPU8E0_web.az0.example.com_A)
+aws_elb_attachment.my-elb-a[0]: Refreshing state... (ID: my-elb-20180516160057341800000002)
+aws_elb_attachment.my-elb-a[1]: Refreshing state... (ID: my-elb-20180516160057288600000001)
+aws_route53_record.server-record[0]: Refreshing state... (ID: Z3RVD0MWOPU8E0_app.az0.example.com_A)
+aws_route53_record.server-record[1]: Refreshing state... (ID: Z3RVD0MWOPU8E0_app.az1.example.com_A)
+module.stack.module.app.aws_route53_record.server-record[1]: Destroying... (ID: Z3RVD0MWOPU8E0_app.az1.example.com_A)
+module.stack.module.app.aws_route53_record.server-record[0]: Destroying... (ID: Z3RVD0MWOPU8E0_app.az0.example.com_A)
+module.stack.module.db.aws_route53_record.server-record[0]: Destroying... (ID: Z3RVD0MWOPU8E0_db.az0.example.com_A)
+module.stack.module.db.aws_route53_record.server-record[1]: Destroying... (ID: Z3RVD0MWOPU8E0_db.az1.example.com_A)
+module.vpc.aws_security_group_rule.allow_web_from_elb: Destroying... (ID: sgrule-3028458751)
+module.vpc.aws_security_group_rule.allow_all_to_elb: Destroying... (ID: sgrule-2219352286)
+module.vpc.aws_security_group_rule.allow_web_to_db_ssh: Destroying... (ID: sgrule-2820335803)
+module.vpc.aws_security_group_rule.allow_web_to_app_ssh: Destroying... (ID: sgrule-247105913)
+module.vpc.aws_security_group_rule.allow_any_to_web_ssh: Destroying... (ID: sgrule-929078640)
+module.vpc.aws_route_table_association.rta-public-a[0]: Destroying... (ID: rtbassoc-0a3ba8b72e72f4fdb)
+module.vpc.aws_route_table_association.rta-public-a[0]: Destruction complete after 0s
+module.vpc.aws_security_group_rule.allow_db_to_db: Destroying... (ID: sgrule-1203758574)
+module.vpc.aws_security_group_rule.allow_all_to_elb: Destruction complete after 1s
+module.vpc.aws_security_group_rule.allow_web_to_app_ssh: Destruction complete after 1s
+module.vpc.aws_security_group_rule.allow_web_to_any: Destroying... (ID: sgrule-1705853071)
+module.vpc.aws_security_group_rule.allow_web_from_elb: Destruction complete after 1s
+module.vpc.aws_route_table_association.private-a[1]: Destroying... (ID: rtbassoc-05aac84b47e4dcc70)
+module.vpc.aws_security_group_rule.allow_elb_to_web: Destroying... (ID: sgrule-2038007656)
+module.vpc.aws_security_group_rule.allow_web_to_db_ssh: Destruction complete after 1s
+module.vpc.aws_security_group_rule.allow_app_to_any: Destroying... (ID: sgrule-1789719183)
+module.vpc.aws_route_table_association.private-a[1]: Destruction complete after 0s
+module.vpc.aws_route_table_association.private-a[0]: Destroying... (ID: rtbassoc-04300ba4bed4a8344)
+module.vpc.aws_route_table_association.private-a[0]: Destruction complete after 0s
+module.vpc.aws_security_group_rule.allow_db_to_any: Destroying... (ID: sgrule-451528879)
+module.vpc.aws_security_group_rule.allow_app_to_any: Destruction complete after 1s
+module.vpc.aws_security_group_rule.allow_web_to_app: Destroying... (ID: sgrule-457032117)
+module.vpc.aws_security_group_rule.allow_elb_to_web: Destruction complete after 1s
+module.vpc.aws_security_group_rule.allow_any_to_web_ssh: Destruction complete after 2s
+module.vpc.aws_route_table_association.database-a[0]: Destroying... (ID: rtbassoc-05659e902fc2cc284)
+module.vpc.aws_security_group_rule.allow_app_to_db: Destroying... (ID: sgrule-3641051351)
+module.vpc.aws_security_group_rule.allow_db_to_db: Destruction complete after 2s
+module.vpc.aws_route_table_association.database-a[1]: Destroying... (ID: rtbassoc-0d629a1fab61f8792)
+module.vpc.aws_route_table_association.database-a[0]: Destruction complete after 0s
+module.vpc.aws_route_table_association.rta-public-a[1]: Destroying... (ID: rtbassoc-0498fef75bbe37ae1)
+module.vpc.aws_route_table_association.database-a[1]: Destruction complete after 0s
+module.stack.module.web.aws_elb_attachment.my-elb-a[0]: Destroying... (ID: my-elb-20180516160057341800000002)
+module.vpc.aws_route_table_association.rta-public-a[1]: Destruction complete after 1s
+module.stack.module.web.aws_elb_attachment.my-elb-a[1]: Destroying... (ID: my-elb-20180516160057288600000001)
+module.stack.module.web.aws_elb_attachment.my-elb-a[0]: Destruction complete after 1s
+module.stack.module.web.aws_route53_record.server-record[1]: Destroying... (ID: Z3RVD0MWOPU8E0_web.az1.example.com_A)
+module.vpc.aws_security_group_rule.allow_db_to_any: Destruction complete after 2s
+module.stack.module.web.aws_route53_record.server-record[0]: Destroying... (ID: Z3RVD0MWOPU8E0_web.az0.example.com_A)
+module.vpc.aws_security_group_rule.allow_web_to_app: Destruction complete after 1s
+module.vpc.aws_route_table.private[0]: Destroying... (ID: rtb-04d41c59038626483)
+module.vpc.aws_security_group_rule.allow_web_to_any: Destruction complete after 2s
+module.vpc.aws_route_table.private[1]: Destroying... (ID: rtb-0f15e946d63b10cd4)
+module.stack.module.web.aws_elb_attachment.my-elb-a[1]: Destruction complete after 0s
+module.vpc.aws_route_table.database[1]: Destroying... (ID: rtb-04aede1cd4c95410d)
+module.vpc.aws_security_group_rule.allow_app_to_db: Destruction complete after 2s
+module.vpc.aws_route_table.database[0]: Destroying... (ID: rtb-0cd12d10083d986c8)
+module.vpc.aws_route_table.private[0]: Destruction complete after 1s
+module.vpc.aws_route_table.rt-public: Destroying... (ID: rtb-092a13cd52b268f78)
+module.vpc.aws_route_table.private[1]: Destruction complete after 1s
+module.vpc.aws_elb.my-elb: Destroying... (ID: my-elb)
+module.vpc.aws_route_table.database[1]: Destruction complete after 1s
+module.vpc.aws_route_table.database[0]: Destruction complete after 1s
+module.vpc.aws_nat_gateway.nat-gw[1]: Destroying... (ID: nat-01e6377230e747035)
+module.vpc.aws_nat_gateway.nat-gw[0]: Destroying... (ID: nat-04b2e53f563a2429c)
+module.vpc.aws_route_table.rt-public: Destruction complete after 1s
+module.vpc.aws_elb.my-elb: Destruction complete after 2s
+module.vpc.aws_security_group.elb-securitygroup: Destroying... (ID: sg-02612760fb2f4c1c5)
+module.stack.app.aws_route53_record.server-record.1: Still destroying... (ID: Z3RVD0MWOPU8E0_app.az1.example.com_A, 10s elapsed)
+module.stack.app.aws_route53_record.server-record.0: Still destroying... (ID: Z3RVD0MWOPU8E0_app.az0.example.com_A, 10s elapsed)
+module.stack.db.aws_route53_record.server-record.0: Still destroying... (ID: Z3RVD0MWOPU8E0_db.az0.example.com_A, 10s elapsed)
+module.stack.db.aws_route53_record.server-record.1: Still destroying... (ID: Z3RVD0MWOPU8E0_db.az1.example.com_A, 10s elapsed)
+module.stack.web.aws_route53_record.server-record.1: Still destroying... (ID: Z3RVD0MWOPU8E0_web.az1.example.com_A, 10s elapsed)
+module.stack.web.aws_route53_record.server-record.0: Still destroying... (ID: Z3RVD0MWOPU8E0_web.az0.example.com_A, 10s elapsed)
+module.vpc.aws_nat_gateway.nat-gw.1: Still destroying... (ID: nat-01e6377230e747035, 10s elapsed)
+module.vpc.aws_nat_gateway.nat-gw.0: Still destroying... (ID: nat-04b2e53f563a2429c, 10s elapsed)
+module.vpc.aws_security_group.elb-securitygroup: Still destroying... (ID: sg-02612760fb2f4c1c5, 10s elapsed)
+module.stack.app.aws_route53_record.server-record.1: Still destroying... (ID: Z3RVD0MWOPU8E0_app.az1.example.com_A, 20s elapsed)
+module.stack.app.aws_route53_record.server-record.0: Still destroying... (ID: Z3RVD0MWOPU8E0_app.az0.example.com_A, 20s elapsed)
+module.stack.db.aws_route53_record.server-record.0: Still destroying... (ID: Z3RVD0MWOPU8E0_db.az0.example.com_A, 20s elapsed)
+module.stack.db.aws_route53_record.server-record.1: Still destroying... (ID: Z3RVD0MWOPU8E0_db.az1.example.com_A, 20s elapsed)
+module.stack.web.aws_route53_record.server-record.1: Still destroying... (ID: Z3RVD0MWOPU8E0_web.az1.example.com_A, 20s elapsed)
+module.stack.web.aws_route53_record.server-record.0: Still destroying... (ID: Z3RVD0MWOPU8E0_web.az0.example.com_A, 20s elapsed)
+module.vpc.aws_nat_gateway.nat-gw.1: Still destroying... (ID: nat-01e6377230e747035, 20s elapsed)
+module.vpc.aws_nat_gateway.nat-gw.0: Still destroying... (ID: nat-04b2e53f563a2429c, 20s elapsed)
+module.vpc.aws_security_group.elb-securitygroup: Still destroying... (ID: sg-02612760fb2f4c1c5, 20s elapsed)
+module.stack.app.aws_route53_record.server-record.1: Still destroying... (ID: Z3RVD0MWOPU8E0_app.az1.example.com_A, 30s elapsed)
+module.stack.app.aws_route53_record.server-record.0: Still destroying... (ID: Z3RVD0MWOPU8E0_app.az0.example.com_A, 30s elapsed)
+module.stack.db.aws_route53_record.server-record.1: Still destroying... (ID: Z3RVD0MWOPU8E0_db.az1.example.com_A, 30s elapsed)
+module.stack.db.aws_route53_record.server-record.0: Still destroying... (ID: Z3RVD0MWOPU8E0_db.az0.example.com_A, 30s elapsed)
+module.stack.web.aws_route53_record.server-record.1: Still destroying... (ID: Z3RVD0MWOPU8E0_web.az1.example.com_A, 30s elapsed)
+module.stack.web.aws_route53_record.server-record.0: Still destroying... (ID: Z3RVD0MWOPU8E0_web.az0.example.com_A, 30s elapsed)
+module.vpc.aws_nat_gateway.nat-gw.0: Still destroying... (ID: nat-04b2e53f563a2429c, 30s elapsed)
+module.vpc.aws_nat_gateway.nat-gw.1: Still destroying... (ID: nat-01e6377230e747035, 30s elapsed)
+module.vpc.aws_security_group.elb-securitygroup: Still destroying... (ID: sg-02612760fb2f4c1c5, 30s elapsed)
+module.stack.app.aws_route53_record.server-record.1: Still destroying... (ID: Z3RVD0MWOPU8E0_app.az1.example.com_A, 40s elapsed)
+module.stack.app.aws_route53_record.server-record.0: Still destroying... (ID: Z3RVD0MWOPU8E0_app.az0.example.com_A, 40s elapsed)
+module.stack.db.aws_route53_record.server-record.1: Still destroying... (ID: Z3RVD0MWOPU8E0_db.az1.example.com_A, 40s elapsed)
+module.stack.db.aws_route53_record.server-record.0: Still destroying... (ID: Z3RVD0MWOPU8E0_db.az0.example.com_A, 40s elapsed)
+module.stack.web.aws_route53_record.server-record.1: Still destroying... (ID: Z3RVD0MWOPU8E0_web.az1.example.com_A, 40s elapsed)
+module.stack.web.aws_route53_record.server-record.0: Still destroying... (ID: Z3RVD0MWOPU8E0_web.az0.example.com_A, 40s elapsed)
+module.vpc.aws_nat_gateway.nat-gw.1: Still destroying... (ID: nat-01e6377230e747035, 40s elapsed)
+module.vpc.aws_nat_gateway.nat-gw.0: Still destroying... (ID: nat-04b2e53f563a2429c, 40s elapsed)
+module.vpc.aws_security_group.elb-securitygroup: Still destroying... (ID: sg-02612760fb2f4c1c5, 40s elapsed)
+module.stack.app.aws_route53_record.server-record.1: Still destroying... (ID: Z3RVD0MWOPU8E0_app.az1.example.com_A, 50s elapsed)
+module.stack.app.aws_route53_record.server-record.0: Still destroying... (ID: Z3RVD0MWOPU8E0_app.az0.example.com_A, 50s elapsed)
+module.stack.db.aws_route53_record.server-record.0: Still destroying... (ID: Z3RVD0MWOPU8E0_db.az0.example.com_A, 50s elapsed)
+module.stack.db.aws_route53_record.server-record.1: Still destroying... (ID: Z3RVD0MWOPU8E0_db.az1.example.com_A, 50s elapsed)
+module.stack.web.aws_route53_record.server-record.1: Still destroying... (ID: Z3RVD0MWOPU8E0_web.az1.example.com_A, 50s elapsed)
+module.stack.web.aws_route53_record.server-record.0: Still destroying... (ID: Z3RVD0MWOPU8E0_web.az0.example.com_A, 50s elapsed)
+module.vpc.aws_nat_gateway.nat-gw.0: Still destroying... (ID: nat-04b2e53f563a2429c, 50s elapsed)
+module.vpc.aws_nat_gateway.nat-gw.1: Still destroying... (ID: nat-01e6377230e747035, 50s elapsed)
+module.vpc.aws_security_group.elb-securitygroup: Still destroying... (ID: sg-02612760fb2f4c1c5, 50s elapsed)
+module.stack.module.app.aws_route53_record.server-record[0]: Destruction complete after 59s
+module.stack.module.db.aws_route53_record.server-record[0]: Destruction complete after 59s
+module.stack.module.app.aws_route53_record.server-record[1]: Destruction complete after 59s
+module.stack.module.app.aws_instance.host[0]: Destroying... (ID: i-01f5665357a27ad22)
+module.stack.module.app.aws_instance.host[1]: Destroying... (ID: i-0ca2349710bdd47c8)
+module.stack.module.db.aws_route53_record.server-record[1]: Destruction complete after 59s
+module.stack.module.db.aws_instance.host[1]: Destroying... (ID: i-04f156fbda318904b)
+module.stack.module.db.aws_instance.host[0]: Destroying... (ID: i-0abe2ff167796e053)
+module.vpc.aws_nat_gateway.nat-gw[0]: Destruction complete after 53s
+module.stack.module.web.aws_route53_record.server-record[1]: Destruction complete after 57s
+module.stack.module.web.aws_route53_record.server-record[0]: Destruction complete after 58s
+module.stack.module.web.aws_instance.host[0]: Destroying... (ID: i-0a2559a478f5268f9)
+module.stack.module.web.aws_instance.host[1]: Destroying... (ID: i-043e24ed83d66212d)
+module.vpc.aws_route53_zone.example: Destroying... (ID: Z3RVD0MWOPU8E0)
+module.vpc.aws_route53_zone.example: Destruction complete after 0s
+module.vpc.aws_nat_gateway.nat-gw.1: Still destroying... (ID: nat-01e6377230e747035, 1m0s elapsed)
+module.vpc.aws_security_group.elb-securitygroup: Still destroying... (ID: sg-02612760fb2f4c1c5, 1m0s elapsed)
+module.stack.app.aws_instance.host.0: Still destroying... (ID: i-01f5665357a27ad22, 10s elapsed)
+module.stack.app.aws_instance.host.1: Still destroying... (ID: i-0ca2349710bdd47c8, 10s elapsed)
+module.stack.db.aws_instance.host.1: Still destroying... (ID: i-04f156fbda318904b, 10s elapsed)
+module.stack.db.aws_instance.host.0: Still destroying... (ID: i-0abe2ff167796e053, 10s elapsed)
+module.vpc.aws_nat_gateway.nat-gw[1]: Destruction complete after 1m3s
+module.vpc.aws_internet_gateway.gw: Destroying... (ID: igw-0880256ebb15840df)
+module.vpc.aws_eip.nat[0]: Destroying... (ID: eipalloc-09b7458bd46eb10de)
+module.vpc.aws_eip.nat[1]: Destroying... (ID: eipalloc-095ffa80c93dd69a4)
+module.vpc.aws_eip.nat[1]: Destruction complete after 1s
+module.vpc.aws_eip.nat[0]: Destruction complete after 2s
+module.stack.web.aws_instance.host.0: Still destroying... (ID: i-0a2559a478f5268f9, 10s elapsed)
+module.stack.web.aws_instance.host.1: Still destroying... (ID: i-043e24ed83d66212d, 10s elapsed)
+module.vpc.aws_security_group.elb-securitygroup: Still destroying... (ID: sg-02612760fb2f4c1c5, 1m10s elapsed)
+module.stack.app.aws_instance.host.0: Still destroying... (ID: i-01f5665357a27ad22, 20s elapsed)
+module.stack.app.aws_instance.host.1: Still destroying... (ID: i-0ca2349710bdd47c8, 20s elapsed)
+module.stack.db.aws_instance.host.0: Still destroying... (ID: i-0abe2ff167796e053, 20s elapsed)
+module.stack.db.aws_instance.host.1: Still destroying... (ID: i-04f156fbda318904b, 20s elapsed)
+module.vpc.aws_internet_gateway.gw: Still destroying... (ID: igw-0880256ebb15840df, 10s elapsed)
+module.stack.web.aws_instance.host.1: Still destroying... (ID: i-043e24ed83d66212d, 20s elapsed)
+module.stack.web.aws_instance.host.0: Still destroying... (ID: i-0a2559a478f5268f9, 20s elapsed)
+module.vpc.aws_security_group.elb-securitygroup: Still destroying... (ID: sg-02612760fb2f4c1c5, 1m20s elapsed)
+module.stack.app.aws_instance.host.1: Still destroying... (ID: i-0ca2349710bdd47c8, 30s elapsed)
+module.stack.app.aws_instance.host.0: Still destroying... (ID: i-01f5665357a27ad22, 30s elapsed)
+module.stack.db.aws_instance.host.0: Still destroying... (ID: i-0abe2ff167796e053, 30s elapsed)
+module.stack.db.aws_instance.host.1: Still destroying... (ID: i-04f156fbda318904b, 30s elapsed)
+module.vpc.aws_internet_gateway.gw: Still destroying... (ID: igw-0880256ebb15840df, 20s elapsed)
+module.stack.web.aws_instance.host.0: Still destroying... (ID: i-0a2559a478f5268f9, 30s elapsed)
+module.stack.web.aws_instance.host.1: Still destroying... (ID: i-043e24ed83d66212d, 30s elapsed)
+module.vpc.aws_security_group.elb-securitygroup: Still destroying... (ID: sg-02612760fb2f4c1c5, 1m30s elapsed)
+module.stack.app.aws_instance.host.1: Still destroying... (ID: i-0ca2349710bdd47c8, 40s elapsed)
+module.stack.app.aws_instance.host.0: Still destroying... (ID: i-01f5665357a27ad22, 40s elapsed)
+module.stack.db.aws_instance.host.1: Still destroying... (ID: i-04f156fbda318904b, 40s elapsed)
+module.stack.db.aws_instance.host.0: Still destroying... (ID: i-0abe2ff167796e053, 40s elapsed)
+module.vpc.aws_internet_gateway.gw: Still destroying... (ID: igw-0880256ebb15840df, 30s elapsed)
+module.vpc.aws_security_group.elb-securitygroup: Destruction complete after 1m33s
+module.stack.web.aws_instance.host.0: Still destroying... (ID: i-0a2559a478f5268f9, 40s elapsed)
+module.stack.web.aws_instance.host.1: Still destroying... (ID: i-043e24ed83d66212d, 40s elapsed)
+module.stack.app.aws_instance.host.0: Still destroying... (ID: i-01f5665357a27ad22, 50s elapsed)
+module.stack.app.aws_instance.host.1: Still destroying... (ID: i-0ca2349710bdd47c8, 50s elapsed)
+module.stack.db.aws_instance.host.1: Still destroying... (ID: i-04f156fbda318904b, 50s elapsed)
+module.stack.db.aws_instance.host.0: Still destroying... (ID: i-0abe2ff167796e053, 50s elapsed)
+module.vpc.aws_internet_gateway.gw: Still destroying... (ID: igw-0880256ebb15840df, 40s elapsed)
+module.stack.module.app.aws_instance.host[1]: Destruction complete after 52s
+module.stack.web.aws_instance.host.1: Still destroying... (ID: i-043e24ed83d66212d, 50s elapsed)
+module.stack.web.aws_instance.host.0: Still destroying... (ID: i-0a2559a478f5268f9, 50s elapsed)
+module.stack.app.aws_instance.host.0: Still destroying... (ID: i-01f5665357a27ad22, 1m0s elapsed)
+module.stack.db.aws_instance.host.1: Still destroying... (ID: i-04f156fbda318904b, 1m0s elapsed)
+module.stack.db.aws_instance.host.0: Still destroying... (ID: i-0abe2ff167796e053, 1m0s elapsed)
+module.vpc.aws_internet_gateway.gw: Still destroying... (ID: igw-0880256ebb15840df, 50s elapsed)
+module.stack.module.db.aws_instance.host[0]: Destruction complete after 1m3s
+module.stack.module.app.aws_instance.host[0]: Destruction complete after 1m3s
+module.vpc.aws_subnet.private[0]: Destroying... (ID: subnet-031672a3bdbec2173)
+module.vpc.aws_subnet.private[1]: Destroying... (ID: subnet-0796452c7379e75ab)
+module.vpc.aws_security_group.secgroup_app: Destroying... (ID: sg-07964aeac40a924e0)
+module.stack.web.aws_instance.host.1: Still destroying... (ID: i-043e24ed83d66212d, 1m0s elapsed)
+module.stack.web.aws_instance.host.0: Still destroying... (ID: i-0a2559a478f5268f9, 1m0s elapsed)
+module.stack.module.db.aws_instance.host[1]: Destruction complete after 1m3s
+module.vpc.aws_security_group.secgroup_db: Destroying... (ID: sg-06df50cc4817cc5f8)
+module.vpc.aws_subnet.database[1]: Destroying... (ID: subnet-013189f97ed39dab0)
+module.vpc.aws_subnet.database[0]: Destroying... (ID: subnet-00b330d5b86b2c861)
+module.vpc.aws_subnet.private[0]: Destruction complete after 0s
+module.vpc.aws_subnet.private[1]: Destruction complete after 1s
+module.vpc.aws_subnet.database[0]: Destruction complete after 1s
+module.vpc.aws_subnet.database[1]: Destruction complete after 1s
+module.vpc.aws_security_group.secgroup_app: Destruction complete after 1s
+module.vpc.aws_security_group.secgroup_db: Destruction complete after 1s
+module.stack.module.web.aws_instance.host[1]: Destruction complete after 1m4s
+module.vpc.aws_internet_gateway.gw: Still destroying... (ID: igw-0880256ebb15840df, 1m0s elapsed)
+module.vpc.aws_internet_gateway.gw: Destruction complete after 1m2s
+module.stack.web.aws_instance.host.0: Still destroying... (ID: i-0a2559a478f5268f9, 1m10s elapsed)
+module.stack.module.web.aws_instance.host[0]: Destruction complete after 1m13s
+module.vpc.aws_security_group.secgroup_web: Destroying... (ID: sg-05babeb9c6ece3ef5)
+module.vpc.aws_subnet.public[1]: Destroying... (ID: subnet-0c9b24665d831b12f)
+module.vpc.aws_subnet.public[0]: Destroying... (ID: subnet-0b41ff1d57a552378)
+module.vpc.aws_subnet.public[1]: Destruction complete after 0s
+module.vpc.aws_subnet.public[0]: Destruction complete after 0s
+module.vpc.aws_security_group.secgroup_web: Destruction complete after 1s
+module.vpc.aws_vpc.main: Destroying... (ID: vpc-033138193a034fa06)
+module.vpc.aws_vpc.main: Destruction complete after 0s
+
+Destroy complete! Resources: 55 destroyed.
+

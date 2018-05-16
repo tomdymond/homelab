@@ -1,0 +1,789 @@
+terraform apply -no-color -var-file=secrets.tfvars -var-file=terraform.tfvars
+data.template_file.init[1]: Refreshing state...
+data.template_file.init[1]: Refreshing state...
+data.template_file.init[0]: Refreshing state...
+data.template_file.init[0]: Refreshing state...
+data.template_file.init[1]: Refreshing state...
+data.template_file.init[0]: Refreshing state...
+module.vpc.aws_eip.nat[1]: Creating...
+  allocation_id:     "" => "<computed>"
+  association_id:    "" => "<computed>"
+  domain:            "" => "<computed>"
+  instance:          "" => "<computed>"
+  network_interface: "" => "<computed>"
+  private_ip:        "" => "<computed>"
+  public_ip:         "" => "<computed>"
+  vpc:               "" => "true"
+module.vpc.aws_vpc.main: Creating...
+  assign_generated_ipv6_cidr_block: "" => "false"
+  cidr_block:                       "" => "192.168.0.0/16"
+  default_network_acl_id:           "" => "<computed>"
+  default_route_table_id:           "" => "<computed>"
+  default_security_group_id:        "" => "<computed>"
+  dhcp_options_id:                  "" => "<computed>"
+  enable_classiclink:               "" => "false"
+  enable_classiclink_dns_support:   "" => "<computed>"
+  enable_dns_hostnames:             "" => "true"
+  enable_dns_support:               "" => "true"
+  instance_tenancy:                 "" => "default"
+  ipv6_association_id:              "" => "<computed>"
+  ipv6_cidr_block:                  "" => "<computed>"
+  main_route_table_id:              "" => "<computed>"
+  tags.%:                           "" => "1"
+  tags.Name:                        "" => "main"
+module.vpc.aws_eip.nat[0]: Creating...
+  allocation_id:     "" => "<computed>"
+  association_id:    "" => "<computed>"
+  domain:            "" => "<computed>"
+  instance:          "" => "<computed>"
+  network_interface: "" => "<computed>"
+  private_ip:        "" => "<computed>"
+  public_ip:         "" => "<computed>"
+  vpc:               "" => "true"
+module.vpc.aws_eip.nat[1]: Creation complete after 1s (ID: eipalloc-095ffa80c93dd69a4)
+module.vpc.aws_eip.nat[0]: Creation complete after 1s (ID: eipalloc-09b7458bd46eb10de)
+module.vpc.aws_vpc.main: Creation complete after 7s (ID: vpc-033138193a034fa06)
+module.vpc.aws_route53_zone.example: Creating...
+  comment:        "" => "Managed by Terraform"
+  force_destroy:  "" => "false"
+  name:           "" => "example.com"
+  name_servers.#: "" => "<computed>"
+  vpc_id:         "" => "vpc-033138193a034fa06"
+  vpc_region:     "" => "<computed>"
+  zone_id:        "" => "<computed>"
+module.vpc.aws_subnet.public[1]: Creating...
+  assign_ipv6_address_on_creation: "" => "false"
+  availability_zone:               "" => "us-east-1b"
+  cidr_block:                      "" => "192.168.102.0/24"
+  ipv6_cidr_block:                 "" => "<computed>"
+  ipv6_cidr_block_association_id:  "" => "<computed>"
+  map_public_ip_on_launch:         "" => "true"
+  tags.%:                          "" => "1"
+  tags.Name:                       "" => "public-1"
+  vpc_id:                          "" => "vpc-033138193a034fa06"
+module.vpc.aws_subnet.database[1]: Creating...
+  assign_ipv6_address_on_creation: "" => "false"
+  availability_zone:               "" => "us-east-1b"
+  cidr_block:                      "" => "192.168.202.0/24"
+  ipv6_cidr_block:                 "" => "<computed>"
+  ipv6_cidr_block_association_id:  "" => "<computed>"
+  map_public_ip_on_launch:         "" => "false"
+  tags.%:                          "" => "1"
+  tags.Name:                       "" => "database-1"
+  vpc_id:                          "" => "vpc-033138193a034fa06"
+module.vpc.aws_internet_gateway.gw: Creating...
+  tags.%:    "0" => "1"
+  tags.Name: "" => "gw"
+  vpc_id:    "" => "vpc-033138193a034fa06"
+module.vpc.aws_security_group.secgroup_web: Creating...
+  arn:                    "" => "<computed>"
+  description:            "" => "Web servers security group"
+  egress.#:               "" => "<computed>"
+  ingress.#:              "" => "<computed>"
+  name:                   "" => "Web Servers"
+  owner_id:               "" => "<computed>"
+  revoke_rules_on_delete: "" => "false"
+  vpc_id:                 "" => "vpc-033138193a034fa06"
+module.vpc.aws_security_group.elb-securitygroup: Creating...
+  arn:                    "" => "<computed>"
+  description:            "" => "ELB security group"
+  egress.#:               "" => "<computed>"
+  ingress.#:              "" => "<computed>"
+  name:                   "" => "ELB"
+  owner_id:               "" => "<computed>"
+  revoke_rules_on_delete: "" => "false"
+  vpc_id:                 "" => "vpc-033138193a034fa06"
+module.vpc.aws_security_group.secgroup_app: Creating...
+  arn:                    "" => "<computed>"
+  description:            "" => "App servers security group"
+  egress.#:               "" => "<computed>"
+  ingress.#:              "" => "<computed>"
+  name:                   "" => "App Servers"
+  owner_id:               "" => "<computed>"
+  revoke_rules_on_delete: "" => "false"
+  vpc_id:                 "" => "vpc-033138193a034fa06"
+module.vpc.aws_security_group.secgroup_db: Creating...
+  arn:                    "" => "<computed>"
+  description:            "" => "Database servers security group"
+  egress.#:               "" => "<computed>"
+  ingress.#:              "" => "<computed>"
+  name:                   "" => "Database Servers"
+  owner_id:               "" => "<computed>"
+  revoke_rules_on_delete: "" => "false"
+  vpc_id:                 "" => "vpc-033138193a034fa06"
+module.vpc.aws_subnet.database[0]: Creating...
+  assign_ipv6_address_on_creation: "" => "false"
+  availability_zone:               "" => "us-east-1a"
+  cidr_block:                      "" => "192.168.201.0/24"
+  ipv6_cidr_block:                 "" => "<computed>"
+  ipv6_cidr_block_association_id:  "" => "<computed>"
+  map_public_ip_on_launch:         "" => "false"
+  tags.%:                          "" => "1"
+  tags.Name:                       "" => "database-0"
+  vpc_id:                          "" => "vpc-033138193a034fa06"
+module.vpc.aws_subnet.private[0]: Creating...
+  assign_ipv6_address_on_creation: "" => "false"
+  availability_zone:               "" => "us-east-1a"
+  cidr_block:                      "" => "192.168.1.0/24"
+  ipv6_cidr_block:                 "" => "<computed>"
+  ipv6_cidr_block_association_id:  "" => "<computed>"
+  map_public_ip_on_launch:         "" => "false"
+  tags.%:                          "" => "1"
+  tags.Name:                       "" => "private-0"
+  vpc_id:                          "" => "vpc-033138193a034fa06"
+module.vpc.aws_subnet.private[0]: Creation complete after 2s (ID: subnet-031672a3bdbec2173)
+module.vpc.aws_subnet.private[1]: Creating...
+  assign_ipv6_address_on_creation: "" => "false"
+  availability_zone:               "" => "us-east-1b"
+  cidr_block:                      "" => "192.168.2.0/24"
+  ipv6_cidr_block:                 "" => "<computed>"
+  ipv6_cidr_block_association_id:  "" => "<computed>"
+  map_public_ip_on_launch:         "" => "false"
+  tags.%:                          "" => "1"
+  tags.Name:                       "" => "private-1"
+  vpc_id:                          "" => "vpc-033138193a034fa06"
+module.vpc.aws_subnet.database[1]: Creation complete after 2s (ID: subnet-013189f97ed39dab0)
+module.vpc.aws_subnet.public[0]: Creating...
+  assign_ipv6_address_on_creation: "" => "false"
+  availability_zone:               "" => "us-east-1a"
+  cidr_block:                      "" => "192.168.101.0/24"
+  ipv6_cidr_block:                 "" => "<computed>"
+  ipv6_cidr_block_association_id:  "" => "<computed>"
+  map_public_ip_on_launch:         "" => "true"
+  tags.%:                          "" => "1"
+  tags.Name:                       "" => "public-0"
+  vpc_id:                          "" => "vpc-033138193a034fa06"
+module.vpc.aws_subnet.database[0]: Creation complete after 2s (ID: subnet-00b330d5b86b2c861)
+module.vpc.aws_internet_gateway.gw: Creation complete after 2s (ID: igw-0880256ebb15840df)
+module.vpc.aws_route_table.rt-public: Creating...
+  propagating_vgws.#:                         "" => "<computed>"
+  route.#:                                    "" => "1"
+  route.3861091131.cidr_block:                "" => "0.0.0.0/0"
+  route.3861091131.egress_only_gateway_id:    "" => ""
+  route.3861091131.gateway_id:                "" => "igw-0880256ebb15840df"
+  route.3861091131.instance_id:               "" => ""
+  route.3861091131.ipv6_cidr_block:           "" => ""
+  route.3861091131.nat_gateway_id:            "" => ""
+  route.3861091131.network_interface_id:      "" => ""
+  route.3861091131.vpc_peering_connection_id: "" => ""
+  tags.%:                                     "" => "1"
+  tags.Name:                                  "" => "public"
+  vpc_id:                                     "" => "vpc-033138193a034fa06"
+module.vpc.aws_subnet.public[1]: Creation complete after 2s (ID: subnet-0c9b24665d831b12f)
+module.vpc.aws_security_group.secgroup_db: Creation complete after 3s (ID: sg-06df50cc4817cc5f8)
+module.vpc.aws_security_group_rule.allow_db_to_db: Creating...
+  description:              "" => "Allow DB to DB port 3306"
+  from_port:                "" => "3306"
+  protocol:                 "" => "tcp"
+  security_group_id:        "" => "sg-06df50cc4817cc5f8"
+  self:                     "" => "false"
+  source_security_group_id: "" => "sg-06df50cc4817cc5f8"
+  to_port:                  "" => "3306"
+  type:                     "" => "ingress"
+module.vpc.aws_security_group_rule.allow_db_to_any: Creating...
+  cidr_blocks.#:            "" => "1"
+  cidr_blocks.0:            "" => "0.0.0.0/0"
+  description:              "" => "Allow all traffic from DB to ANY"
+  from_port:                "" => "0"
+  protocol:                 "" => "-1"
+  security_group_id:        "" => "sg-06df50cc4817cc5f8"
+  self:                     "" => "false"
+  source_security_group_id: "" => "<computed>"
+  to_port:                  "" => "65535"
+  type:                     "" => "egress"
+module.stack.module.db.aws_instance.host[0]: Creating...
+  ami:                               "" => "ami-09eb8379a09d8c236"
+  associate_public_ip_address:       "" => "<computed>"
+  availability_zone:                 "" => "us-east-1a"
+  ebs_block_device.#:                "" => "<computed>"
+  ephemeral_block_device.#:          "" => "<computed>"
+  get_password_data:                 "" => "false"
+  instance_state:                    "" => "<computed>"
+  instance_type:                     "" => "t2.micro"
+  ipv6_address_count:                "" => "<computed>"
+  ipv6_addresses.#:                  "" => "<computed>"
+  key_name:                          "" => "tom-aws-virginia"
+  network_interface.#:               "" => "<computed>"
+  network_interface_id:              "" => "<computed>"
+  password_data:                     "" => "<computed>"
+  placement_group:                   "" => "<computed>"
+  primary_network_interface_id:      "" => "<computed>"
+  private_dns:                       "" => "<computed>"
+  private_ip:                        "" => "<computed>"
+  public_dns:                        "" => "<computed>"
+  public_ip:                         "" => "<computed>"
+  root_block_device.#:               "" => "<computed>"
+  security_groups.#:                 "" => "<computed>"
+  source_dest_check:                 "" => "true"
+  subnet_id:                         "" => "subnet-00b330d5b86b2c861"
+  tags.%:                            "" => "1"
+  tags.Name:                         "" => "ami"
+  tenancy:                           "" => "<computed>"
+  user_data:                         "" => "7a4894571a6f9870033222a9d0964a2c981d3d7b"
+  volume_tags.%:                     "" => "<computed>"
+  vpc_security_group_ids.#:          "" => "1"
+  vpc_security_group_ids.3334793583: "" => "sg-06df50cc4817cc5f8"
+module.vpc.aws_security_group.secgroup_web: Creation complete after 3s (ID: sg-05babeb9c6ece3ef5)
+module.stack.module.db.aws_instance.host[1]: Creating...
+  ami:                               "" => "ami-09eb8379a09d8c236"
+  associate_public_ip_address:       "" => "<computed>"
+  availability_zone:                 "" => "us-east-1b"
+  ebs_block_device.#:                "" => "<computed>"
+  ephemeral_block_device.#:          "" => "<computed>"
+  get_password_data:                 "" => "false"
+  instance_state:                    "" => "<computed>"
+  instance_type:                     "" => "t2.micro"
+  ipv6_address_count:                "" => "<computed>"
+  ipv6_addresses.#:                  "" => "<computed>"
+  key_name:                          "" => "tom-aws-virginia"
+  network_interface.#:               "" => "<computed>"
+  network_interface_id:              "" => "<computed>"
+  password_data:                     "" => "<computed>"
+  placement_group:                   "" => "<computed>"
+  primary_network_interface_id:      "" => "<computed>"
+  private_dns:                       "" => "<computed>"
+  private_ip:                        "" => "<computed>"
+  public_dns:                        "" => "<computed>"
+  public_ip:                         "" => "<computed>"
+  root_block_device.#:               "" => "<computed>"
+  security_groups.#:                 "" => "<computed>"
+  source_dest_check:                 "" => "true"
+  subnet_id:                         "" => "subnet-013189f97ed39dab0"
+  tags.%:                            "" => "1"
+  tags.Name:                         "" => "ami"
+  tenancy:                           "" => "<computed>"
+  user_data:                         "" => "1ff6ca9580cd142e1b10b503c334114b5d41e702"
+  volume_tags.%:                     "" => "<computed>"
+  vpc_security_group_ids.#:          "" => "1"
+  vpc_security_group_ids.3334793583: "" => "sg-06df50cc4817cc5f8"
+module.vpc.aws_security_group.elb-securitygroup: Creation complete after 3s (ID: sg-02612760fb2f4c1c5)
+module.vpc.aws_security_group.secgroup_app: Creation complete after 3s (ID: sg-07964aeac40a924e0)
+module.vpc.aws_security_group_rule.allow_web_to_db_ssh: Creating...
+  description:              "" => "Allow WEB to DB port 22"
+  from_port:                "" => "22"
+  protocol:                 "" => "tcp"
+  security_group_id:        "" => "sg-06df50cc4817cc5f8"
+  self:                     "" => "false"
+  source_security_group_id: "" => "sg-05babeb9c6ece3ef5"
+  to_port:                  "" => "22"
+  type:                     "" => "ingress"
+module.vpc.aws_security_group_rule.allow_web_to_any: Creating...
+  cidr_blocks.#:            "" => "1"
+  cidr_blocks.0:            "" => "0.0.0.0/0"
+  description:              "" => "Allow all traffic from WEB to ANY"
+  from_port:                "" => "0"
+  protocol:                 "" => "-1"
+  security_group_id:        "" => "sg-05babeb9c6ece3ef5"
+  self:                     "" => "false"
+  source_security_group_id: "" => "<computed>"
+  to_port:                  "" => "65535"
+  type:                     "" => "egress"
+module.vpc.aws_subnet.private[1]: Creation complete after 2s (ID: subnet-0796452c7379e75ab)
+module.vpc.aws_security_group_rule.allow_any_to_web_ssh: Creating...
+  cidr_blocks.#:            "" => "1"
+  cidr_blocks.0:            "" => "0.0.0.0/0"
+  description:              "" => "Allow ANY to WEB port 22"
+  from_port:                "" => "22"
+  protocol:                 "" => "tcp"
+  security_group_id:        "" => "sg-05babeb9c6ece3ef5"
+  self:                     "" => "false"
+  source_security_group_id: "" => "<computed>"
+  to_port:                  "" => "22"
+  type:                     "" => "ingress"
+module.vpc.aws_security_group_rule.allow_db_to_db: Creation complete after 1s (ID: sgrule-1203758574)
+module.vpc.aws_route_table.rt-public: Creation complete after 2s (ID: rtb-092a13cd52b268f78)
+module.vpc.aws_security_group_rule.allow_web_from_elb: Creating...
+  description:              "" => "Allow WEB from ELB port 80"
+  from_port:                "" => "80"
+  protocol:                 "" => "tcp"
+  security_group_id:        "" => "sg-05babeb9c6ece3ef5"
+  self:                     "" => "false"
+  source_security_group_id: "" => "sg-02612760fb2f4c1c5"
+  to_port:                  "" => "80"
+  type:                     "" => "ingress"
+module.vpc.aws_security_group_rule.allow_elb_to_web: Creating...
+  description:              "" => "Allow ELB to WEB port 80"
+  from_port:                "" => "80"
+  protocol:                 "" => "tcp"
+  security_group_id:        "" => "sg-02612760fb2f4c1c5"
+  self:                     "" => "false"
+  source_security_group_id: "" => "sg-05babeb9c6ece3ef5"
+  to_port:                  "" => "80"
+  type:                     "" => "egress"
+module.vpc.aws_security_group_rule.allow_web_to_any: Creation complete after 1s (ID: sgrule-1705853071)
+module.vpc.aws_security_group_rule.allow_all_to_elb: Creating...
+  cidr_blocks.#:            "" => "1"
+  cidr_blocks.0:            "" => "0.0.0.0/0"
+  description:              "" => "Allow all traffic to ELB port 80"
+  from_port:                "" => "80"
+  protocol:                 "" => "tcp"
+  security_group_id:        "" => "sg-02612760fb2f4c1c5"
+  self:                     "" => "false"
+  source_security_group_id: "" => "<computed>"
+  to_port:                  "" => "80"
+  type:                     "" => "ingress"
+module.vpc.aws_subnet.public[0]: Creation complete after 2s (ID: subnet-0b41ff1d57a552378)
+module.vpc.aws_security_group_rule.allow_app_to_any: Creating...
+  cidr_blocks.#:            "" => "1"
+  cidr_blocks.0:            "" => "0.0.0.0/0"
+  description:              "" => "Allow all traffic from APP to ANY"
+  from_port:                "" => "0"
+  protocol:                 "" => "-1"
+  security_group_id:        "" => "sg-07964aeac40a924e0"
+  self:                     "" => "false"
+  source_security_group_id: "" => "<computed>"
+  to_port:                  "" => "65535"
+  type:                     "" => "egress"
+module.vpc.aws_security_group_rule.allow_db_to_any: Creation complete after 3s (ID: sgrule-451528879)
+module.vpc.aws_security_group_rule.allow_web_to_app: Creating...
+  description:              "" => "Allow WEB to APP port 8080"
+  from_port:                "" => "8080"
+  protocol:                 "" => "tcp"
+  security_group_id:        "" => "sg-07964aeac40a924e0"
+  self:                     "" => "false"
+  source_security_group_id: "" => "sg-05babeb9c6ece3ef5"
+  to_port:                  "" => "8080"
+  type:                     "" => "ingress"
+module.vpc.aws_security_group_rule.allow_elb_to_web: Creation complete after 2s (ID: sgrule-2038007656)
+module.vpc.aws_security_group_rule.allow_app_to_db: Creating...
+  description:              "" => "Allow APP to DB port 3306"
+  from_port:                "" => "3306"
+  protocol:                 "" => "tcp"
+  security_group_id:        "" => "sg-06df50cc4817cc5f8"
+  self:                     "" => "false"
+  source_security_group_id: "" => "sg-07964aeac40a924e0"
+  to_port:                  "" => "3306"
+  type:                     "" => "ingress"
+module.vpc.aws_security_group_rule.allow_app_to_any: Creation complete after 2s (ID: sgrule-1789719183)
+module.vpc.aws_security_group_rule.allow_web_to_app_ssh: Creating...
+  description:              "" => "Allow WEB to APP port 22"
+  from_port:                "" => "22"
+  protocol:                 "" => "tcp"
+  security_group_id:        "" => "sg-07964aeac40a924e0"
+  self:                     "" => "false"
+  source_security_group_id: "" => "sg-05babeb9c6ece3ef5"
+  to_port:                  "" => "22"
+  type:                     "" => "ingress"
+module.vpc.aws_security_group_rule.allow_any_to_web_ssh: Creation complete after 2s (ID: sgrule-929078640)
+module.vpc.aws_route_table_association.rta-public-a[1]: Creating...
+  route_table_id: "" => "rtb-092a13cd52b268f78"
+  subnet_id:      "" => "subnet-0c9b24665d831b12f"
+module.vpc.aws_route_table_association.rta-public-a[1]: Creation complete after 0s (ID: rtbassoc-0498fef75bbe37ae1)
+module.vpc.aws_nat_gateway.nat-gw[1]: Creating...
+  allocation_id:        "" => "eipalloc-095ffa80c93dd69a4"
+  network_interface_id: "" => "<computed>"
+  private_ip:           "" => "<computed>"
+  public_ip:            "" => "<computed>"
+  subnet_id:            "" => "subnet-0c9b24665d831b12f"
+module.vpc.aws_security_group_rule.allow_all_to_elb: Creation complete after 3s (ID: sgrule-2219352286)
+module.vpc.aws_route_table_association.rta-public-a[0]: Creating...
+  route_table_id: "" => "rtb-092a13cd52b268f78"
+  subnet_id:      "" => "subnet-0b41ff1d57a552378"
+module.vpc.aws_security_group_rule.allow_web_to_db_ssh: Creation complete after 4s (ID: sgrule-2820335803)
+module.vpc.aws_security_group_rule.allow_web_to_app: Creation complete after 1s (ID: sgrule-457032117)
+module.vpc.aws_nat_gateway.nat-gw[0]: Creating...
+  allocation_id:        "" => "eipalloc-09b7458bd46eb10de"
+  network_interface_id: "" => "<computed>"
+  private_ip:           "" => "<computed>"
+  public_ip:            "" => "<computed>"
+  subnet_id:            "" => "subnet-0b41ff1d57a552378"
+module.vpc.aws_elb.my-elb: Creating...
+  arn:                                    "" => "<computed>"
+  availability_zones.#:                   "" => "<computed>"
+  connection_draining:                    "" => "true"
+  connection_draining_timeout:            "" => "400"
+  cross_zone_load_balancing:              "" => "true"
+  dns_name:                               "" => "<computed>"
+  health_check.#:                         "" => "1"
+  health_check.0.healthy_threshold:       "" => "2"
+  health_check.0.interval:                "" => "30"
+  health_check.0.target:                  "" => "HTTP:80/"
+  health_check.0.timeout:                 "" => "3"
+  health_check.0.unhealthy_threshold:     "" => "2"
+  idle_timeout:                           "" => "60"
+  instances.#:                            "" => "<computed>"
+  internal:                               "" => "<computed>"
+  listener.#:                             "" => "1"
+  listener.3057123346.instance_port:      "" => "80"
+  listener.3057123346.instance_protocol:  "" => "http"
+  listener.3057123346.lb_port:            "" => "80"
+  listener.3057123346.lb_protocol:        "" => "http"
+  listener.3057123346.ssl_certificate_id: "" => ""
+  name:                                   "" => "my-elb"
+  security_groups.#:                      "" => "1"
+  security_groups.3297330722:             "" => "sg-02612760fb2f4c1c5"
+  source_security_group:                  "" => "<computed>"
+  source_security_group_id:               "" => "<computed>"
+  subnets.#:                              "" => "2"
+  subnets.1162373713:                     "" => "subnet-0c9b24665d831b12f"
+  subnets.3070096366:                     "" => "subnet-0b41ff1d57a552378"
+  tags.%:                                 "" => "1"
+  tags.Name:                              "" => "my-elb"
+  zone_id:                                "" => "<computed>"
+module.vpc.aws_security_group_rule.allow_web_from_elb: Creation complete after 3s (ID: sgrule-3028458751)
+module.stack.module.app.aws_instance.host[0]: Creating...
+  ami:                               "" => "ami-09eb8379a09d8c236"
+  associate_public_ip_address:       "" => "<computed>"
+  availability_zone:                 "" => "us-east-1a"
+  ebs_block_device.#:                "" => "<computed>"
+  ephemeral_block_device.#:          "" => "<computed>"
+  get_password_data:                 "" => "false"
+  instance_state:                    "" => "<computed>"
+  instance_type:                     "" => "t2.micro"
+  ipv6_address_count:                "" => "<computed>"
+  ipv6_addresses.#:                  "" => "<computed>"
+  key_name:                          "" => "tom-aws-virginia"
+  network_interface.#:               "" => "<computed>"
+  network_interface_id:              "" => "<computed>"
+  password_data:                     "" => "<computed>"
+  placement_group:                   "" => "<computed>"
+  primary_network_interface_id:      "" => "<computed>"
+  private_dns:                       "" => "<computed>"
+  private_ip:                        "" => "<computed>"
+  public_dns:                        "" => "<computed>"
+  public_ip:                         "" => "<computed>"
+  root_block_device.#:               "" => "<computed>"
+  security_groups.#:                 "" => "<computed>"
+  source_dest_check:                 "" => "true"
+  subnet_id:                         "" => "subnet-031672a3bdbec2173"
+  tags.%:                            "" => "1"
+  tags.Name:                         "" => "ami"
+  tenancy:                           "" => "<computed>"
+  user_data:                         "" => "b5fd2dbb4fc1ad49b90cc367f363d328ddae6aa7"
+  volume_tags.%:                     "" => "<computed>"
+  vpc_security_group_ids.#:          "" => "1"
+  vpc_security_group_ids.3005359872: "" => "sg-07964aeac40a924e0"
+module.vpc.aws_route_table_association.rta-public-a[0]: Creation complete after 1s (ID: rtbassoc-0a3ba8b72e72f4fdb)
+module.stack.module.web.aws_instance.host[1]: Creating...
+  ami:                             "" => "ami-09eb8379a09d8c236"
+  associate_public_ip_address:     "" => "<computed>"
+  availability_zone:               "" => "us-east-1b"
+  ebs_block_device.#:              "" => "<computed>"
+  ephemeral_block_device.#:        "" => "<computed>"
+  get_password_data:               "" => "false"
+  instance_state:                  "" => "<computed>"
+  instance_type:                   "" => "t2.micro"
+  ipv6_address_count:              "" => "<computed>"
+  ipv6_addresses.#:                "" => "<computed>"
+  key_name:                        "" => "tom-aws-virginia"
+  network_interface.#:             "" => "<computed>"
+  network_interface_id:            "" => "<computed>"
+  password_data:                   "" => "<computed>"
+  placement_group:                 "" => "<computed>"
+  primary_network_interface_id:    "" => "<computed>"
+  private_dns:                     "" => "<computed>"
+  private_ip:                      "" => "<computed>"
+  public_dns:                      "" => "<computed>"
+  public_ip:                       "" => "<computed>"
+  root_block_device.#:             "" => "<computed>"
+  security_groups.#:               "" => "<computed>"
+  source_dest_check:               "" => "true"
+  subnet_id:                       "" => "subnet-0c9b24665d831b12f"
+  tags.%:                          "" => "1"
+  tags.Name:                       "" => "ami"
+  tenancy:                         "" => "<computed>"
+  user_data:                       "" => "eb845ef7ba0d66619a1f764787fd23faa817ba1a"
+  volume_tags.%:                   "" => "<computed>"
+  vpc_security_group_ids.#:        "" => "1"
+  vpc_security_group_ids.48162588: "" => "sg-05babeb9c6ece3ef5"
+module.vpc.aws_security_group_rule.allow_web_to_app_ssh: Creation complete after 3s (ID: sgrule-247105913)
+module.stack.module.app.aws_instance.host[1]: Creating...
+  ami:                               "" => "ami-09eb8379a09d8c236"
+  associate_public_ip_address:       "" => "<computed>"
+  availability_zone:                 "" => "us-east-1b"
+  ebs_block_device.#:                "" => "<computed>"
+  ephemeral_block_device.#:          "" => "<computed>"
+  get_password_data:                 "" => "false"
+  instance_state:                    "" => "<computed>"
+  instance_type:                     "" => "t2.micro"
+  ipv6_address_count:                "" => "<computed>"
+  ipv6_addresses.#:                  "" => "<computed>"
+  key_name:                          "" => "tom-aws-virginia"
+  network_interface.#:               "" => "<computed>"
+  network_interface_id:              "" => "<computed>"
+  password_data:                     "" => "<computed>"
+  placement_group:                   "" => "<computed>"
+  primary_network_interface_id:      "" => "<computed>"
+  private_dns:                       "" => "<computed>"
+  private_ip:                        "" => "<computed>"
+  public_dns:                        "" => "<computed>"
+  public_ip:                         "" => "<computed>"
+  root_block_device.#:               "" => "<computed>"
+  security_groups.#:                 "" => "<computed>"
+  source_dest_check:                 "" => "true"
+  subnet_id:                         "" => "subnet-0796452c7379e75ab"
+  tags.%:                            "" => "1"
+  tags.Name:                         "" => "ami"
+  tenancy:                           "" => "<computed>"
+  user_data:                         "" => "b5fd2dbb4fc1ad49b90cc367f363d328ddae6aa7"
+  volume_tags.%:                     "" => "<computed>"
+  vpc_security_group_ids.#:          "" => "1"
+  vpc_security_group_ids.3005359872: "" => "sg-07964aeac40a924e0"
+module.vpc.aws_security_group_rule.allow_app_to_db: Creation complete after 3s (ID: sgrule-3641051351)
+module.stack.module.web.aws_instance.host[0]: Creating...
+  ami:                             "" => "ami-09eb8379a09d8c236"
+  associate_public_ip_address:     "" => "<computed>"
+  availability_zone:               "" => "us-east-1a"
+  ebs_block_device.#:              "" => "<computed>"
+  ephemeral_block_device.#:        "" => "<computed>"
+  get_password_data:               "" => "false"
+  instance_state:                  "" => "<computed>"
+  instance_type:                   "" => "t2.micro"
+  ipv6_address_count:              "" => "<computed>"
+  ipv6_addresses.#:                "" => "<computed>"
+  key_name:                        "" => "tom-aws-virginia"
+  network_interface.#:             "" => "<computed>"
+  network_interface_id:            "" => "<computed>"
+  password_data:                   "" => "<computed>"
+  placement_group:                 "" => "<computed>"
+  primary_network_interface_id:    "" => "<computed>"
+  private_dns:                     "" => "<computed>"
+  private_ip:                      "" => "<computed>"
+  public_dns:                      "" => "<computed>"
+  public_ip:                       "" => "<computed>"
+  root_block_device.#:             "" => "<computed>"
+  security_groups.#:               "" => "<computed>"
+  source_dest_check:               "" => "true"
+  subnet_id:                       "" => "subnet-0b41ff1d57a552378"
+  tags.%:                          "" => "1"
+  tags.Name:                       "" => "ami"
+  tenancy:                         "" => "<computed>"
+  user_data:                       "" => "5e09240914a5c475d5baa2ec280be3244d5a6c55"
+  volume_tags.%:                   "" => "<computed>"
+  vpc_security_group_ids.#:        "" => "1"
+  vpc_security_group_ids.48162588: "" => "sg-05babeb9c6ece3ef5"
+module.vpc.aws_route53_zone.example: Still creating... (10s elapsed)
+module.stack.db.aws_instance.host.0: Still creating... (10s elapsed)
+module.stack.db.aws_instance.host.1: Still creating... (10s elapsed)
+module.vpc.aws_elb.my-elb: Creation complete after 7s (ID: my-elb)
+module.vpc.aws_nat_gateway.nat-gw.1: Still creating... (10s elapsed)
+module.vpc.aws_nat_gateway.nat-gw.0: Still creating... (10s elapsed)
+module.stack.app.aws_instance.host.0: Still creating... (10s elapsed)
+module.stack.web.aws_instance.host.1: Still creating... (10s elapsed)
+module.stack.app.aws_instance.host.1: Still creating... (10s elapsed)
+module.stack.web.aws_instance.host.0: Still creating... (10s elapsed)
+module.vpc.aws_route53_zone.example: Still creating... (20s elapsed)
+module.stack.db.aws_instance.host.0: Still creating... (20s elapsed)
+module.stack.db.aws_instance.host.1: Still creating... (20s elapsed)
+module.vpc.aws_nat_gateway.nat-gw.1: Still creating... (20s elapsed)
+module.vpc.aws_nat_gateway.nat-gw.0: Still creating... (20s elapsed)
+module.stack.app.aws_instance.host.0: Still creating... (21s elapsed)
+module.stack.web.aws_instance.host.1: Still creating... (20s elapsed)
+module.stack.app.aws_instance.host.1: Still creating... (20s elapsed)
+module.stack.web.aws_instance.host.0: Still creating... (20s elapsed)
+module.stack.module.db.aws_instance.host[0]: Creation complete after 26s (ID: i-0abe2ff167796e053)
+module.vpc.aws_route53_zone.example: Still creating... (30s elapsed)
+module.stack.module.db.aws_instance.host[1]: Creation complete after 27s (ID: i-04f156fbda318904b)
+module.vpc.aws_nat_gateway.nat-gw.1: Still creating... (30s elapsed)
+module.vpc.aws_nat_gateway.nat-gw.0: Still creating... (30s elapsed)
+module.stack.app.aws_instance.host.0: Still creating... (31s elapsed)
+module.stack.web.aws_instance.host.1: Still creating... (30s elapsed)
+module.stack.module.web.aws_instance.host[1]: Creation complete after 30s (ID: i-043e24ed83d66212d)
+module.stack.module.app.aws_instance.host[0]: Creation complete after 31s (ID: i-01f5665357a27ad22)
+module.stack.app.aws_instance.host.1: Still creating... (30s elapsed)
+module.stack.web.aws_instance.host.0: Still creating... (30s elapsed)
+module.stack.module.app.aws_instance.host[1]: Creation complete after 30s (ID: i-0ca2349710bdd47c8)
+module.vpc.aws_route53_zone.example: Still creating... (40s elapsed)
+module.stack.module.web.aws_instance.host[0]: Creation complete after 36s (ID: i-0a2559a478f5268f9)
+module.stack.module.web.aws_elb_attachment.my-elb-a[0]: Creating...
+  elb:      "" => "my-elb"
+  instance: "" => "i-0a2559a478f5268f9"
+module.stack.module.web.aws_elb_attachment.my-elb-a[1]: Creating...
+  elb:      "" => "my-elb"
+  instance: "" => "i-043e24ed83d66212d"
+module.stack.module.web.aws_elb_attachment.my-elb-a[1]: Creation complete after 0s (ID: my-elb-20180516160057288600000001)
+module.stack.module.web.aws_elb_attachment.my-elb-a[0]: Creation complete after 0s (ID: my-elb-20180516160057341800000002)
+module.vpc.aws_nat_gateway.nat-gw.1: Still creating... (40s elapsed)
+module.vpc.aws_nat_gateway.nat-gw.0: Still creating... (40s elapsed)
+module.vpc.aws_route53_zone.example: Still creating... (50s elapsed)
+module.vpc.aws_nat_gateway.nat-gw.1: Still creating... (50s elapsed)
+module.vpc.aws_nat_gateway.nat-gw.0: Still creating... (50s elapsed)
+module.vpc.aws_route53_zone.example: Still creating... (1m0s elapsed)
+module.vpc.aws_nat_gateway.nat-gw.1: Still creating... (1m0s elapsed)
+module.vpc.aws_nat_gateway.nat-gw.0: Still creating... (1m0s elapsed)
+module.vpc.aws_route53_zone.example: Creation complete after 1m9s (ID: Z3RVD0MWOPU8E0)
+module.stack.module.db.aws_route53_record.server-record[0]: Creating...
+  allow_overwrite:   "" => "true"
+  fqdn:              "" => "<computed>"
+  name:              "" => "db.az0.example.com"
+  records.#:         "" => "1"
+  records.287634588: "" => "192.168.201.102"
+  ttl:               "" => "60"
+  type:              "" => "A"
+  zone_id:           "" => "Z3RVD0MWOPU8E0"
+module.stack.module.app.aws_route53_record.server-record[1]: Creating...
+  allow_overwrite:   "" => "true"
+  fqdn:              "" => "<computed>"
+  name:              "" => "app.az1.example.com"
+  records.#:         "" => "1"
+  records.628416264: "" => "192.168.2.61"
+  ttl:               "" => "60"
+  type:              "" => "A"
+  zone_id:           "" => "Z3RVD0MWOPU8E0"
+module.stack.module.db.aws_route53_record.server-record[1]: Creating...
+  allow_overwrite:    "" => "true"
+  fqdn:               "" => "<computed>"
+  name:               "" => "db.az1.example.com"
+  records.#:          "" => "1"
+  records.1035204059: "" => "192.168.202.217"
+  ttl:                "" => "60"
+  type:               "" => "A"
+  zone_id:            "" => "Z3RVD0MWOPU8E0"
+module.stack.module.app.aws_route53_record.server-record[0]: Creating...
+  allow_overwrite:    "" => "true"
+  fqdn:               "" => "<computed>"
+  name:               "" => "app.az0.example.com"
+  records.#:          "" => "1"
+  records.2127056291: "" => "192.168.1.198"
+  ttl:                "" => "60"
+  type:               "" => "A"
+  zone_id:            "" => "Z3RVD0MWOPU8E0"
+module.stack.module.web.aws_route53_record.server-record[0]: Creating...
+  allow_overwrite:    "" => "true"
+  fqdn:               "" => "<computed>"
+  name:               "" => "web.az0.example.com"
+  records.#:          "" => "1"
+  records.4135856508: "" => "192.168.101.171"
+  ttl:                "" => "60"
+  type:               "" => "A"
+  zone_id:            "" => "Z3RVD0MWOPU8E0"
+module.stack.module.web.aws_route53_record.server-record[1]: Creating...
+  allow_overwrite:    "" => "true"
+  fqdn:               "" => "<computed>"
+  name:               "" => "web.az1.example.com"
+  records.#:          "" => "1"
+  records.2347748116: "" => "192.168.102.34"
+  ttl:                "" => "60"
+  type:               "" => "A"
+  zone_id:            "" => "Z3RVD0MWOPU8E0"
+module.vpc.aws_nat_gateway.nat-gw.1: Still creating... (1m10s elapsed)
+module.vpc.aws_nat_gateway.nat-gw.0: Still creating... (1m10s elapsed)
+module.stack.app.aws_route53_record.server-record.1: Still creating... (10s elapsed)
+module.stack.app.aws_route53_record.server-record.0: Still creating... (10s elapsed)
+module.stack.web.aws_route53_record.server-record.0: Still creating... (10s elapsed)
+module.stack.db.aws_route53_record.server-record.1: Still creating... (10s elapsed)
+module.stack.db.aws_route53_record.server-record.0: Still creating... (10s elapsed)
+module.stack.web.aws_route53_record.server-record.1: Still creating... (10s elapsed)
+module.vpc.aws_nat_gateway.nat-gw.1: Still creating... (1m20s elapsed)
+module.vpc.aws_nat_gateway.nat-gw.0: Still creating... (1m20s elapsed)
+module.stack.db.aws_route53_record.server-record.0: Still creating... (20s elapsed)
+module.stack.db.aws_route53_record.server-record.1: Still creating... (20s elapsed)
+module.stack.web.aws_route53_record.server-record.1: Still creating... (20s elapsed)
+module.stack.web.aws_route53_record.server-record.0: Still creating... (20s elapsed)
+module.stack.app.aws_route53_record.server-record.1: Still creating... (20s elapsed)
+module.stack.app.aws_route53_record.server-record.0: Still creating... (20s elapsed)
+module.vpc.aws_nat_gateway.nat-gw.1: Still creating... (1m30s elapsed)
+module.vpc.aws_nat_gateway.nat-gw.0: Still creating... (1m30s elapsed)
+module.stack.db.aws_route53_record.server-record.0: Still creating... (30s elapsed)
+module.stack.web.aws_route53_record.server-record.1: Still creating... (30s elapsed)
+module.stack.app.aws_route53_record.server-record.0: Still creating... (30s elapsed)
+module.stack.db.aws_route53_record.server-record.1: Still creating... (30s elapsed)
+module.stack.app.aws_route53_record.server-record.1: Still creating... (30s elapsed)
+module.stack.web.aws_route53_record.server-record.0: Still creating... (30s elapsed)
+module.vpc.aws_nat_gateway.nat-gw.1: Still creating... (1m40s elapsed)
+module.vpc.aws_nat_gateway.nat-gw.0: Still creating... (1m40s elapsed)
+module.stack.web.aws_route53_record.server-record.0: Still creating... (40s elapsed)
+module.stack.db.aws_route53_record.server-record.1: Still creating... (40s elapsed)
+module.stack.app.aws_route53_record.server-record.1: Still creating... (40s elapsed)
+module.stack.db.aws_route53_record.server-record.0: Still creating... (40s elapsed)
+module.stack.app.aws_route53_record.server-record.0: Still creating... (40s elapsed)
+module.stack.web.aws_route53_record.server-record.1: Still creating... (40s elapsed)
+module.vpc.aws_nat_gateway.nat-gw.1: Still creating... (1m50s elapsed)
+module.vpc.aws_nat_gateway.nat-gw.0: Still creating... (1m50s elapsed)
+module.stack.app.aws_route53_record.server-record.1: Still creating... (50s elapsed)
+module.stack.db.aws_route53_record.server-record.1: Still creating... (50s elapsed)
+module.stack.web.aws_route53_record.server-record.1: Still creating... (50s elapsed)
+module.stack.db.aws_route53_record.server-record.0: Still creating... (50s elapsed)
+module.stack.app.aws_route53_record.server-record.0: Still creating... (50s elapsed)
+module.stack.web.aws_route53_record.server-record.0: Still creating... (50s elapsed)
+module.vpc.aws_nat_gateway.nat-gw.1: Still creating... (2m0s elapsed)
+module.stack.module.web.aws_route53_record.server-record[1]: Creation complete after 58s (ID: Z3RVD0MWOPU8E0_web.az1.example.com_A)
+module.vpc.aws_nat_gateway.nat-gw.0: Still creating... (2m0s elapsed)
+module.stack.module.app.aws_route53_record.server-record[0]: Creation complete after 58s (ID: Z3RVD0MWOPU8E0_app.az0.example.com_A)
+module.stack.module.db.aws_route53_record.server-record[1]: Creation complete after 58s (ID: Z3RVD0MWOPU8E0_db.az1.example.com_A)
+module.stack.module.app.aws_route53_record.server-record[1]: Creation complete after 1m0s (ID: Z3RVD0MWOPU8E0_app.az1.example.com_A)
+module.stack.web.aws_route53_record.server-record.0: Still creating... (1m0s elapsed)
+module.stack.db.aws_route53_record.server-record.0: Still creating... (1m0s elapsed)
+module.stack.module.web.aws_route53_record.server-record[0]: Creation complete after 1m0s (ID: Z3RVD0MWOPU8E0_web.az0.example.com_A)
+module.stack.module.db.aws_route53_record.server-record[0]: Creation complete after 1m0s (ID: Z3RVD0MWOPU8E0_db.az0.example.com_A)
+module.vpc.aws_nat_gateway.nat-gw[0]: Creation complete after 2m4s (ID: nat-04b2e53f563a2429c)
+module.vpc.aws_nat_gateway.nat-gw[1]: Creation complete after 2m5s (ID: nat-01e6377230e747035)
+module.vpc.aws_route_table.private[1]: Creating...
+  propagating_vgws.#:                         "" => "<computed>"
+  route.#:                                    "" => "1"
+  route.2885558154.cidr_block:                "" => "0.0.0.0/0"
+  route.2885558154.egress_only_gateway_id:    "" => ""
+  route.2885558154.gateway_id:                "" => ""
+  route.2885558154.instance_id:               "" => ""
+  route.2885558154.ipv6_cidr_block:           "" => ""
+  route.2885558154.nat_gateway_id:            "" => "nat-01e6377230e747035"
+  route.2885558154.network_interface_id:      "" => ""
+  route.2885558154.vpc_peering_connection_id: "" => ""
+  tags.%:                                     "" => "1"
+  tags.Name:                                  "" => "private"
+  vpc_id:                                     "" => "vpc-033138193a034fa06"
+module.vpc.aws_route_table.private[0]: Creating...
+  propagating_vgws.#:                         "" => "<computed>"
+  route.#:                                    "" => "1"
+  route.1221601000.cidr_block:                "" => "0.0.0.0/0"
+  route.1221601000.egress_only_gateway_id:    "" => ""
+  route.1221601000.gateway_id:                "" => ""
+  route.1221601000.instance_id:               "" => ""
+  route.1221601000.ipv6_cidr_block:           "" => ""
+  route.1221601000.nat_gateway_id:            "" => "nat-04b2e53f563a2429c"
+  route.1221601000.network_interface_id:      "" => ""
+  route.1221601000.vpc_peering_connection_id: "" => ""
+  tags.%:                                     "" => "1"
+  tags.Name:                                  "" => "private"
+  vpc_id:                                     "" => "vpc-033138193a034fa06"
+module.vpc.aws_route_table.database[0]: Creating...
+  propagating_vgws.#:                         "" => "<computed>"
+  route.#:                                    "" => "1"
+  route.1221601000.cidr_block:                "" => "0.0.0.0/0"
+  route.1221601000.egress_only_gateway_id:    "" => ""
+  route.1221601000.gateway_id:                "" => ""
+  route.1221601000.instance_id:               "" => ""
+  route.1221601000.ipv6_cidr_block:           "" => ""
+  route.1221601000.nat_gateway_id:            "" => "nat-04b2e53f563a2429c"
+  route.1221601000.network_interface_id:      "" => ""
+  route.1221601000.vpc_peering_connection_id: "" => ""
+  tags.%:                                     "" => "1"
+  tags.Name:                                  "" => "database"
+  vpc_id:                                     "" => "vpc-033138193a034fa06"
+module.vpc.aws_route_table.database[1]: Creating...
+  propagating_vgws.#:                         "" => "<computed>"
+  route.#:                                    "" => "1"
+  route.2885558154.cidr_block:                "" => "0.0.0.0/0"
+  route.2885558154.egress_only_gateway_id:    "" => ""
+  route.2885558154.gateway_id:                "" => ""
+  route.2885558154.instance_id:               "" => ""
+  route.2885558154.ipv6_cidr_block:           "" => ""
+  route.2885558154.nat_gateway_id:            "" => "nat-01e6377230e747035"
+  route.2885558154.network_interface_id:      "" => ""
+  route.2885558154.vpc_peering_connection_id: "" => ""
+  tags.%:                                     "" => "1"
+  tags.Name:                                  "" => "database"
+  vpc_id:                                     "" => "vpc-033138193a034fa06"
+module.vpc.aws_route_table.database[1]: Creation complete after 2s (ID: rtb-04aede1cd4c95410d)
+module.vpc.aws_route_table.private[1]: Creation complete after 3s (ID: rtb-0f15e946d63b10cd4)
+module.vpc.aws_route_table.private[0]: Creation complete after 3s (ID: rtb-04d41c59038626483)
+module.vpc.aws_route_table_association.private-a[1]: Creating...
+  route_table_id: "" => "rtb-0f15e946d63b10cd4"
+  subnet_id:      "" => "subnet-0796452c7379e75ab"
+module.vpc.aws_route_table_association.private-a[0]: Creating...
+  route_table_id: "" => "rtb-04d41c59038626483"
+  subnet_id:      "" => "subnet-031672a3bdbec2173"
+module.vpc.aws_route_table.database[0]: Creation complete after 3s (ID: rtb-0cd12d10083d986c8)
+module.vpc.aws_route_table_association.database-a[0]: Creating...
+  route_table_id: "" => "rtb-0cd12d10083d986c8"
+  subnet_id:      "" => "subnet-00b330d5b86b2c861"
+module.vpc.aws_route_table_association.database-a[1]: Creating...
+  route_table_id: "" => "rtb-04aede1cd4c95410d"
+  subnet_id:      "" => "subnet-013189f97ed39dab0"
+module.vpc.aws_route_table_association.private-a[1]: Creation complete after 0s (ID: rtbassoc-05aac84b47e4dcc70)
+module.vpc.aws_route_table_association.private-a[0]: Creation complete after 0s (ID: rtbassoc-04300ba4bed4a8344)
+module.vpc.aws_route_table_association.database-a[0]: Creation complete after 0s (ID: rtbassoc-05659e902fc2cc284)
+module.vpc.aws_route_table_association.database-a[1]: Creation complete after 0s (ID: rtbassoc-0d629a1fab61f8792)
+
+Apply complete! Resources: 55 added, 0 changed, 0 destroyed.
+
