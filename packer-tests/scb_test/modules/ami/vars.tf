@@ -24,4 +24,3 @@ variable zone_id {}
 variable database_password {
   default = ""
 }
-
