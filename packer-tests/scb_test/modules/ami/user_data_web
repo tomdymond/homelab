@@ -26,6 +26,7 @@ write_files:
      }
 
 runcmd:
+ - setenforce 0
  - yum -y install nginx
  - systemctl enable nginx
  - systemctl start nginx
