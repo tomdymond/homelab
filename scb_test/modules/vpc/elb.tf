@@ -26,5 +26,3 @@ resource "aws_elb" "my-elb" {
     Name = "my-elb"
   }
 }
-
-

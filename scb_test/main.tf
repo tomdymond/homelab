@@ -26,4 +26,3 @@ module "stack" {
   aws_elb_id         = "${module.vpc.aws_elb_id}"
   database_password  = "${var.database_password}"
 }
-

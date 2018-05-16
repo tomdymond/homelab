@@ -9,11 +9,11 @@ module "web" {
 }
 
 module "app" {
-  source        = "../../ami"
-  node_role     = "app"
-  azs           = "${var.azs}"
-  securitygroup = "${var.securitygroup_app}"
-  subnetid      = "${var.subnet_id_private}"
+  source            = "../../ami"
+  node_role         = "app"
+  azs               = "${var.azs}"
+  securitygroup     = "${var.securitygroup_app}"
+  subnetid          = "${var.subnet_id_private}"
   zone_id           = "${var.zone_id}"
   database_password = "${var.database_password}"
 }

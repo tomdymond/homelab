@@ -6,9 +6,9 @@ data "template_file" "init" {
   template = "${file("${path.module}/user_data_${var.node_role}")}"
 
   vars {
-    node_role         = "${var.node_role}"
-    app_servers       = "app.az${count.index}.example.com"
-    az_id             = "${count.index}"
+    node_role   = "${var.node_role}"
+    app_servers = "app.az${count.index}.example.com"
+    az_id       = "${count.index}"
   }
 
   count = "${length(var.azs)}"
@@ -44,5 +44,3 @@ resource "aws_elb_attachment" "my-elb-a" {
   instance = "${element(aws_instance.host.*.id, count.index)}"
   count    = "${length(var.azs)}"
 }
-
-

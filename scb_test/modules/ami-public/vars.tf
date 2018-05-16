@@ -31,10 +31,11 @@ variable zone_id {}
 variable database_password {
   default = ""
 }
+
 variable aws_elb_id {
   default = 0
 }
+
 variable create_attachment {
   default = 0
 }
-

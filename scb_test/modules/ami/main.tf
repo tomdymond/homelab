@@ -39,6 +39,3 @@ resource "aws_route53_record" "server-record" {
   records = ["${element(aws_instance.host.*.private_ip, count.index)}"]
   count   = "${length(var.azs)}"
 }
-
-
-
