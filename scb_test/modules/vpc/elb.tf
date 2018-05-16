@@ -27,9 +27,4 @@ resource "aws_elb" "my-elb" {
   }
 }
 
-#resource "aws_elb_attachment" "my-elb-a" {
-#  elb      = "${aws_elb.my-elb.id}"
-#  instance = "${aws_instance..id}"
-#}
-
 
