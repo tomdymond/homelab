@@ -1,3 +1,4 @@
+region = "us-east-1"
 azs = ["us-east-1a", "us-east-1b"]
 
 vpc_subnet = "192.168.0.0/16"
@@ -11,4 +12,5 @@ amis = {
   "app" = "us-east-1:ami-09eb8379a09d8c236"
   "db"  = "us-east-1:ami-09eb8379a09d8c236"
 }
+
 

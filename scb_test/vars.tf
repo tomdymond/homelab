@@ -13,9 +13,7 @@ variable database_subnets {
   type = "list"
 }
 
-variable region {
-  default = "us-east-1"
-}
+variable region {}
 
 variable vpc_subnet {}
 

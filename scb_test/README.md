@@ -11,6 +11,14 @@ aws_secret_key = "SECRETKEY"
 database_password = "DBPASSWORD"
 ```
 
+Replace the value for `key_name` to be the one you have configured in AWS for the region in `modules/globals/vars.tf`
+
+```
+variable key_name {
+  default = "tom-aws-virginia"
+}
+```
+
 ## Deploy the environment
 
 Type `make apply` (This will run a `terraform apply` including two necessary var files)
