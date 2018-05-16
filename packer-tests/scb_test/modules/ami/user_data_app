@@ -24,12 +24,16 @@ write_files:
 
       [Service]
       Restart=always
-      ExecStart=/bin/bash -c "sed -i 's|jdbc:mysql://localhost:3306|jdbc:mysql://${database_servers}:3306|g;s|spring.datasource.password = root|spring.datasource.password = ${database_password}|g;s|spring.datasource.username = root|spring.datasource.username = app|g' /opt/spring-boot-samples/spring-boot-mysql-springdatajpa-hibernate/src/main/resources/application.properties; cd /opt/spring-boot-samples/spring-boot-mysql-springdatajpa-hibernate; mvn spring-boot:run"
+      User=deploy
+      Type=simple
+      WorkingDirectory=/opt/spring-boot-samples/spring-boot-mysql-springdatajpa-hibernate
+      ExecStart=/bin/bash -c "sed -i 's|jdbc:mysql://localhost:3306|jdbc:mysql://${database_servers}:3306|g;s|spring.datasource.password = root|spring.datasource.password = ${database_password}|g;s|spring.datasource.username = root|spring.datasource.username = app|g' /opt/spring-boot-samples/spring-boot-mysql-springdatajpa-hibernate/src/main/resources/application.properties; mvn spring-boot:run"
 
       [Install]
       WantedBy=default.target
 
 runcmd:
+  - setenforce 0
   - cd /opt && git clone https://github.com/netgloo/spring-boot-samples
   - systemctl start spring-boot-samples
 
