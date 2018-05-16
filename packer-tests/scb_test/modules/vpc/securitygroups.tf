@@ -127,4 +127,13 @@ resource "aws_security_group_rule" "allow_app_to_db" {
   security_group_id = "${aws_security_group.secgroup_db.id}"
 }
 
+resource "aws_security_group_rule" "allow_db_to_db" {
+  description = "Allow DB to DB port 3306"
+  type            = "ingress"
+  from_port       = 3306
+  to_port         = 3306
+  protocol        = "tcp"
+  source_security_group_id = "${aws_security_group.secgroup_db.id}" 
+  security_group_id = "${aws_security_group.secgroup_db.id}"
+}
 
