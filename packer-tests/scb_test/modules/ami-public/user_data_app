@@ -1,0 +1,43 @@
+#cloud-config
+repo_update: true
+repo_upgrade: all
+
+packages:
+  - java-1.8.0-openjdk
+  - maven
+  - git
+  - mariadb
+
+users:
+  - name: deploy
+    gecos: Magic Cloud App Daemon User
+    inactive: true
+    system: true
+
+write_files:
+  - path: "/etc/systemd/system/spring-boot-samples.service"
+    permissions: "0644"
+    owner: "deploy"
+    content: |
+      [Unit]
+      Description=Deploy Stack Service
+
+      [Service]
+      Restart=always
+      User=deploy
+      Type=simple
+      WorkingDirectory=/opt/spring-boot-samples/spring-boot-mysql-springdatajpa-hibernate
+      ExecStart=/bin/bash -c "sed -i 's|jdbc:mysql://localhost:3306|jdbc:mysql://${database_servers}:3306|g;s|spring.datasource.password = root|spring.datasource.password = ${database_password}|g;s|spring.datasource.username = root|spring.datasource.username = app|g' /opt/spring-boot-samples/spring-boot-mysql-springdatajpa-hibernate/src/main/resources/application.properties; mvn spring-boot:run"
+
+      [Install]
+      WantedBy=default.target
+
+runcmd:
+  - setenforce 0
+  - sed -i s'|SELINUX=enforcing|SELINUX=disabled|g' /etc/selinux/config
+  - cd /opt && git clone https://github.com/netgloo/spring-boot-samples
+  - mkdir -p /home/deploy
+  - chown -R deploy:deploy /opt/spring-boot-samples /home/deploy
+  - systemctl start spring-boot-samples
+
+
