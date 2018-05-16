@@ -1,4 +1,5 @@
-#output "private_ips" {
-#  value = "${aws_instance.host.*.private_ip}"
-#}
+
+output "instance_id" {
+  value = "${aws_instance.host.id}"
+}
 

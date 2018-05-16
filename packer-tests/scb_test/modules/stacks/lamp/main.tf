@@ -1,5 +1,5 @@
 module "web" {
-  source        = "../../ami"
+  source        = "../../ami-public"
   node_role     = "web"
   azs           = "${var.azs}"
   securitygroup = "${var.securitygroup_web}"

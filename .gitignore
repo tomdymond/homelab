@@ -2,7 +2,11 @@ id_rsa
 id_dsa
 vault_password
 secret.tf
+secret*.tfvars
 *.tfstate*
 .terraform
 *.retry
 /bin/*
+*.iso
+*.ISO
+*.rpm

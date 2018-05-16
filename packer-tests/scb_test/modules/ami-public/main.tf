@@ -7,8 +7,6 @@ data "template_file" "init" {
 
   vars {
     node_role         = "${var.node_role}"
-    database_servers  = "db.az0.example.com"
-    database_password = "${var.database_password}"
     app_servers       = "app.az${count.index}.example.com"
     az_id             = "${count.index}"
   }
@@ -43,7 +41,7 @@ resource "aws_route53_record" "server-record" {
 
 resource "aws_elb_attachment" "my-elb-a" {
   elb      = "${var.aws_elb_id}"
-  instance = "${element(aws_instance.host.*.id, 0)}"
+  instance = "${element(aws_instance.host.*.id, count.index)}"
   count    = "${length(var.azs)}"
 }
 
