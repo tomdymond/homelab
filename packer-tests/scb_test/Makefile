@@ -4,13 +4,13 @@ clean:
 	rm -rf .terraform
 
 plan:
-	terraform plan -var-file=secrets.tfvars -var-file=terraform.tfvars
+	terraform plan -no-color -var-file=secrets.tfvars -var-file=terraform.tfvars
 
 destroy:
-	terraform destroy -var-file=secrets.tfvars -var-file=terraform.tfvars
+	terraform destroy -no-color -force -var-file=secrets.tfvars -var-file=terraform.tfvars
 
 apply:
-	terraform apply -var-file=secrets.tfvars -var-file=terraform.tfvars
+	terraform apply -no-color -var-file=secrets.tfvars -var-file=terraform.tfvars
 
 init:
 	terraform init
