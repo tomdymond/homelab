@@ -11,6 +11,7 @@ variable database_subnets {
 }
 
 variable vpc_subnet {}
+
 variable azs {
   type = "list"
 }

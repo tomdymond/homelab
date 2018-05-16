@@ -23,9 +23,9 @@ variable securitygroups {
   type = "map"
 
   default = {
-    "web"     = "secgroup_web"
-    "app"     = "secgroup_app"
-    "db"      = "secgroup_db"
+    "web" = "secgroup_web"
+    "app" = "secgroup_app"
+    "db"  = "secgroup_db"
   }
 }
 

@@ -4,6 +4,7 @@ module globals {
 
 data "template_file" "init" {
   template = "${file("${path.module}/user_data_${var.node_role}")}"
+
   vars {
     node_role         = "${var.node_role}"
     database_servers  = "db.az0.example.com"
@@ -11,6 +12,7 @@ data "template_file" "init" {
     app_servers       = "app.az${count.index}.example.com"
     az_id             = "${count.index}"
   }
+
   count = "${length(var.azs)}"
 }
 
@@ -23,18 +25,18 @@ resource "aws_instance" "host" {
   tags {
     Name = "${var.instance_tags}"
   }
+
   vpc_security_group_ids = ["${var.securitygroup}"]
-  subnet_id = "${element(var.subnetid, count.index)}"
-  user_data = "${element(data.template_file.init.*.rendered, count.index)}"
-  count = "${length(var.azs)}"
+  subnet_id              = "${element(var.subnetid, count.index)}"
+  user_data              = "${element(data.template_file.init.*.rendered, count.index)}"
+  count                  = "${length(var.azs)}"
 }
 
 resource "aws_route53_record" "server-record" {
   zone_id = "${var.zone_id}"
-  name = "${var.node_role}.az${count.index}.example.com"
-  type = "A"
-  ttl = "60"
+  name    = "${var.node_role}.az${count.index}.example.com"
+  type    = "A"
+  ttl     = "60"
   records = ["${element(aws_instance.host.*.private_ip, count.index)}"]
-  count = "${length(var.azs)}" 
+  count   = "${length(var.azs)}"
 }
-

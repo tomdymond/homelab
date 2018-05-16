@@ -24,4 +24,3 @@ variable azs {
 }
 
 variable database_password {}
-
