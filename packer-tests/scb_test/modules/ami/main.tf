@@ -6,9 +6,10 @@ data "template_file" "init" {
   template = "${file("${path.module}/user_data_${var.node_role}")}"
   vars {
     node_role         = "${var.node_role}"
-    database_servers  = "db.az${count.index}.example.com"
+    database_servers  = "db.az0.example.com"
     database_password = "${var.database_password}"
     app_servers       = "app.az${count.index}.example.com"
+    az_id             = "${count.index}"
   }
   count = "${length(var.azs)}"
 }
