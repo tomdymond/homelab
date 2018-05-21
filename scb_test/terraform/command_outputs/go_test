@@ -1,0 +1,1155 @@
+TestTerraformHttpExample 2018-05-21T17:30:47+01:00 retry.go:64: Running terraform [init]
+TestTerraformHttpExample 2018-05-21T17:30:47+01:00 command.go:52: Running command terraform with args [init]
+TestTerraformHttpExample 2018-05-21T17:30:47+01:00 command.go:95: [0m[1mDownloading modules...[0m
+TestTerraformHttpExample 2018-05-21T17:30:47+01:00 command.go:95: 
+TestTerraformHttpExample 2018-05-21T17:30:47+01:00 command.go:95: [0m[1mInitializing provider plugins...[0m
+TestTerraformHttpExample 2018-05-21T17:30:47+01:00 command.go:95: 
+TestTerraformHttpExample 2018-05-21T17:30:47+01:00 command.go:95: The following providers do not have any version constraints in configuration,
+TestTerraformHttpExample 2018-05-21T17:30:47+01:00 command.go:95: so the latest version was installed.
+TestTerraformHttpExample 2018-05-21T17:30:47+01:00 command.go:95: 
+TestTerraformHttpExample 2018-05-21T17:30:47+01:00 command.go:95: To prevent automatic upgrades to new major versions that may contain breaking
+TestTerraformHttpExample 2018-05-21T17:30:47+01:00 command.go:95: changes, it is recommended to add version = "..." constraints to the
+TestTerraformHttpExample 2018-05-21T17:30:47+01:00 command.go:95: corresponding provider blocks in configuration, with the constraint strings
+TestTerraformHttpExample 2018-05-21T17:30:47+01:00 command.go:95: suggested below.
+TestTerraformHttpExample 2018-05-21T17:30:47+01:00 command.go:95: 
+TestTerraformHttpExample 2018-05-21T17:30:47+01:00 command.go:95: * provider.aws: version = "~> 1.19"
+TestTerraformHttpExample 2018-05-21T17:30:47+01:00 command.go:95: * provider.template: version = "~> 1.0"
+TestTerraformHttpExample 2018-05-21T17:30:47+01:00 command.go:95: 
+TestTerraformHttpExample 2018-05-21T17:30:47+01:00 command.go:95: [0m[1m[32mTerraform has been successfully initialized![0m[32m[0m
+TestTerraformHttpExample 2018-05-21T17:30:47+01:00 command.go:95: [0m[32m
+TestTerraformHttpExample 2018-05-21T17:30:47+01:00 command.go:95: You may now begin working with Terraform. Try running "terraform plan" to see
+TestTerraformHttpExample 2018-05-21T17:30:47+01:00 command.go:95: any changes that are required for your infrastructure. All Terraform commands
+TestTerraformHttpExample 2018-05-21T17:30:47+01:00 command.go:95: should now work.
+TestTerraformHttpExample 2018-05-21T17:30:47+01:00 command.go:95: 
+TestTerraformHttpExample 2018-05-21T17:30:47+01:00 command.go:95: If you ever set or change modules or backend configuration for Terraform,
+TestTerraformHttpExample 2018-05-21T17:30:47+01:00 command.go:95: rerun this command to reinitialize your working directory. If you forget, other
+TestTerraformHttpExample 2018-05-21T17:30:47+01:00 command.go:95: commands will detect it and remind you to do so if necessary.[0m
+TestTerraformHttpExample 2018-05-21T17:30:47+01:00 retry.go:64: Running terraform [get -update]
+TestTerraformHttpExample 2018-05-21T17:30:47+01:00 command.go:52: Running command terraform with args [get -update]
+TestTerraformHttpExample 2018-05-21T17:30:47+01:00 command.go:95: Get: file:///Users/tdy02/work/repos/github.com/tomkmem/homelab/scb_test/terraform/modules/vpc (update)
+TestTerraformHttpExample 2018-05-21T17:30:47+01:00 command.go:95: Get: file:///Users/tdy02/work/repos/github.com/tomkmem/homelab/scb_test/terraform/modules/stacks/lamp (update)
+TestTerraformHttpExample 2018-05-21T17:30:47+01:00 command.go:95: Get: file:///Users/tdy02/work/repos/github.com/tomkmem/homelab/scb_test/terraform/modules/globals (update)
+TestTerraformHttpExample 2018-05-21T17:30:47+01:00 command.go:95: Get: file:///Users/tdy02/work/repos/github.com/tomkmem/homelab/scb_test/terraform/modules/ami-public (update)
+TestTerraformHttpExample 2018-05-21T17:30:47+01:00 command.go:95: Get: file:///Users/tdy02/work/repos/github.com/tomkmem/homelab/scb_test/terraform/modules/ami (update)
+TestTerraformHttpExample 2018-05-21T17:30:47+01:00 command.go:95: Get: file:///Users/tdy02/work/repos/github.com/tomkmem/homelab/scb_test/terraform/modules/ami (update)
+TestTerraformHttpExample 2018-05-21T17:30:47+01:00 command.go:95: Get: file:///Users/tdy02/work/repos/github.com/tomkmem/homelab/scb_test/terraform/modules/globals (update)
+TestTerraformHttpExample 2018-05-21T17:30:47+01:00 command.go:95: Get: file:///Users/tdy02/work/repos/github.com/tomkmem/homelab/scb_test/terraform/modules/globals (update)
+TestTerraformHttpExample 2018-05-21T17:30:47+01:00 command.go:95: Get: file:///Users/tdy02/work/repos/github.com/tomkmem/homelab/scb_test/terraform/modules/globals (update)
+TestTerraformHttpExample 2018-05-21T17:30:47+01:00 retry.go:64: Running terraform [apply -input=false -lock=false -auto-approve -var aws_region="us-east-1" -var instance_name="terratest-http-example-MTjlHB" -var instance_text="Hello, MTjlHB!" -var database_password="foobar"]
+TestTerraformHttpExample 2018-05-21T17:30:47+01:00 command.go:52: Running command terraform with args [apply -input=false -lock=false -auto-approve -var aws_region="us-east-1" -var instance_name="terratest-http-example-MTjlHB" -var instance_text="Hello, MTjlHB!" -var database_password="foobar"]
+TestTerraformHttpExample 2018-05-21T17:30:48+01:00 command.go:95: [0m[1mdata.template_file.init[0]: Refreshing state...[0m
+TestTerraformHttpExample 2018-05-21T17:30:48+01:00 command.go:95: [0m[1mdata.template_file.init[0]: Refreshing state...[0m
+TestTerraformHttpExample 2018-05-21T17:30:48+01:00 command.go:95: [0m[1mdata.template_file.init[1]: Refreshing state...[0m
+TestTerraformHttpExample 2018-05-21T17:30:48+01:00 command.go:95: [0m[1mdata.template_file.init[1]: Refreshing state...[0m
+TestTerraformHttpExample 2018-05-21T17:30:48+01:00 command.go:95: [0m[1mdata.template_file.init[0]: Refreshing state...[0m
+TestTerraformHttpExample 2018-05-21T17:30:48+01:00 command.go:95: [0m[1mdata.template_file.init[1]: Refreshing state...[0m
+TestTerraformHttpExample 2018-05-21T17:30:52+01:00 command.go:95: [0m[1mmodule.vpc.aws_eip.nat[1]: Creating...[0m
+TestTerraformHttpExample 2018-05-21T17:30:52+01:00 command.go:95:   allocation_id:     "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:30:52+01:00 command.go:95:   association_id:    "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:30:52+01:00 command.go:95:   domain:            "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:30:52+01:00 command.go:95:   instance:          "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:30:52+01:00 command.go:95:   network_interface: "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:30:52+01:00 command.go:95:   private_ip:        "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:30:52+01:00 command.go:95:   public_ip:         "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:30:52+01:00 command.go:95:   vpc:               "" => "true"[0m
+TestTerraformHttpExample 2018-05-21T17:30:52+01:00 command.go:95: [0m[1mmodule.vpc.aws_eip.nat[0]: Creating...[0m
+TestTerraformHttpExample 2018-05-21T17:30:52+01:00 command.go:95:   allocation_id:     "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:30:52+01:00 command.go:95:   association_id:    "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:30:52+01:00 command.go:95:   domain:            "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:30:52+01:00 command.go:95:   instance:          "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:30:52+01:00 command.go:95:   network_interface: "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:30:52+01:00 command.go:95:   private_ip:        "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:30:52+01:00 command.go:95:   public_ip:         "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:30:52+01:00 command.go:95:   vpc:               "" => "true"[0m
+TestTerraformHttpExample 2018-05-21T17:30:52+01:00 command.go:95: [0m[1mmodule.vpc.aws_vpc.main: Creating...[0m
+TestTerraformHttpExample 2018-05-21T17:30:52+01:00 command.go:95:   assign_generated_ipv6_cidr_block: "" => "false"
+TestTerraformHttpExample 2018-05-21T17:30:52+01:00 command.go:95:   cidr_block:                       "" => "192.168.0.0/16"
+TestTerraformHttpExample 2018-05-21T17:30:52+01:00 command.go:95:   default_network_acl_id:           "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:30:52+01:00 command.go:95:   default_route_table_id:           "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:30:52+01:00 command.go:95:   default_security_group_id:        "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:30:52+01:00 command.go:95:   dhcp_options_id:                  "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:30:52+01:00 command.go:95:   enable_classiclink:               "" => "false"
+TestTerraformHttpExample 2018-05-21T17:30:52+01:00 command.go:95:   enable_classiclink_dns_support:   "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:30:52+01:00 command.go:95:   enable_dns_hostnames:             "" => "true"
+TestTerraformHttpExample 2018-05-21T17:30:52+01:00 command.go:95:   enable_dns_support:               "" => "true"
+TestTerraformHttpExample 2018-05-21T17:30:52+01:00 command.go:95:   instance_tenancy:                 "" => "default"
+TestTerraformHttpExample 2018-05-21T17:30:52+01:00 command.go:95:   ipv6_association_id:              "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:30:52+01:00 command.go:95:   ipv6_cidr_block:                  "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:30:52+01:00 command.go:95:   main_route_table_id:              "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:30:52+01:00 command.go:95:   tags.%:                           "" => "1"
+TestTerraformHttpExample 2018-05-21T17:30:52+01:00 command.go:95:   tags.Name:                        "" => "main"[0m
+TestTerraformHttpExample 2018-05-21T17:30:53+01:00 command.go:95: [0m[1mmodule.vpc.aws_eip.nat[1]: Creation complete after 1s (ID: eipalloc-0ebdb83bc064a7dbd)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:30:53+01:00 command.go:95: [0m[1mmodule.vpc.aws_eip.nat[0]: Creation complete after 1s (ID: eipalloc-080182ee5f72c83f9)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:30:59+01:00 command.go:95: [0m[1mmodule.vpc.aws_vpc.main: Creation complete after 7s (ID: vpc-089660395159ee842)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:30:59+01:00 command.go:95: [0m[1mmodule.vpc.aws_route53_zone.example: Creating...[0m
+TestTerraformHttpExample 2018-05-21T17:30:59+01:00 command.go:95:   comment:        "" => "Managed by Terraform"
+TestTerraformHttpExample 2018-05-21T17:30:59+01:00 command.go:95:   force_destroy:  "" => "false"
+TestTerraformHttpExample 2018-05-21T17:30:59+01:00 command.go:95:   name:           "" => "example.com"
+TestTerraformHttpExample 2018-05-21T17:30:59+01:00 command.go:95:   name_servers.#: "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:30:59+01:00 command.go:95:   vpc_id:         "" => "vpc-089660395159ee842"
+TestTerraformHttpExample 2018-05-21T17:30:59+01:00 command.go:95:   vpc_region:     "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:30:59+01:00 command.go:95:   zone_id:        "" => "<computed>"[0m
+TestTerraformHttpExample 2018-05-21T17:30:59+01:00 command.go:95: [0m[1mmodule.vpc.aws_internet_gateway.gw: Creating...[0m
+TestTerraformHttpExample 2018-05-21T17:30:59+01:00 command.go:95:   tags.%:    "0" => "1"
+TestTerraformHttpExample 2018-05-21T17:30:59+01:00 command.go:95:   tags.Name: "" => "gw"
+TestTerraformHttpExample 2018-05-21T17:30:59+01:00 command.go:95:   vpc_id:    "" => "vpc-089660395159ee842"[0m
+TestTerraformHttpExample 2018-05-21T17:30:59+01:00 command.go:95: [0m[1mmodule.vpc.aws_security_group.secgroup_app: Creating...[0m
+TestTerraformHttpExample 2018-05-21T17:30:59+01:00 command.go:95:   arn:                    "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:30:59+01:00 command.go:95:   description:            "" => "App servers security group"
+TestTerraformHttpExample 2018-05-21T17:30:59+01:00 command.go:95:   egress.#:               "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:30:59+01:00 command.go:95:   ingress.#:              "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:30:59+01:00 command.go:95:   name:                   "" => "App Servers"
+TestTerraformHttpExample 2018-05-21T17:30:59+01:00 command.go:95:   owner_id:               "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:30:59+01:00 command.go:95:   revoke_rules_on_delete: "" => "false"
+TestTerraformHttpExample 2018-05-21T17:30:59+01:00 command.go:95:   vpc_id:                 "" => "vpc-089660395159ee842"[0m
+TestTerraformHttpExample 2018-05-21T17:30:59+01:00 command.go:95: [0m[1mmodule.vpc.aws_subnet.private[0]: Creating...[0m
+TestTerraformHttpExample 2018-05-21T17:30:59+01:00 command.go:95:   assign_ipv6_address_on_creation: "" => "false"
+TestTerraformHttpExample 2018-05-21T17:30:59+01:00 command.go:95:   availability_zone:               "" => "us-east-1a"
+TestTerraformHttpExample 2018-05-21T17:30:59+01:00 command.go:95:   cidr_block:                      "" => "192.168.1.0/24"
+TestTerraformHttpExample 2018-05-21T17:30:59+01:00 command.go:95:   ipv6_cidr_block:                 "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:30:59+01:00 command.go:95:   ipv6_cidr_block_association_id:  "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:30:59+01:00 command.go:95:   map_public_ip_on_launch:         "" => "false"
+TestTerraformHttpExample 2018-05-21T17:30:59+01:00 command.go:95:   tags.%:                          "" => "1"
+TestTerraformHttpExample 2018-05-21T17:30:59+01:00 command.go:95:   tags.Name:                       "" => "private-0"
+TestTerraformHttpExample 2018-05-21T17:30:59+01:00 command.go:95:   vpc_id:                          "" => "vpc-089660395159ee842"[0m
+TestTerraformHttpExample 2018-05-21T17:30:59+01:00 command.go:95: [0m[1mmodule.vpc.aws_security_group.secgroup_db: Creating...[0m
+TestTerraformHttpExample 2018-05-21T17:30:59+01:00 command.go:95:   arn:                    "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:30:59+01:00 command.go:95:   description:            "" => "Database servers security group"
+TestTerraformHttpExample 2018-05-21T17:30:59+01:00 command.go:95:   egress.#:               "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:30:59+01:00 command.go:95:   ingress.#:              "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:30:59+01:00 command.go:95:   name:                   "" => "Database Servers"
+TestTerraformHttpExample 2018-05-21T17:30:59+01:00 command.go:95:   owner_id:               "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:30:59+01:00 command.go:95:   revoke_rules_on_delete: "" => "false"
+TestTerraformHttpExample 2018-05-21T17:30:59+01:00 command.go:95:   vpc_id:                 "" => "vpc-089660395159ee842"[0m
+TestTerraformHttpExample 2018-05-21T17:30:59+01:00 command.go:95: [0m[1mmodule.vpc.aws_subnet.database[0]: Creating...[0m
+TestTerraformHttpExample 2018-05-21T17:30:59+01:00 command.go:95:   assign_ipv6_address_on_creation: "" => "false"
+TestTerraformHttpExample 2018-05-21T17:30:59+01:00 command.go:95:   availability_zone:               "" => "us-east-1a"
+TestTerraformHttpExample 2018-05-21T17:30:59+01:00 command.go:95:   cidr_block:                      "" => "192.168.201.0/24"
+TestTerraformHttpExample 2018-05-21T17:30:59+01:00 command.go:95:   ipv6_cidr_block:                 "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:30:59+01:00 command.go:95:   ipv6_cidr_block_association_id:  "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:30:59+01:00 command.go:95:   map_public_ip_on_launch:         "" => "false"
+TestTerraformHttpExample 2018-05-21T17:30:59+01:00 command.go:95:   tags.%:                          "" => "1"
+TestTerraformHttpExample 2018-05-21T17:30:59+01:00 command.go:95:   tags.Name:                       "" => "database-0"
+TestTerraformHttpExample 2018-05-21T17:30:59+01:00 command.go:95:   vpc_id:                          "" => "vpc-089660395159ee842"[0m
+TestTerraformHttpExample 2018-05-21T17:30:59+01:00 command.go:95: [0m[1mmodule.vpc.aws_security_group.secgroup_web: Creating...[0m
+TestTerraformHttpExample 2018-05-21T17:30:59+01:00 command.go:95:   arn:                    "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:30:59+01:00 command.go:95:   description:            "" => "Web servers security group"
+TestTerraformHttpExample 2018-05-21T17:30:59+01:00 command.go:95:   egress.#:               "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:30:59+01:00 command.go:95:   ingress.#:              "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:30:59+01:00 command.go:95:   name:                   "" => "Web Servers"
+TestTerraformHttpExample 2018-05-21T17:30:59+01:00 command.go:95:   owner_id:               "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:30:59+01:00 command.go:95:   revoke_rules_on_delete: "" => "false"
+TestTerraformHttpExample 2018-05-21T17:30:59+01:00 command.go:95:   vpc_id:                 "" => "vpc-089660395159ee842"[0m
+TestTerraformHttpExample 2018-05-21T17:30:59+01:00 command.go:95: [0m[1mmodule.vpc.aws_subnet.public[1]: Creating...[0m
+TestTerraformHttpExample 2018-05-21T17:30:59+01:00 command.go:95:   assign_ipv6_address_on_creation: "" => "false"
+TestTerraformHttpExample 2018-05-21T17:30:59+01:00 command.go:95:   availability_zone:               "" => "us-east-1b"
+TestTerraformHttpExample 2018-05-21T17:30:59+01:00 command.go:95:   cidr_block:                      "" => "192.168.102.0/24"
+TestTerraformHttpExample 2018-05-21T17:30:59+01:00 command.go:95:   ipv6_cidr_block:                 "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:30:59+01:00 command.go:95:   ipv6_cidr_block_association_id:  "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:30:59+01:00 command.go:95:   map_public_ip_on_launch:         "" => "true"
+TestTerraformHttpExample 2018-05-21T17:30:59+01:00 command.go:95:   tags.%:                          "" => "1"
+TestTerraformHttpExample 2018-05-21T17:30:59+01:00 command.go:95:   tags.Name:                       "" => "public-1"
+TestTerraformHttpExample 2018-05-21T17:30:59+01:00 command.go:95:   vpc_id:                          "" => "vpc-089660395159ee842"[0m
+TestTerraformHttpExample 2018-05-21T17:30:59+01:00 command.go:95: [0m[1mmodule.vpc.aws_subnet.public[0]: Creating...[0m
+TestTerraformHttpExample 2018-05-21T17:30:59+01:00 command.go:95:   assign_ipv6_address_on_creation: "" => "false"
+TestTerraformHttpExample 2018-05-21T17:30:59+01:00 command.go:95:   availability_zone:               "" => "us-east-1a"
+TestTerraformHttpExample 2018-05-21T17:30:59+01:00 command.go:95:   cidr_block:                      "" => "192.168.101.0/24"
+TestTerraformHttpExample 2018-05-21T17:30:59+01:00 command.go:95:   ipv6_cidr_block:                 "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:30:59+01:00 command.go:95:   ipv6_cidr_block_association_id:  "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:30:59+01:00 command.go:95:   map_public_ip_on_launch:         "" => "true"
+TestTerraformHttpExample 2018-05-21T17:30:59+01:00 command.go:95:   tags.%:                          "" => "1"
+TestTerraformHttpExample 2018-05-21T17:30:59+01:00 command.go:95:   tags.Name:                       "" => "public-0"
+TestTerraformHttpExample 2018-05-21T17:30:59+01:00 command.go:95:   vpc_id:                          "" => "vpc-089660395159ee842"[0m
+TestTerraformHttpExample 2018-05-21T17:30:59+01:00 command.go:95: [0m[1mmodule.vpc.aws_subnet.private[1]: Creating...[0m
+TestTerraformHttpExample 2018-05-21T17:30:59+01:00 command.go:95:   assign_ipv6_address_on_creation: "" => "false"
+TestTerraformHttpExample 2018-05-21T17:30:59+01:00 command.go:95:   availability_zone:               "" => "us-east-1b"
+TestTerraformHttpExample 2018-05-21T17:30:59+01:00 command.go:95:   cidr_block:                      "" => "192.168.2.0/24"
+TestTerraformHttpExample 2018-05-21T17:30:59+01:00 command.go:95:   ipv6_cidr_block:                 "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:30:59+01:00 command.go:95:   ipv6_cidr_block_association_id:  "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:30:59+01:00 command.go:95:   map_public_ip_on_launch:         "" => "false"
+TestTerraformHttpExample 2018-05-21T17:30:59+01:00 command.go:95:   tags.%:                          "" => "1"
+TestTerraformHttpExample 2018-05-21T17:30:59+01:00 command.go:95:   tags.Name:                       "" => "private-1"
+TestTerraformHttpExample 2018-05-21T17:30:59+01:00 command.go:95:   vpc_id:                          "" => "vpc-089660395159ee842"[0m
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95: [0m[1mmodule.vpc.aws_subnet.database[0]: Creation complete after 2s (ID: subnet-0e676f5fb0bccc111)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95: [0m[1mmodule.vpc.aws_subnet.private[0]: Creation complete after 2s (ID: subnet-05bcb1300f0515b31)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95: [0m[1mmodule.vpc.aws_security_group.elb-securitygroup: Creating...[0m
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   arn:                    "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   description:            "" => "ELB security group"
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   egress.#:               "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   ingress.#:              "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   name:                   "" => "ELB"
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   owner_id:               "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   revoke_rules_on_delete: "" => "false"
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   vpc_id:                 "" => "vpc-089660395159ee842"[0m
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95: [0m[1mmodule.vpc.aws_subnet.database[1]: Creating...[0m
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   assign_ipv6_address_on_creation: "" => "false"
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   availability_zone:               "" => "us-east-1b"
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   cidr_block:                      "" => "192.168.202.0/24"
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   ipv6_cidr_block:                 "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   ipv6_cidr_block_association_id:  "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   map_public_ip_on_launch:         "" => "false"
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   tags.%:                          "" => "1"
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   tags.Name:                       "" => "database-1"
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   vpc_id:                          "" => "vpc-089660395159ee842"[0m
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95: [0m[1mmodule.vpc.aws_subnet.private[1]: Creation complete after 2s (ID: subnet-04ff68684803bc862)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95: [0m[1mmodule.vpc.aws_subnet.public[1]: Creation complete after 2s (ID: subnet-06cf62baacb2a1ed0)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95: [0m[1mmodule.vpc.aws_subnet.public[0]: Creation complete after 2s (ID: subnet-0a700336fd6ae1204)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95: [0m[1mmodule.vpc.aws_internet_gateway.gw: Creation complete after 3s (ID: igw-05e86dfd04e2a989a)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95: [0m[1mmodule.vpc.aws_nat_gateway.nat-gw[1]: Creating...[0m
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   allocation_id:        "" => "eipalloc-0ebdb83bc064a7dbd"
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   network_interface_id: "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   private_ip:           "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   public_ip:            "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   subnet_id:            "" => "subnet-06cf62baacb2a1ed0"[0m
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95: [0m[1mmodule.vpc.aws_nat_gateway.nat-gw[0]: Creating...[0m
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   allocation_id:        "" => "eipalloc-080182ee5f72c83f9"
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   network_interface_id: "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   private_ip:           "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   public_ip:            "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   subnet_id:            "" => "subnet-0a700336fd6ae1204"[0m
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95: [0m[1mmodule.vpc.aws_route_table.rt-public: Creating...[0m
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   propagating_vgws.#:                         "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   route.#:                                    "" => "1"
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   route.3936472084.cidr_block:                "" => "0.0.0.0/0"
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   route.3936472084.egress_only_gateway_id:    "" => ""
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   route.3936472084.gateway_id:                "" => "igw-05e86dfd04e2a989a"
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   route.3936472084.instance_id:               "" => ""
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   route.3936472084.ipv6_cidr_block:           "" => ""
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   route.3936472084.nat_gateway_id:            "" => ""
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   route.3936472084.network_interface_id:      "" => ""
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   route.3936472084.vpc_peering_connection_id: "" => ""
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   tags.%:                                     "" => "1"
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   tags.Name:                                  "" => "public"
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   vpc_id:                                     "" => "vpc-089660395159ee842"[0m
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95: [0m[1mmodule.vpc.aws_security_group.secgroup_app: Creation complete after 3s (ID: sg-08f8d1101f6bc2dfb)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95: [0m[1mmodule.vpc.aws_security_group_rule.allow_app_to_any: Creating...[0m
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   cidr_blocks.#:            "" => "1"
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   cidr_blocks.0:            "" => "0.0.0.0/0"
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   description:              "" => "Allow all traffic from APP to ANY"
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   from_port:                "" => "0"
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   protocol:                 "" => "-1"
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   security_group_id:        "" => "sg-08f8d1101f6bc2dfb"
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   self:                     "" => "false"
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   source_security_group_id: "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   to_port:                  "" => "65535"
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   type:                     "" => "egress"[0m
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95: [0m[1mmodule.stack.module.app.aws_instance.host[0]: Creating...[0m
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   ami:                               "" => "ami-07e171432336f8583"
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   associate_public_ip_address:       "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   availability_zone:                 "" => "us-east-1a"
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   ebs_block_device.#:                "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   ephemeral_block_device.#:          "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   get_password_data:                 "" => "false"
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   instance_state:                    "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   instance_type:                     "" => "t2.micro"
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   ipv6_address_count:                "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   ipv6_addresses.#:                  "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   key_name:                          "" => "tom-aws-virginia"
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   network_interface.#:               "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   network_interface_id:              "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   password_data:                     "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   placement_group:                   "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   primary_network_interface_id:      "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   private_dns:                       "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   private_ip:                        "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   public_dns:                        "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   public_ip:                         "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   root_block_device.#:               "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   security_groups.#:                 "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   source_dest_check:                 "" => "true"
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   subnet_id:                         "" => "subnet-05bcb1300f0515b31"
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   tags.%:                            "" => "1"
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   tags.Name:                         "" => "ami"
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   tenancy:                           "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   user_data:                         "" => "b5fd2dbb4fc1ad49b90cc367f363d328ddae6aa7"
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   volume_tags.%:                     "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   vpc_security_group_ids.#:          "" => "1"
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   vpc_security_group_ids.2578865318: "" => "sg-08f8d1101f6bc2dfb"[0m
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95: [0m[1mmodule.vpc.aws_security_group.secgroup_db: Creation complete after 3s (ID: sg-01ae21db0e778febc)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95: [0m[1mmodule.stack.module.app.aws_instance.host[1]: Creating...[0m
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   ami:                               "" => "ami-07e171432336f8583"
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   associate_public_ip_address:       "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   availability_zone:                 "" => "us-east-1b"
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   ebs_block_device.#:                "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   ephemeral_block_device.#:          "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   get_password_data:                 "" => "false"
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   instance_state:                    "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   instance_type:                     "" => "t2.micro"
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   ipv6_address_count:                "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   ipv6_addresses.#:                  "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   key_name:                          "" => "tom-aws-virginia"
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   network_interface.#:               "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   network_interface_id:              "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   password_data:                     "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   placement_group:                   "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   primary_network_interface_id:      "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   private_dns:                       "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   private_ip:                        "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   public_dns:                        "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   public_ip:                         "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   root_block_device.#:               "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   security_groups.#:                 "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   source_dest_check:                 "" => "true"
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   subnet_id:                         "" => "subnet-04ff68684803bc862"
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   tags.%:                            "" => "1"
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   tags.Name:                         "" => "ami"
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   tenancy:                           "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   user_data:                         "" => "b5fd2dbb4fc1ad49b90cc367f363d328ddae6aa7"
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   volume_tags.%:                     "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   vpc_security_group_ids.#:          "" => "1"
+TestTerraformHttpExample 2018-05-21T17:31:02+01:00 command.go:95:   vpc_security_group_ids.2578865318: "" => "sg-08f8d1101f6bc2dfb"[0m
+TestTerraformHttpExample 2018-05-21T17:31:03+01:00 command.go:95: [0m[1mmodule.vpc.aws_security_group.secgroup_web: Creation complete after 3s (ID: sg-0816eaf0dd026a3b6)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:31:03+01:00 command.go:95: [0m[1mmodule.vpc.aws_security_group_rule.allow_db_to_any: Creating...[0m
+TestTerraformHttpExample 2018-05-21T17:31:03+01:00 command.go:95:   cidr_blocks.#:            "" => "1"
+TestTerraformHttpExample 2018-05-21T17:31:03+01:00 command.go:95:   cidr_blocks.0:            "" => "0.0.0.0/0"
+TestTerraformHttpExample 2018-05-21T17:31:03+01:00 command.go:95:   description:              "" => "Allow all traffic from DB to ANY"
+TestTerraformHttpExample 2018-05-21T17:31:03+01:00 command.go:95:   from_port:                "" => "0"
+TestTerraformHttpExample 2018-05-21T17:31:03+01:00 command.go:95:   protocol:                 "" => "-1"
+TestTerraformHttpExample 2018-05-21T17:31:03+01:00 command.go:95:   security_group_id:        "" => "sg-01ae21db0e778febc"
+TestTerraformHttpExample 2018-05-21T17:31:03+01:00 command.go:95:   self:                     "" => "false"
+TestTerraformHttpExample 2018-05-21T17:31:03+01:00 command.go:95:   source_security_group_id: "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:03+01:00 command.go:95:   to_port:                  "" => "65535"
+TestTerraformHttpExample 2018-05-21T17:31:03+01:00 command.go:95:   type:                     "" => "egress"[0m
+TestTerraformHttpExample 2018-05-21T17:31:04+01:00 command.go:95: [0m[1mmodule.vpc.aws_subnet.database[1]: Creation complete after 2s (ID: subnet-08bd3e47017a8bed6)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:31:04+01:00 command.go:95: [0m[1mmodule.vpc.aws_security_group_rule.allow_db_to_db: Creating...[0m
+TestTerraformHttpExample 2018-05-21T17:31:04+01:00 command.go:95:   description:              "" => "Allow DB to DB port 3306"
+TestTerraformHttpExample 2018-05-21T17:31:04+01:00 command.go:95:   from_port:                "" => "3306"
+TestTerraformHttpExample 2018-05-21T17:31:04+01:00 command.go:95:   protocol:                 "" => "tcp"
+TestTerraformHttpExample 2018-05-21T17:31:04+01:00 command.go:95:   security_group_id:        "" => "sg-01ae21db0e778febc"
+TestTerraformHttpExample 2018-05-21T17:31:04+01:00 command.go:95:   self:                     "" => "false"
+TestTerraformHttpExample 2018-05-21T17:31:04+01:00 command.go:95:   source_security_group_id: "" => "sg-01ae21db0e778febc"
+TestTerraformHttpExample 2018-05-21T17:31:04+01:00 command.go:95:   to_port:                  "" => "3306"
+TestTerraformHttpExample 2018-05-21T17:31:04+01:00 command.go:95:   type:                     "" => "ingress"[0m
+TestTerraformHttpExample 2018-05-21T17:31:04+01:00 command.go:95: [0m[1mmodule.vpc.aws_security_group_rule.allow_app_to_any: Creation complete after 1s (ID: sgrule-1231665098)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:31:04+01:00 command.go:95: [0m[1mmodule.vpc.aws_security_group_rule.allow_app_to_db: Creating...[0m
+TestTerraformHttpExample 2018-05-21T17:31:04+01:00 command.go:95:   description:              "" => "Allow APP to DB port 3306"
+TestTerraformHttpExample 2018-05-21T17:31:04+01:00 command.go:95:   from_port:                "" => "3306"
+TestTerraformHttpExample 2018-05-21T17:31:04+01:00 command.go:95:   protocol:                 "" => "tcp"
+TestTerraformHttpExample 2018-05-21T17:31:04+01:00 command.go:95:   security_group_id:        "" => "sg-01ae21db0e778febc"
+TestTerraformHttpExample 2018-05-21T17:31:04+01:00 command.go:95:   self:                     "" => "false"
+TestTerraformHttpExample 2018-05-21T17:31:04+01:00 command.go:95:   source_security_group_id: "" => "sg-08f8d1101f6bc2dfb"
+TestTerraformHttpExample 2018-05-21T17:31:04+01:00 command.go:95:   to_port:                  "" => "3306"
+TestTerraformHttpExample 2018-05-21T17:31:04+01:00 command.go:95:   type:                     "" => "ingress"[0m
+TestTerraformHttpExample 2018-05-21T17:31:04+01:00 command.go:95: [0m[1mmodule.vpc.aws_security_group_rule.allow_db_to_any: Creation complete after 2s (ID: sgrule-1775848809)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:31:04+01:00 command.go:95: [0m[1mmodule.vpc.aws_route_table.rt-public: Creation complete after 2s (ID: rtb-07e7facac69785072)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:31:04+01:00 command.go:95: [0m[1mmodule.vpc.aws_security_group_rule.allow_any_to_web_ssh: Creating...[0m
+TestTerraformHttpExample 2018-05-21T17:31:04+01:00 command.go:95:   cidr_blocks.#:            "" => "1"
+TestTerraformHttpExample 2018-05-21T17:31:04+01:00 command.go:95:   cidr_blocks.0:            "" => "0.0.0.0/0"
+TestTerraformHttpExample 2018-05-21T17:31:04+01:00 command.go:95:   description:              "" => "Allow ANY to WEB port 22"
+TestTerraformHttpExample 2018-05-21T17:31:04+01:00 command.go:95:   from_port:                "" => "22"
+TestTerraformHttpExample 2018-05-21T17:31:04+01:00 command.go:95:   protocol:                 "" => "tcp"
+TestTerraformHttpExample 2018-05-21T17:31:04+01:00 command.go:95:   security_group_id:        "" => "sg-0816eaf0dd026a3b6"
+TestTerraformHttpExample 2018-05-21T17:31:04+01:00 command.go:95:   self:                     "" => "false"
+TestTerraformHttpExample 2018-05-21T17:31:04+01:00 command.go:95:   source_security_group_id: "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:04+01:00 command.go:95:   to_port:                  "" => "22"
+TestTerraformHttpExample 2018-05-21T17:31:04+01:00 command.go:95:   type:                     "" => "ingress"[0m
+TestTerraformHttpExample 2018-05-21T17:31:04+01:00 command.go:95: [0m[1mmodule.vpc.aws_security_group_rule.allow_web_to_app: Creating...[0m
+TestTerraformHttpExample 2018-05-21T17:31:04+01:00 command.go:95:   description:              "" => "Allow WEB to APP port 8080"
+TestTerraformHttpExample 2018-05-21T17:31:04+01:00 command.go:95:   from_port:                "" => "8080"
+TestTerraformHttpExample 2018-05-21T17:31:04+01:00 command.go:95:   protocol:                 "" => "tcp"
+TestTerraformHttpExample 2018-05-21T17:31:04+01:00 command.go:95:   security_group_id:        "" => "sg-08f8d1101f6bc2dfb"
+TestTerraformHttpExample 2018-05-21T17:31:04+01:00 command.go:95:   self:                     "" => "false"
+TestTerraformHttpExample 2018-05-21T17:31:04+01:00 command.go:95:   source_security_group_id: "" => "sg-0816eaf0dd026a3b6"
+TestTerraformHttpExample 2018-05-21T17:31:04+01:00 command.go:95:   to_port:                  "" => "8080"
+TestTerraformHttpExample 2018-05-21T17:31:04+01:00 command.go:95:   type:                     "" => "ingress"[0m
+TestTerraformHttpExample 2018-05-21T17:31:05+01:00 command.go:95: [0m[1mmodule.vpc.aws_security_group.elb-securitygroup: Creation complete after 3s (ID: sg-004cb16a0c0c1e9d7)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:31:05+01:00 command.go:95: [0m[1mmodule.vpc.aws_security_group_rule.allow_web_to_db_ssh: Creating...[0m
+TestTerraformHttpExample 2018-05-21T17:31:05+01:00 command.go:95:   description:              "" => "Allow WEB to DB port 22"
+TestTerraformHttpExample 2018-05-21T17:31:05+01:00 command.go:95:   from_port:                "" => "22"
+TestTerraformHttpExample 2018-05-21T17:31:05+01:00 command.go:95:   protocol:                 "" => "tcp"
+TestTerraformHttpExample 2018-05-21T17:31:05+01:00 command.go:95:   security_group_id:        "" => "sg-01ae21db0e778febc"
+TestTerraformHttpExample 2018-05-21T17:31:05+01:00 command.go:95:   self:                     "" => "false"
+TestTerraformHttpExample 2018-05-21T17:31:05+01:00 command.go:95:   source_security_group_id: "" => "sg-0816eaf0dd026a3b6"
+TestTerraformHttpExample 2018-05-21T17:31:05+01:00 command.go:95:   to_port:                  "" => "22"
+TestTerraformHttpExample 2018-05-21T17:31:05+01:00 command.go:95:   type:                     "" => "ingress"[0m
+TestTerraformHttpExample 2018-05-21T17:31:06+01:00 command.go:95: [0m[1mmodule.vpc.aws_security_group_rule.allow_any_to_web_ssh: Creation complete after 1s (ID: sgrule-1922896641)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:31:06+01:00 command.go:95: [0m[1mmodule.vpc.aws_security_group_rule.allow_web_to_any: Creating...[0m
+TestTerraformHttpExample 2018-05-21T17:31:06+01:00 command.go:95:   cidr_blocks.#:            "" => "1"
+TestTerraformHttpExample 2018-05-21T17:31:06+01:00 command.go:95:   cidr_blocks.0:            "" => "0.0.0.0/0"
+TestTerraformHttpExample 2018-05-21T17:31:06+01:00 command.go:95:   description:              "" => "Allow all traffic from WEB to ANY"
+TestTerraformHttpExample 2018-05-21T17:31:06+01:00 command.go:95:   from_port:                "" => "0"
+TestTerraformHttpExample 2018-05-21T17:31:06+01:00 command.go:95:   protocol:                 "" => "-1"
+TestTerraformHttpExample 2018-05-21T17:31:06+01:00 command.go:95:   security_group_id:        "" => "sg-0816eaf0dd026a3b6"
+TestTerraformHttpExample 2018-05-21T17:31:06+01:00 command.go:95:   self:                     "" => "false"
+TestTerraformHttpExample 2018-05-21T17:31:06+01:00 command.go:95:   source_security_group_id: "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:06+01:00 command.go:95:   to_port:                  "" => "65535"
+TestTerraformHttpExample 2018-05-21T17:31:06+01:00 command.go:95:   type:                     "" => "egress"[0m
+TestTerraformHttpExample 2018-05-21T17:31:06+01:00 command.go:95: [0m[1mmodule.vpc.aws_security_group_rule.allow_web_to_app: Creation complete after 1s (ID: sgrule-560250464)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:31:06+01:00 command.go:95: [0m[1mmodule.vpc.aws_security_group_rule.allow_web_to_app_ssh: Creating...[0m
+TestTerraformHttpExample 2018-05-21T17:31:06+01:00 command.go:95:   description:              "" => "Allow WEB to APP port 22"
+TestTerraformHttpExample 2018-05-21T17:31:06+01:00 command.go:95:   from_port:                "" => "22"
+TestTerraformHttpExample 2018-05-21T17:31:06+01:00 command.go:95:   protocol:                 "" => "tcp"
+TestTerraformHttpExample 2018-05-21T17:31:06+01:00 command.go:95:   security_group_id:        "" => "sg-08f8d1101f6bc2dfb"
+TestTerraformHttpExample 2018-05-21T17:31:06+01:00 command.go:95:   self:                     "" => "false"
+TestTerraformHttpExample 2018-05-21T17:31:06+01:00 command.go:95:   source_security_group_id: "" => "sg-0816eaf0dd026a3b6"
+TestTerraformHttpExample 2018-05-21T17:31:06+01:00 command.go:95:   to_port:                  "" => "22"
+TestTerraformHttpExample 2018-05-21T17:31:06+01:00 command.go:95:   type:                     "" => "ingress"[0m
+TestTerraformHttpExample 2018-05-21T17:31:06+01:00 command.go:95: [0m[1mmodule.vpc.aws_security_group_rule.allow_db_to_db: Creation complete after 2s (ID: sgrule-22874)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:31:06+01:00 command.go:95: [0m[1mmodule.vpc.aws_route_table_association.rta-public-a[0]: Creating...[0m
+TestTerraformHttpExample 2018-05-21T17:31:06+01:00 command.go:95:   route_table_id: "" => "rtb-07e7facac69785072"
+TestTerraformHttpExample 2018-05-21T17:31:06+01:00 command.go:95:   subnet_id:      "" => "subnet-0a700336fd6ae1204"[0m
+TestTerraformHttpExample 2018-05-21T17:31:06+01:00 command.go:95: [0m[1mmodule.vpc.aws_route_table_association.rta-public-a[0]: Creation complete after 1s (ID: rtbassoc-0c356b53fc2c52072)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:31:06+01:00 command.go:95: [0m[1mmodule.vpc.aws_route_table_association.rta-public-a[1]: Creating...[0m
+TestTerraformHttpExample 2018-05-21T17:31:06+01:00 command.go:95:   route_table_id: "" => "rtb-07e7facac69785072"
+TestTerraformHttpExample 2018-05-21T17:31:06+01:00 command.go:95:   subnet_id:      "" => "subnet-06cf62baacb2a1ed0"[0m
+TestTerraformHttpExample 2018-05-21T17:31:07+01:00 command.go:95: [0m[1mmodule.vpc.aws_route_table_association.rta-public-a[1]: Creation complete after 0s (ID: rtbassoc-0d5ef3c8d5a0df787)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:31:07+01:00 command.go:95: [0m[1mmodule.vpc.aws_security_group_rule.allow_web_from_elb: Creating...[0m
+TestTerraformHttpExample 2018-05-21T17:31:07+01:00 command.go:95:   description:              "" => "Allow WEB from ELB port 80"
+TestTerraformHttpExample 2018-05-21T17:31:07+01:00 command.go:95:   from_port:                "" => "80"
+TestTerraformHttpExample 2018-05-21T17:31:07+01:00 command.go:95:   protocol:                 "" => "tcp"
+TestTerraformHttpExample 2018-05-21T17:31:07+01:00 command.go:95:   security_group_id:        "" => "sg-0816eaf0dd026a3b6"
+TestTerraformHttpExample 2018-05-21T17:31:07+01:00 command.go:95:   self:                     "" => "false"
+TestTerraformHttpExample 2018-05-21T17:31:07+01:00 command.go:95:   source_security_group_id: "" => "sg-004cb16a0c0c1e9d7"
+TestTerraformHttpExample 2018-05-21T17:31:07+01:00 command.go:95:   to_port:                  "" => "80"
+TestTerraformHttpExample 2018-05-21T17:31:07+01:00 command.go:95:   type:                     "" => "ingress"[0m
+TestTerraformHttpExample 2018-05-21T17:31:07+01:00 command.go:95: [0m[1mmodule.vpc.aws_security_group_rule.allow_web_to_app_ssh: Creation complete after 2s (ID: sgrule-3772711262)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:31:07+01:00 command.go:95: [0m[1mmodule.vpc.aws_security_group_rule.allow_elb_to_web: Creating...[0m
+TestTerraformHttpExample 2018-05-21T17:31:07+01:00 command.go:95:   description:              "" => "Allow ELB to WEB port 80"
+TestTerraformHttpExample 2018-05-21T17:31:07+01:00 command.go:95:   from_port:                "" => "80"
+TestTerraformHttpExample 2018-05-21T17:31:07+01:00 command.go:95:   protocol:                 "" => "tcp"
+TestTerraformHttpExample 2018-05-21T17:31:07+01:00 command.go:95:   security_group_id:        "" => "sg-004cb16a0c0c1e9d7"
+TestTerraformHttpExample 2018-05-21T17:31:07+01:00 command.go:95:   self:                     "" => "false"
+TestTerraformHttpExample 2018-05-21T17:31:07+01:00 command.go:95:   source_security_group_id: "" => "sg-0816eaf0dd026a3b6"
+TestTerraformHttpExample 2018-05-21T17:31:07+01:00 command.go:95:   to_port:                  "" => "80"
+TestTerraformHttpExample 2018-05-21T17:31:07+01:00 command.go:95:   type:                     "" => "egress"[0m
+TestTerraformHttpExample 2018-05-21T17:31:07+01:00 command.go:95: [0m[1mmodule.vpc.aws_security_group_rule.allow_app_to_db: Creation complete after 4s (ID: sgrule-1410165166)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:31:07+01:00 command.go:95: [0m[1mmodule.vpc.aws_security_group_rule.allow_all_to_elb: Creating...[0m
+TestTerraformHttpExample 2018-05-21T17:31:07+01:00 command.go:95:   cidr_blocks.#:            "" => "1"
+TestTerraformHttpExample 2018-05-21T17:31:07+01:00 command.go:95:   cidr_blocks.0:            "" => "0.0.0.0/0"
+TestTerraformHttpExample 2018-05-21T17:31:07+01:00 command.go:95:   description:              "" => "Allow all traffic to ELB port 80"
+TestTerraformHttpExample 2018-05-21T17:31:07+01:00 command.go:95:   from_port:                "" => "80"
+TestTerraformHttpExample 2018-05-21T17:31:07+01:00 command.go:95:   protocol:                 "" => "tcp"
+TestTerraformHttpExample 2018-05-21T17:31:07+01:00 command.go:95:   security_group_id:        "" => "sg-004cb16a0c0c1e9d7"
+TestTerraformHttpExample 2018-05-21T17:31:07+01:00 command.go:95:   self:                     "" => "false"
+TestTerraformHttpExample 2018-05-21T17:31:07+01:00 command.go:95:   source_security_group_id: "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:07+01:00 command.go:95:   to_port:                  "" => "80"
+TestTerraformHttpExample 2018-05-21T17:31:07+01:00 command.go:95:   type:                     "" => "ingress"[0m
+TestTerraformHttpExample 2018-05-21T17:31:08+01:00 command.go:95: [0m[1mmodule.vpc.aws_security_group_rule.allow_web_to_any: Creation complete after 2s (ID: sgrule-3049247801)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:31:08+01:00 command.go:95: [0m[1mmodule.vpc.aws_elb.my-elb: Creating...[0m
+TestTerraformHttpExample 2018-05-21T17:31:08+01:00 command.go:95:   arn:                                    "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:08+01:00 command.go:95:   availability_zones.#:                   "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:08+01:00 command.go:95:   connection_draining:                    "" => "true"
+TestTerraformHttpExample 2018-05-21T17:31:08+01:00 command.go:95:   connection_draining_timeout:            "" => "400"
+TestTerraformHttpExample 2018-05-21T17:31:08+01:00 command.go:95:   cross_zone_load_balancing:              "" => "true"
+TestTerraformHttpExample 2018-05-21T17:31:08+01:00 command.go:95:   dns_name:                               "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:08+01:00 command.go:95:   health_check.#:                         "" => "1"
+TestTerraformHttpExample 2018-05-21T17:31:08+01:00 command.go:95:   health_check.0.healthy_threshold:       "" => "2"
+TestTerraformHttpExample 2018-05-21T17:31:08+01:00 command.go:95:   health_check.0.interval:                "" => "30"
+TestTerraformHttpExample 2018-05-21T17:31:08+01:00 command.go:95:   health_check.0.target:                  "" => "HTTP:80/"
+TestTerraformHttpExample 2018-05-21T17:31:08+01:00 command.go:95:   health_check.0.timeout:                 "" => "3"
+TestTerraformHttpExample 2018-05-21T17:31:08+01:00 command.go:95:   health_check.0.unhealthy_threshold:     "" => "2"
+TestTerraformHttpExample 2018-05-21T17:31:08+01:00 command.go:95:   idle_timeout:                           "" => "60"
+TestTerraformHttpExample 2018-05-21T17:31:08+01:00 command.go:95:   instances.#:                            "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:08+01:00 command.go:95:   internal:                               "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:08+01:00 command.go:95:   listener.#:                             "" => "1"
+TestTerraformHttpExample 2018-05-21T17:31:08+01:00 command.go:95:   listener.3057123346.instance_port:      "" => "80"
+TestTerraformHttpExample 2018-05-21T17:31:08+01:00 command.go:95:   listener.3057123346.instance_protocol:  "" => "http"
+TestTerraformHttpExample 2018-05-21T17:31:08+01:00 command.go:95:   listener.3057123346.lb_port:            "" => "80"
+TestTerraformHttpExample 2018-05-21T17:31:08+01:00 command.go:95:   listener.3057123346.lb_protocol:        "" => "http"
+TestTerraformHttpExample 2018-05-21T17:31:08+01:00 command.go:95:   listener.3057123346.ssl_certificate_id: "" => ""
+TestTerraformHttpExample 2018-05-21T17:31:08+01:00 command.go:95:   name:                                   "" => "my-elb"
+TestTerraformHttpExample 2018-05-21T17:31:08+01:00 command.go:95:   security_groups.#:                      "" => "1"
+TestTerraformHttpExample 2018-05-21T17:31:08+01:00 command.go:95:   security_groups.3586944000:             "" => "sg-004cb16a0c0c1e9d7"
+TestTerraformHttpExample 2018-05-21T17:31:08+01:00 command.go:95:   source_security_group:                  "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:08+01:00 command.go:95:   source_security_group_id:               "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:08+01:00 command.go:95:   subnets.#:                              "" => "2"
+TestTerraformHttpExample 2018-05-21T17:31:08+01:00 command.go:95:   subnets.2012553895:                     "" => "subnet-0a700336fd6ae1204"
+TestTerraformHttpExample 2018-05-21T17:31:08+01:00 command.go:95:   subnets.908856890:                      "" => "subnet-06cf62baacb2a1ed0"
+TestTerraformHttpExample 2018-05-21T17:31:08+01:00 command.go:95:   tags.%:                                 "" => "1"
+TestTerraformHttpExample 2018-05-21T17:31:08+01:00 command.go:95:   tags.Name:                              "" => "my-elb"
+TestTerraformHttpExample 2018-05-21T17:31:08+01:00 command.go:95:   zone_id:                                "" => "<computed>"[0m
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95: [0m[1mmodule.vpc.aws_security_group_rule.allow_web_to_db_ssh: Creation complete after 4s (ID: sgrule-1727033)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95: [0m[1mmodule.stack.module.web.aws_instance.host[0]: Creating...[0m
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95:   ami:                               "" => "ami-0e77ff9cdf27b9833"
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95:   associate_public_ip_address:       "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95:   availability_zone:                 "" => "us-east-1a"
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95:   ebs_block_device.#:                "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95:   ephemeral_block_device.#:          "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95:   get_password_data:                 "" => "false"
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95:   instance_state:                    "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95:   instance_type:                     "" => "t2.micro"
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95:   ipv6_address_count:                "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95:   ipv6_addresses.#:                  "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95:   key_name:                          "" => "tom-aws-virginia"
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95:   network_interface.#:               "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95:   network_interface_id:              "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95:   password_data:                     "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95:   placement_group:                   "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95:   primary_network_interface_id:      "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95:   private_dns:                       "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95:   private_ip:                        "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95:   public_dns:                        "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95:   public_ip:                         "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95:   root_block_device.#:               "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95:   security_groups.#:                 "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95:   source_dest_check:                 "" => "true"
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95:   subnet_id:                         "" => "subnet-0a700336fd6ae1204"
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95:   tags.%:                            "" => "1"
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95:   tags.Name:                         "" => "ami"
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95:   tenancy:                           "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95:   user_data:                         "" => "5e09240914a5c475d5baa2ec280be3244d5a6c55"
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95:   volume_tags.%:                     "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95:   vpc_security_group_ids.#:          "" => "1"
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95:   vpc_security_group_ids.2863734658: "" => "sg-0816eaf0dd026a3b6"[0m
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95: [0m[1mmodule.vpc.aws_security_group_rule.allow_elb_to_web: Creation complete after 1s (ID: sgrule-4270998342)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95: [0m[1mmodule.stack.module.web.aws_instance.host[1]: Creating...[0m
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95:   ami:                               "" => "ami-0e77ff9cdf27b9833"
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95:   associate_public_ip_address:       "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95:   availability_zone:                 "" => "us-east-1b"
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95:   ebs_block_device.#:                "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95:   ephemeral_block_device.#:          "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95:   get_password_data:                 "" => "false"
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95:   instance_state:                    "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95:   instance_type:                     "" => "t2.micro"
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95:   ipv6_address_count:                "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95:   ipv6_addresses.#:                  "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95:   key_name:                          "" => "tom-aws-virginia"
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95:   network_interface.#:               "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95:   network_interface_id:              "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95:   password_data:                     "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95:   placement_group:                   "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95:   primary_network_interface_id:      "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95:   private_dns:                       "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95:   private_ip:                        "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95:   public_dns:                        "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95:   public_ip:                         "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95:   root_block_device.#:               "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95:   security_groups.#:                 "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95:   source_dest_check:                 "" => "true"
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95:   subnet_id:                         "" => "subnet-06cf62baacb2a1ed0"
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95:   tags.%:                            "" => "1"
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95:   tags.Name:                         "" => "ami"
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95:   tenancy:                           "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95:   user_data:                         "" => "eb845ef7ba0d66619a1f764787fd23faa817ba1a"
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95:   volume_tags.%:                     "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95:   vpc_security_group_ids.#:          "" => "1"
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95:   vpc_security_group_ids.2863734658: "" => "sg-0816eaf0dd026a3b6"[0m
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95: [0m[1mmodule.vpc.aws_security_group_rule.allow_web_from_elb: Creation complete after 3s (ID: sgrule-591695919)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95: [0m[1mmodule.stack.module.db.aws_instance.host[1]: Creating...[0m
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95:   ami:                              "" => "ami-07890c78e20be5724"
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95:   associate_public_ip_address:      "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95:   availability_zone:                "" => "us-east-1b"
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95:   ebs_block_device.#:               "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95:   ephemeral_block_device.#:         "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95:   get_password_data:                "" => "false"
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95:   instance_state:                   "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95:   instance_type:                    "" => "t2.micro"
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95:   ipv6_address_count:               "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95:   ipv6_addresses.#:                 "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95:   key_name:                         "" => "tom-aws-virginia"
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95:   network_interface.#:              "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95:   network_interface_id:             "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95:   password_data:                    "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95:   placement_group:                  "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95:   primary_network_interface_id:     "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95:   private_dns:                      "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95:   private_ip:                       "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95:   public_dns:                       "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95:   public_ip:                        "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95:   root_block_device.#:              "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95:   security_groups.#:                "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95:   source_dest_check:                "" => "true"
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95:   subnet_id:                        "" => "subnet-08bd3e47017a8bed6"
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95:   tags.%:                           "" => "1"
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95:   tags.Name:                        "" => "ami"
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95:   tenancy:                          "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95:   user_data:                        "" => "1ff6ca9580cd142e1b10b503c334114b5d41e702"
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95:   volume_tags.%:                    "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95:   vpc_security_group_ids.#:         "" => "1"
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95:   vpc_security_group_ids.681529793: "" => "sg-01ae21db0e778febc"[0m
+TestTerraformHttpExample 2018-05-21T17:31:09+01:00 command.go:95: [0m[1mmodule.vpc.aws_route53_zone.example: Still creating... (10s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:31:10+01:00 command.go:95: [0m[1mmodule.vpc.aws_security_group_rule.allow_all_to_elb: Creation complete after 3s (ID: sgrule-1291688273)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:31:10+01:00 command.go:95: [0m[1mmodule.stack.module.db.aws_instance.host[0]: Creating...[0m
+TestTerraformHttpExample 2018-05-21T17:31:10+01:00 command.go:95:   ami:                              "" => "ami-07890c78e20be5724"
+TestTerraformHttpExample 2018-05-21T17:31:10+01:00 command.go:95:   associate_public_ip_address:      "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:10+01:00 command.go:95:   availability_zone:                "" => "us-east-1a"
+TestTerraformHttpExample 2018-05-21T17:31:10+01:00 command.go:95:   ebs_block_device.#:               "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:10+01:00 command.go:95:   ephemeral_block_device.#:         "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:10+01:00 command.go:95:   get_password_data:                "" => "false"
+TestTerraformHttpExample 2018-05-21T17:31:10+01:00 command.go:95:   instance_state:                   "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:10+01:00 command.go:95:   instance_type:                    "" => "t2.micro"
+TestTerraformHttpExample 2018-05-21T17:31:10+01:00 command.go:95:   ipv6_address_count:               "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:10+01:00 command.go:95:   ipv6_addresses.#:                 "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:10+01:00 command.go:95:   key_name:                         "" => "tom-aws-virginia"
+TestTerraformHttpExample 2018-05-21T17:31:10+01:00 command.go:95:   network_interface.#:              "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:10+01:00 command.go:95:   network_interface_id:             "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:10+01:00 command.go:95:   password_data:                    "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:10+01:00 command.go:95:   placement_group:                  "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:10+01:00 command.go:95:   primary_network_interface_id:     "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:10+01:00 command.go:95:   private_dns:                      "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:10+01:00 command.go:95:   private_ip:                       "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:10+01:00 command.go:95:   public_dns:                       "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:10+01:00 command.go:95:   public_ip:                        "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:10+01:00 command.go:95:   root_block_device.#:              "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:10+01:00 command.go:95:   security_groups.#:                "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:10+01:00 command.go:95:   source_dest_check:                "" => "true"
+TestTerraformHttpExample 2018-05-21T17:31:10+01:00 command.go:95:   subnet_id:                        "" => "subnet-0e676f5fb0bccc111"
+TestTerraformHttpExample 2018-05-21T17:31:10+01:00 command.go:95:   tags.%:                           "" => "1"
+TestTerraformHttpExample 2018-05-21T17:31:10+01:00 command.go:95:   tags.Name:                        "" => "ami"
+TestTerraformHttpExample 2018-05-21T17:31:10+01:00 command.go:95:   tenancy:                          "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:10+01:00 command.go:95:   user_data:                        "" => "7a4894571a6f9870033222a9d0964a2c981d3d7b"
+TestTerraformHttpExample 2018-05-21T17:31:10+01:00 command.go:95:   volume_tags.%:                    "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:10+01:00 command.go:95:   vpc_security_group_ids.#:         "" => "1"
+TestTerraformHttpExample 2018-05-21T17:31:10+01:00 command.go:95:   vpc_security_group_ids.681529793: "" => "sg-01ae21db0e778febc"[0m
+TestTerraformHttpExample 2018-05-21T17:31:12+01:00 command.go:95: [0m[1mmodule.vpc.aws_nat_gateway.nat-gw.0: Still creating... (10s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:31:12+01:00 command.go:95: [0m[1mmodule.vpc.aws_nat_gateway.nat-gw.1: Still creating... (10s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:31:12+01:00 command.go:95: [0m[1mmodule.stack.app.aws_instance.host.0: Still creating... (10s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:31:12+01:00 command.go:95: [0m[1mmodule.stack.app.aws_instance.host.1: Still creating... (10s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:31:15+01:00 command.go:95: [0m[1mmodule.vpc.aws_elb.my-elb: Creation complete after 7s (ID: my-elb)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:31:19+01:00 command.go:95: [0m[1mmodule.stack.web.aws_instance.host.0: Still creating... (10s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:31:19+01:00 command.go:95: [0m[1mmodule.stack.web.aws_instance.host.1: Still creating... (10s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:31:19+01:00 command.go:95: [0m[1mmodule.stack.db.aws_instance.host.1: Still creating... (10s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:31:19+01:00 command.go:95: [0m[1mmodule.vpc.aws_route53_zone.example: Still creating... (20s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:31:20+01:00 command.go:95: [0m[1mmodule.stack.db.aws_instance.host.0: Still creating... (10s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:31:22+01:00 command.go:95: [0m[1mmodule.vpc.aws_nat_gateway.nat-gw.1: Still creating... (20s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:31:22+01:00 command.go:95: [0m[1mmodule.vpc.aws_nat_gateway.nat-gw.0: Still creating... (20s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:31:22+01:00 command.go:95: [0m[1mmodule.stack.app.aws_instance.host.0: Still creating... (20s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:31:22+01:00 command.go:95: [0m[1mmodule.stack.app.aws_instance.host.1: Still creating... (20s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:31:28+01:00 command.go:95: [0m[1mmodule.stack.module.app.aws_instance.host[1]: Creation complete after 25s (ID: i-0862ce9d0df40d45f)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:31:28+01:00 command.go:95: [0m[1mmodule.stack.module.app.aws_instance.host[0]: Creation complete after 25s (ID: i-0bf77cf164599af0e)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:31:29+01:00 command.go:95: [0m[1mmodule.stack.web.aws_instance.host.0: Still creating... (20s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:31:29+01:00 command.go:95: [0m[1mmodule.stack.web.aws_instance.host.1: Still creating... (20s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:31:29+01:00 command.go:95: [0m[1mmodule.stack.db.aws_instance.host.1: Still creating... (20s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:31:29+01:00 command.go:95: [0m[1mmodule.vpc.aws_route53_zone.example: Still creating... (30s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:31:30+01:00 command.go:95: [0m[1mmodule.stack.db.aws_instance.host.0: Still creating... (20s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:31:32+01:00 command.go:95: [0m[1mmodule.vpc.aws_nat_gateway.nat-gw.1: Still creating... (30s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:31:32+01:00 command.go:95: [0m[1mmodule.vpc.aws_nat_gateway.nat-gw.0: Still creating... (30s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:31:35+01:00 command.go:95: [0m[1mmodule.stack.module.web.aws_instance.host[0]: Creation complete after 26s (ID: i-08537f58471b7180e)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:31:35+01:00 command.go:95: [0m[1mmodule.stack.module.db.aws_instance.host[1]: Creation complete after 26s (ID: i-0291cb53bcfe1039a)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:31:37+01:00 command.go:95: [0m[1mmodule.stack.module.db.aws_instance.host[0]: Creation complete after 26s (ID: i-0948bb059d7ca0140)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:31:39+01:00 command.go:95: [0m[1mmodule.stack.web.aws_instance.host.1: Still creating... (30s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:31:39+01:00 command.go:95: [0m[1mmodule.vpc.aws_route53_zone.example: Still creating... (40s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:31:42+01:00 command.go:95: [0m[1mmodule.vpc.aws_nat_gateway.nat-gw.0: Still creating... (40s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:31:42+01:00 command.go:95: [0m[1mmodule.vpc.aws_nat_gateway.nat-gw.1: Still creating... (40s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:31:45+01:00 command.go:95: [0m[1mmodule.stack.module.web.aws_instance.host[1]: Creation complete after 37s (ID: i-0de335ae4052d3ede)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:31:45+01:00 command.go:95: [0m[1mmodule.stack.module.web.aws_elb_attachment.my-elb-a[0]: Creating...[0m
+TestTerraformHttpExample 2018-05-21T17:31:45+01:00 command.go:95:   elb:      "" => "my-elb"
+TestTerraformHttpExample 2018-05-21T17:31:45+01:00 command.go:95:   instance: "" => "i-08537f58471b7180e"[0m
+TestTerraformHttpExample 2018-05-21T17:31:45+01:00 command.go:95: [0m[1mmodule.stack.module.web.aws_elb_attachment.my-elb-a[1]: Creating...[0m
+TestTerraformHttpExample 2018-05-21T17:31:45+01:00 command.go:95:   elb:      "" => "my-elb"
+TestTerraformHttpExample 2018-05-21T17:31:45+01:00 command.go:95:   instance: "" => "i-0de335ae4052d3ede"[0m
+TestTerraformHttpExample 2018-05-21T17:31:46+01:00 command.go:95: [0m[1mmodule.stack.module.web.aws_elb_attachment.my-elb-a[1]: Creation complete after 0s (ID: my-elb-20180521163146373900000001)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:31:46+01:00 command.go:95: [0m[1mmodule.stack.module.web.aws_elb_attachment.my-elb-a[0]: Creation complete after 0s (ID: my-elb-20180521163146424700000002)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:31:49+01:00 command.go:95: [0m[1mmodule.vpc.aws_route53_zone.example: Still creating... (50s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:31:52+01:00 command.go:95: [0m[1mmodule.vpc.aws_nat_gateway.nat-gw.0: Still creating... (50s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:31:52+01:00 command.go:95: [0m[1mmodule.vpc.aws_nat_gateway.nat-gw.1: Still creating... (50s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:31:58+01:00 command.go:95: [0m[1mmodule.vpc.aws_route53_zone.example: Creation complete after 58s (ID: Z1NP11PQBCET4P)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:31:58+01:00 command.go:95: [0m[1mmodule.stack.module.app.aws_route53_record.server-record[0]: Creating...[0m
+TestTerraformHttpExample 2018-05-21T17:31:58+01:00 command.go:95:   allow_overwrite:    "" => "true"
+TestTerraformHttpExample 2018-05-21T17:31:58+01:00 command.go:95:   fqdn:               "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:58+01:00 command.go:95:   name:               "" => "app.az0.example.com"
+TestTerraformHttpExample 2018-05-21T17:31:58+01:00 command.go:95:   records.#:          "" => "1"
+TestTerraformHttpExample 2018-05-21T17:31:58+01:00 command.go:95:   records.3643320807: "" => "192.168.1.84"
+TestTerraformHttpExample 2018-05-21T17:31:58+01:00 command.go:95:   ttl:                "" => "60"
+TestTerraformHttpExample 2018-05-21T17:31:58+01:00 command.go:95:   type:               "" => "A"
+TestTerraformHttpExample 2018-05-21T17:31:58+01:00 command.go:95:   zone_id:            "" => "Z1NP11PQBCET4P"[0m
+TestTerraformHttpExample 2018-05-21T17:31:58+01:00 command.go:95: [0m[1mmodule.stack.module.db.aws_route53_record.server-record[0]: Creating...[0m
+TestTerraformHttpExample 2018-05-21T17:31:58+01:00 command.go:95:   allow_overwrite:    "" => "true"
+TestTerraformHttpExample 2018-05-21T17:31:58+01:00 command.go:95:   fqdn:               "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:58+01:00 command.go:95:   name:               "" => "db.az0.example.com"
+TestTerraformHttpExample 2018-05-21T17:31:58+01:00 command.go:95:   records.#:          "" => "1"
+TestTerraformHttpExample 2018-05-21T17:31:58+01:00 command.go:95:   records.3671871041: "" => "192.168.201.138"
+TestTerraformHttpExample 2018-05-21T17:31:58+01:00 command.go:95:   ttl:                "" => "60"
+TestTerraformHttpExample 2018-05-21T17:31:58+01:00 command.go:95:   type:               "" => "A"
+TestTerraformHttpExample 2018-05-21T17:31:58+01:00 command.go:95:   zone_id:            "" => "Z1NP11PQBCET4P"[0m
+TestTerraformHttpExample 2018-05-21T17:31:58+01:00 command.go:95: [0m[1mmodule.stack.module.web.aws_route53_record.server-record[0]: Creating...[0m
+TestTerraformHttpExample 2018-05-21T17:31:58+01:00 command.go:95:   allow_overwrite:    "" => "true"
+TestTerraformHttpExample 2018-05-21T17:31:58+01:00 command.go:95:   fqdn:               "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:58+01:00 command.go:95:   name:               "" => "web.az0.example.com"
+TestTerraformHttpExample 2018-05-21T17:31:58+01:00 command.go:95:   records.#:          "" => "1"
+TestTerraformHttpExample 2018-05-21T17:31:58+01:00 command.go:95:   records.3178165082: "" => "192.168.101.158"
+TestTerraformHttpExample 2018-05-21T17:31:58+01:00 command.go:95:   ttl:                "" => "60"
+TestTerraformHttpExample 2018-05-21T17:31:58+01:00 command.go:95:   type:               "" => "A"
+TestTerraformHttpExample 2018-05-21T17:31:58+01:00 command.go:95:   zone_id:            "" => "Z1NP11PQBCET4P"[0m
+TestTerraformHttpExample 2018-05-21T17:31:58+01:00 command.go:95: [0m[1mmodule.stack.module.app.aws_route53_record.server-record[1]: Creating...[0m
+TestTerraformHttpExample 2018-05-21T17:31:58+01:00 command.go:95:   allow_overwrite:    "" => "true"
+TestTerraformHttpExample 2018-05-21T17:31:58+01:00 command.go:95:   fqdn:               "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:58+01:00 command.go:95:   name:               "" => "app.az1.example.com"
+TestTerraformHttpExample 2018-05-21T17:31:58+01:00 command.go:95:   records.#:          "" => "1"
+TestTerraformHttpExample 2018-05-21T17:31:58+01:00 command.go:95:   records.3866166280: "" => "192.168.2.100"
+TestTerraformHttpExample 2018-05-21T17:31:58+01:00 command.go:95:   ttl:                "" => "60"
+TestTerraformHttpExample 2018-05-21T17:31:58+01:00 command.go:95:   type:               "" => "A"
+TestTerraformHttpExample 2018-05-21T17:31:58+01:00 command.go:95:   zone_id:            "" => "Z1NP11PQBCET4P"[0m
+TestTerraformHttpExample 2018-05-21T17:31:58+01:00 command.go:95: [0m[1mmodule.stack.module.web.aws_route53_record.server-record[1]: Creating...[0m
+TestTerraformHttpExample 2018-05-21T17:31:58+01:00 command.go:95:   allow_overwrite:    "" => "true"
+TestTerraformHttpExample 2018-05-21T17:31:58+01:00 command.go:95:   fqdn:               "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:58+01:00 command.go:95:   name:               "" => "web.az1.example.com"
+TestTerraformHttpExample 2018-05-21T17:31:58+01:00 command.go:95:   records.#:          "" => "1"
+TestTerraformHttpExample 2018-05-21T17:31:58+01:00 command.go:95:   records.2947882713: "" => "192.168.102.182"
+TestTerraformHttpExample 2018-05-21T17:31:58+01:00 command.go:95:   ttl:                "" => "60"
+TestTerraformHttpExample 2018-05-21T17:31:58+01:00 command.go:95:   type:               "" => "A"
+TestTerraformHttpExample 2018-05-21T17:31:58+01:00 command.go:95:   zone_id:            "" => "Z1NP11PQBCET4P"[0m
+TestTerraformHttpExample 2018-05-21T17:31:58+01:00 command.go:95: [0m[1mmodule.stack.module.db.aws_route53_record.server-record[1]: Creating...[0m
+TestTerraformHttpExample 2018-05-21T17:31:58+01:00 command.go:95:   allow_overwrite:    "" => "true"
+TestTerraformHttpExample 2018-05-21T17:31:58+01:00 command.go:95:   fqdn:               "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:31:58+01:00 command.go:95:   name:               "" => "db.az1.example.com"
+TestTerraformHttpExample 2018-05-21T17:31:58+01:00 command.go:95:   records.#:          "" => "1"
+TestTerraformHttpExample 2018-05-21T17:31:58+01:00 command.go:95:   records.2581035120: "" => "192.168.202.161"
+TestTerraformHttpExample 2018-05-21T17:31:58+01:00 command.go:95:   ttl:                "" => "60"
+TestTerraformHttpExample 2018-05-21T17:31:58+01:00 command.go:95:   type:               "" => "A"
+TestTerraformHttpExample 2018-05-21T17:31:58+01:00 command.go:95:   zone_id:            "" => "Z1NP11PQBCET4P"[0m
+TestTerraformHttpExample 2018-05-21T17:32:02+01:00 command.go:95: [0m[1mmodule.vpc.aws_nat_gateway.nat-gw.1: Still creating... (1m0s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:32:02+01:00 command.go:95: [0m[1mmodule.vpc.aws_nat_gateway.nat-gw.0: Still creating... (1m0s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:32:08+01:00 command.go:95: [0m[1mmodule.stack.web.aws_route53_record.server-record.0: Still creating... (10s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:32:08+01:00 command.go:95: [0m[1mmodule.stack.web.aws_route53_record.server-record.1: Still creating... (10s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:32:08+01:00 command.go:95: [0m[1mmodule.stack.db.aws_route53_record.server-record.0: Still creating... (10s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:32:08+01:00 command.go:95: [0m[1mmodule.stack.db.aws_route53_record.server-record.1: Still creating... (10s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:32:08+01:00 command.go:95: [0m[1mmodule.stack.app.aws_route53_record.server-record.0: Still creating... (10s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:32:08+01:00 command.go:95: [0m[1mmodule.stack.app.aws_route53_record.server-record.1: Still creating... (10s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:32:12+01:00 command.go:95: [0m[1mmodule.vpc.aws_nat_gateway.nat-gw.1: Still creating... (1m10s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:32:12+01:00 command.go:95: [0m[1mmodule.vpc.aws_nat_gateway.nat-gw.0: Still creating... (1m10s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:32:18+01:00 command.go:95: [0m[1mmodule.stack.db.aws_route53_record.server-record.0: Still creating... (20s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:32:18+01:00 command.go:95: [0m[1mmodule.stack.db.aws_route53_record.server-record.1: Still creating... (20s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:32:18+01:00 command.go:95: [0m[1mmodule.stack.web.aws_route53_record.server-record.1: Still creating... (20s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:32:18+01:00 command.go:95: [0m[1mmodule.stack.app.aws_route53_record.server-record.1: Still creating... (20s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:32:18+01:00 command.go:95: [0m[1mmodule.stack.web.aws_route53_record.server-record.0: Still creating... (20s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:32:18+01:00 command.go:95: [0m[1mmodule.stack.app.aws_route53_record.server-record.0: Still creating... (20s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:32:22+01:00 command.go:95: [0m[1mmodule.vpc.aws_nat_gateway.nat-gw.1: Still creating... (1m20s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:32:22+01:00 command.go:95: [0m[1mmodule.vpc.aws_nat_gateway.nat-gw.0: Still creating... (1m20s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:32:27+01:00 command.go:95: [0m[1mmodule.vpc.aws_nat_gateway.nat-gw[0]: Creation complete after 1m24s (ID: nat-032f2f1d136663a6d)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:32:28+01:00 command.go:95: [0m[1mmodule.stack.web.aws_route53_record.server-record.1: Still creating... (30s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:32:28+01:00 command.go:95: [0m[1mmodule.stack.app.aws_route53_record.server-record.0: Still creating... (30s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:32:28+01:00 command.go:95: [0m[1mmodule.stack.web.aws_route53_record.server-record.0: Still creating... (30s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:32:28+01:00 command.go:95: [0m[1mmodule.stack.db.aws_route53_record.server-record.0: Still creating... (30s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:32:28+01:00 command.go:95: [0m[1mmodule.stack.db.aws_route53_record.server-record.1: Still creating... (30s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:32:28+01:00 command.go:95: [0m[1mmodule.stack.app.aws_route53_record.server-record.1: Still creating... (30s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:32:32+01:00 command.go:95: [0m[1mmodule.vpc.aws_nat_gateway.nat-gw.1: Still creating... (1m30s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:32:38+01:00 command.go:95: [0m[1mmodule.stack.app.aws_route53_record.server-record.1: Still creating... (40s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:32:38+01:00 command.go:95: [0m[1mmodule.stack.web.aws_route53_record.server-record.0: Still creating... (40s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:32:38+01:00 command.go:95: [0m[1mmodule.stack.web.aws_route53_record.server-record.1: Still creating... (40s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:32:38+01:00 command.go:95: [0m[1mmodule.stack.app.aws_route53_record.server-record.0: Still creating... (40s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:32:38+01:00 command.go:95: [0m[1mmodule.stack.db.aws_route53_record.server-record.1: Still creating... (40s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:32:38+01:00 command.go:95: [0m[1mmodule.stack.db.aws_route53_record.server-record.0: Still creating... (40s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:32:42+01:00 command.go:95: [0m[1mmodule.vpc.aws_nat_gateway.nat-gw.1: Still creating... (1m40s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:32:48+01:00 command.go:95: [0m[1mmodule.stack.app.aws_route53_record.server-record.1: Still creating... (50s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:32:48+01:00 command.go:95: [0m[1mmodule.stack.app.aws_route53_record.server-record.0: Still creating... (50s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:32:48+01:00 command.go:95: [0m[1mmodule.stack.db.aws_route53_record.server-record.0: Still creating... (50s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:32:48+01:00 command.go:95: [0m[1mmodule.stack.web.aws_route53_record.server-record.1: Still creating... (50s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:32:48+01:00 command.go:95: [0m[1mmodule.stack.web.aws_route53_record.server-record.0: Still creating... (50s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:32:48+01:00 command.go:95: [0m[1mmodule.stack.db.aws_route53_record.server-record.1: Still creating... (50s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:32:52+01:00 command.go:95: [0m[1mmodule.vpc.aws_nat_gateway.nat-gw.1: Still creating... (1m50s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:32:56+01:00 command.go:95: [0m[1mmodule.stack.module.web.aws_route53_record.server-record[1]: Creation complete after 59s (ID: Z1NP11PQBCET4P_web.az1.example.com_A)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:32:57+01:00 command.go:95: [0m[1mmodule.stack.module.app.aws_route53_record.server-record[1]: Creation complete after 59s (ID: Z1NP11PQBCET4P_app.az1.example.com_A)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:32:57+01:00 command.go:95: [0m[1mmodule.stack.module.db.aws_route53_record.server-record[1]: Creation complete after 59s (ID: Z1NP11PQBCET4P_db.az1.example.com_A)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:32:57+01:00 command.go:95: [0m[1mmodule.stack.module.db.aws_route53_record.server-record[0]: Creation complete after 59s (ID: Z1NP11PQBCET4P_db.az0.example.com_A)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:32:57+01:00 command.go:95: [0m[1mmodule.stack.module.app.aws_route53_record.server-record[0]: Creation complete after 59s (ID: Z1NP11PQBCET4P_app.az0.example.com_A)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:32:58+01:00 command.go:95: [0m[1mmodule.stack.web.aws_route53_record.server-record.0: Still creating... (1m0s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:32:58+01:00 command.go:95: [0m[1mmodule.stack.module.web.aws_route53_record.server-record[0]: Creation complete after 1m1s (ID: Z1NP11PQBCET4P_web.az0.example.com_A)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:33:02+01:00 command.go:95: [0m[1mmodule.vpc.aws_nat_gateway.nat-gw.1: Still creating... (2m0s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:33:04+01:00 command.go:95: [0m[1mmodule.vpc.aws_nat_gateway.nat-gw[1]: Creation complete after 2m2s (ID: nat-0719ac83221754dd8)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:33:04+01:00 command.go:95: [0m[1mmodule.vpc.aws_route_table.database[0]: Creating...[0m
+TestTerraformHttpExample 2018-05-21T17:33:04+01:00 command.go:95:   propagating_vgws.#:                         "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:33:04+01:00 command.go:95:   route.#:                                    "" => "1"
+TestTerraformHttpExample 2018-05-21T17:33:04+01:00 command.go:95:   route.3532783778.cidr_block:                "" => "0.0.0.0/0"
+TestTerraformHttpExample 2018-05-21T17:33:04+01:00 command.go:95:   route.3532783778.egress_only_gateway_id:    "" => ""
+TestTerraformHttpExample 2018-05-21T17:33:04+01:00 command.go:95:   route.3532783778.gateway_id:                "" => ""
+TestTerraformHttpExample 2018-05-21T17:33:04+01:00 command.go:95:   route.3532783778.instance_id:               "" => ""
+TestTerraformHttpExample 2018-05-21T17:33:04+01:00 command.go:95:   route.3532783778.ipv6_cidr_block:           "" => ""
+TestTerraformHttpExample 2018-05-21T17:33:04+01:00 command.go:95:   route.3532783778.nat_gateway_id:            "" => "nat-032f2f1d136663a6d"
+TestTerraformHttpExample 2018-05-21T17:33:04+01:00 command.go:95:   route.3532783778.network_interface_id:      "" => ""
+TestTerraformHttpExample 2018-05-21T17:33:04+01:00 command.go:95:   route.3532783778.vpc_peering_connection_id: "" => ""
+TestTerraformHttpExample 2018-05-21T17:33:04+01:00 command.go:95:   tags.%:                                     "" => "1"
+TestTerraformHttpExample 2018-05-21T17:33:04+01:00 command.go:95:   tags.Name:                                  "" => "database"
+TestTerraformHttpExample 2018-05-21T17:33:04+01:00 command.go:95:   vpc_id:                                     "" => "vpc-089660395159ee842"[0m
+TestTerraformHttpExample 2018-05-21T17:33:04+01:00 command.go:95: [0m[1mmodule.vpc.aws_route_table.database[1]: Creating...[0m
+TestTerraformHttpExample 2018-05-21T17:33:04+01:00 command.go:95:   propagating_vgws.#:                         "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:33:04+01:00 command.go:95:   route.#:                                    "" => "1"
+TestTerraformHttpExample 2018-05-21T17:33:04+01:00 command.go:95:   route.3456800111.cidr_block:                "" => "0.0.0.0/0"
+TestTerraformHttpExample 2018-05-21T17:33:04+01:00 command.go:95:   route.3456800111.egress_only_gateway_id:    "" => ""
+TestTerraformHttpExample 2018-05-21T17:33:04+01:00 command.go:95:   route.3456800111.gateway_id:                "" => ""
+TestTerraformHttpExample 2018-05-21T17:33:04+01:00 command.go:95:   route.3456800111.instance_id:               "" => ""
+TestTerraformHttpExample 2018-05-21T17:33:04+01:00 command.go:95:   route.3456800111.ipv6_cidr_block:           "" => ""
+TestTerraformHttpExample 2018-05-21T17:33:04+01:00 command.go:95:   route.3456800111.nat_gateway_id:            "" => "nat-0719ac83221754dd8"
+TestTerraformHttpExample 2018-05-21T17:33:04+01:00 command.go:95:   route.3456800111.network_interface_id:      "" => ""
+TestTerraformHttpExample 2018-05-21T17:33:04+01:00 command.go:95:   route.3456800111.vpc_peering_connection_id: "" => ""
+TestTerraformHttpExample 2018-05-21T17:33:04+01:00 command.go:95:   tags.%:                                     "" => "1"
+TestTerraformHttpExample 2018-05-21T17:33:04+01:00 command.go:95:   tags.Name:                                  "" => "database"
+TestTerraformHttpExample 2018-05-21T17:33:04+01:00 command.go:95:   vpc_id:                                     "" => "vpc-089660395159ee842"[0m
+TestTerraformHttpExample 2018-05-21T17:33:04+01:00 command.go:95: [0m[1mmodule.vpc.aws_route_table.private[1]: Creating...[0m
+TestTerraformHttpExample 2018-05-21T17:33:04+01:00 command.go:95:   propagating_vgws.#:                         "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:33:04+01:00 command.go:95:   route.#:                                    "" => "1"
+TestTerraformHttpExample 2018-05-21T17:33:04+01:00 command.go:95:   route.3456800111.cidr_block:                "" => "0.0.0.0/0"
+TestTerraformHttpExample 2018-05-21T17:33:04+01:00 command.go:95:   route.3456800111.egress_only_gateway_id:    "" => ""
+TestTerraformHttpExample 2018-05-21T17:33:04+01:00 command.go:95:   route.3456800111.gateway_id:                "" => ""
+TestTerraformHttpExample 2018-05-21T17:33:04+01:00 command.go:95:   route.3456800111.instance_id:               "" => ""
+TestTerraformHttpExample 2018-05-21T17:33:04+01:00 command.go:95:   route.3456800111.ipv6_cidr_block:           "" => ""
+TestTerraformHttpExample 2018-05-21T17:33:04+01:00 command.go:95:   route.3456800111.nat_gateway_id:            "" => "nat-0719ac83221754dd8"
+TestTerraformHttpExample 2018-05-21T17:33:04+01:00 command.go:95:   route.3456800111.network_interface_id:      "" => ""
+TestTerraformHttpExample 2018-05-21T17:33:04+01:00 command.go:95:   route.3456800111.vpc_peering_connection_id: "" => ""
+TestTerraformHttpExample 2018-05-21T17:33:04+01:00 command.go:95:   tags.%:                                     "" => "1"
+TestTerraformHttpExample 2018-05-21T17:33:04+01:00 command.go:95:   tags.Name:                                  "" => "private"
+TestTerraformHttpExample 2018-05-21T17:33:04+01:00 command.go:95:   vpc_id:                                     "" => "vpc-089660395159ee842"[0m
+TestTerraformHttpExample 2018-05-21T17:33:04+01:00 command.go:95: [0m[1mmodule.vpc.aws_route_table.private[0]: Creating...[0m
+TestTerraformHttpExample 2018-05-21T17:33:04+01:00 command.go:95:   propagating_vgws.#:                         "" => "<computed>"
+TestTerraformHttpExample 2018-05-21T17:33:04+01:00 command.go:95:   route.#:                                    "" => "1"
+TestTerraformHttpExample 2018-05-21T17:33:04+01:00 command.go:95:   route.3532783778.cidr_block:                "" => "0.0.0.0/0"
+TestTerraformHttpExample 2018-05-21T17:33:04+01:00 command.go:95:   route.3532783778.egress_only_gateway_id:    "" => ""
+TestTerraformHttpExample 2018-05-21T17:33:04+01:00 command.go:95:   route.3532783778.gateway_id:                "" => ""
+TestTerraformHttpExample 2018-05-21T17:33:04+01:00 command.go:95:   route.3532783778.instance_id:               "" => ""
+TestTerraformHttpExample 2018-05-21T17:33:04+01:00 command.go:95:   route.3532783778.ipv6_cidr_block:           "" => ""
+TestTerraformHttpExample 2018-05-21T17:33:04+01:00 command.go:95:   route.3532783778.nat_gateway_id:            "" => "nat-032f2f1d136663a6d"
+TestTerraformHttpExample 2018-05-21T17:33:04+01:00 command.go:95:   route.3532783778.network_interface_id:      "" => ""
+TestTerraformHttpExample 2018-05-21T17:33:04+01:00 command.go:95:   route.3532783778.vpc_peering_connection_id: "" => ""
+TestTerraformHttpExample 2018-05-21T17:33:04+01:00 command.go:95:   tags.%:                                     "" => "1"
+TestTerraformHttpExample 2018-05-21T17:33:04+01:00 command.go:95:   tags.Name:                                  "" => "private"
+TestTerraformHttpExample 2018-05-21T17:33:04+01:00 command.go:95:   vpc_id:                                     "" => "vpc-089660395159ee842"[0m
+TestTerraformHttpExample 2018-05-21T17:33:06+01:00 command.go:95: [0m[1mmodule.vpc.aws_route_table.database[1]: Creation complete after 2s (ID: rtb-00355951d9d3298db)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:33:07+01:00 command.go:95: [0m[1mmodule.vpc.aws_route_table.private[0]: Creation complete after 2s (ID: rtb-04516bc86c38477b2)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:33:07+01:00 command.go:95: [0m[1mmodule.vpc.aws_route_table.database[0]: Creation complete after 2s (ID: rtb-0a774dab235a00a92)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:33:07+01:00 command.go:95: [0m[1mmodule.vpc.aws_route_table_association.database-a[0]: Creating...[0m
+TestTerraformHttpExample 2018-05-21T17:33:07+01:00 command.go:95:   route_table_id: "" => "rtb-0a774dab235a00a92"
+TestTerraformHttpExample 2018-05-21T17:33:07+01:00 command.go:95:   subnet_id:      "" => "subnet-0e676f5fb0bccc111"[0m
+TestTerraformHttpExample 2018-05-21T17:33:07+01:00 command.go:95: [0m[1mmodule.vpc.aws_route_table_association.database-a[1]: Creating...[0m
+TestTerraformHttpExample 2018-05-21T17:33:07+01:00 command.go:95:   route_table_id: "" => "rtb-00355951d9d3298db"
+TestTerraformHttpExample 2018-05-21T17:33:07+01:00 command.go:95:   subnet_id:      "" => "subnet-08bd3e47017a8bed6"[0m
+TestTerraformHttpExample 2018-05-21T17:33:07+01:00 command.go:95: [0m[1mmodule.vpc.aws_route_table.private[1]: Creation complete after 2s (ID: rtb-0cf7e60474d6a7163)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:33:07+01:00 command.go:95: [0m[1mmodule.vpc.aws_route_table_association.private-a[1]: Creating...[0m
+TestTerraformHttpExample 2018-05-21T17:33:07+01:00 command.go:95:   route_table_id: "" => "rtb-0cf7e60474d6a7163"
+TestTerraformHttpExample 2018-05-21T17:33:07+01:00 command.go:95:   subnet_id:      "" => "subnet-04ff68684803bc862"[0m
+TestTerraformHttpExample 2018-05-21T17:33:07+01:00 command.go:95: [0m[1mmodule.vpc.aws_route_table_association.private-a[0]: Creating...[0m
+TestTerraformHttpExample 2018-05-21T17:33:07+01:00 command.go:95:   route_table_id: "" => "rtb-04516bc86c38477b2"
+TestTerraformHttpExample 2018-05-21T17:33:07+01:00 command.go:95:   subnet_id:      "" => "subnet-05bcb1300f0515b31"[0m
+TestTerraformHttpExample 2018-05-21T17:33:07+01:00 command.go:95: [0m[1mmodule.vpc.aws_route_table_association.database-a[1]: Creation complete after 1s (ID: rtbassoc-020258d239c88d4cf)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:33:07+01:00 command.go:95: [0m[1mmodule.vpc.aws_route_table_association.database-a[0]: Creation complete after 1s (ID: rtbassoc-0a7414cc8601fd090)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:33:07+01:00 command.go:95: [0m[1mmodule.vpc.aws_route_table_association.private-a[1]: Creation complete after 1s (ID: rtbassoc-02f647bdb67b79ca1)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:33:07+01:00 command.go:95: [0m[1mmodule.vpc.aws_route_table_association.private-a[0]: Creation complete after 1s (ID: rtbassoc-09099922b4d050633)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:33:07+01:00 command.go:95: [0m[1m[32m
+TestTerraformHttpExample 2018-05-21T17:33:07+01:00 command.go:95: Apply complete! Resources: 55 added, 0 changed, 0 destroyed.[0m
+TestTerraformHttpExample 2018-05-21T17:33:07+01:00 command.go:95: [0m[1m[32m
+TestTerraformHttpExample 2018-05-21T17:33:07+01:00 command.go:95: Outputs:
+TestTerraformHttpExample 2018-05-21T17:33:07+01:00 command.go:95: 
+TestTerraformHttpExample 2018-05-21T17:33:07+01:00 command.go:95: instance_url = http://my-elb-1924898146.us-east-1.elb.amazonaws.com[0m
+TestTerraformHttpExample 2018-05-21T17:33:07+01:00 retry.go:64: Running terraform [output -no-color instance_url]
+TestTerraformHttpExample 2018-05-21T17:33:07+01:00 command.go:52: Running command terraform with args [output -no-color instance_url]
+TestTerraformHttpExample 2018-05-21T17:33:07+01:00 command.go:95: http://my-elb-1924898146.us-east-1.elb.amazonaws.com
+TestTerraformHttpExample 2018-05-21T17:33:07+01:00 retry.go:64: HTTP GET to URL http://my-elb-1924898146.us-east-1.elb.amazonaws.com/create?email=tom@foo.com&name=tom
+TestTerraformHttpExample 2018-05-21T17:33:07+01:00 http_helper.go:26: Making an HTTP GET call to URL http://my-elb-1924898146.us-east-1.elb.amazonaws.com/create?email=tom@foo.com&name=tom
+TestTerraformHttpExample 2018-05-21T17:33:07+01:00 retry.go:76: HTTP GET to URL http://my-elb-1924898146.us-east-1.elb.amazonaws.com/create?email=tom@foo.com&name=tom returned an error: Validation failed for URL http://my-elb-1924898146.us-east-1.elb.amazonaws.com/create?email=tom@foo.com&name=tom. Response status: 503. Response body:
+. Sleeping for 30s and will try again.
+TestTerraformHttpExample 2018-05-21T17:33:37+01:00 retry.go:64: HTTP GET to URL http://my-elb-1924898146.us-east-1.elb.amazonaws.com/create?email=tom@foo.com&name=tom
+TestTerraformHttpExample 2018-05-21T17:33:37+01:00 http_helper.go:26: Making an HTTP GET call to URL http://my-elb-1924898146.us-east-1.elb.amazonaws.com/create?email=tom@foo.com&name=tom
+TestTerraformHttpExample 2018-05-21T17:33:38+01:00 retry.go:76: HTTP GET to URL http://my-elb-1924898146.us-east-1.elb.amazonaws.com/create?email=tom@foo.com&name=tom returned an error: Validation failed for URL http://my-elb-1924898146.us-east-1.elb.amazonaws.com/create?email=tom@foo.com&name=tom. Response status: 503. Response body:
+. Sleeping for 30s and will try again.
+TestTerraformHttpExample 2018-05-21T17:34:08+01:00 retry.go:64: HTTP GET to URL http://my-elb-1924898146.us-east-1.elb.amazonaws.com/create?email=tom@foo.com&name=tom
+TestTerraformHttpExample 2018-05-21T17:34:08+01:00 http_helper.go:26: Making an HTTP GET call to URL http://my-elb-1924898146.us-east-1.elb.amazonaws.com/create?email=tom@foo.com&name=tom
+TestTerraformHttpExample 2018-05-21T17:34:08+01:00 retry.go:76: HTTP GET to URL http://my-elb-1924898146.us-east-1.elb.amazonaws.com/create?email=tom@foo.com&name=tom returned an error: Validation failed for URL http://my-elb-1924898146.us-east-1.elb.amazonaws.com/create?email=tom@foo.com&name=tom. Response status: 503. Response body:
+. Sleeping for 30s and will try again.
+TestTerraformHttpExample 2018-05-21T17:34:38+01:00 retry.go:64: HTTP GET to URL http://my-elb-1924898146.us-east-1.elb.amazonaws.com/create?email=tom@foo.com&name=tom
+TestTerraformHttpExample 2018-05-21T17:34:38+01:00 http_helper.go:26: Making an HTTP GET call to URL http://my-elb-1924898146.us-east-1.elb.amazonaws.com/create?email=tom@foo.com&name=tom
+TestTerraformHttpExample 2018-05-21T17:34:38+01:00 retry.go:76: HTTP GET to URL http://my-elb-1924898146.us-east-1.elb.amazonaws.com/create?email=tom@foo.com&name=tom returned an error: Validation failed for URL http://my-elb-1924898146.us-east-1.elb.amazonaws.com/create?email=tom@foo.com&name=tom. Response status: 503. Response body:
+. Sleeping for 30s and will try again.
+TestTerraformHttpExample 2018-05-21T17:35:08+01:00 retry.go:64: HTTP GET to URL http://my-elb-1924898146.us-east-1.elb.amazonaws.com/create?email=tom@foo.com&name=tom
+TestTerraformHttpExample 2018-05-21T17:35:08+01:00 http_helper.go:26: Making an HTTP GET call to URL http://my-elb-1924898146.us-east-1.elb.amazonaws.com/create?email=tom@foo.com&name=tom
+TestTerraformHttpExample 2018-05-21T17:35:08+01:00 retry.go:76: HTTP GET to URL http://my-elb-1924898146.us-east-1.elb.amazonaws.com/create?email=tom@foo.com&name=tom returned an error: Validation failed for URL http://my-elb-1924898146.us-east-1.elb.amazonaws.com/create?email=tom@foo.com&name=tom. Response status: 503. Response body:
+. Sleeping for 30s and will try again.
+TestTerraformHttpExample 2018-05-21T17:35:38+01:00 retry.go:64: HTTP GET to URL http://my-elb-1924898146.us-east-1.elb.amazonaws.com/create?email=tom@foo.com&name=tom
+TestTerraformHttpExample 2018-05-21T17:35:38+01:00 http_helper.go:26: Making an HTTP GET call to URL http://my-elb-1924898146.us-east-1.elb.amazonaws.com/create?email=tom@foo.com&name=tom
+TestTerraformHttpExample 2018-05-21T17:35:38+01:00 retry.go:76: HTTP GET to URL http://my-elb-1924898146.us-east-1.elb.amazonaws.com/create?email=tom@foo.com&name=tom returned an error: Validation failed for URL http://my-elb-1924898146.us-east-1.elb.amazonaws.com/create?email=tom@foo.com&name=tom. Response status: 503. Response body:
+. Sleeping for 30s and will try again.
+TestTerraformHttpExample 2018-05-21T17:36:08+01:00 retry.go:64: HTTP GET to URL http://my-elb-1924898146.us-east-1.elb.amazonaws.com/create?email=tom@foo.com&name=tom
+TestTerraformHttpExample 2018-05-21T17:36:08+01:00 http_helper.go:26: Making an HTTP GET call to URL http://my-elb-1924898146.us-east-1.elb.amazonaws.com/create?email=tom@foo.com&name=tom
+TestTerraformHttpExample 2018-05-21T17:36:08+01:00 retry.go:76: HTTP GET to URL http://my-elb-1924898146.us-east-1.elb.amazonaws.com/create?email=tom@foo.com&name=tom returned an error: Validation failed for URL http://my-elb-1924898146.us-east-1.elb.amazonaws.com/create?email=tom@foo.com&name=tom. Response status: 503. Response body:
+. Sleeping for 30s and will try again.
+TestTerraformHttpExample 2018-05-21T17:36:38+01:00 retry.go:64: HTTP GET to URL http://my-elb-1924898146.us-east-1.elb.amazonaws.com/create?email=tom@foo.com&name=tom
+TestTerraformHttpExample 2018-05-21T17:36:38+01:00 http_helper.go:26: Making an HTTP GET call to URL http://my-elb-1924898146.us-east-1.elb.amazonaws.com/create?email=tom@foo.com&name=tom
+TestTerraformHttpExample 2018-05-21T17:36:38+01:00 retry.go:76: HTTP GET to URL http://my-elb-1924898146.us-east-1.elb.amazonaws.com/create?email=tom@foo.com&name=tom returned an error: Validation failed for URL http://my-elb-1924898146.us-east-1.elb.amazonaws.com/create?email=tom@foo.com&name=tom. Response status: 503. Response body:
+. Sleeping for 30s and will try again.
+TestTerraformHttpExample 2018-05-21T17:37:08+01:00 retry.go:64: HTTP GET to URL http://my-elb-1924898146.us-east-1.elb.amazonaws.com/create?email=tom@foo.com&name=tom
+TestTerraformHttpExample 2018-05-21T17:37:08+01:00 http_helper.go:26: Making an HTTP GET call to URL http://my-elb-1924898146.us-east-1.elb.amazonaws.com/create?email=tom@foo.com&name=tom
+TestTerraformHttpExample 2018-05-21T17:37:08+01:00 retry.go:76: HTTP GET to URL http://my-elb-1924898146.us-east-1.elb.amazonaws.com/create?email=tom@foo.com&name=tom returned an error: Validation failed for URL http://my-elb-1924898146.us-east-1.elb.amazonaws.com/create?email=tom@foo.com&name=tom. Response status: 503. Response body:
+. Sleeping for 30s and will try again.
+TestTerraformHttpExample 2018-05-21T17:37:38+01:00 retry.go:64: HTTP GET to URL http://my-elb-1924898146.us-east-1.elb.amazonaws.com/create?email=tom@foo.com&name=tom
+TestTerraformHttpExample 2018-05-21T17:37:38+01:00 http_helper.go:26: Making an HTTP GET call to URL http://my-elb-1924898146.us-east-1.elb.amazonaws.com/create?email=tom@foo.com&name=tom
+TestTerraformHttpExample 2018-05-21T17:37:38+01:00 retry.go:76: HTTP GET to URL http://my-elb-1924898146.us-east-1.elb.amazonaws.com/create?email=tom@foo.com&name=tom returned an error: Validation failed for URL http://my-elb-1924898146.us-east-1.elb.amazonaws.com/create?email=tom@foo.com&name=tom. Response status: 503. Response body:
+. Sleeping for 30s and will try again.
+TestTerraformHttpExample 2018-05-21T17:38:08+01:00 retry.go:64: HTTP GET to URL http://my-elb-1924898146.us-east-1.elb.amazonaws.com/create?email=tom@foo.com&name=tom
+TestTerraformHttpExample 2018-05-21T17:38:08+01:00 http_helper.go:26: Making an HTTP GET call to URL http://my-elb-1924898146.us-east-1.elb.amazonaws.com/create?email=tom@foo.com&name=tom
+TestTerraformHttpExample 2018-05-21T17:38:08+01:00 retry.go:76: HTTP GET to URL http://my-elb-1924898146.us-east-1.elb.amazonaws.com/create?email=tom@foo.com&name=tom returned an error: Validation failed for URL http://my-elb-1924898146.us-east-1.elb.amazonaws.com/create?email=tom@foo.com&name=tom. Response status: 503. Response body:
+. Sleeping for 30s and will try again.
+TestTerraformHttpExample 2018-05-21T17:38:38+01:00 retry.go:64: HTTP GET to URL http://my-elb-1924898146.us-east-1.elb.amazonaws.com/create?email=tom@foo.com&name=tom
+TestTerraformHttpExample 2018-05-21T17:38:38+01:00 http_helper.go:26: Making an HTTP GET call to URL http://my-elb-1924898146.us-east-1.elb.amazonaws.com/create?email=tom@foo.com&name=tom
+TestTerraformHttpExample 2018-05-21T17:38:39+01:00 retry.go:76: HTTP GET to URL http://my-elb-1924898146.us-east-1.elb.amazonaws.com/create?email=tom@foo.com&name=tom returned an error: Validation failed for URL http://my-elb-1924898146.us-east-1.elb.amazonaws.com/create?email=tom@foo.com&name=tom. Response status: 503. Response body:
+. Sleeping for 30s and will try again.
+TestTerraformHttpExample 2018-05-21T17:39:09+01:00 retry.go:64: HTTP GET to URL http://my-elb-1924898146.us-east-1.elb.amazonaws.com/create?email=tom@foo.com&name=tom
+TestTerraformHttpExample 2018-05-21T17:39:09+01:00 http_helper.go:26: Making an HTTP GET call to URL http://my-elb-1924898146.us-east-1.elb.amazonaws.com/create?email=tom@foo.com&name=tom
+TestTerraformHttpExample 2018-05-21T17:39:09+01:00 retry.go:76: HTTP GET to URL http://my-elb-1924898146.us-east-1.elb.amazonaws.com/create?email=tom@foo.com&name=tom returned an error: Validation failed for URL http://my-elb-1924898146.us-east-1.elb.amazonaws.com/create?email=tom@foo.com&name=tom. Response status: 503. Response body:
+. Sleeping for 30s and will try again.
+TestTerraformHttpExample 2018-05-21T17:39:39+01:00 retry.go:64: HTTP GET to URL http://my-elb-1924898146.us-east-1.elb.amazonaws.com/create?email=tom@foo.com&name=tom
+TestTerraformHttpExample 2018-05-21T17:39:39+01:00 http_helper.go:26: Making an HTTP GET call to URL http://my-elb-1924898146.us-east-1.elb.amazonaws.com/create?email=tom@foo.com&name=tom
+TestTerraformHttpExample 2018-05-21T17:39:39+01:00 retry.go:76: HTTP GET to URL http://my-elb-1924898146.us-east-1.elb.amazonaws.com/create?email=tom@foo.com&name=tom returned an error: Validation failed for URL http://my-elb-1924898146.us-east-1.elb.amazonaws.com/create?email=tom@foo.com&name=tom. Response status: 503. Response body:
+. Sleeping for 30s and will try again.
+TestTerraformHttpExample 2018-05-21T17:40:09+01:00 retry.go:64: HTTP GET to URL http://my-elb-1924898146.us-east-1.elb.amazonaws.com/create?email=tom@foo.com&name=tom
+TestTerraformHttpExample 2018-05-21T17:40:09+01:00 http_helper.go:26: Making an HTTP GET call to URL http://my-elb-1924898146.us-east-1.elb.amazonaws.com/create?email=tom@foo.com&name=tom
+TestTerraformHttpExample 2018-05-21T17:40:11+01:00 retry.go:64: HTTP GET to URL http://my-elb-1924898146.us-east-1.elb.amazonaws.com/get-by-email?email=tom@foo.com
+TestTerraformHttpExample 2018-05-21T17:40:11+01:00 http_helper.go:26: Making an HTTP GET call to URL http://my-elb-1924898146.us-east-1.elb.amazonaws.com/get-by-email?email=tom@foo.com
+TestTerraformHttpExample 2018-05-21T17:40:13+01:00 retry.go:64: HTTP GET to URL http://my-elb-1924898146.us-east-1.elb.amazonaws.com/update?id=1&email=foo@foo.com&name=john
+TestTerraformHttpExample 2018-05-21T17:40:13+01:00 http_helper.go:26: Making an HTTP GET call to URL http://my-elb-1924898146.us-east-1.elb.amazonaws.com/update?id=1&email=foo@foo.com&name=john
+TestTerraformHttpExample 2018-05-21T17:40:14+01:00 retry.go:64: HTTP GET to URL http://my-elb-1924898146.us-east-1.elb.amazonaws.com/delete?id=1
+TestTerraformHttpExample 2018-05-21T17:40:14+01:00 http_helper.go:26: Making an HTTP GET call to URL http://my-elb-1924898146.us-east-1.elb.amazonaws.com/delete?id=1
+TestTerraformHttpExample 2018-05-21T17:40:15+01:00 retry.go:64: Running terraform [destroy -force -input=false -lock=false -var aws_region="us-east-1" -var instance_name="terratest-http-example-MTjlHB" -var instance_text="Hello, MTjlHB!" -var database_password="foobar"]
+TestTerraformHttpExample 2018-05-21T17:40:15+01:00 command.go:52: Running command terraform with args [destroy -force -input=false -lock=false -var aws_region="us-east-1" -var instance_name="terratest-http-example-MTjlHB" -var instance_text="Hello, MTjlHB!" -var database_password="foobar"]
+TestTerraformHttpExample 2018-05-21T17:40:16+01:00 command.go:95: [0m[1mdata.template_file.init[0]: Refreshing state...[0m
+TestTerraformHttpExample 2018-05-21T17:40:16+01:00 command.go:95: [0m[1mdata.template_file.init[0]: Refreshing state...[0m
+TestTerraformHttpExample 2018-05-21T17:40:16+01:00 command.go:95: [0m[1mdata.template_file.init[1]: Refreshing state...[0m
+TestTerraformHttpExample 2018-05-21T17:40:16+01:00 command.go:95: [0m[1mdata.template_file.init[1]: Refreshing state...[0m
+TestTerraformHttpExample 2018-05-21T17:40:16+01:00 command.go:95: [0m[1mdata.template_file.init[1]: Refreshing state...[0m
+TestTerraformHttpExample 2018-05-21T17:40:16+01:00 command.go:95: [0m[1mdata.template_file.init[0]: Refreshing state...[0m
+TestTerraformHttpExample 2018-05-21T17:40:18+01:00 command.go:95: [0m[1maws_vpc.main: Refreshing state... (ID: vpc-089660395159ee842)[0m
+TestTerraformHttpExample 2018-05-21T17:40:18+01:00 command.go:95: [0m[1maws_eip.nat[0]: Refreshing state... (ID: eipalloc-080182ee5f72c83f9)[0m
+TestTerraformHttpExample 2018-05-21T17:40:18+01:00 command.go:95: [0m[1maws_eip.nat[1]: Refreshing state... (ID: eipalloc-0ebdb83bc064a7dbd)[0m
+TestTerraformHttpExample 2018-05-21T17:40:32+01:00 command.go:95: [0m[1maws_route53_zone.example: Refreshing state... (ID: Z1NP11PQBCET4P)[0m
+TestTerraformHttpExample 2018-05-21T17:40:32+01:00 command.go:95: [0m[1maws_security_group.elb-securitygroup: Refreshing state... (ID: sg-004cb16a0c0c1e9d7)[0m
+TestTerraformHttpExample 2018-05-21T17:40:32+01:00 command.go:95: [0m[1maws_security_group.secgroup_web: Refreshing state... (ID: sg-0816eaf0dd026a3b6)[0m
+TestTerraformHttpExample 2018-05-21T17:40:32+01:00 command.go:95: [0m[1maws_subnet.public[0]: Refreshing state... (ID: subnet-0a700336fd6ae1204)[0m
+TestTerraformHttpExample 2018-05-21T17:40:32+01:00 command.go:95: [0m[1maws_subnet.public[1]: Refreshing state... (ID: subnet-06cf62baacb2a1ed0)[0m
+TestTerraformHttpExample 2018-05-21T17:40:32+01:00 command.go:95: [0m[1maws_security_group.secgroup_app: Refreshing state... (ID: sg-08f8d1101f6bc2dfb)[0m
+TestTerraformHttpExample 2018-05-21T17:40:32+01:00 command.go:95: [0m[1maws_subnet.private[1]: Refreshing state... (ID: subnet-04ff68684803bc862)[0m
+TestTerraformHttpExample 2018-05-21T17:40:32+01:00 command.go:95: [0m[1maws_subnet.private[0]: Refreshing state... (ID: subnet-05bcb1300f0515b31)[0m
+TestTerraformHttpExample 2018-05-21T17:40:32+01:00 command.go:95: [0m[1maws_security_group.secgroup_db: Refreshing state... (ID: sg-01ae21db0e778febc)[0m
+TestTerraformHttpExample 2018-05-21T17:40:32+01:00 command.go:95: [0m[1maws_internet_gateway.gw: Refreshing state... (ID: igw-05e86dfd04e2a989a)[0m
+TestTerraformHttpExample 2018-05-21T17:40:32+01:00 command.go:95: [0m[1maws_subnet.database[1]: Refreshing state... (ID: subnet-08bd3e47017a8bed6)[0m
+TestTerraformHttpExample 2018-05-21T17:40:32+01:00 command.go:95: [0m[1maws_subnet.database[0]: Refreshing state... (ID: subnet-0e676f5fb0bccc111)[0m
+TestTerraformHttpExample 2018-05-21T17:40:32+01:00 command.go:95: [0m[1maws_security_group_rule.allow_any_to_web_ssh: Refreshing state... (ID: sgrule-1922896641)[0m
+TestTerraformHttpExample 2018-05-21T17:40:32+01:00 command.go:95: [0m[1maws_security_group_rule.allow_web_to_any: Refreshing state... (ID: sgrule-3049247801)[0m
+TestTerraformHttpExample 2018-05-21T17:40:32+01:00 command.go:95: [0m[1maws_security_group_rule.allow_db_to_any: Refreshing state... (ID: sgrule-1775848809)[0m
+TestTerraformHttpExample 2018-05-21T17:40:32+01:00 command.go:95: [0m[1maws_security_group_rule.allow_db_to_db: Refreshing state... (ID: sgrule-22874)[0m
+TestTerraformHttpExample 2018-05-21T17:40:32+01:00 command.go:95: [0m[1maws_security_group_rule.allow_web_to_db_ssh: Refreshing state... (ID: sgrule-1727033)[0m
+TestTerraformHttpExample 2018-05-21T17:40:33+01:00 command.go:95: [0m[1maws_security_group_rule.allow_app_to_any: Refreshing state... (ID: sgrule-1231665098)[0m
+TestTerraformHttpExample 2018-05-21T17:40:33+01:00 command.go:95: [0m[1maws_security_group_rule.allow_web_to_app_ssh: Refreshing state... (ID: sgrule-3772711262)[0m
+TestTerraformHttpExample 2018-05-21T17:40:33+01:00 command.go:95: [0m[1maws_security_group_rule.allow_app_to_db: Refreshing state... (ID: sgrule-1410165166)[0m
+TestTerraformHttpExample 2018-05-21T17:40:33+01:00 command.go:95: [0m[1maws_security_group_rule.allow_web_to_app: Refreshing state... (ID: sgrule-560250464)[0m
+TestTerraformHttpExample 2018-05-21T17:40:33+01:00 command.go:95: [0m[1maws_security_group_rule.allow_web_from_elb: Refreshing state... (ID: sgrule-591695919)[0m
+TestTerraformHttpExample 2018-05-21T17:40:33+01:00 command.go:95: [0m[1maws_security_group_rule.allow_all_to_elb: Refreshing state... (ID: sgrule-1291688273)[0m
+TestTerraformHttpExample 2018-05-21T17:40:33+01:00 command.go:95: [0m[1maws_security_group_rule.allow_elb_to_web: Refreshing state... (ID: sgrule-4270998342)[0m
+TestTerraformHttpExample 2018-05-21T17:40:33+01:00 command.go:95: [0m[1maws_elb.my-elb: Refreshing state... (ID: my-elb)[0m
+TestTerraformHttpExample 2018-05-21T17:40:33+01:00 command.go:95: [0m[1maws_route_table.rt-public: Refreshing state... (ID: rtb-07e7facac69785072)[0m
+TestTerraformHttpExample 2018-05-21T17:40:33+01:00 command.go:95: [0m[1maws_nat_gateway.nat-gw[1]: Refreshing state... (ID: nat-0719ac83221754dd8)[0m
+TestTerraformHttpExample 2018-05-21T17:40:33+01:00 command.go:95: [0m[1maws_nat_gateway.nat-gw[0]: Refreshing state... (ID: nat-032f2f1d136663a6d)[0m
+TestTerraformHttpExample 2018-05-21T17:40:33+01:00 command.go:95: [0m[1maws_instance.host[0]: Refreshing state... (ID: i-0bf77cf164599af0e)[0m
+TestTerraformHttpExample 2018-05-21T17:40:33+01:00 command.go:95: [0m[1maws_instance.host[1]: Refreshing state... (ID: i-0862ce9d0df40d45f)[0m
+TestTerraformHttpExample 2018-05-21T17:40:33+01:00 command.go:95: [0m[1maws_instance.host[0]: Refreshing state... (ID: i-08537f58471b7180e)[0m
+TestTerraformHttpExample 2018-05-21T17:40:33+01:00 command.go:95: [0m[1maws_instance.host[1]: Refreshing state... (ID: i-0de335ae4052d3ede)[0m
+TestTerraformHttpExample 2018-05-21T17:40:33+01:00 command.go:95: [0m[1maws_instance.host[1]: Refreshing state... (ID: i-0291cb53bcfe1039a)[0m
+TestTerraformHttpExample 2018-05-21T17:40:33+01:00 command.go:95: [0m[1maws_instance.host[0]: Refreshing state... (ID: i-0948bb059d7ca0140)[0m
+TestTerraformHttpExample 2018-05-21T17:40:33+01:00 command.go:95: [0m[1maws_route_table_association.rta-public-a[0]: Refreshing state... (ID: rtbassoc-0c356b53fc2c52072)[0m
+TestTerraformHttpExample 2018-05-21T17:40:34+01:00 command.go:95: [0m[1maws_route_table_association.rta-public-a[1]: Refreshing state... (ID: rtbassoc-0d5ef3c8d5a0df787)[0m
+TestTerraformHttpExample 2018-05-21T17:40:34+01:00 command.go:95: [0m[1maws_route_table.private[0]: Refreshing state... (ID: rtb-04516bc86c38477b2)[0m
+TestTerraformHttpExample 2018-05-21T17:40:34+01:00 command.go:95: [0m[1maws_route_table.private[1]: Refreshing state... (ID: rtb-0cf7e60474d6a7163)[0m
+TestTerraformHttpExample 2018-05-21T17:40:39+01:00 command.go:95: [0m[1maws_route_table.database[0]: Refreshing state... (ID: rtb-0a774dab235a00a92)[0m
+TestTerraformHttpExample 2018-05-21T17:40:39+01:00 command.go:95: [0m[1maws_route_table.database[1]: Refreshing state... (ID: rtb-00355951d9d3298db)[0m
+TestTerraformHttpExample 2018-05-21T17:40:39+01:00 command.go:95: [0m[1maws_route_table_association.private-a[1]: Refreshing state... (ID: rtbassoc-02f647bdb67b79ca1)[0m
+TestTerraformHttpExample 2018-05-21T17:40:39+01:00 command.go:95: [0m[1maws_route_table_association.private-a[0]: Refreshing state... (ID: rtbassoc-09099922b4d050633)[0m
+TestTerraformHttpExample 2018-05-21T17:40:40+01:00 command.go:95: [0m[1maws_route_table_association.database-a[0]: Refreshing state... (ID: rtbassoc-0a7414cc8601fd090)[0m
+TestTerraformHttpExample 2018-05-21T17:40:40+01:00 command.go:95: [0m[1maws_route_table_association.database-a[1]: Refreshing state... (ID: rtbassoc-020258d239c88d4cf)[0m
+TestTerraformHttpExample 2018-05-21T17:40:42+01:00 command.go:95: [0m[1maws_route53_record.server-record[1]: Refreshing state... (ID: Z1NP11PQBCET4P_web.az1.example.com_A)[0m
+TestTerraformHttpExample 2018-05-21T17:40:42+01:00 command.go:95: [0m[1maws_route53_record.server-record[0]: Refreshing state... (ID: Z1NP11PQBCET4P_web.az0.example.com_A)[0m
+TestTerraformHttpExample 2018-05-21T17:40:42+01:00 command.go:95: [0m[1maws_elb_attachment.my-elb-a[1]: Refreshing state... (ID: my-elb-20180521163146373900000001)[0m
+TestTerraformHttpExample 2018-05-21T17:40:42+01:00 command.go:95: [0m[1maws_elb_attachment.my-elb-a[0]: Refreshing state... (ID: my-elb-20180521163146424700000002)[0m
+TestTerraformHttpExample 2018-05-21T17:40:42+01:00 command.go:95: [0m[1maws_route53_record.server-record[1]: Refreshing state... (ID: Z1NP11PQBCET4P_app.az1.example.com_A)[0m
+TestTerraformHttpExample 2018-05-21T17:40:42+01:00 command.go:95: [0m[1maws_route53_record.server-record[0]: Refreshing state... (ID: Z1NP11PQBCET4P_app.az0.example.com_A)[0m
+TestTerraformHttpExample 2018-05-21T17:40:42+01:00 command.go:95: [0m[1maws_route53_record.server-record[1]: Refreshing state... (ID: Z1NP11PQBCET4P_db.az1.example.com_A)[0m
+TestTerraformHttpExample 2018-05-21T17:40:42+01:00 command.go:95: [0m[1maws_route53_record.server-record[0]: Refreshing state... (ID: Z1NP11PQBCET4P_db.az0.example.com_A)[0m
+TestTerraformHttpExample 2018-05-21T17:40:45+01:00 command.go:95: [0m[1mmodule.stack.module.app.aws_route53_record.server-record[1]: Destroying... (ID: Z1NP11PQBCET4P_app.az1.example.com_A)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:40:45+01:00 command.go:95: [0m[1mmodule.stack.module.app.aws_route53_record.server-record[0]: Destroying... (ID: Z1NP11PQBCET4P_app.az0.example.com_A)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:40:45+01:00 command.go:95: [0m[1mmodule.vpc.aws_route_table_association.rta-public-a[0]: Destroying... (ID: rtbassoc-0c356b53fc2c52072)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:40:45+01:00 command.go:95: [0m[1mmodule.vpc.aws_security_group_rule.allow_app_to_db: Destroying... (ID: sgrule-1410165166)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:40:45+01:00 command.go:95: [0m[1mmodule.vpc.aws_security_group_rule.allow_web_to_db_ssh: Destroying... (ID: sgrule-1727033)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:40:45+01:00 command.go:95: [0m[1mmodule.vpc.aws_security_group_rule.allow_web_to_app: Destroying... (ID: sgrule-560250464)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:40:45+01:00 command.go:95: [0m[1mmodule.vpc.aws_route_table_association.database-a[1]: Destroying... (ID: rtbassoc-020258d239c88d4cf)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:40:45+01:00 command.go:95: [0m[1mmodule.vpc.aws_security_group_rule.allow_web_to_any: Destroying... (ID: sgrule-3049247801)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:40:45+01:00 command.go:95: [0m[1mmodule.vpc.aws_route_table_association.database-a[0]: Destroying... (ID: rtbassoc-0a7414cc8601fd090)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:40:46+01:00 command.go:95: [0m[1mmodule.vpc.aws_security_group_rule.allow_all_to_elb: Destroying... (ID: sgrule-1291688273)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:40:46+01:00 command.go:95: [0m[1mmodule.vpc.aws_route_table_association.database-a[1]: Destruction complete after 0s[0m[0m
+TestTerraformHttpExample 2018-05-21T17:40:46+01:00 command.go:95: [0m[1mmodule.vpc.aws_route_table_association.rta-public-a[0]: Destruction complete after 0s[0m[0m
+TestTerraformHttpExample 2018-05-21T17:40:46+01:00 command.go:95: [0m[1mmodule.vpc.aws_security_group_rule.allow_db_to_any: Destroying... (ID: sgrule-1775848809)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:40:46+01:00 command.go:95: [0m[1mmodule.vpc.aws_security_group_rule.allow_db_to_db: Destroying... (ID: sgrule-22874)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:40:46+01:00 command.go:95: [0m[1mmodule.vpc.aws_route_table_association.database-a[0]: Destruction complete after 0s[0m[0m
+TestTerraformHttpExample 2018-05-21T17:40:46+01:00 command.go:95: [0m[1mmodule.vpc.aws_route_table_association.private-a[0]: Destroying... (ID: rtbassoc-09099922b4d050633)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:40:46+01:00 command.go:95: [0m[1mmodule.vpc.aws_route_table_association.private-a[0]: Destruction complete after 1s[0m[0m
+TestTerraformHttpExample 2018-05-21T17:40:46+01:00 command.go:95: [0m[1mmodule.vpc.aws_security_group_rule.allow_elb_to_web: Destroying... (ID: sgrule-4270998342)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:40:46+01:00 command.go:95: [0m[1mmodule.vpc.aws_security_group_rule.allow_web_to_any: Destruction complete after 1s[0m[0m
+TestTerraformHttpExample 2018-05-21T17:40:46+01:00 command.go:95: [0m[1mmodule.vpc.aws_route_table_association.private-a[1]: Destroying... (ID: rtbassoc-02f647bdb67b79ca1)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:40:46+01:00 command.go:95: [0m[1mmodule.vpc.aws_security_group_rule.allow_web_to_app: Destruction complete after 1s[0m[0m
+TestTerraformHttpExample 2018-05-21T17:40:46+01:00 command.go:95: [0m[1mmodule.vpc.aws_security_group_rule.allow_app_to_any: Destroying... (ID: sgrule-1231665098)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:40:47+01:00 command.go:95: [0m[1mmodule.vpc.aws_security_group_rule.allow_app_to_db: Destruction complete after 1s[0m[0m
+TestTerraformHttpExample 2018-05-21T17:40:47+01:00 command.go:95: [0m[1mmodule.vpc.aws_security_group_rule.allow_any_to_web_ssh: Destroying... (ID: sgrule-1922896641)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:40:47+01:00 command.go:95: [0m[1mmodule.vpc.aws_route_table_association.private-a[1]: Destruction complete after 0s[0m[0m
+TestTerraformHttpExample 2018-05-21T17:40:47+01:00 command.go:95: [0m[1mmodule.vpc.aws_route_table_association.rta-public-a[1]: Destroying... (ID: rtbassoc-0d5ef3c8d5a0df787)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:40:47+01:00 command.go:95: [0m[1mmodule.vpc.aws_security_group_rule.allow_all_to_elb: Destruction complete after 1s[0m[0m
+TestTerraformHttpExample 2018-05-21T17:40:47+01:00 command.go:95: [0m[1mmodule.vpc.aws_security_group_rule.allow_web_from_elb: Destroying... (ID: sgrule-591695919)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:40:47+01:00 command.go:95: [0m[1mmodule.vpc.aws_route_table_association.rta-public-a[1]: Destruction complete after 1s[0m[0m
+TestTerraformHttpExample 2018-05-21T17:40:47+01:00 command.go:95: [0m[1mmodule.vpc.aws_security_group_rule.allow_web_to_app_ssh: Destroying... (ID: sgrule-3772711262)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:40:47+01:00 command.go:95: [0m[1mmodule.vpc.aws_security_group_rule.allow_web_to_db_ssh: Destruction complete after 2s[0m[0m
+TestTerraformHttpExample 2018-05-21T17:40:47+01:00 command.go:95: [0m[1mmodule.vpc.aws_security_group_rule.allow_any_to_web_ssh: Destruction complete after 1s[0m[0m
+TestTerraformHttpExample 2018-05-21T17:40:47+01:00 command.go:95: [0m[1mmodule.stack.module.db.aws_route53_record.server-record[0]: Destroying... (ID: Z1NP11PQBCET4P_db.az0.example.com_A)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:40:48+01:00 command.go:95: [0m[1mmodule.stack.module.db.aws_route53_record.server-record[1]: Destroying... (ID: Z1NP11PQBCET4P_db.az1.example.com_A)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:40:48+01:00 command.go:95: [0m[1mmodule.vpc.aws_security_group_rule.allow_app_to_any: Destruction complete after 1s[0m[0m
+TestTerraformHttpExample 2018-05-21T17:40:48+01:00 command.go:95: [0m[1mmodule.stack.module.web.aws_elb_attachment.my-elb-a[0]: Destroying... (ID: my-elb-20180521163146424700000002)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:40:48+01:00 command.go:95: [0m[1mmodule.vpc.aws_security_group_rule.allow_elb_to_web: Destruction complete after 1s[0m[0m
+TestTerraformHttpExample 2018-05-21T17:40:48+01:00 command.go:95: [0m[1mmodule.stack.module.web.aws_route53_record.server-record[1]: Destroying... (ID: Z1NP11PQBCET4P_web.az1.example.com_A)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:40:48+01:00 command.go:95: [0m[1mmodule.stack.module.web.aws_elb_attachment.my-elb-a[0]: Destruction complete after 1s[0m[0m
+TestTerraformHttpExample 2018-05-21T17:40:48+01:00 command.go:95: [0m[1mmodule.stack.module.web.aws_elb_attachment.my-elb-a[1]: Destroying... (ID: my-elb-20180521163146373900000001)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:40:48+01:00 command.go:95: [0m[1mmodule.vpc.aws_security_group_rule.allow_db_to_any: Destruction complete after 3s[0m[0m
+TestTerraformHttpExample 2018-05-21T17:40:48+01:00 command.go:95: [0m[1mmodule.stack.module.web.aws_route53_record.server-record[0]: Destroying... (ID: Z1NP11PQBCET4P_web.az0.example.com_A)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:40:48+01:00 command.go:95: [0m[1mmodule.vpc.aws_security_group_rule.allow_web_from_elb: Destruction complete after 2s[0m[0m
+TestTerraformHttpExample 2018-05-21T17:40:48+01:00 command.go:95: [0m[1mmodule.vpc.aws_route_table.database[0]: Destroying... (ID: rtb-0a774dab235a00a92)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:40:48+01:00 command.go:95: [0m[1mmodule.stack.module.web.aws_elb_attachment.my-elb-a[1]: Destruction complete after 0s[0m[0m
+TestTerraformHttpExample 2018-05-21T17:40:48+01:00 command.go:95: [0m[1mmodule.vpc.aws_route_table.database[1]: Destroying... (ID: rtb-00355951d9d3298db)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:40:49+01:00 command.go:95: [0m[1mmodule.vpc.aws_security_group_rule.allow_web_to_app_ssh: Destruction complete after 1s[0m[0m
+TestTerraformHttpExample 2018-05-21T17:40:49+01:00 command.go:95: [0m[1mmodule.vpc.aws_route_table.private[0]: Destroying... (ID: rtb-04516bc86c38477b2)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:40:50+01:00 command.go:95: [0m[1mmodule.vpc.aws_security_group_rule.allow_db_to_db: Destruction complete after 4s[0m[0m
+TestTerraformHttpExample 2018-05-21T17:40:50+01:00 command.go:95: [0m[1mmodule.vpc.aws_route_table.private[1]: Destroying... (ID: rtb-0cf7e60474d6a7163)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:40:50+01:00 command.go:95: [0m[1mmodule.vpc.aws_route_table.database[0]: Destruction complete after 1s[0m[0m
+TestTerraformHttpExample 2018-05-21T17:40:50+01:00 command.go:95: [0m[1mmodule.vpc.aws_route_table.rt-public: Destroying... (ID: rtb-07e7facac69785072)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:40:50+01:00 command.go:95: [0m[1mmodule.vpc.aws_route_table.database[1]: Destruction complete after 1s[0m[0m
+TestTerraformHttpExample 2018-05-21T17:40:50+01:00 command.go:95: [0m[1mmodule.vpc.aws_elb.my-elb: Destroying... (ID: my-elb)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:40:50+01:00 command.go:95: [0m[1mmodule.vpc.aws_route_table.private[0]: Destruction complete after 2s[0m[0m
+TestTerraformHttpExample 2018-05-21T17:40:51+01:00 command.go:95: [0m[1mmodule.vpc.aws_route_table.private[1]: Destruction complete after 1s[0m[0m
+TestTerraformHttpExample 2018-05-21T17:40:51+01:00 command.go:95: [0m[1mmodule.vpc.aws_nat_gateway.nat-gw[1]: Destroying... (ID: nat-0719ac83221754dd8)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:40:51+01:00 command.go:95: [0m[1mmodule.vpc.aws_nat_gateway.nat-gw[0]: Destroying... (ID: nat-032f2f1d136663a6d)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:40:51+01:00 command.go:95: [0m[1mmodule.vpc.aws_route_table.rt-public: Destruction complete after 2s[0m[0m
+TestTerraformHttpExample 2018-05-21T17:40:51+01:00 command.go:95: [0m[1mmodule.vpc.aws_elb.my-elb: Destruction complete after 2s[0m[0m
+TestTerraformHttpExample 2018-05-21T17:40:51+01:00 command.go:95: [0m[1mmodule.vpc.aws_security_group.elb-securitygroup: Destroying... (ID: sg-004cb16a0c0c1e9d7)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:40:55+01:00 command.go:95: [0m[1mmodule.stack.app.aws_route53_record.server-record.1: Still destroying... (ID: Z1NP11PQBCET4P_app.az1.example.com_A, 10s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:40:55+01:00 command.go:95: [0m[1mmodule.stack.app.aws_route53_record.server-record.0: Still destroying... (ID: Z1NP11PQBCET4P_app.az0.example.com_A, 10s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:40:57+01:00 command.go:95: [0m[1mmodule.stack.db.aws_route53_record.server-record.0: Still destroying... (ID: Z1NP11PQBCET4P_db.az0.example.com_A, 10s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:40:58+01:00 command.go:95: [0m[1mmodule.stack.db.aws_route53_record.server-record.1: Still destroying... (ID: Z1NP11PQBCET4P_db.az1.example.com_A, 10s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:40:58+01:00 command.go:95: [0m[1mmodule.stack.web.aws_route53_record.server-record.1: Still destroying... (ID: Z1NP11PQBCET4P_web.az1.example.com_A, 10s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:40:58+01:00 command.go:95: [0m[1mmodule.stack.web.aws_route53_record.server-record.0: Still destroying... (ID: Z1NP11PQBCET4P_web.az0.example.com_A, 10s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:41:01+01:00 command.go:95: [0m[1mmodule.vpc.aws_nat_gateway.nat-gw.0: Still destroying... (ID: nat-032f2f1d136663a6d, 10s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:41:01+01:00 command.go:95: [0m[1mmodule.vpc.aws_nat_gateway.nat-gw.1: Still destroying... (ID: nat-0719ac83221754dd8, 10s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:41:01+01:00 command.go:95: [0m[1mmodule.vpc.aws_security_group.elb-securitygroup: Still destroying... (ID: sg-004cb16a0c0c1e9d7, 10s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:41:05+01:00 command.go:95: [0m[1mmodule.stack.app.aws_route53_record.server-record.1: Still destroying... (ID: Z1NP11PQBCET4P_app.az1.example.com_A, 20s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:41:05+01:00 command.go:95: [0m[1mmodule.stack.app.aws_route53_record.server-record.0: Still destroying... (ID: Z1NP11PQBCET4P_app.az0.example.com_A, 20s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:41:07+01:00 command.go:95: [0m[1mmodule.stack.db.aws_route53_record.server-record.0: Still destroying... (ID: Z1NP11PQBCET4P_db.az0.example.com_A, 20s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:41:08+01:00 command.go:95: [0m[1mmodule.stack.db.aws_route53_record.server-record.1: Still destroying... (ID: Z1NP11PQBCET4P_db.az1.example.com_A, 20s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:41:08+01:00 command.go:95: [0m[1mmodule.stack.web.aws_route53_record.server-record.1: Still destroying... (ID: Z1NP11PQBCET4P_web.az1.example.com_A, 20s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:41:08+01:00 command.go:95: [0m[1mmodule.stack.web.aws_route53_record.server-record.0: Still destroying... (ID: Z1NP11PQBCET4P_web.az0.example.com_A, 20s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:41:11+01:00 command.go:95: [0m[1mmodule.vpc.aws_nat_gateway.nat-gw.1: Still destroying... (ID: nat-0719ac83221754dd8, 20s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:41:11+01:00 command.go:95: [0m[1mmodule.vpc.aws_nat_gateway.nat-gw.0: Still destroying... (ID: nat-032f2f1d136663a6d, 20s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:41:11+01:00 command.go:95: [0m[1mmodule.vpc.aws_security_group.elb-securitygroup: Still destroying... (ID: sg-004cb16a0c0c1e9d7, 20s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:41:15+01:00 command.go:95: [0m[1mmodule.stack.app.aws_route53_record.server-record.1: Still destroying... (ID: Z1NP11PQBCET4P_app.az1.example.com_A, 30s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:41:15+01:00 command.go:95: [0m[1mmodule.stack.app.aws_route53_record.server-record.0: Still destroying... (ID: Z1NP11PQBCET4P_app.az0.example.com_A, 30s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:41:17+01:00 command.go:95: [0m[1mmodule.stack.db.aws_route53_record.server-record.0: Still destroying... (ID: Z1NP11PQBCET4P_db.az0.example.com_A, 30s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:41:18+01:00 command.go:95: [0m[1mmodule.stack.db.aws_route53_record.server-record.1: Still destroying... (ID: Z1NP11PQBCET4P_db.az1.example.com_A, 30s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:41:18+01:00 command.go:95: [0m[1mmodule.stack.web.aws_route53_record.server-record.1: Still destroying... (ID: Z1NP11PQBCET4P_web.az1.example.com_A, 30s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:41:18+01:00 command.go:95: [0m[1mmodule.stack.web.aws_route53_record.server-record.0: Still destroying... (ID: Z1NP11PQBCET4P_web.az0.example.com_A, 30s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:41:21+01:00 command.go:95: [0m[1mmodule.vpc.aws_nat_gateway.nat-gw.1: Still destroying... (ID: nat-0719ac83221754dd8, 30s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:41:21+01:00 command.go:95: [0m[1mmodule.vpc.aws_nat_gateway.nat-gw.0: Still destroying... (ID: nat-032f2f1d136663a6d, 30s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:41:21+01:00 command.go:95: [0m[1mmodule.vpc.aws_security_group.elb-securitygroup: Still destroying... (ID: sg-004cb16a0c0c1e9d7, 30s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:41:25+01:00 command.go:95: [0m[1mmodule.stack.app.aws_route53_record.server-record.0: Still destroying... (ID: Z1NP11PQBCET4P_app.az0.example.com_A, 40s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:41:25+01:00 command.go:95: [0m[1mmodule.stack.app.aws_route53_record.server-record.1: Still destroying... (ID: Z1NP11PQBCET4P_app.az1.example.com_A, 40s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:41:27+01:00 command.go:95: [0m[1mmodule.stack.db.aws_route53_record.server-record.0: Still destroying... (ID: Z1NP11PQBCET4P_db.az0.example.com_A, 40s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:41:28+01:00 command.go:95: [0m[1mmodule.stack.db.aws_route53_record.server-record.1: Still destroying... (ID: Z1NP11PQBCET4P_db.az1.example.com_A, 40s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:41:28+01:00 command.go:95: [0m[1mmodule.stack.web.aws_route53_record.server-record.1: Still destroying... (ID: Z1NP11PQBCET4P_web.az1.example.com_A, 40s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:41:28+01:00 command.go:95: [0m[1mmodule.stack.web.aws_route53_record.server-record.0: Still destroying... (ID: Z1NP11PQBCET4P_web.az0.example.com_A, 40s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:41:31+01:00 command.go:95: [0m[1mmodule.vpc.aws_nat_gateway.nat-gw.1: Still destroying... (ID: nat-0719ac83221754dd8, 40s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:41:31+01:00 command.go:95: [0m[1mmodule.vpc.aws_nat_gateway.nat-gw.0: Still destroying... (ID: nat-032f2f1d136663a6d, 40s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:41:31+01:00 command.go:95: [0m[1mmodule.vpc.aws_security_group.elb-securitygroup: Still destroying... (ID: sg-004cb16a0c0c1e9d7, 40s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:41:33+01:00 command.go:95: [0m[1mmodule.vpc.aws_nat_gateway.nat-gw[1]: Destruction complete after 43s[0m[0m
+TestTerraformHttpExample 2018-05-21T17:41:35+01:00 command.go:95: [0m[1mmodule.stack.app.aws_route53_record.server-record.1: Still destroying... (ID: Z1NP11PQBCET4P_app.az1.example.com_A, 50s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:41:35+01:00 command.go:95: [0m[1mmodule.stack.app.aws_route53_record.server-record.0: Still destroying... (ID: Z1NP11PQBCET4P_app.az0.example.com_A, 50s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:41:37+01:00 command.go:95: [0m[1mmodule.stack.db.aws_route53_record.server-record.0: Still destroying... (ID: Z1NP11PQBCET4P_db.az0.example.com_A, 50s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:41:38+01:00 command.go:95: [0m[1mmodule.stack.db.aws_route53_record.server-record.1: Still destroying... (ID: Z1NP11PQBCET4P_db.az1.example.com_A, 50s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:41:38+01:00 command.go:95: [0m[1mmodule.stack.web.aws_route53_record.server-record.1: Still destroying... (ID: Z1NP11PQBCET4P_web.az1.example.com_A, 50s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:41:38+01:00 command.go:95: [0m[1mmodule.stack.web.aws_route53_record.server-record.0: Still destroying... (ID: Z1NP11PQBCET4P_web.az0.example.com_A, 50s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:41:41+01:00 command.go:95: [0m[1mmodule.vpc.aws_nat_gateway.nat-gw.0: Still destroying... (ID: nat-032f2f1d136663a6d, 50s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:41:41+01:00 command.go:95: [0m[1mmodule.vpc.aws_security_group.elb-securitygroup: Still destroying... (ID: sg-004cb16a0c0c1e9d7, 50s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:41:44+01:00 command.go:95: [0m[1mmodule.stack.module.app.aws_route53_record.server-record[0]: Destruction complete after 58s[0m[0m
+TestTerraformHttpExample 2018-05-21T17:41:44+01:00 command.go:95: [0m[1mmodule.stack.module.app.aws_route53_record.server-record[1]: Destruction complete after 58s[0m[0m
+TestTerraformHttpExample 2018-05-21T17:41:44+01:00 command.go:95: [0m[1mmodule.stack.module.app.aws_instance.host[1]: Destroying... (ID: i-0862ce9d0df40d45f)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:41:44+01:00 command.go:95: [0m[1mmodule.stack.module.app.aws_instance.host[0]: Destroying... (ID: i-0bf77cf164599af0e)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:41:44+01:00 command.go:95: [0m[1mmodule.vpc.aws_nat_gateway.nat-gw[0]: Destruction complete after 53s[0m[0m
+TestTerraformHttpExample 2018-05-21T17:41:44+01:00 command.go:95: [0m[1mmodule.vpc.aws_internet_gateway.gw: Destroying... (ID: igw-05e86dfd04e2a989a)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:41:44+01:00 command.go:95: [0m[1mmodule.vpc.aws_eip.nat[1]: Destroying... (ID: eipalloc-0ebdb83bc064a7dbd)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:41:44+01:00 command.go:95: [0m[1mmodule.vpc.aws_eip.nat[0]: Destroying... (ID: eipalloc-080182ee5f72c83f9)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:41:45+01:00 command.go:95: [0m[1mmodule.vpc.aws_eip.nat[1]: Destruction complete after 1s[0m[0m
+TestTerraformHttpExample 2018-05-21T17:41:45+01:00 command.go:95: [0m[1mmodule.vpc.aws_eip.nat[0]: Destruction complete after 1s[0m[0m
+TestTerraformHttpExample 2018-05-21T17:41:46+01:00 command.go:95: [0m[1mmodule.stack.module.db.aws_route53_record.server-record[0]: Destruction complete after 58s[0m[0m
+TestTerraformHttpExample 2018-05-21T17:41:46+01:00 command.go:95: [0m[1mmodule.stack.module.web.aws_route53_record.server-record[1]: Destruction complete after 58s[0m[0m
+TestTerraformHttpExample 2018-05-21T17:41:46+01:00 command.go:95: [0m[1mmodule.stack.module.db.aws_route53_record.server-record[1]: Destruction complete after 59s[0m[0m
+TestTerraformHttpExample 2018-05-21T17:41:46+01:00 command.go:95: [0m[1mmodule.stack.module.db.aws_instance.host[1]: Destroying... (ID: i-0291cb53bcfe1039a)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:41:46+01:00 command.go:95: [0m[1mmodule.stack.module.db.aws_instance.host[0]: Destroying... (ID: i-0948bb059d7ca0140)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:41:47+01:00 command.go:95: [0m[1mmodule.stack.module.web.aws_route53_record.server-record[0]: Destruction complete after 58s[0m[0m
+TestTerraformHttpExample 2018-05-21T17:41:47+01:00 command.go:95: [0m[1mmodule.vpc.aws_route53_zone.example: Destroying... (ID: Z1NP11PQBCET4P)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:41:47+01:00 command.go:95: [0m[1mmodule.stack.module.web.aws_instance.host[0]: Destroying... (ID: i-08537f58471b7180e)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:41:47+01:00 command.go:95: [0m[1mmodule.stack.module.web.aws_instance.host[1]: Destroying... (ID: i-0de335ae4052d3ede)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:41:47+01:00 command.go:95: [0m[1mmodule.vpc.aws_route53_zone.example: Destruction complete after 1s[0m[0m
+TestTerraformHttpExample 2018-05-21T17:41:51+01:00 command.go:95: [0m[1mmodule.vpc.aws_security_group.elb-securitygroup: Still destroying... (ID: sg-004cb16a0c0c1e9d7, 1m0s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:41:54+01:00 command.go:95: [0m[1mmodule.stack.app.aws_instance.host.0: Still destroying... (ID: i-0bf77cf164599af0e, 10s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:41:54+01:00 command.go:95: [0m[1mmodule.stack.app.aws_instance.host.1: Still destroying... (ID: i-0862ce9d0df40d45f, 10s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:41:54+01:00 command.go:95: [0m[1mmodule.vpc.aws_internet_gateway.gw: Still destroying... (ID: igw-05e86dfd04e2a989a, 10s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:41:56+01:00 command.go:95: [0m[1mmodule.stack.db.aws_instance.host.0: Still destroying... (ID: i-0948bb059d7ca0140, 10s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:41:56+01:00 command.go:95: [0m[1mmodule.stack.db.aws_instance.host.1: Still destroying... (ID: i-0291cb53bcfe1039a, 10s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:41:57+01:00 command.go:95: [0m[1mmodule.stack.web.aws_instance.host.0: Still destroying... (ID: i-08537f58471b7180e, 10s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:41:57+01:00 command.go:95: [0m[1mmodule.stack.web.aws_instance.host.1: Still destroying... (ID: i-0de335ae4052d3ede, 10s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:42:01+01:00 command.go:95: [0m[1mmodule.vpc.aws_security_group.elb-securitygroup: Still destroying... (ID: sg-004cb16a0c0c1e9d7, 1m10s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:42:04+01:00 command.go:95: [0m[1mmodule.stack.app.aws_instance.host.1: Still destroying... (ID: i-0862ce9d0df40d45f, 20s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:42:04+01:00 command.go:95: [0m[1mmodule.stack.app.aws_instance.host.0: Still destroying... (ID: i-0bf77cf164599af0e, 20s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:42:04+01:00 command.go:95: [0m[1mmodule.vpc.aws_internet_gateway.gw: Still destroying... (ID: igw-05e86dfd04e2a989a, 20s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:42:06+01:00 command.go:95: [0m[1mmodule.stack.db.aws_instance.host.1: Still destroying... (ID: i-0291cb53bcfe1039a, 20s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:42:06+01:00 command.go:95: [0m[1mmodule.stack.db.aws_instance.host.0: Still destroying... (ID: i-0948bb059d7ca0140, 20s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:42:07+01:00 command.go:95: [0m[1mmodule.stack.web.aws_instance.host.0: Still destroying... (ID: i-08537f58471b7180e, 20s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:42:07+01:00 command.go:95: [0m[1mmodule.stack.web.aws_instance.host.1: Still destroying... (ID: i-0de335ae4052d3ede, 20s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:42:11+01:00 command.go:95: [0m[1mmodule.vpc.aws_security_group.elb-securitygroup: Still destroying... (ID: sg-004cb16a0c0c1e9d7, 1m20s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:42:14+01:00 command.go:95: [0m[1mmodule.stack.app.aws_instance.host.1: Still destroying... (ID: i-0862ce9d0df40d45f, 30s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:42:14+01:00 command.go:95: [0m[1mmodule.stack.app.aws_instance.host.0: Still destroying... (ID: i-0bf77cf164599af0e, 30s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:42:14+01:00 command.go:95: [0m[1mmodule.vpc.aws_internet_gateway.gw: Still destroying... (ID: igw-05e86dfd04e2a989a, 30s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:42:14+01:00 command.go:95: [0m[1mmodule.vpc.aws_security_group.elb-securitygroup: Destruction complete after 1m23s[0m[0m
+TestTerraformHttpExample 2018-05-21T17:42:16+01:00 command.go:95: [0m[1mmodule.stack.db.aws_instance.host.1: Still destroying... (ID: i-0291cb53bcfe1039a, 30s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:42:16+01:00 command.go:95: [0m[1mmodule.stack.db.aws_instance.host.0: Still destroying... (ID: i-0948bb059d7ca0140, 30s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:42:17+01:00 command.go:95: [0m[1mmodule.stack.web.aws_instance.host.1: Still destroying... (ID: i-0de335ae4052d3ede, 30s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:42:17+01:00 command.go:95: [0m[1mmodule.stack.web.aws_instance.host.0: Still destroying... (ID: i-08537f58471b7180e, 30s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:42:24+01:00 command.go:95: [0m[1mmodule.stack.app.aws_instance.host.1: Still destroying... (ID: i-0862ce9d0df40d45f, 40s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:42:24+01:00 command.go:95: [0m[1mmodule.stack.app.aws_instance.host.0: Still destroying... (ID: i-0bf77cf164599af0e, 40s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:42:24+01:00 command.go:95: [0m[1mmodule.vpc.aws_internet_gateway.gw: Still destroying... (ID: igw-05e86dfd04e2a989a, 40s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:42:26+01:00 command.go:95: [0m[1mmodule.stack.db.aws_instance.host.0: Still destroying... (ID: i-0948bb059d7ca0140, 40s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:42:26+01:00 command.go:95: [0m[1mmodule.stack.db.aws_instance.host.1: Still destroying... (ID: i-0291cb53bcfe1039a, 40s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:42:27+01:00 command.go:95: [0m[1mmodule.stack.web.aws_instance.host.0: Still destroying... (ID: i-08537f58471b7180e, 40s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:42:27+01:00 command.go:95: [0m[1mmodule.stack.web.aws_instance.host.1: Still destroying... (ID: i-0de335ae4052d3ede, 40s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:42:34+01:00 command.go:95: [0m[1mmodule.stack.app.aws_instance.host.1: Still destroying... (ID: i-0862ce9d0df40d45f, 50s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:42:34+01:00 command.go:95: [0m[1mmodule.stack.app.aws_instance.host.0: Still destroying... (ID: i-0bf77cf164599af0e, 50s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:42:34+01:00 command.go:95: [0m[1mmodule.vpc.aws_internet_gateway.gw: Still destroying... (ID: igw-05e86dfd04e2a989a, 50s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:42:36+01:00 command.go:95: [0m[1mmodule.stack.db.aws_instance.host.1: Still destroying... (ID: i-0291cb53bcfe1039a, 50s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:42:36+01:00 command.go:95: [0m[1mmodule.stack.db.aws_instance.host.0: Still destroying... (ID: i-0948bb059d7ca0140, 50s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:42:37+01:00 command.go:95: [0m[1mmodule.stack.web.aws_instance.host.0: Still destroying... (ID: i-08537f58471b7180e, 50s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:42:37+01:00 command.go:95: [0m[1mmodule.stack.web.aws_instance.host.1: Still destroying... (ID: i-0de335ae4052d3ede, 50s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:42:44+01:00 command.go:95: [0m[1mmodule.stack.app.aws_instance.host.1: Still destroying... (ID: i-0862ce9d0df40d45f, 1m0s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:42:44+01:00 command.go:95: [0m[1mmodule.stack.app.aws_instance.host.0: Still destroying... (ID: i-0bf77cf164599af0e, 1m0s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:42:44+01:00 command.go:95: [0m[1mmodule.vpc.aws_internet_gateway.gw: Still destroying... (ID: igw-05e86dfd04e2a989a, 1m0s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:42:46+01:00 command.go:95: [0m[1mmodule.vpc.aws_internet_gateway.gw: Destruction complete after 1m2s[0m[0m
+TestTerraformHttpExample 2018-05-21T17:42:46+01:00 command.go:95: [0m[1mmodule.stack.db.aws_instance.host.1: Still destroying... (ID: i-0291cb53bcfe1039a, 1m0s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:42:46+01:00 command.go:95: [0m[1mmodule.stack.db.aws_instance.host.0: Still destroying... (ID: i-0948bb059d7ca0140, 1m0s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:42:47+01:00 command.go:95: [0m[1mmodule.stack.module.app.aws_instance.host[1]: Destruction complete after 1m3s[0m[0m
+TestTerraformHttpExample 2018-05-21T17:42:47+01:00 command.go:95: [0m[1mmodule.stack.module.app.aws_instance.host[0]: Destruction complete after 1m3s[0m[0m
+TestTerraformHttpExample 2018-05-21T17:42:47+01:00 command.go:95: [0m[1mmodule.vpc.aws_subnet.private[0]: Destroying... (ID: subnet-05bcb1300f0515b31)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:42:47+01:00 command.go:95: [0m[1mmodule.vpc.aws_security_group.secgroup_app: Destroying... (ID: sg-08f8d1101f6bc2dfb)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:42:47+01:00 command.go:95: [0m[1mmodule.vpc.aws_subnet.private[1]: Destroying... (ID: subnet-04ff68684803bc862)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:42:47+01:00 command.go:95: [0m[1mmodule.stack.web.aws_instance.host.0: Still destroying... (ID: i-08537f58471b7180e, 1m0s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:42:47+01:00 command.go:95: [0m[1mmodule.stack.web.aws_instance.host.1: Still destroying... (ID: i-0de335ae4052d3ede, 1m0s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:42:47+01:00 command.go:95: [0m[1mmodule.vpc.aws_subnet.private[0]: Destruction complete after 1s[0m[0m
+TestTerraformHttpExample 2018-05-21T17:42:47+01:00 command.go:95: [0m[1mmodule.vpc.aws_subnet.private[1]: Destruction complete after 1s[0m[0m
+TestTerraformHttpExample 2018-05-21T17:42:48+01:00 command.go:95: [0m[1mmodule.vpc.aws_security_group.secgroup_app: Destruction complete after 1s[0m[0m
+TestTerraformHttpExample 2018-05-21T17:42:50+01:00 command.go:95: [0m[1mmodule.stack.module.db.aws_instance.host[0]: Destruction complete after 1m3s[0m[0m
+TestTerraformHttpExample 2018-05-21T17:42:50+01:00 command.go:95: [0m[1mmodule.stack.module.web.aws_instance.host[0]: Destruction complete after 1m3s[0m[0m
+TestTerraformHttpExample 2018-05-21T17:42:50+01:00 command.go:95: [0m[1mmodule.stack.module.web.aws_instance.host[1]: Destruction complete after 1m4s[0m[0m
+TestTerraformHttpExample 2018-05-21T17:42:50+01:00 command.go:95: [0m[1mmodule.vpc.aws_security_group.secgroup_web: Destroying... (ID: sg-0816eaf0dd026a3b6)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:42:50+01:00 command.go:95: [0m[1mmodule.vpc.aws_subnet.public[0]: Destroying... (ID: subnet-0a700336fd6ae1204)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:42:50+01:00 command.go:95: [0m[1mmodule.vpc.aws_subnet.public[1]: Destroying... (ID: subnet-06cf62baacb2a1ed0)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:42:51+01:00 command.go:95: [0m[1mmodule.vpc.aws_subnet.public[0]: Destruction complete after 0s[0m[0m
+TestTerraformHttpExample 2018-05-21T17:42:51+01:00 command.go:95: [0m[1mmodule.vpc.aws_subnet.public[1]: Destruction complete after 0s[0m[0m
+TestTerraformHttpExample 2018-05-21T17:42:51+01:00 command.go:95: [0m[1mmodule.vpc.aws_security_group.secgroup_web: Destruction complete after 1s[0m[0m
+TestTerraformHttpExample 2018-05-21T17:42:56+01:00 command.go:95: [0m[1mmodule.stack.db.aws_instance.host.1: Still destroying... (ID: i-0291cb53bcfe1039a, 1m10s elapsed)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:43:00+01:00 command.go:95: [0m[1mmodule.stack.module.db.aws_instance.host[1]: Destruction complete after 1m13s[0m[0m
+TestTerraformHttpExample 2018-05-21T17:43:00+01:00 command.go:95: [0m[1mmodule.vpc.aws_security_group.secgroup_db: Destroying... (ID: sg-01ae21db0e778febc)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:43:00+01:00 command.go:95: [0m[1mmodule.vpc.aws_subnet.database[1]: Destroying... (ID: subnet-08bd3e47017a8bed6)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:43:00+01:00 command.go:95: [0m[1mmodule.vpc.aws_subnet.database[0]: Destroying... (ID: subnet-0e676f5fb0bccc111)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:43:00+01:00 command.go:95: [0m[1mmodule.vpc.aws_subnet.database[1]: Destruction complete after 1s[0m[0m
+TestTerraformHttpExample 2018-05-21T17:43:00+01:00 command.go:95: [0m[1mmodule.vpc.aws_subnet.database[0]: Destruction complete after 1s[0m[0m
+TestTerraformHttpExample 2018-05-21T17:43:01+01:00 command.go:95: [0m[1mmodule.vpc.aws_security_group.secgroup_db: Destruction complete after 1s[0m[0m
+TestTerraformHttpExample 2018-05-21T17:43:01+01:00 command.go:95: [0m[1mmodule.vpc.aws_vpc.main: Destroying... (ID: vpc-089660395159ee842)[0m[0m
+TestTerraformHttpExample 2018-05-21T17:43:01+01:00 command.go:95: [0m[1mmodule.vpc.aws_vpc.main: Destruction complete after 1s[0m[0m
+TestTerraformHttpExample 2018-05-21T17:43:01+01:00 command.go:95: [0m[1m[32m
+TestTerraformHttpExample 2018-05-21T17:43:01+01:00 command.go:95: Destroy complete! Resources: 55 destroyed.[0m
+PASS
+ok  	_/Users/tdy02/work/repos/github.com/tomkmem/homelab/scb_test/test	734.551s
