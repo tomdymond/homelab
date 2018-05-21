@@ -17,4 +17,4 @@ variable vpc_subnet {}
 variable azs {
   type = "list"
 }
-
+variable database_password {}

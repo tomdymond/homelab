@@ -1,10 +1,10 @@
 
-locals {
-  database_user = "${data.vault_generic_secret.database.data["username"]}"
-  database_password = "${data.vault_generic_secret.database.data["password"]}"
-  aws_access_key = "${data.vault_generic_secret.aws_auth.data["aws_access_key"]}"
-  aws_secret_key = "${data.vault_generic_secret.aws_auth.data["aws_secret_key"]}"
-}
+#locals {
+#  database_user = "${data.vault_generic_secret.database.data["username"]}"
+#  database_password = "${data.vault_generic_secret.database.data["password"]}"
+#  aws_access_key = "${data.vault_generic_secret.aws_auth.data["aws_access_key"]}"
+#  aws_secret_key = "${data.vault_generic_secret.aws_auth.data["aws_secret_key"]}"
+#}
 
 
 module "vpc" {
@@ -27,5 +27,5 @@ module "stack" {
   subnet_id_database = "${module.vpc.subnet_id_database}"
   zone_id            = "${module.vpc.zone_id}"
   aws_elb_id         = "${module.vpc.aws_elb_id}"
-  database_password  = "${local.database_password}"
+  database_password  = "${var.database_password}"
 }

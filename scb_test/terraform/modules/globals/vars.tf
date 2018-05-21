@@ -2,9 +2,9 @@ variable amis {
   type = "map"
 
   default = {
-    "web" = "ami-09eb8379a09d8c236"
-    "app" = "ami-09eb8379a09d8c236"
-    "db"  = "ami-09eb8379a09d8c236"
+    "web" = "ami-0e77ff9cdf27b9833"
+    "app" = "ami-07e171432336f8583"
+    "db"  = "ami-07890c78e20be5724"
   }
 }
 
