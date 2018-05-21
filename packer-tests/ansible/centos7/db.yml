@@ -1,8 +1,10 @@
 ---
-- hosts: local
+- hosts: 127.0.0.1
   gather_facts: False
+  connection: local
+  become: yes
+  become_method: sudo
 
   roles:
     - base-aws
     - db
-

@@ -1,10 +1,25 @@
 all: build-centos build-coreos
 
-build-centos: prepare variables.json centos
+build-centos: prepare variables.json centos-web centos-app centos-db
 
 build-coreos: prepare variables.json coreos
 
-centos: variables.json
+
+centos-web: variables.json
+	packer build -force \
+	-var-file secrets.json \
+	-var-file variables.json \
+	-var 'node_role=web' \
+	centos.json
+
+centos-app: variables.json
+	packer build -force \
+	-var-file secrets.json \
+	-var-file variables.json \
+	-var 'node_role=app' \
+	centos.json
+
+centos-db: variables.json
 	packer build -force \
 	-var-file secrets.json \
 	-var-file variables.json \

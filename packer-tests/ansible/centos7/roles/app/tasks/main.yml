@@ -1,0 +1,9 @@
+---
+- name: Install some basic packages
+  yum: name="{{ item }}"
+  with_items:
+    - java-1.8.0-openjdk
+    - maven
+    - git
+    - mariadb
+

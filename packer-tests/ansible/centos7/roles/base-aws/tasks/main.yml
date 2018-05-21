@@ -9,7 +9,18 @@
     state: present
 
 - name: Install some basic packages
-  command: yum -y install python2-pip rsync wget net-tools open-vm-tools cloud-init vim htop jq bind-utils unzip 
+  yum: name="{{ item }}"
+  with_items:
+    - python2-pip
+    - rsync
+    - wget
+    - net-tools
+    - cloud-init
+    - vim
+    - htop
+    - jq
+    - bind-utils
+    - unzip
 
 - name: Hacky for now but fix package issues with urllib3
   command: pip install requests urllib3 pyOpenSSL --force --upgrade 
@@ -57,8 +68,4 @@
 - name: Install docker-compose
   pip:
     name: docker-compose
-
-- name: Install python-consul
-  pip:
-    name: python-consul
 
