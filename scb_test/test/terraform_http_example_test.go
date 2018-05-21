@@ -32,7 +32,6 @@ func TestTerraformHttpExample(t *testing.T) {
 
 	terraformOptions := &terraform.Options{
 		// The path to where our Terraform code is located
-                //TerraformDir: "/Users/tdy02/go/src/github.com/gruntwork-io/terratest/examples/terraform-http-example",
                 TerraformDir: "../terraform",
 		// Variables to pass to our Terraform code using -var options
 		Vars: map[string]interface{}{
